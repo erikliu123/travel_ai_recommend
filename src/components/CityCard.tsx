@@ -19,6 +19,7 @@ export default function CityCard({ city, onClick, index }: CityCardProps) {
     yangzhou: 'from-green-400 to-emerald-500',
     guilin: 'from-emerald-500 to-cyan-500',
     dali: 'from-blue-400 to-indigo-500',
+    dali_spring: 'from-sky-400 to-blue-500',
     suzhou: 'from-teal-400 to-cyan-500',
     nanjing: 'from-purple-400 to-pink-500',
     qingdao: 'from-cyan-400 to-blue-500',
@@ -51,6 +52,18 @@ export default function CityCard({ city, onClick, index }: CityCardProps) {
     xianggelila: 'from-purple-500 to-indigo-600',
     lasa: 'from-amber-500 to-red-600',
     daocheng: 'from-emerald-500 to-blue-600',
+    beihai: 'from-cyan-400 to-teal-500',
+    kyoto: 'from-pink-400 to-rose-500',
+    hokkaido: 'from-blue-300 to-indigo-400',
+    santorini: 'from-cyan-400 to-blue-500',
+    bangkok: 'from-amber-400 to-orange-500',
+    maldives: 'from-teal-400 to-emerald-500',
+    queenstown: 'from-green-500 to-sky-500',
+    paris: 'from-violet-400 to-purple-500',
+    amsterdam: 'from-orange-400 to-pink-500',
+    rome: 'from-amber-500 to-red-500',
+    jeju: 'from-green-400 to-cyan-400',
+    singapore: 'from-red-400 to-amber-400',
   };
 
   const gradient = gradientMap[city.id] || 'from-gray-400 to-gray-600';

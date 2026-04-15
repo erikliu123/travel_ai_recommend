@@ -31,7 +31,7 @@ export default function HeroBanner({ season }: HeroBannerProps) {
         </p>
         <div className="mt-6 flex items-center gap-3">
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm">
-            精选 10 个目的地
+            精选 10 个国内 + 5个国外目的地
           </span>
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm">
             含交通攻略
