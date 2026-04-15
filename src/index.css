@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 98%;
+    --foreground: 220 20% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 12%;
+    --primary: 168 55% 38%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 25% 94%;
+    --secondary-foreground: 220 20% 12%;
+    --muted: 40 15% 94%;
+    --muted-foreground: 220 10% 46%;
+    --accent: 168 35% 92%;
+    --accent-foreground: 168 55% 28%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 168 55% 38%;
+    --radius: 0.75rem;
+
+    /* Season color tokens */
+    --season-spring: 152 55% 48%;
+    --season-spring-light: 152 55% 92%;
+    --season-spring-dark: 152 55% 32%;
+    --season-summer: 199 89% 48%;
+    --season-summer-light: 199 70% 92%;
+    --season-summer-dark: 199 89% 32%;
+    --season-autumn: 28 90% 52%;
+    --season-autumn-light: 28 80% 92%;
+    --season-autumn-dark: 28 90% 36%;
+    --season-winter: 210 40% 62%;
+    --season-winter-light: 210 40% 94%;
+    --season-winter-dark: 210 40% 36%;
+    --season-mayday: 14 85% 56%;
+    --season-mayday-light: 14 75% 93%;
+    --season-mayday-dark: 14 85% 38%;
+    --season-national: 0 72% 50%;
+    --season-national-light: 0 60% 93%;
+    --season-national-dark: 0 72% 34%;
+
+    /* Active season (dynamic) */
+    --season-active: var(--season-spring);
+    --season-active-light: var(--season-spring-light);
+    --season-active-dark: var(--season-spring-dark);
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(168 55% 38% / 0.9), hsl(220 60% 30% / 0.85));
+    --gradient-card-hover: linear-gradient(180deg, transparent 40%, hsl(var(--foreground) / 0.7) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 1px 3px hsl(var(--foreground) / 0.06), 0 4px 12px hsl(var(--foreground) / 0.04);
+    --shadow-card-hover: 0 8px 30px hsl(var(--foreground) / 0.1), 0 2px 8px hsl(var(--foreground) / 0.06);
+    --shadow-modal: 0 20px 60px hsl(var(--foreground) / 0.15), 0 4px 16px hsl(var(--foreground) / 0.08);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* Season theme overrides */
+  [data-season="spring"] {
+    --season-active: var(--season-spring);
+    --season-active-light: var(--season-spring-light);
+    --season-active-dark: var(--season-spring-dark);
+  }
+  [data-season="summer"] {
+    --season-active: var(--season-summer);
+    --season-active-light: var(--season-summer-light);
+    --season-active-dark: var(--season-summer-dark);
+  }
+  [data-season="autumn"] {
+    --season-active: var(--season-autumn);
+    --season-active-light: var(--season-autumn-light);
+    --season-active-dark: var(--season-autumn-dark);
+  }
+  [data-season="winter"] {
+    --season-active: var(--season-winter);
+    --season-active-light: var(--season-winter-light);
+    --season-active-dark: var(--season-winter-dark);
+  }
+  [data-season="mayday"] {
+    --season-active: var(--season-mayday);
+    --season-active-light: var(--season-mayday-light);
+    --season-active-dark: var(--season-mayday-dark);
+  }
+  [data-season="national"] {
+    --season-active: var(--season-national);
+    --season-active-light: var(--season-national-light);
+    --season-active-dark: var(--season-national-dark);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Noto Serif SC', serif;
+  }
+}
+
+@layer components {
+  .season-accent-bg {
+    background-color: hsl(var(--season-active));
+  }
+  .season-accent-text {
+    color: hsl(var(--season-active));
+  }
+  .season-accent-light-bg {
+    background-color: hsl(var(--season-active-light));
+  }
+  .season-accent-border {
+    border-color: hsl(var(--season-active));
+  }
+  .season-accent-ring {
+    --tw-ring-color: hsl(var(--season-active) / 0.3);
+  }
+
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+  .card-shadow-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+  .modal-shadow {
+    box-shadow: var(--shadow-modal);
+  }
+
+  .gradient-overlay {
+    background: var(--gradient-card-hover);
+  }
+
+  .smooth-transition {
+    transition: var(--transition-smooth);
+  }
+
+  .city-card {
+    @apply relative overflow-hidden rounded-lg card-shadow smooth-transition cursor-pointer;
+  }
+  .city-card:hover {
+    @apply card-shadow-hover;
+    transform: translateY(-4px);
+  }
+
+  .season-tab {
+    @apply relative px-5 py-2.5 rounded-full text-sm font-medium smooth-transition;
+  }
+  .season-tab.active {
+    @apply season-accent-bg;
+    color: white;
+  }
+  .season-tab:not(.active) {
+    @apply text-muted-foreground;
+  }
+  .season-tab:not(.active):hover {
+    @apply season-accent-light-bg season-accent-text;
+  }
+
+  .scroll-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scroll-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
