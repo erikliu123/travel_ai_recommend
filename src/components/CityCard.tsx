@@ -1,15 +1,16 @@
 import type { CityInfo } from '@/data/cities';
-import { Plane, Train, Star } from 'lucide-react';
+import { Plane, Train, Star, Tag, CheckCircle2 } from 'lucide-react';
 
 interface CityCardProps {
   city: CityInfo;
   onClick: (city: CityInfo) => void;
   index: number;
+  isVisited?: boolean;
 }
 
 const budgetLabels = ['', '经济型', '中等消费', '高消费'];
 
-export default function CityCard({ city, onClick, index }: CityCardProps) {
+export default function CityCard({ city, onClick, index, isVisited }: CityCardProps) {
   const gradientMap: Record<string, string> = {
     kunming: 'from-emerald-400 to-teal-500',
     wuyuan: 'from-yellow-400 to-green-500',
@@ -67,34 +68,39 @@ export default function CityCard({ city, onClick, index }: CityCardProps) {
   };
 
   const gradient = gradientMap[city.id] || 'from-gray-400 to-gray-600';
+  const displayTags = city.tags?.slice(0, 2) || [];
 
   return (
     <article
-      className="city-card group animate-fade-in-up"
+      className="city-card group animate-fade-in-up active:scale-95"
       style={{ animationDelay: `${index * 60}ms`, opacity: 0 }}
       onClick={() => onClick(city)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === 'Enter') onClick(city); }}
+      aria-label={`查看${city.name}旅游攻略`}
     >
       {/* Image area */}
-      <div className="relative h-52 overflow-hidden">
+      <div className="relative h-40 sm:h-48 md:h-52 overflow-hidden">
         {city.image ? (
           <img
             src={city.image}
             alt={`${city.name}风光`}
-            className="w-full h-full object-cover smooth-transition group-hover:scale-105"
+            className="w-full h-full object-cover smooth-transition duration-500 group-hover:scale-110 group-hover:brightness-90"
             loading="lazy"
           />
         ) : (
-          <div className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center`}>
+          <div className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center smooth-transition duration-500 group-hover:scale-105`}>
             <div className="text-center text-white">
-              <div className="text-5xl mb-2 opacity-80">{city.name[0]}</div>
-              <div className="text-sm font-medium opacity-90">{city.name}</div>
+              <div className="text-4xl sm:text-5xl mb-1 sm:mb-2 opacity-80">{city.name[0]}</div>
+              <div className="text-xs sm:text-sm font-medium opacity-90">{city.name}</div>
             </div>
           </div>
         )}
         <div className="absolute inset-0 gradient-overlay" />
 
         {/* Badges */}
-        <div className="absolute top-3 left-3 flex items-center gap-2">
+        <div className="absolute top-2 left-2 sm:top-3 sm:left-3 flex items-center gap-1.5 sm:gap-2">
           <span className="px-2 py-0.5 rounded-full bg-white/90 backdrop-blur-sm text-xs font-medium text-foreground">
             {city.province}
           </span>
@@ -104,34 +110,59 @@ export default function CityCard({ city, onClick, index }: CityCardProps) {
           </span>
         </div>
 
+        {/* Visited badge - prominent */}
+        {isVisited && (
+          <div className="absolute top-10 left-2 sm:top-12 sm:left-3">
+            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-500 text-white text-xs font-bold shadow-lg animate-pulse">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              已打卡
+            </span>
+          </div>
+        )}
+
         {/* Budget badge */}
-        <div className="absolute top-3 right-3">
+        <div className="absolute top-2 right-2 sm:top-3 sm:right-3">
           <span className="px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-sm text-xs text-white">
             {budgetLabels[city.budgetLevel]}
           </span>
         </div>
 
         {/* Title overlay */}
-        <div className="absolute bottom-3 left-3 right-3">
-          <h3 className="text-xl font-bold text-white font-serif">{city.name}</h3>
+        <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3">
+          <h3 className="text-lg sm:text-xl font-bold text-white font-serif drop-shadow-lg">{city.name}</h3>
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-4">
-        <p className="text-sm text-muted-foreground line-clamp-2 mb-3 leading-relaxed">
+      <div className="p-3 sm:p-4">
+        <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 mb-2 sm:mb-3 leading-relaxed">
           {city.description}
         </p>
 
+        {/* Tags */}
+        {displayTags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mb-2 sm:mb-3">
+            {displayTags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-secondary text-xs text-muted-foreground"
+              >
+                <Tag className="w-3 h-3" />
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
         {/* Transport info */}
-        <div className="flex items-center justify-between text-xs text-muted-foreground pt-3 border-t border-border">
-          <span className="flex items-center gap-1">
-            <Plane className="w-3.5 h-3.5" />
-            飞机 {city.transport.flight}
+        <div className="flex items-center justify-between text-xs text-muted-foreground pt-2 sm:pt-3 border-t border-border">
+          <span className="flex items-center gap-1 min-w-0">
+            <Plane className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">{city.transport.flight}</span>
           </span>
-          <span className="flex items-center gap-1">
-            <Train className="w-3.5 h-3.5" />
-            高铁 {city.transport.train}
+          <span className="flex items-center gap-1 min-w-0">
+            <Train className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">{city.transport.train}</span>
           </span>
         </div>
       </div>

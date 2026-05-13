@@ -1,25 +1,65 @@
-import { Plane, Train, Star, ThumbsUp, ThumbsDown, X, MapPin, Clock } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Plane, Train, Star, ThumbsUp, ThumbsDown, X, MapPin, Clock, ExternalLink, CheckCircle2, Edit2, Trash2, Users } from 'lucide-react';
 import type { CityInfo } from '@/data/cities';
+import type { User as UserType, Trip, TripPhoto } from '@/types';
+import TripCheckIn from './TripCheckIn';
+import TripFeedback from './TripFeedback';
+import { api } from '@/lib/api';
 
 interface CityModalProps {
   city: CityInfo | null;
   onClose: () => void;
+  user: UserType | null;
+  trip: Trip | null;
+  onTripSuccess: (trip: Trip) => void;
+  onTripDelete: (cityId: string) => void;
+  onLoginClick: () => void;
+}
+
+interface PublicTrip extends Trip {
+  username: string;
+  avatar: string | null;
+  photos: TripPhoto[];
 }
 
 const budgetLabels = ['', '经济型', '中等消费', '高消费'];
-const budgetIcons = ['', '', '💰', '💰💰', '💰💰💰'];
 
-export default function CityModal({ city, onClose }: CityModalProps) {
+export default function CityModal({ city, onClose, user, trip, onTripSuccess, onTripDelete, onLoginClick }: CityModalProps) {
+  const [showCheckIn, setShowCheckIn] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [publicTrips, setPublicTrips] = useState<PublicTrip[]>([]);
+  const [loadingTrips, setLoadingTrips] = useState(false);
+
+  // Load public trip records when modal opens
+  useEffect(() => {
+    if (city) {
+      setLoadingTrips(true);
+      api.getCityTrips(city.id)
+        .then(({ trips }) => setPublicTrips(trips))
+        .catch(() => setPublicTrips([]))
+        .finally(() => setLoadingTrips(false));
+    }
+  }, [city]);
+
   if (!city) return null;
 
   const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
+    if (e.target === e.currentTarget) onClose();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Escape') onClose();
+  };
+
+  const handleDeleteTrip = async () => {
+    if (!confirm('确定要删除这条旅游记录吗？')) return;
+    try {
+      const { api: apiClient } = await import('@/lib/api');
+      await apiClient.deleteTrip(city.id);
+      onTripDelete(city.id);
+    } catch (err) {
+      alert(err instanceof Error ? err.message : '删除失败');
+    }
   };
 
   return (
@@ -28,25 +68,16 @@ export default function CityModal({ city, onClose }: CityModalProps) {
       onClick={handleBackdropClick}
       onKeyDown={handleKeyDown}
     >
-      <div
-        className="relative bg-background w-full sm:max-w-3xl sm:rounded-2xl rounded-t-2xl overflow-hidden max-h-[90vh] overflow-y-auto animate-scale-in modal-shadow"
-      >
+      <div className="relative bg-background w-full sm:max-w-3xl sm:rounded-2xl rounded-t-2xl overflow-hidden max-h-[90vh] overflow-y-auto modal-shadow">
         {/* Close button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/30 backdrop-blur-sm text-white hover:bg-black/50 smooth-transition"
-        >
+        <button onClick={onClose} className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/30 backdrop-blur-sm text-white hover:bg-black/50 smooth-transition">
           <X className="w-5 h-5" />
         </button>
 
         {/* Hero image */}
-        <div className="relative h-64 sm:h-80 overflow-hidden">
+        <div className="relative h-48 sm:h-64 md:h-80 overflow-hidden">
           {city.image ? (
-            <img
-              src={city.image}
-              alt={`${city.name}风光`}
-              className="w-full h-full object-cover"
-            />
+            <img src={city.image} alt={`${city.name}风光`} className="w-full h-full object-cover" />
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center">
               <div className="text-center text-white">
@@ -66,9 +97,9 @@ export default function CityModal({ city, onClose }: CityModalProps) {
         </div>
 
         {/* Content */}
-        <div className="p-6 sm:p-8">
+        <div className="p-4 sm:p-6 md:p-8">
           {/* Quick info */}
-          <div className="flex flex-wrap items-center gap-4 mb-6">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-4 sm:mb-6">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-sm">
               <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
               建议游玩 {city.suggestedDays} 天
@@ -78,9 +109,124 @@ export default function CityModal({ city, onClose }: CityModalProps) {
               最佳 {city.bestMonths}
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-sm">
-              {budgetIcons[city.budgetLevel]} {budgetLabels[city.budgetLevel]}
+              {budgetLabels[city.budgetLevel]}
             </span>
           </div>
+
+          {/* Trip status - User's own trip */}
+          {trip ? (
+            <div className="mb-6 p-4 rounded-xl bg-green-50 border border-green-200">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-green-600" />
+                  <span className="font-semibold text-green-800">已打卡</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button onClick={() => setShowFeedback(true)} className="p-1.5 rounded-full hover:bg-green-100 smooth-transition" title="编辑反馈">
+                    <Edit2 className="w-4 h-4 text-green-600" />
+                  </button>
+                  <button onClick={handleDeleteTrip} className="p-1.5 rounded-full hover:bg-red-100 smooth-transition" title="删除记录">
+                    <Trash2 className="w-4 h-4 text-red-500" />
+                  </button>
+                </div>
+              </div>
+              <div className="text-sm text-green-700">旅游日期：{trip.trip_date}</div>
+              {trip.ai_guide_url && (
+                <a href={trip.ai_guide_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-2 text-sm text-green-700 hover:text-green-900">
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  查看 AI 攻略
+                </a>
+              )}
+              {trip.top_recommendation && (
+                <div className="mt-2 text-sm text-green-700">
+                  最推荐：<span className="font-medium">{trip.top_recommendation}</span>
+                </div>
+              )}
+              {trip.feedback && (
+                <div className="mt-2 text-sm text-green-700 line-clamp-2">{trip.feedback}</div>
+              )}
+            </div>
+          ) : (
+            <div className="mb-6">
+              {user ? (
+                <button
+                  onClick={() => setShowCheckIn(true)}
+                  className="w-full py-3 rounded-xl bg-green-500 text-white font-medium hover:bg-green-600 smooth-transition flex items-center justify-center gap-2"
+                >
+                  <CheckCircle2 className="w-5 h-5" />
+                  我去过这里，打卡记录
+                </button>
+              ) : (
+                <button
+                  onClick={onLoginClick}
+                  className="w-full py-3 rounded-xl bg-secondary text-foreground font-medium hover:bg-muted smooth-transition text-sm"
+                >
+                  登录后可以打卡并记录旅行
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* Other users' trip records */}
+          {publicTrips.length > 0 && (
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-3">
+                <Users className="w-5 h-5 text-blue-600" />
+                <h3 className="text-lg font-semibold font-serif">其他用户的打卡记录 ({publicTrips.length})</h3>
+              </div>
+              <div className="space-y-3 max-h-60 overflow-y-auto pr-2">
+                {publicTrips.map((publicTrip) => (
+                  <div key={publicTrip.id} className="p-3 rounded-lg border border-border bg-secondary">
+                    <div className="flex items-start justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm font-bold">
+                          {publicTrip.username[0]}
+                        </div>
+                        <div>
+                          <div className="font-medium text-sm">{publicTrip.username}</div>
+                          <div className="text-xs text-muted-foreground">{publicTrip.trip_date}</div>
+                        </div>
+                      </div>
+                      {publicTrip.ai_guide_url && (
+                        <a href={publicTrip.ai_guide_url} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:text-blue-800 inline-flex items-center gap-1">
+                          <ExternalLink className="w-3 h-3" />
+                          AI攻略
+                        </a>
+                      )}
+                    </div>
+                    {publicTrip.top_recommendation && (
+                      <div className="text-sm mb-1">
+                        <span className="text-muted-foreground">最推荐：</span>
+                        <span className="font-medium">{publicTrip.top_recommendation}</span>
+                      </div>
+                    )}
+                    {publicTrip.feedback && (
+                      <div className="text-sm text-muted-foreground line-clamp-2 mb-2">{publicTrip.feedback}</div>
+                    )}
+                    {/* Show only scenery photos for other users */}
+                    {publicTrip.photos.filter(p => p.photo_type === 'scenery').length > 0 && (
+                      <div className="flex gap-2 overflow-x-auto pb-2">
+                        {publicTrip.photos.filter(p => p.photo_type === 'scenery').map((photo) => (
+                          <img
+                            key={photo.id}
+                            src={photo.photo_url}
+                            alt={photo.caption || '风景照'}
+                            className="w-20 h-20 object-cover rounded-lg flex-shrink-0"
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {loadingTrips && (
+            <div className="mb-6 text-center text-sm text-muted-foreground">
+              加载打卡记录中...
+            </div>
+          )}
 
           {/* Description */}
           <p className="text-muted-foreground leading-relaxed mb-6">{city.description}</p>
@@ -162,6 +308,31 @@ export default function CityModal({ city, onClose }: CityModalProps) {
           </div>
         </div>
       </div>
+
+      {/* Modals */}
+      {showCheckIn && user && (
+        <TripCheckIn
+          cityId={city.id}
+          cityName={city.name}
+          existingTrip={trip}
+          onSuccess={(newTrip) => {
+            onTripSuccess(newTrip);
+            setShowCheckIn(false);
+          }}
+          onClose={() => setShowCheckIn(false)}
+        />
+      )}
+
+      {showFeedback && user && trip && (
+        <TripFeedback
+          trip={trip}
+          cityName={city.name}
+          onUpdate={(updatedTrip) => {
+            onTripSuccess(updatedTrip);
+          }}
+          onClose={() => setShowFeedback(false)}
+        />
+      )}
     </div>
   );
 }

@@ -147,11 +147,14 @@
   }
 
   .city-card {
-    @apply relative overflow-hidden rounded-lg card-shadow smooth-transition cursor-pointer;
+    @apply relative overflow-hidden rounded-lg card-shadow smooth-transition cursor-pointer bg-card;
   }
   .city-card:hover {
-    @apply card-shadow-hover;
-    transform: translateY(-4px);
+    @apply card-shadow-hover -translate-y-1;
+  }
+  .city-card:active {
+    @apply translate-y-0;
+    transform: scale(0.98);
   }
 
   .season-tab {
