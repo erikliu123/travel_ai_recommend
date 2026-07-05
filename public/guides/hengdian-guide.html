@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>横店影视城夏季全攻略｜东方好莱坞·穿越千年的光影之旅</title>
+<style>
+:root {
+  --primary: #774930;
+  --primary-dark: #5a3624;
+  --primary-light: #b08565;
+  --bg: #faf7f2;
+  --card-bg: #ffffff;
+  --text: #333333;
+  --text-light: #666666;
+  --border: #e5dcd1;
+  --accent: #d4a373;
+  --success: #5a8f4a;
+  --warning: #c98a3b;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; line-height: 1.6; color: var(--text); background-color: var(--bg); -webkit-font-smoothing: antialiased; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+h1, h2, h3 { color: var(--primary-dark); }
+.section { background: var(--card-bg); padding: 30px; border-radius: 16px; box-shadow: 0 6px 20px rgba(119, 73, 48, 0.08); margin-bottom: 28px; }
+.section-title { font-size: 1.6rem; border-left: 5px solid var(--primary); padding-left: 14px; margin-bottom: 22px; font-weight: 700; }
+.badge { display: inline-block; background: var(--primary); color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; margin: 4px 4px 4px 0; letter-spacing: 1px; }
+
+/* Header */
+.hero { background: linear-gradient(135deg, var(--primary) 0%, #3e2418 100%); color: #fff; padding: 50px 20px 60px; text-align: center; border-radius: 0 0 30px 30px; position: relative; overflow: hidden; }
+.hero::after { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>') repeat; opacity: 0.6; pointer-events: none; }
+.hero h1 { font-size: 2.4rem; margin-bottom: 10px; color: #fff; position: relative; }
+.hero p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto 15px; }
+.meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 25px; text-align: center; }
+.meta-item { background: rgba(255,255,255,0.15); padding: 10px; border-radius: 10px; backdrop-filter: blur(5px); }
+.meta-item span { display: block; font-size: 0.85rem; opacity: 0.8; }
+.meta-item strong { display: block; font-size: 1.1rem; margin-top: 4px; }
+
+/* Itinerary Timeline */
+.day-header { background: linear-gradient(to right, var(--primary-light), var(--primary)); color: #fff; padding: 10px 15px; border-radius: 8px; margin: 20px 0 12px; font-weight: 600; }
+.timeline { border-left: 3px solid var(--border); padding-left: 20px; margin-left: 10px; }
+.timeline-item { margin-bottom: 22px; position: relative; }
+.timeline-item::before { content: ""; position: absolute; left: -9px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--primary); border: 3px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.time-badge { display: inline-block; background: var(--bg); color: var(--primary-dark); font-weight: 700; padding: 3px 8px; border-radius: 4px; font-size: 0.9rem; margin-bottom: 4px; }
+.timeline-content { background: #fdfbf8; padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border); }
+.timeline-content h4 { color: var(--primary-dark); margin-bottom: 6px; }
+.timeline-content ul { margin-top: 6px; padding-left: 18px; color: var(--text-light); font-size: 0.95rem; }
+.timeline-content li { margin-bottom: 4px; }
+
+/* Attractions Grid */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.card { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; background: #fff; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(119, 73, 48, 0.12); }
+.card-img { height: 160px; background: linear-gradient(135deg, #e8d8c8, #cbb39f); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--primary-dark); font-weight: bold; letter-spacing: 2px; }
+.card-body { padding: 18px; }
+.card-body h3 { margin-bottom: 8px; font-size: 1.25rem; }
+.tag-row { margin-bottom: 10px; }
+.tag-row span { background: #f5efe9; color: var(--primary-light); font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; margin-right: 5px; }
+.desc { color: var(--text-light); font-size: 0.95rem; margin-bottom: 12px; }
+.info-box { background: #fdf9f4; padding: 10px; border-radius: 8px; font-size: 0.9rem; border-left: 3px solid var(--accent); margin-top: 10px; }
+.info-box p { margin: 4px 0; }
+
+/* Lists & Tables */
+.feature-list, .tip-list { list-style: none; }
+.feature-list li { padding: 10px 0; border-bottom: 1px dashed var(--border); display: flex; gap: 10px; }
+.feature-list li:last-child { border-bottom: none; }
+.feature-list .icon { color: var(--primary); font-weight: bold; flex-shrink: 0; }
+.pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+.pros, .cons { padding: 15px; border-radius: 10px; }
+.pros { background: #f0f8eb; border: 1px solid #cbe3c1; }
+.cons { background: #fef6ee; border: 1px solid #f0d8b8; }
+.pros h4 { color: #4a7c3f; margin-bottom: 8px; }
+.cons h4 { color: #b07c3a; margin-bottom: 8px; }
+.pros ul, .cons ul { padding-left: 18px; }
+
+.budget-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem; }
+.budget-table th, .budget-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+.budget-table th { background: #fdf9f4; color: var(--primary-dark); }
+.budget-table tr:last-child td { border-bottom: none; font-weight: bold; background: #f9f5f0; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid-2, .pros-cons { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 1.8rem; }
+  .section { padding: 20px; }
+  .section-title { font-size: 1.4rem; }
+  .meta-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <h1>横店影视城夏季全攻略</h1>
+    <p>东方好莱坞 · 全球最大的影视拍摄基地。从秦王宫到明清宫苑，从老上海到广州街，2天穿越中国五千年历史。</p>
+    <div style="margin-top:15px;">
+      <span class="badge">🎬 影视基地</span>
+      <span class="badge">📜 文化之旅</span>
+      <span class="badge">👨‍👩‍👧 亲子游</span>
+    </div>
+    <div class="meta-grid">
+      <div class="meta-item"><span>建议游玩</span><strong>2天1夜</strong></div>
+      <div class="meta-item"><span>最佳月份</span><strong>全年适宜</strong></div>
+      <div class="meta-item"><span>预算级别</span><strong>适中(￥￥)</strong></div>
+      <div class="meta-item"><span>夏季提示</span><strong>避暑夜游+防晒</strong></div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 城市概述 -->
+  <section class="section" id="overview">
+    <h2 class="section-title">📍 目的地概述</h2>
+    <p style="margin-bottom:15px; font-size: 1.05rem;">横店影视城坐落于浙江金华东阳市，是全球规模最大的影视实景拍摄基地。这里不仅是《荆轲刺秦王》《甄嬛传》《庆余年》等数百部影视作品的诞生地，更是将中国历代建筑风格、市井文化高度浓缩的主题乐园群。夏季虽热，但景区内室内演艺丰富，且大量推出夜间实景秀，错峰游玩体验极佳。</p>
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>✨ 核心优势</h4>
+        <ul>
+          <li>全球最大影视实景基地，场景震撼还原</li>
+          <li>演艺节目超百场，沉浸式互动体验强</li>
+          <li>2天可串联多个朝代，适合拍照打卡</li>
+          <li>偶遇剧组概率高，追星/群众演员体验佳</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>⚠️ 注意事项</h4>
+        <ul>
+          <li>单景门票偏高，建议购买联票更划算</li>
+          <li>景区面积大、分布广，步行消耗体力大</li>
+          <li>人造景观为主，夏季缺乏自然遮荫</li>
+          <li>部分建筑风格相似，建议提前规划动线</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行程安排 -->
+  <section class="section" id="itinerary">
+    <h2 class="section-title">📅 2天详细行程（时间轴规划）</h2>
+    
+    <div class="day-header">📅 DAY 1：帝国威仪 × 汴京烟火</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-badge">08:30 - 11:30</div>
+        <div class="timeline-content">
+          <h4>上午｜秦王宫</h4>
+          <ul>
+            <li><strong>路线：</strong>四海归一殿 → 秦汉街 → 23殿 → 体验“帝国江山”5D秀</li>
+            <li><strong>Tips：</strong>夏季早晨相对凉爽，先攻克最耗体力的秦王宫。关注《英雄比剑》《龙帝惊魂》演出时间表。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">11:30 - 13:30</div>
+        <div class="timeline-content">
+          <h4>中午｜休整与午餐</h4>
+          <ul>
+            <li><strong>建议：</strong>前往影视城商业街或秦汉风情街用餐。避开12:00-14:00高温时段，可在景区内茶室或咖啡馆避暑。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">14:00 - 17:00</div>
+        <div class="timeline-content">
+          <h4>下午｜清明上河图</h4>
+          <ul>
+            <li><strong>体验：</strong>租宋制汉服（约50-80元/小时），走虹桥、逛市井、看《汴梁一梦》马战秀。</li>
+            <li><strong>Tips：</strong>景区内树荫和水域较多，相对舒适。关注15:30的《笑破天门阵》演出，互动性极强。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">18:00 - 21:30</div>
+        <div class="timeline-content">
+          <h4>晚上｜梦幻谷水上世界（夜游）</h4>
+          <ul>
+            <li><strong>亮点：</strong>夏季专属！暴雨山洪实景演艺、海盗船水上项目、摩天轮夜景。</li>
+            <li><strong>Tips：</strong>需另购夜场票或含在套票内。备一套干衣物，玩水后及时更换防感冒。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-header">📅 DAY 2：紫禁风云 × 民国旧梦</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-badge">08:30 - 11:30</div>
+        <div class="timeline-content">
+          <h4>上午｜明清宫苑</h4>
+          <ul>
+            <li><strong>路线：</strong>午门 → 金水桥 → 太和殿 → 御花园 → 体验“甄嬛传”同款路线。</li>
+            <li><strong>Tips：</strong>必看《紫禁大典》和《八旗马战》。建议穿浅色系服装反光少，拍照更出片。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">11:30 - 13:30</div>
+        <div class="timeline-content">
+          <h4>中午｜转场与午餐</h4>
+          <ul>
+            <li><strong>交通：</strong>乘坐景区免费穿梭大巴前往广州街/香港街。在景区外镇区用餐性价比更高。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">14:00 - 16:30</div>
+        <div class="timeline-content">
+          <h4>下午｜广州街·香港街</h4>
+          <ul>
+            <li><strong>体验：</strong>穿越民国，打卡《情深深雨濛濛》《潜伏》取景地，体验黄包车、旗袍换装。</li>
+            <li><strong>Tips：</strong>重点观看15:00《怒海争风》特技水战，音效震撼。下午西晒强烈，带好遮阳伞/墨镜。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">17:00 - 19:00</div>
+        <div class="timeline-content">
+          <h4>傍晚｜返程或自由探索</h4>
+          <ul>
+            <li><strong>可选：</strong>游览横店影视城博览馆，购买文创纪念品。晚餐后乘高铁/大巴返程。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详情 -->
+  <section class="section" id="attractions">
+    <h2 class="section-title">🏛️ 核心景点详解</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-img">⛰️ 秦王宫</div>
+        <div class="card-body">
+          <h3>秦王宫</h3>
+          <div class="tag-row"><span>📷 气势恢宏</span><span>🎬 《荆轲刺秦王》</span></div>
+          <p class="desc">占地800亩，主殿四海归一殿高40米，23座大殿错落有致。是横店最壮观、最考验摄影角度的景区。黑色与暗红色基调尽显秦朝肃杀威严。</p>
+          <div class="info-box">
+            <p><strong>门票参考：</strong>￥170/人（含部分演出）</p>
+            <p><strong>游玩Tips：</strong>穿高饱和度衣服对比度强；必看《秦汉街市》NPC巡游；台阶极多，穿舒适平底鞋。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">🏯 明清宫苑</div>
+        <div class="card-body">
+          <h3>明清宫苑</h3>
+          <div class="tag-row"><span>👑 皇家气象</span><span>🎬 《甄嬛传》《宫》</span></div>
+          <p class="desc">按北京故宫1:1等比例仿建，金瓦红墙、护城河、御花园一应俱全。每日数十场宫廷实景演艺，是古装摄影和沉浸式体验的首选。</p>
+          <div class="info-box">
+            <p><strong>门票参考：</strong>￥170/人</p>
+            <p><strong>游玩Tips：</strong>避开正午直射，选择清晨或傍晚光线柔和时拍摄；租清宫服饰注意防晒；注意演出时间提前15分钟占位。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">🌉 清明上河图</div>
+        <div class="card-body">
+          <h3>清明上河图</h3>
+          <div class="tag-row"><span>🍵 宋代市井</span><span>🎬 《梦华录》风格</span></div>
+          <p class="desc">1:1复原北宋张择端名画。汴河蜿蜒、酒肆茶楼林立，商贩叫卖声不绝于耳。夏季傍晚有水上巡游和打铁花表演，极具烟火气。</p>
+          <div class="info-box">
+            <p><strong>门票参考：</strong>￥150/人</p>
+            <p><strong>游玩Tips：</strong>必玩“汴河摇橹船”；穿宋制汉服体验感翻倍；景区内餐饮较贵，建议自带水和小零食。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">🚗 广州街·香港街</div>
+        <div class="card-body">
+          <h3>广州街·香港街</h3>
+          <div class="tag-row"><span>🎞️ 民国复古</span><span>🎬 《情深深雨濛濛》</span></div>
+          <p class="desc">还原20世纪30-40年代广州与香港风貌。有轨电车、骑楼、霓虹招牌，是复古街拍圣地。水战演艺和枪战特效极具视觉冲击力。</p>
+          <div class="info-box">
+            <p><strong>门票参考：</strong>￥150/人</p>
+            <p><strong>游玩Tips：</strong>下午15:00《怒海争风》必看，提前30分钟到；适合穿旗袍或复古西装；注意部分街区为硬石板路，避免高跟鞋。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section class="section" id="food">
+    <h2 class="section-title">🍜 美食与餐饮指南</h2>
+    <ul class="feature-list">
+      <li>
+        <div class="icon">🥩</div>
+        <div><strong>东阳沃面 & 金华火腿</strong><br>横店本地特色主食。沃面口感绵软，汤鲜料足；搭配切片金华火腿或腊味，是补充体力的经典组合。<br><em>推荐地点：万盛街沿线老字号面馆（人均￥25-35）</em></div>
+      </li>
+      <li>
+        <div class="icon">🍲</div>
+        <div><strong>土鸡煲 & 水库鱼</strong><br>东阳市多丘陵水系，农家散养土鸡煲炖汤浓郁；横店周边水库鱼肉质紧实，清蒸或红烧皆宜。<br><em>推荐地点：景区外围农家乐集群（如清明上河图南门步行10分钟）（人均￥60-80）</em></div>
+      </li>
+      <li>
+        <div class="icon">🍡</div>
+        <div><strong>酒糟汤圆 & 东河肉饼</strong><br>夏季微凉甜品，酒香清甜解暑；东河肉饼皮薄馅大，煎制后酥脆，适合作为游览途中的便携小吃。<br><em>推荐地点：影视城商业街小吃档口或镇区夜市（人均￥15-25）</em></div>
+      </li>
+    </ul>
+    <div class="info-box" style="margin-top:15px; border-left-color: var(--success);">
+      <p>💡 <strong>餐饮省钱Tip：</strong>景区内餐饮溢价约30%-50%。建议早餐在酒店解决，午餐自带便携餐食+水，晚餐回万盛商业街或镇区觅食。景区允许带密封包装食物和水入园。</p>
+    </div>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section class="section" id="accommodation">
+    <h2 class="section-title">🛏️ 住宿推荐（3档参考）</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-body">
+          <h3>💰 经济实惠型</h3>
+          <p><strong>目标人群：</strong>学生党、背包客、预算有限</p>
+          <p><strong>参考价位：</strong>￥150-￥250/晚</p>
+          <p><strong>推荐区域：</strong>横店影视城万盛街周边快捷酒店/青年旅舍</p>
+          <p><strong>优势：</strong>步行可达商业街，夜宵方便，公交枢纽密集。</p>
+          <p><strong>提示：</strong>隔音一般，夏季需确认空调制冷效果。</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>💼 舒适体验型</h3>
+          <p><strong>目标人群：</strong>家庭游、情侣、追求性价比</p>
+          <p><strong>参考价位：</strong>￥300-￥500/晚</p>
+          <p><strong>推荐区域：</strong>影视城周边四星/精品民宿（如影视主题酒店）</p>
+          <p><strong>优势：</strong>含早、接送班车、房间带智能控制或汉服体验套餐。</p>
+          <p><strong>提示：</strong>提前预订周末房型，夏季常有亲子套票优惠。</p>
+        </div>
+      </div>
+    </div>
+    <div class="info-box" style="margin-top:15px;">
+      <p>🌟 <strong>高端度假型（￥800+）</strong>：横店影视城度假村/高端别墅群。享私人园林、独立泳池、VIP免排队通道及专属管家服务，适合追求极致体验或商务接待。</p>
+    </div>
+  </section>
+
+  <!-- 交通指南 -->
+  <section class="section" id="transport">
+    <h2 class="section-title">🚄 交通全指南</h2>
+    <ul class="feature-list">
+      <li>
+        <div class="icon">✈️</div>
+        <div><strong>如何到达｜飞机</strong><br>飞抵<strong>义乌机场</strong>（YIWU）后，可打车或乘机场大巴至横店客运中心，全程约40-50分钟，费用约￥60-80。航班覆盖全国一二线城市，夏季航班密集。</div>
+      </li>
+      <li>
+        <div class="icon">🚄</div>
+        <div><strong>如何到达｜高铁</strong><br>抵达<strong>义乌站</strong>后，在车站出口乘坐“义乌-横店”旅游专线大巴（约10元/人，车程40分钟，20-30分钟一班），或打车/网约车直达（约￥60，30分钟）。暑期高铁票建议提前5-7天抢票。</div>
+      </li>
+      <li>
+        <div class="icon">🚌</div>
+        <div><strong>市内交通｜景区穿梭</strong><br>横店各景区间距离3-8公里。推荐使用<strong>官方免费穿梭巴士</strong>（持门票/联票可乘，班次约15-20分钟/班）。镇区内可骑共享电动车或乘公交（投币2元/扫码1.5元）。暑期高温不建议长距离步行。</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 注意事项（夏季特供） -->
+  <section class="section" id="tips">
+    <h2 class="section-title">🌞 夏季游玩注意事项</h2>
+    <ul class="tip-list">
+      <li style="margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--border);">🌡️ <strong>防暑降温：</strong>浙江东阳7-8月日均温32-36℃。务必携带便携风扇、防晒衣、遮阳帽。景区内每500米设直饮水点和休息凉亭，注意补水（每小时饮水300-500ml）。</li>
+      <li style="margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--border);">👟 <strong>着装建议：</strong>全天步数通常1.5万+。绝对避开凉鞋/新鞋，选择透气运动鞋。汉服拍摄建议选薄纱材质（宋制/唐制），避开厚重清宫装。</li>
+      <li style="margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--border);">🎭 <strong>演艺攻略：</strong>所有演出以景区当日公告为准（APP/小程序“横店影视城”实时推送）。热门演出提前30分钟排队占座。遇雷阵雨部分户外演出可能暂停，请备轻便雨衣。</li>
+      <li style="margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--border);">📱 <strong>防骗与安全：</strong>景区周边“黑车/野导游”较多，请勿轻信。剧组开放区域严禁私自进入拍摄线，听从安保指挥。夏季蚊虫多，随身携带驱蚊液。</li>
+      <li>🎟️ <strong>门票优化：</strong>强烈建议购买“3日联票”或“2+1梦幻谷套票”，比单买节省30%以上。学生/老人/儿童凭证件享半价或免票。门票实名制，务必带身份证原件。</li>
+    </ul>
+  </section>
+
+  <!-- 预算参考 -->
+  <section class="section" id="budget">
+    <h2 class="section-title">💰 预算参考（2天/人）</h2>
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>项目</th>
+          <th>明细</th>
+          <th>预估费用</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🎫 门票</td>
+          <td>核心景区联票+梦幻谷夜游套票</td>
+          <td>￥380 - ￥450</td>
+        </tr>
+        <tr>
+          <td>🛏️ 住宿</td>
+          <td>舒适型酒店1晚（标间平摊）</td>
+          <td>￥150 - ￥250</td>
+        </tr>
+        <tr>
+          <td>🍜 餐饮</td>
+          <td>2早3正1下午茶（含景区内补给）</td>
+          <td>￥200 - ￥280</td>
+        </tr>
+        <tr>
+          <td>🚌 交通</td>
+          <td>高铁义乌往返+大巴/打车/景区接驳</td>
+          <td>￥150 - ￥220</td>
+        </tr>
+        <tr>
+          <td>👗 体验杂项</td>
+          <td>汉服租赁/妆造/摄影/文创纪念品</td>
+          <td>￥100 - ￥250</td>
+        </tr>
+        <tr style="background: #f0e8dd; font-weight: bold; color: var(--primary-dark);">
+          <td>📊 总计参考</td>
+          <td>适中预算，丰俭由人</td>
+          <td>￥980 - ￥1,450 /人</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:15px; color: var(--text-light); font-size: 0.9rem;">*注：以上价格为非节假日市场均价参考，暑期周末及法定节假日价格可能上浮15%-30%。建议提前在官方平台锁定早鸟票。</p>
+  </section>
+
+</main>
+
+<footer style="background: var(--primary-dark); color: #fff; padding: 25px 20px; text-align: center; font-size: 0.9rem; margin-top: 20px;">
+  <p>© 横店影视城夏季游玩指南 | 本攻略基于实地数据与官方公开信息整理</p>
+  <p style="margin-top:5px; opacity:0.7;">出行前请务必通过“横店影视城”官方小程序查询最新演出时间与天气预警。</p>
+</footer>
+
+</body>
+</html>

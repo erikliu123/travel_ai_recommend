@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>马尔代夫夏季旅游攻略 | 5天4晚海岛度假指南</title>
+  <style>
+    :root {
+      --primary: #0077b6;
+      --primary-dark: #005f8d;
+      --secondary: #00b4d8;
+      --bg-light: #f4f9fc;
+      --bg-card: #ffffff;
+      --text-main: #2c3e50;
+      --text-sub: #5a6b7c;
+      --border: #e1e8ed;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
+      --gradient-hero: linear-gradient(135deg, #0077b6 0%, #00b4d8 60%, #90e0ef 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+      color: var(--text-main);
+      background: var(--bg-light);
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Hero Section */
+    .hero {
+      background: var(--gradient-hero);
+      color: #fff;
+      padding: 80px 20px 60px;
+      text-align: center;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 8px 24px rgba(0,119,182,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+    }
+    .hero h1 { font-size: 2.6rem; margin-bottom: 12px; font-weight: 800; letter-spacing: 2px; text-shadow: 0 2px 4px rgba(0,0,0,0.15); }
+    .hero p { font-size: 1.15rem; opacity: 0.95; max-width: 800px; margin: 0 auto 25px; }
+    .tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+    .tag {
+      background: rgba(255,255,255,0.25);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    /* Sections General */
+    section { margin-bottom: 50px; background: var(--bg-card); border-radius: 16px; padding: 30px; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+    h2.section-title {
+      font-size: 1.6rem;
+      color: var(--primary);
+      border-left: 6px solid var(--secondary);
+      padding-left: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    /* Overview */
+    .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .info-card { border: 1px solid var(--border); border-radius: 12px; padding: 20px; background: #fafbfc; }
+    .info-card h3 { color: var(--primary-dark); margin-bottom: 10px; font-size: 1.1rem; }
+    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+    .pro, .con { padding: 12px; border-radius: 8px; font-size: 0.95rem; }
+    .pro { background: #e8f5e9; border-left: 4px solid var(--success); color: #2d5a2d; }
+    .con { background: #ffebee; border-left: 4px solid var(--danger); color: #7a2c2c; }
+    
+    /* Itinerary Timeline */
+    .itinerary-list { display: flex; flex-direction: column; gap: 20px; }
+    .day-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
+    .day-header { background: var(--primary); color: #fff; padding: 15px 20px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+    .day-content { padding: 20px; background: #fff; }
+    .time-row { display: grid; grid-template-columns: 80px 1fr; gap: 12px; margin-bottom: 15px; border-bottom: 1px dashed var(--border); padding-bottom: 12px; }
+    .time-row:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+    .time-label { font-weight: bold; color: var(--secondary); background: #f0f7fa; padding: 4px 8px; border-radius: 6px; text-align: center; font-size: 0.9rem; height: fit-content; }
+    
+    /* Attractions */
+    .attr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .attr-item { border: 1px solid var(--border); border-radius: 12px; padding: 24px; position: relative; transition: all 0.25s ease; }
+    .attr-item:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,119,182,0.12); border-color: var(--secondary); }
+    .attr-icon { font-size: 2.2rem; margin-bottom: 10px; }
+    .attr-title { font-size: 1.25rem; font-weight: bold; color: var(--primary); margin-bottom: 8px; }
+    .tip-box { margin-top: 12px; padding: 10px 14px; background: #fffbe6; border-radius: 8px; border-left: 4px solid #ffc107; font-size: 0.9rem; color: #6b5e29; }
+    
+    /* Food & Stay */
+    .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+    .list-card { background: #fdfdfd; border-radius: 12px; padding: 20px; border: 1px solid var(--border); }
+    .list-item { display: flex; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+    .list-item:last-child { border-bottom: none; }
+    .list-icon { margin-right: 10px; font-size: 1.3rem; flex-shrink: 0; }
+    .badge-tier { font-size: 0.8rem; padding: 3px 8px; border-radius: 12px; margin-left: auto; }
+    .tier-eco { background: #e3f2fd; color: #1976d2; }
+    .tier-mid { background: #e8f5e9; color: #388e3c; }
+    .tier-lux { background: #fce4ec; color: #c2185b; }
+
+    /* Transport & Tips */
+    .step-list { margin-left: 10px; }
+    .step { position: relative; padding-left: 25px; margin-bottom: 18px; border-left: 2px solid #d0d7de; }
+    .step:last-child { border-left-color: transparent; }
+    .step::before { content: ""; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; }
+    .tips-boxes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+    .tip-card { background: var(--bg-light); padding: 16px; border-radius: 10px; border-top: 3px solid var(--secondary); }
+
+    /* Budget Table */
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: #eef4f8; color: var(--primary); font-weight: 600; }
+    tr:hover { background: #fafcfd; }
+    .price { font-weight: bold; color: #d32f2f; }
+
+    /* Footer */
+    footer { text-align: center; padding: 40px 0; color: #7f8c8d; font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 20px; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      section { padding: 20px 16px; }
+      .pros-cons, .split-grid { grid-template-columns: 1fr; }
+      .time-row { grid-template-columns: 70px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="container">
+      <h1>🇲🇻 马尔代夫夏季旅游攻略</h1>
+      <p>印度洋上的珍珠项链，一岛一酒店的极致私享。夏季虽是雨季，但雨歇后常有绝美双彩虹，性价比极高，是潜水与放空的不二之选。</p>
+      <div class="tags">
+        <span class="tag">🌊 海边度假</span>
+        <span class="tag">💑 蜜月旅行</span>
+        <span class="tag">🐠 潜水胜地</span>
+        <span class="tag">🌤️ 建议游玩 5 天</span>
+        <span class="tag">💰 预算较高</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <section>
+      <h2 class="section-title">📍 城市概述</h2>
+      <div class="overview-grid">
+        <div class="info-card">
+          <h3>🏝️ 目的地简介</h3>
+          <p>马尔代夫由1200多个珊瑚岛屿星罗棋布而成。这里实行“一岛一酒店”制，私密性极佳。夏季（5-10月）属于绿季/雨季，降水多为阵雨，雨后天晴快，海水含氧量高，海洋生物更活跃，是体验浮潜和享受高性价比奢华假期的绝佳时机。</p>
+        </div>
+        <div class="info-card">
+          <h3>📊 关键信息</h3>
+          <p><strong>📅 最佳月份：</strong>11-4月（旱季），但夏季错峰出行性价比极高</p>
+          <p><strong>💰 预算级别：</strong>Level 3（高端度假型）</p>
+          <div class="pros-cons">
+            <div class="pro">✅ 海水透明度极高<br>✅ 一岛一酒店私密强<br>✅ 浮潜/潜水条件世界级</div>
+            <div class="con">❌ 整体消费昂贵<br>❌ 国际+岛屿交通耗时<br>❌ 活动相对单一<br>❌ 夏季偶有阵雨影响</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">📅 5天详细行程安排</h2>
+      <div class="itinerary-list">
+        <div class="day-card">
+          <div class="day-header"><span>Day 1</span> <span>✈️ 抵达与初识印度洋</span></div>
+          <div class="day-content">
+            <div class="time-row"><div class="time-label">上午</div><div>乘坐直飞航班（杭州/国内其他城市出发，约9小时）抵达马累国际机场。</div></div>
+            <div class="time-row"><div class="time-label">下午</div><div>前往VIP休息室办理快速通关，根据酒店安排乘坐水上飞机（约40-60分钟）或快艇登岛。入住水上别墅，稍作休息适应时差。</div></div>
+            <div class="time-row"><div class="time-label">晚上</div><div>在酒店沙滩餐厅享用欢迎晚餐，饭后沿沙滩散步，聆听海浪声，观赏南半球星空。</div></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-header"><span>Day 2</span> <span>🤿 探索水下世界</span></div>
+          <div class="day-content">
+            <div class="time-row"><div class="time-label">上午</div><div>参与酒店组织的晨间浮潜导览（含教练）。近距离观赏珊瑚礁、小丑鱼群、海龟及蝠鲼。</div></div>
+            <div class="time-row"><div class="time-label">下午</div><div>返回水上别墅午休，透过玻璃地板观鱼。午后在私人甲板享用下午茶，或在泳池中发呆放空。</div></div>
+            <div class="time-row"><div class="time-label">晚上</div><div>体验特色日落海钓活动。乘坐传统多尼船出海，在印度洋落日余晖中垂钓，晚餐由主厨将渔获加工成炭烤海鲜。</div></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-header"><span>Day 3</span> <span>🏝️ 私人无人岛探秘</span></div>
+          <div class="day-content">
+            <div class="time-row"><div class="time-label">上午</div><div>乘船前往酒店承包的无人沙洲/私密岛屿。体验纯白细腻的沙滩与碧绿果冻海，拍摄无人大片，享受绝对安静的私人海滩时光。</div></div>
+            <div class="time-row"><div class="time-label">下午</div><div>无人岛野餐BBQ，尝试皮划艇、站立式桨板（SUP）。下午3点乘船返回主岛，预约一场海景水疗SPA放松身心。</div></div>
+            <div class="time-row"><div class="time-label">晚上</div><div>参加酒店组织的海洋纪录片放映会或沙滩篝火晚会。享用自助餐，品尝马尔代夫风味烤饼与椰子咖喱。</div></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-header"><span>Day 4</span> <span>🌅 深度体验与离岛</span></div>
+          <div class="day-content">
+            <div class="time-row"><div class="time-label">上午</div><div>预约深潜体验课程（PADI DSD体验）或参与海龟保育项目。随后在酒店健身房或瑜伽平台参与晨间拉伸。</div></div>
+            <div class="time-row"><div class="time-label">下午</div><div>前往海底餐厅享用午餐（需提前预订）。饭后在纪念品店选购手工木雕、贝壳饰品及防晒霜补给。整理行装准备退房。</div></div>
+            <div class="time-row"><div class="time-label">晚上</div><div>搭乘交通船返回马累机场。若航班在次日，可入住马累机场附近过渡酒店；若为当日航班，则在机场免税店闲逛后登机回国。</div></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-header"><span>Day 5</span> <span>🌤️ 缓冲日/备选雨天方案</span></div>
+          <div class="day-content">
+            <div class="time-row"><div class="time-label">全天</div><div><strong>备用弹性日（夏季多阵雨）：</strong>如遇连续降雨，可改为室内活动：参加酒店烹饪课程学习制作马尔代夫传统甜点、参观海洋生态展厅、在图书馆或咖啡吧阅读，或预约一次高级美容护理。天气转晴后可随时切换回户外活动。下午根据航班时间前往机场。</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">📸 核心景点推荐</h2>
+      <div class="attr-grid">
+        <div class="attr-item">
+          <div class="attr-icon">🏝️</div>
+          <div class="attr-title">水上别墅 (Overwater Villa)</div>
+          <p>马尔代夫最具标志性的住宿。直接建于清澈海面之上，配备私人泳池、玻璃地板与直达海面的阶梯。推门即入海，晨起可见日出染红天际线。</p>
+          <p><strong>推荐理由：</strong>沉浸式海洋体验，私密性与奢华感拉满，拍照出片率100%。</p>
+          <div class="tip-box">💡 <strong>Tips：</strong>夏季部分区域可能有轻微藻类聚集，建议选择外海环礁或酒店主航道侧的房间。提前备注高楼层/近主码头/避风区可提升舒适度。</div>
+          <p style="margin-top:8px; font-size:0.9rem; color:#666;">🎫 <strong>门票/费用：</strong>含在房费内。升级需补差价（约 $300-$800/晚）。</p>
+        </div>
+        <div class="attr-item">
+          <div class="attr-icon">🐠</div>
+          <div class="attr-title">浮潜与潜水 (Snorkeling & Diving)</div>
+          <p>世界顶级珊瑚礁生态系统，能见度达20-30米。夏季海龟产卵季与蝠鲼觅食季重叠，鲸鲨偶有出没。酒店提供全海域免费浮潜装备。</p>
+          <p><strong>推荐理由：</strong>水下生物多样性极高，无需深潜执照也能近距离接触海洋生物。</p>
+          <div class="tip-box">💡 <strong>Tips：</strong>穿好防晒水母衣（防擦伤+物理防晒），涂抹珊瑚友好型防晒霜。雨季海流可能变化，务必听从导潜指挥，切勿触碰珊瑚。</div>
+          <p style="margin-top:8px; font-size:0.9rem; color:#666;">🎫 <strong>门票/费用：</strong>酒店海域浮潜免费。船潜/夜潜约 $80-$150/人。</p>
+        </div>
+        <div class="attr-item">
+          <div class="attr-icon">🏖️</div>
+          <div class="attr-title">无人岛沙滩 (Sandbank / Deserted Island)</div>
+          <p>纯白细腻的白沙在潮汐涨落间若隐若现，四周被蒂芙尼蓝海水包围。部分高端酒店拥有专属无人沙洲，几乎零游客干扰。</p>
+          <p><strong>推荐理由：</strong>逃离人群，享受绝对宁静的原始海岛氛围，是拍摄婚纱照或冥想的首选地。</p>
+          <div class="tip-box">💡 <strong>Tips：</strong>沙洲面积随潮水变化，务必在退潮时段前往并预留返程时间。自带防水袋与零食，岛上无商业设施。</div>
+          <p style="margin-top:8px; font-size:0.9rem; color:#666;">🎫 <strong>门票/费用：</strong>酒店安排通常含在套餐内，或单独收费约 $50-$100/人（含船费与简餐）。</p>
+        </div>
+        <div class="attr-item">
+          <div class="attr-icon">🎣</div>
+          <div class="attr-title">日落海钓 (Sunset Fishing)</div>
+          <p>搭乘传统马尔代夫多尼船，在印度洋绝美日落中垂钓。主要钓获为鲹鱼、笛鲷等，钓获可交由酒店主厨现场炭烤或刺身处理。</p>
+          <p><strong>推荐理由：</strong>结合美食、垂钓与落日景观的经典项目，极具仪式感与互动性。</p>
+          <div class="tip-box">💡 <strong>Tips：</strong>建议穿防滑鞋，船上风大需备薄外套。夏季傍晚阵雨概率较高，可自备轻便雨衣，不影响垂钓乐趣。</div>
+          <p style="margin-top:8px; font-size:0.9rem; color:#666;">🎫 <strong>门票/费用：</strong>约 $60-$120/人（含饮料与渔获加工）。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">🍽️ 美食推荐</h2>
+      <div class="split-grid">
+        <div class="list-card">
+          <h3 style="margin-bottom:15px; color:var(--primary);">🌴 当地特色菜品</h3>
+          <div class="list-item"><span class="list-icon">🥘</span><div><strong>Ganudhiya (椰香鱼汤)</strong><br>马尔代夫国菜，用金枪鱼、椰子汁、洋葱与香料熬制，清淡鲜美。</div></div>
+          <div class="list-item"><span class="list-icon">🐟</span><div><strong>Mas Huni (金枪鱼椰蓉沙拉)</strong><br>早餐必点，烟熏金枪鱼碎混合椰丝、洋葱、青柠，搭配热乎的烤饼。</div></div>
+          <div class="list-item"><span class="list-icon">🥥</span><div><strong>Rihaakuru & Fihunu</strong><br>浓缩鱼膏与炭烤鱼排，佐以辣椒酱，体验地道渔民风味。</div></div>
+        </div>
+        <div class="list-card">
+          <h3 style="margin-bottom:15px; color:var(--primary);">🍷 推荐餐厅/用餐方式</h3>
+          <div class="list-item"><span class="list-icon">🏝️</span><div><strong>海底餐厅 (如 Subsix / Ithaa)</strong><br>沉浸式360°海洋景观，需提前1-2个月预订。夏季光线折射极佳。</div></div>
+          <div class="list-item"><span class="list-icon">🌅</span><div><strong>日落沙滩吧台</strong><br>提供现开椰子、鲜榨果汁与轻食。傍晚时分鸡尾酒配落日，氛围绝佳。</div></div>
+          <div class="list-item"><span class="list-icon">👨‍🍳</span><div><strong>主厨定制沙滩晚餐</strong><br>部分奢华岛提供私人管家布置的烛光晚餐，需额外预约，适合纪念日/蜜月。</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">🏨 住宿推荐</h2>
+      <div class="split-grid">
+        <div class="list-card">
+          <div class="list-item"><div><strong>🌿 经济型：居民岛民宿</strong><br>马累居民岛或邻近小岛（如Maafushi）的Guesthouse。可体验当地文化，价格亲民，但无水上屋。</div><span class="badge-tier tier-eco">¥1,000-2,000/晚</span></div>
+          <div class="list-item"><div><strong>⭐ 舒适型：四星级度假村</strong><br>含沙屋+水屋组合，一价全包(BB或HB)。设施齐全，含基础水上活动，适合家庭或初次体验者。</div><span class="badge-tier tier-mid">¥2,500-4,500/晚</span></div>
+        </div>
+        <div class="list-card">
+          <div class="list-item"><div><strong>👑 高端型：奢华六星岛</strong><br>如索尼娃、白马庄园、四季等。超大型水屋、私人泳池、24h管家服务、米其林级餐饮。一价全包含酒饮。</div><span class="badge-tier tier-lux">¥6,000-15,000+/晚</span></div>
+          <div class="list-item" style="color:var(--text-sub); font-size:0.9rem; margin-top:10px; padding-top:10px; border-top:1px dashed #eee;">
+            📝 注：马尔代夫普遍实行“一岛一酒店”制，住宿预算占总花费的60%-70%。夏季淡季常有30%左右折扣及免费升级房型、赠送活动套餐等优惠。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">🚤 交通指南</h2>
+      <div class="step-list">
+        <div class="step">
+          <strong>✈️ 国际段：国内直飞马累</strong>
+          <p>杭州/北京/上海等城市可直飞马累国际机场(MLE)，航程约9-10小时。建议选择红眼航班，抵达后衔接当地交通，节省半天时间。</p>
+        </div>
+        <div class="step">
+          <strong>🚁 上岛段：水上飞机 (Seaplane)</strong>
+          <p>适用于距离马累机场 50km 以上的度假村。仅白天运营（06:00-15:00），飞行约 40-60 分钟。空中俯瞰环礁绝美，但受天气影响较大，需预留弹性时间。</p>
+        </div>
+        <div class="step">
+          <strong>🚤 上岛段：快艇 / 内陆飞机+快艇</strong>
+          <p>适用于近岛（30-45分钟快艇）。不受天色限制，全天候运营。部分远岛需先乘内陆航班至国内机场，再转接快艇。</p>
+        </div>
+        <div class="step">
+          <strong>📝 市内/岛内交通</strong>
+          <p>一岛一酒店模式下，岛屿内部通常较小，步行、高尔夫球车或自行车即可覆盖。离岛需严格遵循酒店摆渡船时刻表。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">⚠️ 注意事项（夏季特辑）</h2>
+      <div class="tips-boxes">
+        <div class="tip-card">
+          <h4 style="color:var(--primary); margin-bottom:8px;">🌦️ 天气应对</h4>
+          <p style="font-size:0.95rem;">夏季为雨季，降雨多为突发性阵雨（20-30分钟即止）。随身备轻便雨衣，雨后常现双彩虹。避免在雷暴时段下水。</p>
+        </div>
+        <div class="tip-card">
+          <h4 style="color:var(--primary); margin-bottom:8px;">👙 穿着建议</h4>
+          <p style="font-size:0.95rem;">透气速干衣物为主。下水必备水母衣（防晒防刮）。沙滩拖鞋、宽檐帽、偏光墨镜为标配。部分清真区域需保守着装（居民岛适用）。</p>
+        </div>
+        <div class="tip-card">
+          <h4 style="color:var(--primary); margin-bottom:8px;">☀️ 防晒与环保</h4>
+          <p style="font-size:0.95rem;">紫外线极强，必须每2小时补涂SPF50+ PA++++ 防晒霜。<strong>严禁携带含氧苯酮(Oxybenzone)成分的防晒霜</strong>，以免破坏珊瑚白化。</p>
+        </div>
+        <div class="tip-card">
+          <h4 style="color:var(--primary); margin-bottom:8px;">💵 支付与货币</h4>
+          <p style="font-size:0.95rem;">度假岛通用美元(VISA/Mastercard)，离岛时结算。无需兑换大量拉菲亚(MVR)。小费文化盛行，建议准备$100-$200零钱作服务打赏。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">💰 预算参考（2人/5天4晚）</h2>
+      <p style="margin-bottom:15px; color:#555;">以下为夏季淡季中高端配置参考（人民币估算，实际因汇率、促销活动浮动）：</p>
+      <table>
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>说明</th>
+            <th>预估费用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>✈️ 国际机票</td>
+            <td>国内直飞马累往返（经济舱/含税）</td>
+            <td class="price">¥8,000 - 12,000</td>
+          </tr>
+          <tr>
+            <td>🚤 上岛交通</td>
+            <td>水上飞机/快艇往返（通常酒店代收或含在套餐）</td>
+            <td class="price">¥4,000 - 8,000</td>
+          </tr>
+          <tr>
+            <td>🏨 酒店住宿</td>
+            <td>4晚含早+晚餐 (HB)，四星至六星水屋</td>
+            <td class="price">¥12,000 - 35,000</td>
+          </tr>
+          <tr>
+            <td>🍽️ 餐饮酒水</td>
+            <td>非全餐酒店需另计午餐/软饮，约 ¥800/人/天</td>
+            <td class="price">¥3,000 - 8,000</td>
+          </tr>
+          <tr>
+            <td>🤿 娱乐活动</td>
+            <td>海钓、SPA、深潜体验、无人岛野餐等</td>
+            <td class="price">¥4,000 - 10,000</td>
+          </tr>
+          <tr>
+            <td><strong>📊 合计参考</strong></td>
+            <td><strong>人均预算范围</strong></td>
+            <td class="price" style="font-size:1.1em;">¥15,500 - 36,500</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:15px; font-size:0.85rem; color:#777;">*注：选择“一价全包(All-Inclusive)”套餐可大幅降低餐饮与酒水隐性消费，夏季常有免儿童、免水上飞机、房型升级等限时早鸟优惠。</p>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>© 2024 马尔代夫海岛度假指南 | 本攻略基于通用旅行经验整理，具体航班、酒店政策及物价请以实际预订为准。</p>
+        <p style="margin-top:5px;">祝您在印度洋的碧波与白沙间，收获一场完美的夏日梦境 🌊✨</p>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

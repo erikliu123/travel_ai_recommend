@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云南石林夏日避暑·2日深度游攻略</title>
+<style>
+  :root {
+    --primary: #2d6a4f;
+    --primary-light: #40916c;
+    --primary-dark: #1b4332;
+    --accent: #95d5b2;
+    --bg: #f7faf8;
+    --card-bg: #ffffff;
+    --text-main: #2c3e50;
+    --text-light: #607d8b;
+    --border: #e8eef5;
+    --warning: #e67e22;
+    --info: #3498db;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    line-height: 1.7;
+    color: var(--text-main);
+    background-color: var(--bg);
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 24px 16px 60px; }
+  
+  /* Header & Hero */
+  header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(45deg, transparent 0, transparent 20px, rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 40px);
+  }
+  h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 700; margin-bottom: 12px; letter-spacing: 1px; }
+  .subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 20px; }
+  .badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 15px; }
+  .badge { background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.3); padding: 6px 14px; border-radius: 20px; font-size: 13px; color: #fff; }
+
+  /* Section Styling */
+  section { margin-bottom: 40px; background: var(--card-bg); border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); padding: 28px; }
+  h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 14px; margin-bottom: 24px; font-size: 24px; }
+  h3 { color: var(--primary-dark); font-size: 18px; margin: 16px 0 10px; }
+  p { color: var(--text-light); margin-bottom: 12px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+
+  /* Image Placeholders */
+  .placeholder {
+    height: 180px; border-radius: 12px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; letter-spacing: 1px; position: relative; overflow: hidden;
+  }
+  .pl-stone { background: linear-gradient(120deg, #4a5d4e, #2d6a4f, #8cb89f); }
+  .pl-lake { background: linear-gradient(135deg, #388e8c, #2d6a4f, #74c69d); }
+  .pl-village { background: linear-gradient(to right, #b7613b, #d48c6a, #2d6a4f); }
+  .placeholder::after { content: '📸'; font-size: 36px; opacity: 0.8; position: absolute; bottom: 10px; right: 15px; }
+
+  /* Timeline/Itinerary */
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--accent); }
+  .timeline-item { position: relative; padding-bottom: 28px; }
+  .timeline-dot {
+    position: absolute; left: -20px; top: 6px; width: 14px; height: 14px; background: var(--primary); border: 3px solid #fff; border-radius: 50%; box-shadow: 0 0 0 2px var(--primary-light);
+  }
+  .time-label { font-weight: bold; color: var(--primary); margin-bottom: 6px; display: block; font-size: 15px; }
+  .time-content { background: #f0fdf4; padding: 14px; border-radius: 10px; border: 1px solid var(--border); }
+  .time-content strong { color: var(--primary-dark); }
+
+  /* Pros/Cons & Tags */
+  .meta-grid { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+  .tag-item { background: #e8f5e9; color: var(--primary-dark); padding: 5px 12px; border-radius: 6px; font-size: 14px; }
+  .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
+  .list-item { margin-bottom: 8px; padding-left: 18px; position: relative; font-size: 15px; }
+  .list-item::before { content: '✓'; position: absolute; left: 0; color: var(--primary-light); font-weight: bold; }
+  .list-item.con::before { content: '⚠'; color: var(--warning); }
+  @media (max-width: 600px) { .pro-con { grid-template-columns: 1fr; } }
+
+  /* Tables & Lists */
+  .info-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
+  .info-table th, .info-table td { padding: 12px; border-bottom: 1px solid var(--border); text-align: left; }
+  .info-table th { background: #f0fdf4; color: var(--primary-dark); font-weight: 600; }
+  .price-highlight { color: var(--warning); font-weight: bold; }
+  ul.custom-list { padding-left: 20px; margin-bottom: 12px; }
+  ul.custom-list li { margin-bottom: 8px; color: var(--text-light); }
+  ul.custom-list li strong { color: var(--text-main); }
+
+  /* Footer */
+  footer { text-align: center; padding: 30px; color: var(--text-light); font-size: 14px; border-top: 1px solid var(--border); margin-top: 40px; }
+  
+  /* Utility */
+  .tip-box { background: linear-gradient(to right, #eef7f3, #ffffff); border-left: 4px solid var(--info); padding: 14px; border-radius: 0 8px 8px 0; margin: 16px 0; }
+  .btn-fake { display: inline-block; padding: 10px 24px; background: var(--primary); color: white; border-radius: 8px; text-decoration: none; font-weight: 500; margin-top: 10px; transition: 0.3s; }
+  .btn-fake:hover { background: var(--primary-dark); }
+  .budget-card { background: var(--bg); border-radius: 10px; padding: 16px; text-align: center; border: 1px dashed var(--primary-light); }
+  .budget-total { font-size: 28px; color: var(--primary); font-weight: bold; margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌲 云南石林夏日奇境2日游</h1>
+  <div class="subtitle">喀斯特地貌巅峰之作 · 避暑与彝族风情的完美邂逅</div>
+  <div class="badges">
+    <span class="badge">🌍 自然风光</span>
+    <span class="badge">🎭 民族风情</span>
+    <span class="badge">📸 摄影出片</span>
+    <span class="badge">💰 预算适中</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- 城市概述 -->
+  <section id="overview">
+    <h2>📍 目的地概览</h2>
+    <div class="placeholder pl-stone">🗺️ 世界喀斯特地貌精华</div>
+    <p>石林彝族自治县位于云南省东部，距昆明市区仅88公里，被誉为“天下第一奇观”。2.7亿年前形成的石灰岩地貌在此拔地而起，石柱如剑、石峰如林，夏季平均气温22℃，是绝佳的避暑胜地。虽然秋季（8-11月）色彩最为明艳，但夏末的石林同样云雾缭绕、绿意盎然，结合独特的撒尼人文化，适合安排2天1夜深度体验。</p>
+    
+    <div class="pro-con">
+      <div>
+        <h3>✨ 核心优势</h3>
+        <div class="list-item">喀斯特地貌规模宏大，世界罕见</div>
+        <div class="list-item">夏季气候凉爽，体感舒适（避暑胜地）</div>
+        <div class="list-item">距昆明高铁仅30-50分钟，交通便捷</div>
+        <div class="list-item">彝族撒尼文化保存完整，民俗浓厚</div>
+      </div>
+      <div>
+        <h3>⚠️ 旅行提示</h3>
+        <div class="list-item con">核心景区门票+交通车费用相对较高</div>
+        <div class="list-item con">景区跨度大，步行距离长，建议分日游览</div>
+        <div class="list-item con">夏季午后易有阵雨，需备雨具</div>
+        <div class="list-item con">商业化较完善，需甄别特色体验项目</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行程安排 -->
+  <section id="itinerary">
+    <h2>🗓️ 2天详细行程规划</h2>
+    <p>本路线按“先核心后小众、先地貌后人文”的逻辑设计，避开夏季正午高温，兼顾出片率与舒适度。</p>
+    
+    <h3>Day 1：奇峰探秘 & 彝族夜话</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="time-label">08:30 - 09:00 抵达与休整</span>
+        <div class="time-content">
+          <strong>🚄 昆明南站 → 石林西站/石林南站</strong><br>
+          乘坐高铁抵达，出站后乘坐景区直通车或打车前往酒店放行李。建议住宿选在县城或石林景区东门附近。
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="time-label">09:30 - 14:00 石林风景区（大/小石林）</span>
+        <div class="time-content">
+          <strong>🗿 核心地貌深度游</strong><br>
+          上午光线柔和，适合拍摄大石林“石屏”、“剑峰池”及小石林“阿诗玛”像。沿规划步道顺时针游览，乘坐环保电瓶车节省体力。避开12:00-14:00的烈日，在休息区用餐或品尝随身干粮。
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="time-label">16:30 - 20:30 彝族第一村</span>
+        <div class="time-content">
+          <strong>🔥 民俗体验与晚餐</strong><br>
+          傍晚气温下降后前往。体验撒尼人刺绣、月琴，品尝地道羊汤锅、烤乳饼。若赶上节庆（如火把节、花脸节），可参与篝火打跳。夜晚灯光下的古村落极具烟火气，适合人文街拍。
+        </div>
+      </div>
+    </div>
+
+    <h3>Day 2：黑石秘境 & 长湖听风</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="time-label">08:00 - 11:30 乃古石林</span>
+        <div class="time-content">
+          <strong>🖤 原始黑石群与清幽步道</strong><br>
+          相比主景区，这里游客少、更原生态。黑色碳酸盐岩石柱在阳光下呈现冷峻质感，搭配夏日绿草与野花，对比强烈。建议沿“白云洞”至“迷宫”环线徒步，全程约1.5-2小时。
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="time-label">13:30 - 15:30 长湖风景区</span>
+        <div class="time-content">
+          <strong>💧 森林湖泊与休闲时光</strong><br>
+          午餐后驱车前往长湖（距县城约20公里）。湖水清澈，四周松林环绕，是彝族青年对歌圣地。可沿湖栈道散步、租船泛舟或在林间草坪野餐。夏季水汽充沛，非常出片。
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="time-label">16:00 - 返程/自由安排</span>
+        <div class="time-content">
+          根据高铁班次前往车站。若时间充裕，可购买当地特产（彝族刺绣、石林乳饼、黑山羊）后返程。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详情 -->
+  <section id="attractions">
+    <h2>📷 核心景点详解</h2>
+    <div class="grid-2">
+      <article>
+        <div class="placeholder pl-stone">🗺️ 石林风景区</div>
+        <h3>🪨 石林风景区（大/小石林）</h3>
+        <p>世界自然遗产核心区，2.7亿年海水冲刷与地壳抬升的杰作。包含大石林（雄伟壮阔）、小石林（秀美灵动）、外石林及步哨山等。</p>
+        <div class="tip-box">
+          <strong>💡 游玩Tips：</strong> 门票130元/人，观光车25元（强烈建议购买）。夏季建议8:00前入园避开旅行团。小石林草坪区傍晚光影极佳，阿诗玛雕像为必打卡点。
+        </div>
+      </article>
+      <article>
+        <div class="placeholder pl-stone" style="background:linear-gradient(to bottom right, #343a40, #2d6a4f);">🖤 乃古石林</div>
+        <h3>🌑 乃古石林</h3>
+        <p>“乃古”意为“黑色”。这里的石林呈深灰至黑色，气势更为苍茫原始。石柱高耸密集，植被覆盖率更高，夏季绿意与黑石交织，极具视觉冲击力。</p>
+        <div class="tip-box">
+          <strong>💡 游玩Tips：</strong> 门票通常与主景区联票或单独售票（约130元）。需自备防蚊喷雾。步道较野，务必穿防滑徒步鞋。摄影爱好者可携带偏振镜增强天空与黑石的对比。
+        </div>
+      </article>
+      <article>
+        <div class="placeholder pl-lake">💧 长湖风景区</div>
+        <h3>🌿 长湖</h3>
+        <p>隐藏在群山环抱中的淡水湖泊，形似新月。湖水随季节变幻色彩，周边古木参天，空气质量极高。是彝族传说中阿黑哥与阿诗玛相会之地。</p>
+        <div class="tip-box">
+          <strong>💡 游玩Tips：</strong> 门票约10-30元。夏季适合轻徒步与露营野餐。湖风较凉，建议带薄外套。尊重当地民俗，勿在圣地区域大声喧哗或随意下水。
+        </div>
+      </article>
+      <article>
+        <div class="placeholder pl-village">🏮 彝族第一村</div>
+        <h3>🎭 彝族第一村</h3>
+        <p>撒尼人聚居的文化活态展示区。保留传统夯土建筑、石板路与祭祀文化。秋季有火把节，夏季常有“花脸节”及日常民俗展演。</p>
+        <div class="tip-box">
+          <strong>💡 游玩Tips：</strong> 免费开放。品尝羊汤锅认准本地人常去的“老字号”。体验服饰租赁（约50-80元/套）需提前确认清洁度。购买手工艺品可适量砍价。
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section id="food">
+    <h2>🍲 当地美食指南</h2>
+    <p>石林饮食以彝族撒尼风味为主，偏重食材本味与山野气息，夏季食用清爽滋补。</p>
+    <div class="grid-2">
+      <div>
+        <h3>🥘 必尝特色</h3>
+        <ul class="custom-list">
+          <li><strong>石林羊汤锅：</strong> 选用本地黑山羊，慢火熬煮，汤白肉嫩，蘸水以薄荷、糊辣椒为主，开胃驱湿。</li>
+          <li><strong>石林乳饼：</strong> 类似白族乳扇但口感更扎实，推荐“煎烤”或“夹火腿”做法，奶香浓郁。</li>
+          <li><strong>野生菌火锅/炒菜：</strong> 夏季（7-8月）正值雨季菌菇季，见手青、鸡枞、牛肝菌鲜美无比（务必熟透食用）。</li>
+          <li><strong>包谷粑粑 & 荞饼：</strong> 撒尼人传统主食，粗粮细作，清甜饱腹。</li>
+        </ul>
+      </div>
+      <div>
+        <h3>📍 推荐餐厅/觅食地</h3>
+        <ul class="custom-list">
+          <li><strong>阿诗玛餐厅（县城店）：</strong> 环境整洁，菜品地道，适合家庭/团队用餐，人均 60-80元。</li>
+          <li><strong>彝族第一村美食街：</strong> 聚集多家家庭作坊式餐馆，可体验最原始的炭火烤肉与土鸡汤，人均 40-70元。</li>
+          <li><strong>长湖生态农庄：</strong> 湖边就餐，主打湖鲜与农家菜，适合午餐休憩，人均 50-90元。</li>
+        </ul>
+        <div class="tip-box" style="margin-top:10px;">⚠️ 夏季野生菌虽美，但务必选择正规餐厅食用，切勿自行采摘。对薄荷/特殊香料过敏者点餐前请提前说明。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section id="hotel">
+    <h2>🛏️ 住宿推荐</h2>
+    <div class="grid-3">
+      <div class="budget-card">
+        <h3>💰 经济型（100-200元/晚）</h3>
+        <p><strong>适合人群：</strong> 学生党、背包客</p>
+        <p>推荐：县城内连锁快捷酒店（如如家、汉庭）或青年旅舍。交通便利，靠近客运站，餐饮选择多。</p>
+      </div>
+      <div class="budget-card">
+        <h3>🌿 舒适型（300-500元/晚）</h3>
+        <p><strong>适合人群：</strong> 情侣、家庭、大多数游客</p>
+        <p>推荐：石林风景区东门/南门周边的特色客栈或星级商务酒店。环境安静，含早，部分提供接送站服务。</p>
+      </div>
+      <div class="budget-card">
+        <h3>✨ 高端型（700元+/晚）</h3>
+        <p><strong>适合人群：</strong> 追求品质、摄影深度游</p>
+        <p>推荐：长湖畔生态度假村或彝族风情精品民宿。独门独院、落地观景窗、配套下午茶，沉浸式自然体验。</p>
+      </div>
+    </div>
+    <div class="tip-box">📌 <strong>预订Tips：</strong> 夏季虽非绝对旺季，但周末及火把节期间房源紧张，建议提前3-5天预订。选择含早房型可节省早餐寻找时间。</div>
+  </section>
+
+  <!-- 交通指南 -->
+  <section id="transport">
+    <h2>🚗 交通指南</h2>
+    <table class="info-table">
+      <thead>
+        <tr><th>交通方式</th><th>详情说明</th><th>耗时参考</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>✈️ 飞机到达</td><td>飞往昆明长水机场（全国主要城市航线密集）<br>转乘：机场地铁至昆明南站，再转高铁至石林</td><td>飞行视出发地而定<br>转乘约 1.5-2 小时</td></tr>
+        <tr><td>🚄 高铁/动车</td><td>外地至昆明南/昆明站，换乘<strong>城际动车</strong>至<strong>石林西站</strong><br>备注：跨省高铁通常需8-12小时不等</td><td>昆明 ↔ 石林：35-55分钟</td></tr>
+        <tr><td>🚌 市内/接驳</td><td>石林西站 → 景区：出站乘旅游专线巴士（10元）或打车（约40元）<br>景点间：打车/包车最方便，长湖距乃古约20公里</td><td>接驳车 30-40 分钟</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px;"><strong>🚕 实用建议：</strong> 石林景区内部及长湖周边公共交通班次有限，2人及以上强烈建议使用网约车或包车，人均成本低且灵活。若自驾，景区停车场规范，停车费约10-15元/次。</p>
+  </section>
+
+  <!-- 注意事项 -->
+  <section id="tips">
+    <h2>🎒 出行注意事项</h2>
+    <div class="grid-2">
+      <div>
+        <h3>🌤️ 气候与穿着</h3>
+        <ul class="custom-list">
+          <li><strong>高原日照强：</strong> 石林海拔约1900米，紫外线极强，夏季务必准备SPF50+防晒霜、墨镜、宽檐帽。</li>
+          <li><strong>温差变化：</strong> “一雨成秋”，夏季白天25℃，降雨后可能降至15-18℃。建议“短袖+薄冲锋衣/针织衫”叠穿。</li>
+          <li><strong>鞋履选择：</strong> 石林步道多为石板与阶梯，切勿穿高跟鞋。推荐防滑透气徒步鞋或运动鞋。</li>
+        </ul>
+      </div>
+      <div>
+        <h3>🔒 安全与文明</h3>
+        <ul class="custom-list">
+          <li><strong>防滑防雨：</strong> 8月为云南雨季，步道湿滑，雨天游览务必慢行。随身携带便携雨衣。</li>
+          <li><strong>尊重民俗：</strong> 进入彝族村寨不随意触碰祭祀器物；拍摄当地人前请先征得同意。</li>
+          <li><strong>防蚊虫：</strong> 长湖及乃古石林植被茂密，建议携带驱蚊液/风油精。</li>
+          <li><strong>理性消费：</strong> 景区周边特产店价格差异较大，建议明码标价后再购买，银器玉石谨慎入手。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 预算参考 -->
+  <section id="budget">
+    <h2>💵 2天1夜预算参考（1人/适中标准）</h2>
+    <p>本预算基于舒适型旅行标准核算，实际花费因出发地、住宿档次及个人消费习惯浮动。</p>
+    <div class="grid-2">
+      <div>
+        <table class="info-table">
+          <tr><td>🚄 往返交通（昆明-石林）</td><td class="price-highlight">约 80 - 120 元</td></tr>
+          <tr><td>🚌 市内/景点接驳</td><td class="price-highlight">约 150 - 250 元</td></tr>
+          <tr><td>🛏️ 住宿（1晚舒适型）</td><td class="price-highlight">约 150 - 250 元/人</td></tr>
+          <tr><td>🍲 餐饮（2正1早+小吃）</td><td class="price-highlight">约 200 - 300 元</td></tr>
+          <tr><td>🎫 门票+观光车+体验</td><td class="price-highlight">约 350 - 450 元</td></tr>
+          <tr><td>🛒 杂费/伴手礼</td><td class="price-highlight">约 100 元</td></tr>
+        </table>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; padding:10px;">
+        <div class="budget-card" style="width:100%;">
+          <p>📊 人均预估总花费</p>
+          <div class="budget-total">¥ 1030 - 1520</div>
+          <p style="font-size:14px; color:#666;">适合：情侣/好友结伴、周末微度假<br>（预算级别：适中 2/3）</p>
+          <a href="#" class="btn-fake" onclick="alert('攻略已收藏，祝您旅途愉快！');return false;">📥 保存攻略</a>
+        </div>
+        <p style="margin-top:16px; font-size:14px; text-align:center; color:#888;">💡 省钱技巧：购买高铁+酒店打包套餐；学生/老人/军人持证享门票半价或免票；多人包车分摊车费更划算。</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2024 云南石林旅游规划指南 | 数据更新于夏季旅行季 | 门票及政策请以景区当日公告为准</p>
+  <p style="margin-top:6px; font-size:12px; opacity:0.7;">出行前请关注“石林风景名胜区”官方公众号获取实时人流及天气预警</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>舟山夏季旅游攻略 | 2天1夜详细行程</title>
+  <style>
+    :root {
+      --primary: #0077b6;
+      --primary-dark: #023e8a;
+      --primary-light: #48cae4;
+      --accent: #f7b731;
+      --bg: #f4f7f9;
+      --white: #ffffff;
+      --text-main: #2d3436;
+      --text-sub: #636e72;
+      --border: #e1e8ed;
+      --shadow: 0 4px 16px rgba(0,0,0,0.06);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg); color: var(--text-main); line-height: 1.65;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+      color: var(--white); padding: 50px 20px 40px; text-align: center;
+      border-radius: 0 0 30px 30px; margin-bottom: 30px;
+    }
+    header h1 { margin: 0 0 10px; font-size: 2rem; font-weight: 700; }
+    header p { margin: 0 0 20px; opacity: 0.95; font-size: 1.05rem; }
+    .meta-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+    .tag { background: rgba(255,255,255,0.25); padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; backdrop-filter: blur(4px); }
+    .quick-info { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center; }
+    .qi-box { background: rgba(255,255,255,0.15); padding: 12px; border-radius: 10px; }
+    .qi-box span { display: block; font-weight: bold; font-size: 0.9rem; }
+    .qi-box small { font-size: 0.8rem; opacity: 0.8; }
+
+    /* Sections */
+    section { background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 30px; }
+    section h2 { margin: 0 0 20px; color: var(--primary-dark); font-size: 1.4rem; display: flex; align-items: center; border-bottom: 2px solid var(--border); padding-bottom: 10px; }
+    section h2::before { content: ''; width: 5px; height: 20px; background: var(--primary); border-radius: 4px; margin-right: 10px; flex-shrink: 0; }
+    section p, section li { color: var(--text-sub); margin-bottom: 10px; }
+    ul { padding-left: 20px; }
+    
+    /* Badges & Pros/Cons */
+    .badge-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+    .badge { padding: 4px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 500; }
+    .b-primary { background: #e3f2fd; color: var(--primary); }
+    .b-sand { background: #fff3cd; color: #856404; }
+    .b-green { background: #d4edda; color: #155724; }
+    .b-red { background: #f8d7da; color: #721c24; }
+    .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+    .pc-box { padding: 15px; border-radius: 10px; background: #f8f9fa; }
+    .pc-box h4 { margin: 0 0 8px; font-size: 1rem; }
+    .pc-box ul { padding-left: 18px; margin: 0; font-size: 0.9rem; }
+    .pc-box li { margin-bottom: 5px; }
+    
+    /* Itinerary Timeline */
+    .timeline { position: relative; padding-left: 25px; margin-top: 15px; border-left: 3px dashed var(--primary-light); }
+    .day-title { font-weight: bold; color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 15px; background: #e3f2fd; display: inline-block; padding: 4px 10px; border-radius: 8px; }
+    .t-item { position: relative; margin-bottom: 25px; }
+    .t-item:last-child { margin-bottom: 0; }
+    .t-item::before { content: ''; position: absolute; left: -10px; top: 4px; width: 12px; height: 12px; background: var(--primary); border: 2px solid var(--white); border-radius: 50%; box-shadow: 0 0 0 3px var(--primary-light); }
+    .t-label { font-weight: bold; color: var(--primary); margin-bottom: 4px; font-size: 0.95rem; }
+    .t-content { background: #fdfdfd; padding: 12px 15px; border-radius: 8px; border-left: 4px solid var(--accent); }
+    
+    /* Attraction Cards */
+    .att-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .att-card { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform 0.2s; }
+    .att-card:hover { transform: translateY(-4px); }
+    .att-visual { height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2); position: relative; }
+    .v1 { background: linear-gradient(120deg, #83a4d4, #b6fbff); }
+    .v2 { background: linear-gradient(120deg, #a18cd1, #fbc2eb); }
+    .v3 { background: linear-gradient(120deg, #84fab0, #8fd3f4); }
+    .v4 { background: linear-gradient(120deg, #fccb90, #d57eeb); }
+    .att-body { padding: 20px; }
+    .att-body h3 { margin: 0 0 8px; color: var(--primary-dark); }
+    .att-tag { display: inline-block; font-size: 0.75rem; padding: 2px 8px; background: #eef; border-radius: 10px; color: var(--primary); margin-bottom: 10px; }
+    .att-body p { font-size: 0.9rem; margin: 5px 0; }
+    .info-row { display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #eee; color: var(--text-sub); }
+    .price { color: var(--primary); font-weight: bold; }
+    
+    /* Grids for Food/Stay */
+    .item-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+    .item-box { background: #f8fbfd; padding: 15px; border-radius: 10px; border: 1px solid #edf4fa; }
+    .item-box h4 { margin: 0 0 6px; color: var(--primary-dark); }
+    .item-box .sub { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 5px; }
+    .rating { color: var(--accent); letter-spacing: 2px; }
+    
+    /* Table */
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.95rem; }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: var(--primary-light); color: var(--primary-dark); }
+    tr:last-child td { border-bottom: none; }
+    
+    /* Footer */
+    footer { text-align: center; padding: 30px 20px; color: var(--text-sub); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 20px; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.6rem; }
+      .container { padding: 15px; }
+      section { padding: 20px 15px; }
+      .pro-con { grid-template-columns: 1fr; }
+      .quick-info { grid-template-columns: repeat(2, 1fr); }
+      .timeline { padding-left: 15px; border-left-width: 2px; }
+      .att-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>舟山夏季旅游攻略</h1>
+    <p>千岛之城，海天佛国｜东海最纯净的蓝</p>
+    <div class="meta-tags">
+      <span class="tag">🏖️ 海边度假</span>
+      <span class="tag">🙏 佛教圣地</span>
+      <span class="tag">🏝️ 海岛旅行</span>
+    </div>
+    <div class="quick-info">
+      <div class="qi-box"><span>⏱️ 建议天数</span><small>2天1夜</small></div>
+      <div class="qi-box"><span>📅 最佳月份</span><small>5月-10月</small></div>
+      <div class="qi-box"><span>💰 预算级别</span><small>适中 (2级)</small></div>
+      <div class="qi-box"><span>📍 坐标</span><small>浙江省舟山市</small></div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 城市概述 -->
+    <section id="overview">
+      <h2>城市概述</h2>
+      <p>舟山，中国唯一以群岛建制的地级市，由1390个岛屿组成，素有“千岛之城，海天佛国”之称。这里拥有中国最优质的东海海岸线，普陀山的晨钟暮鼓、朱家尖的十里金沙、沈家门的不夜渔火、嵊泗列岛的湛蓝碧波，共同构成了江浙沪周边最具度假气息的海岛画卷。夏季是避暑、赶海、吃海鲜、拜观音的绝佳时节。</p>
+      <div class="badge-group">
+        <span class="badge b-green">🌊 气候宜人</span>
+        <span class="badge b-primary">🐟 海鲜盛宴</span>
+        <span class="badge b-sand">⛵ 轮渡体验</span>
+      </div>
+      <div class="pro-con">
+        <div class="pc-box">
+          <h4>✨ 旅行优点</h4>
+          <ul>
+            <li>普陀山朝圣底蕴深厚，灵验且环境清幽</li>
+            <li>海岛风光在华东独树一帜，水质清澈</li>
+            <li>东海海鲜现捕现做，种类丰富且新鲜</li>
+            <li>夏季海风清凉，是绝佳的避暑胜地</li>
+          </ul>
+        </div>
+        <div class="pc-box">
+          <h4>⚠️ 注意事项</h4>
+          <ul>
+            <li>无直达航班/高铁，需大巴或中转接驳</li>
+            <li>普陀山及热门海岛旺季人流量大</li>
+            <li>海岛天气多变，偶受台风/阵雨影响</li>
+            <li>7-8月为暑期，住宿价格上浮30%-50%</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 行程安排 -->
+    <section id="itinerary">
+      <h2>2天详细行程安排</h2>
+      <div class="day-title">📅 DAY 1：礼佛祈福 · 渔港夜话</div>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-label">☀️ 上午：抵达与初探朱家尖</div>
+          <div class="t-content">从杭州/宁波出发，约3小时抵达舟山朱家尖蜈蚣峙码头。办理登船手续前，可先在码头广场观赏独特的“慈航普渡”建筑群。随后前往朱家尖南沙或十里金沙，踩沙滩、踏浪、拍照，享受东海第一缕海风。</div>
+        </div>
+        <div class="t-item">
+          <div class="t-label">🌤️ 下午：普陀山朝圣之旅</div>
+          <div class="t-content">乘船15分钟抵达普陀山。按“普济寺(主刹) → 法雨寺(古木参天) → 慧济寺(佛顶山俯瞰) → 南海观音(33米露天金像)”的经典顺时针路线参拜。沿途古樟蔽日，海音梵唱交织，感受心灵净化。建议乘坐岛内旅游巴士节省体力。</div>
+        </div>
+        <div class="t-item">
+          <div class="t-label">🌙 晚上：沈家门渔港寻味</div>
+          <div class="t-content">傍晚乘船返回沈家门。漫步十里渔港长堤，观赏千帆归航的壮观景象。在滨港路海鲜夜排档落座，点上几道白灼梭子蟹、葱油黄鱼、清蒸带鱼，配上冰镇啤酒，尽享东海夜生活。</div>
+        </div>
+      </div>
+
+      <div class="day-title" style="margin-top: 30px;">📅 DAY 2：离岛漫游 · 追风逐浪</div>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-label">☀️ 上午：嵊泗列岛/东极岛跳岛</div>
+          <div class="t-content">早起赴沈家门或三江码头，搭乘早班轮渡前往离岛（推荐枸杞岛/花鸟岛或东极庙子湖）。抵达后租用电动车环岛，打卡灯塔、彩色渔村、绝壁海岸线。海水呈宝石蓝，礁石形态各异，随手一拍即是大片。</div>
+        </div>
+        <div class="t-item">
+          <div class="t-label">🌤️ 下午：沙滩休闲与返程</div>
+          <div class="t-content">在离岛沙滩体验海上摩托、帆船或静静赶海拾贝。注意关注当日潮汐表和返程船期，提前1.5小时抵达码头候船。乘船返回朱家尖/沈家门后，根据高铁/大巴班次安排返程，结束充实的2天海岛之旅。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 景点介绍 -->
+    <section id="attractions">
+      <h2>核心景点详解</h2>
+      <div class="att-grid">
+        <div class="att-card">
+          <div class="att-visual v1">🙏 普陀山</div>
+          <div class="att-body">
+            <span class="att-tag">佛教名山</span>
+            <h3>海天佛国·观音道场</h3>
+            <p><strong>推荐理由：</strong>中国四大佛教名山之一，香火鼎盛且海岛自然环境极佳。三大寺+南海观音构成完整朝圣动线，山海相映，禅意十足。</p>
+            <p><strong>游玩Tips：</strong>务必穿平底鞋，自备香花券(10元/处)。节假日建议5:00开园即入园。寺内禁大声喧哗，保持虔诚。</p>
+            <div class="info-row">
+              <span>🎫 门票</span>
+              <span class="price">大门票160元 + 船票(单程30元)</span>
+            </div>
+          </div>
+        </div>
+        <div class="att-card">
+          <div class="att-visual v2">🏖️ 朱家尖</div>
+          <div class="att-body">
+            <span class="att-tag">海滨度假</span>
+            <h3>十里金沙·冲浪天堂</h3>
+            <p><strong>推荐理由：</strong>舟山本岛南部核心度假区，南沙沙质细腻金黄，是华东最佳天然海滨浴场之一，配套设施成熟。</p>
+            <p><strong>游玩Tips：</strong>建议避开正午暴晒，16:00后下海最舒适。沙滩可体验摩托艇、水上自行车，注意保管随身物品防湿。</p>
+            <div class="info-row">
+              <span>🎫 门票</span>
+              <span class="price">南沙60元 / 大青山100元(自驾)</span>
+            </div>
+          </div>
+        </div>
+        <div class="att-card">
+          <div class="att-visual v3">🏝️ 嵊泗列岛</div>
+          <div class="att-body">
+            <span class="att-tag">原生态海岛</span>
+            <h3>东海明珠·离岛秘境</h3>
+            <p><strong>推荐理由：</strong>由404个岛屿组成，枸杞岛的蓝白村落、花鸟岛的“荧光海”、东极岛的“第一缕阳光”，各有绝美风情。</p>
+            <p><strong>游玩Tips：</strong>船票需提前3-5天在“舟山海星轮船”小程序预订。海岛风大，备防风外套；部分区域信号较弱，下载离线地图。</p>
+            <div class="info-row">
+              <span>🎫 门票</span>
+              <span class="price">船票单程约100-150元 / 岛上景点20-50元</span>
+            </div>
+          </div>
+        </div>
+        <div class="att-card">
+          <div class="att-visual v4">🦞 沈家门渔港</div>
+          <div class="att-body">
+            <span class="att-tag">渔港风情</span>
+            <h3>世界三大渔港之一</h3>
+            <p><strong>推荐理由：</strong>不仅是地理地标，更是活着的渔文化博物馆。傍晚渔船归港、灯火通明，是体验舟山烟火气与美食文化的绝佳地。</p>
+            <p><strong>游玩Tips：</strong>海鲜排档价格透明但需确认计价单位(按斤/按只)。推荐点“时价”前问清当日行情，避免旺季溢价。</p>
+            <div class="info-row">
+              <span>🎫 门票</span>
+              <span class="price">免费开放 / 餐饮自费</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section id="food">
+      <h2>🐙 舟山美食图鉴</h2>
+      <p>舟山海鲜以“鲜、活、野”著称，清蒸、白灼、葱油是保留本味的最佳烹饪方式。夏季正值休渔期前后，冰鲜与小海鲜依然管够。</p>
+      <div class="item-grid">
+        <div class="item-box">
+          <h4>🐟 清蒸东海黄鱼</h4>
+          <div class="sub">肉质如蒜瓣，鲜嫩无刺，舟山头牌硬菜</div>
+          <div class="rating">★★★★★</div>
+        </div>
+        <div class="item-box">
+          <h4>🦀 葱油梭子蟹</h4>
+          <div class="sub">8月后最肥美，膏黄饱满，香气扑鼻</div>
+          <div class="rating">★★★★☆</div>
+        </div>
+        <div class="item-box">
+          <h4>🍜 舟山海鲜面</h4>
+          <div class="sub">现熬鱼骨汤底，配虾、蛏子、蛋丝，暖胃首选</div>
+          <div class="rating">★★★★★</div>
+        </div>
+        <div class="item-box">
+          <h4>🍤 红烧望潮</h4>
+          <div class="sub">小型章鱼，肉质Q弹紧实，酱香浓郁</div>
+          <div class="rating">★★★★☆</div>
+        </div>
+      </div>
+      <p style="margin-top: 20px;"><strong>📍 推荐餐厅：</strong>沈家门海鲜夜排档(体验氛围)、高家庄海鲜大排档(本地人常去)、阿勇海鲜排档(性价比极高)、普陀山素斋(素香园/佛顶山慧济寺素面)</p>
+    </section>
+
+    <!-- 住宿推荐 -->
+    <section id="accommodation">
+      <h2>🛌 住宿推荐指南</h2>
+      <p>旺季建议提前1-2周预订。朱家尖适合度假放松，沈家门/普陀山镇适合中转与朝圣。</p>
+      <div class="item-grid">
+        <div class="item-box" style="border-left: 4px solid #2ecc71;">
+          <h4>💰 经济实惠 (150-250元/晚)</h4>
+          <div class="sub">朱家尖/沈家门周边青旅、家庭旅馆</div>
+          <p style="font-size:0.85rem;">优点：交通便利，餐饮便宜；适合学生党/背包客。缺点：设施基础，隔音一般。</p>
+        </div>
+        <div class="item-box" style="border-left: 4px solid #3498db;">
+          <h4>🛋️ 舒适优选 (400-700元/晚)</h4>
+          <div class="sub">朱家尖海景民宿、连锁快捷/精品酒店</div>
+          <p style="font-size:0.85rem;">优点：步行可达沙滩，含早，卫生有保障；适合家庭/情侣。推荐区域：南沙周边/蜈蚣峙码头附近。</p>
+        </div>
+        <div class="item-box" style="border-left: 4px solid #9b59b6;">
+          <h4>💎 高端度假 (900-1500+元/晚)</h4>
+          <div class="sub">绿城威斯汀度假酒店、普陀山雷迪森/开元观堂</div>
+          <p style="font-size:0.85rem;">优点：私家沙滩、无边泳池、SPA、管家服务；适合追求品质的度假客。建议连住2晚深度体验。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 交通指南 -->
+    <section id="transport">
+      <h2>🚌 交通完全指南</h2>
+      <table>
+        <tr>
+          <th width="20%">出行方式</th>
+          <th width="35%">路线/接驳</th>
+          <th width="25%">参考耗时/费用</th>
+          <th width="20%">关键提示</th>
+        </tr>
+        <tr>
+          <td>✈️ 飞机</td>
+          <td>无直达舟山航班。可飞宁波栎社或上海虹桥。</td>
+          <td>落地转大巴约2.5-3h</td>
+          <td>宁波栎社机场大巴直达舟山朱家尖</td>
+        </tr>
+        <tr>
+          <td>🚄 高铁</td>
+          <td>终点：宁波站。出站至客运中心站转大巴。</td>
+          <td>杭州东→宁波(约1.5h) + 大巴(2.5h)<br>费用合计约150-200元</td>
+          <td>宁波至舟山大巴班次密集(每30分钟一班)</td>
+        </tr>
+        <tr>
+          <td>🚗 自驾/大巴</td>
+          <td>杭州/上海方向经跨海大桥直达舟山。</td>
+          <td>杭州出发约3小时(过路费约100元)</td>
+          <td>普陀山/嵊泗岛内禁私家车，需停朱家尖停车场</td>
+        </tr>
+        <tr>
+          <td>🏝️ 岛内交通</td>
+          <td>普陀山观光巴士(环线)、旅游公交、出租车。</td>
+          <td>观光巴士单次5-10元</td>
+          <td>旺季码头打车难，建议用公交或提前约车</td>
+        </tr>
+      </table>
+      <p style="margin-top:15px;"><strong>⛵ 轮渡贴士：</strong>前往普陀山/嵊泗/东极的船票务必通过官方渠道“舟山新区交通”或“舟山海星轮船”微信公众号实名购买。遇大雾/台风天气可能停航，务必关注当日航班动态。</p>
+    </section>
+
+    <!-- 注意事项 -->
+    <section id="tips">
+      <h2>📝 行前必备 Tips</h2>
+      <ul>
+        <li><strong>🌦️ 天气与穿衣：</strong>夏季平均气温28-33℃，紫外线极强。必备高倍防晒霜、墨镜、遮阳帽。早晚海风凉，带一件轻薄防风外套。多备速干衣物与防水袋。</li>
+        <li><strong>👟 鞋履建议：</strong>普陀山多石板路与台阶，朱家尖沙滩需涉水。强烈建议穿防滑平底运动鞋+沙滩凉鞋/洞洞鞋，切忌穿高跟鞋或硬底皮鞋。</li>
+        <li><strong>🌊 安全警示：</strong>下海游泳务必在指定浴场(有救生员区域)，警惕暗流与离岸流。礁石区湿滑易摔，拍照时切勿背对大海。夏季是台风多发季，关注气象预警，必要时调整行程。</li>
+        <li><strong>🍽️ 饮食健康：</strong>海鲜属寒性且高蛋白，肠胃弱者建议搭配大蒜、姜茶或肠胃药。避免海鲜+冰啤酒+冷饮同食，防腹泻。点菜时先问价，保留消费凭证。</li>
+      </ul>
+    </section>
+
+    <!-- 预算参考 -->
+    <section id="budget">
+      <h2>💴 2天1夜 预算参考 (单人/适中标准)</h2>
+      <table>
+        <thead>
+          <tr><th>消费项目</th><th>明细说明</th><th>预估费用</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🚌 往返交通</td><td>宁波/杭州往返大巴+市区公交/打车</td><td>200 - 300 元</td></tr>
+          <tr><td>⛵ 轮渡船票</td><td>朱家尖-普陀山往返+普陀山巴士票</td><td>80 - 120 元</td></tr>
+          <tr><td>🎫 景点门票</td><td>普陀山大门票160 + 慧济寺索道70 + 南沙60</td><td>约 290 元</td></tr>
+          <tr><td>🛌 住宿1晚</td><td>舒适型酒店/民宿标间分摊</td><td>250 - 400 元</td></tr>
+          <tr><td>🍜 餐饮美食</td><td>3正餐+1早餐+小吃/海鲜夜排档</td><td>200 - 350 元</td></tr>
+          <tr style="font-weight:bold; background:#f0f8ff;"><td>📊 合计参考</td><td>不含往返大交通(高铁/机票)及个人购物</td><td>1,020 - 1,460 元</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:15px; font-size:0.9rem; color:#888;">*注：7-8月暑期为绝对旺季，房价可能上浮50%以上，船票需提前抢购，整体预算建议上浮20%作为缓冲。</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2024 舟山旅游实用攻略 | 数据基于夏季出行标准，价格与政策可能随季节变动，请以景区官方最新公示为准。</p>
+    <p>祝您在东海之滨，遇见最美的海风与佛光。🌊</p>
+  </footer>
+
+</body>
+</html>

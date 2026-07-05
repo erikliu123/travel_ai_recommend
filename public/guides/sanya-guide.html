@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三亚夏季4日游详细攻略 | 阳光·海浪·椰林</title>
+  <style>
+    :root {
+      --primary: #0077b6;
+      --primary-dark: #005f8f;
+      --primary-light: #caf0f8;
+      --accent: #ff9f1c;
+      --text-main: #2c3e50;
+      --text-light: #546e7a;
+      --bg-light: #f4f7f9;
+      --bg-white: #ffffff;
+      --shadow: 0 6px 16px rgba(0, 119, 182, 0.1);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; line-height: 1.7; color: var(--text-main); background-color: var(--bg-light); -webkit-font-smoothing: antialiased; }
+    a { color: var(--primary); text-decoration: none; transition: 0.2s; }
+    a:hover { color: var(--primary-dark); }
+    .container { max-width: 1080px; margin: 0 auto; padding: 24px; }
+    
+    /* Header */
+    header { 
+      background: linear-gradient(135deg, #0077b6 0%, #00b4d8 70%, #48cae4 100%); 
+      color: white; 
+      padding: 50px 20px; 
+      text-align: center; 
+      border-radius: 0 0 24px 24px; 
+      margin-bottom: 40px; 
+      position: relative; 
+      overflow: hidden; 
+      box-shadow: 0 8px 20px rgba(0,119,182,0.3);
+    }
+    header::before { 
+      content: ''; position: absolute; top: -40%; right: -10%; 
+      width: 350px; height: 350px; background: rgba(255,255,255,0.12); 
+      border-radius: 50%; 
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 12px; font-weight: 800; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    header .subtitle { font-size: 1.15rem; opacity: 0.95; margin-bottom: 18px; font-weight: 500; }
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px; }
+    .tag { 
+      background: rgba(255,255,255,0.25); 
+      padding: 6px 14px; 
+      border-radius: 20px; 
+      font-size: 0.9rem; 
+      border: 1px solid rgba(255,255,255,0.5); 
+      backdrop-filter: blur(6px);
+      font-weight: 600;
+    }
+
+    /* Sections & Layout */
+    main { display: flex; flex-direction: column; gap: 28px; }
+    section { background: var(--bg-white); border-radius: var(--radius); padding: 32px; margin: 0; box-shadow: var(--shadow); }
+    h2 { 
+      color: var(--primary); 
+      border-left: 5px solid var(--primary); 
+      padding-left: 14px; 
+      margin-bottom: 24px; 
+      font-size: 1.6rem; 
+      display: flex; align-items: center; gap: 8px;
+    }
+    h3 { color: var(--primary-dark); margin: 18px 0 12px; font-size: 1.25rem; }
+    p { margin-bottom: 12px; }
+    
+    /* Grid & Info */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
+    .info-item { background: var(--primary-light); padding: 16px; border-radius: 10px; transition: transform 0.2s; }
+    .info-item:hover { transform: translateY(-3px); }
+    .info-item strong { color: var(--primary); display: block; margin-bottom: 4px; font-size: 0.95rem; }
+    .info-item span { color: var(--text-main); font-size: 0.95rem; }
+
+    /* Timeline Itinerary */
+    .itinerary-day { border-bottom: 2px dashed #e0e6ed; padding: 24px 0; }
+    .itinerary-day:last-child { border-bottom: none; padding-bottom: 0; }
+    .day-header { background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 1.3rem; margin-bottom: 14px; }
+    .timeline { display: flex; flex-wrap: wrap; gap: 18px; }
+    .timeline-item { flex: 1; min-width: 280px; padding: 16px; background: linear-gradient(145deg, #f8fafc, #eef2f7); border-radius: 10px; border-left: 4px solid var(--accent); }
+    .timeline-time { font-weight: 800; color: var(--accent); display: block; margin-bottom: 6px; font-size: 0.95rem; }
+
+    /* Attractions */
+    .spot { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #edf2f7; }
+    .spot:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .spot-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
+    .spot-title { font-size: 1.2rem; font-weight: 700; color: #1e293b; }
+    .ticket { background: #fef3c7; color: #b45309; padding: 5px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; white-space: nowrap; }
+    .tips-box { background: #dbeafe; padding: 12px 16px; border-radius: 8px; margin-top: 12px; border-left: 4px solid var(--primary); font-size: 0.92rem; color: #1e3a8a; }
+
+    /* Food & Hotel Cards */
+    .list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card { border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; transition: transform 0.25s, box-shadow 0.25s; background: #fafafa; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--primary-light); }
+    .card h4 { color: var(--text-main); margin-bottom: 6px; font-size: 1.05rem; }
+    .card p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 8px; }
+    .price-level { font-size: 0.8rem; color: #64748b; background: #e2e8f0; padding: 4px 8px; border-radius: 6px; display: inline-block; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0; font-size: 0.95rem; overflow: hidden; border-radius: 10px; border: 1px solid #e2e8f0; }
+    th, td { padding: 12px 14px; text-align: left; }
+    th { background: #e0f2fe; color: var(--primary-dark); font-weight: 700; border-bottom: 2px solid #bae6fd; }
+    td { border-bottom: 1px solid #f1f5f9; background: #fff; }
+    tr:last-child td { border-bottom: none; }
+    
+    /* Lists */
+    .warning-list li, .tip-list li { margin-bottom: 10px; padding-left: 26px; position: relative; list-style: none; }
+    .warning-list li::before { content: '⚠️'; position: absolute; left: 0; top: 0; }
+    .tip-list li::before { content: '✅'; position: absolute; left: 0; top: 0; }
+
+    /* Footer */
+    footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.9rem; border-top: 1px solid #e2e8f0; margin-top: 40px; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container { padding: 12px; }
+      header h1 { font-size: 1.9rem; padding: 0; }
+      section { padding: 20px 16px; }
+      h2 { font-size: 1.35rem; }
+      .timeline { flex-direction: column; }
+      table { display: block; overflow-x: auto; }
+      .spot-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="padding:0; max-width: 900px;">
+      <h1>🌊 三亚夏日亲水度假全攻略</h1>
+      <div class="subtitle">中国版“热带天堂” | 4天3晚深度规划 | 错峰高性价比</div>
+      <div class="tags">
+        <span class="tag">🏖️ 海边度假</span>
+        <span class="tag">👨‍👩‍👧 亲子游</span>
+        <span class="tag">💆‍♀️ 温泉康养</span>
+        <span class="tag">💰 预算级别：较高</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 城市概述 -->
+    <section id="overview">
+      <h2>📍 城市概述</h2>
+      <p>三亚，位于海南岛最南端，是中国最具代表性的热带海滨城市。虽然传统认知中10月至次年4月为旺季，但<strong>夏季（5-9月）出行三亚优势显著</strong>：机票与五星酒店价格回落30%~50%，游客密度大幅降低，水上运动体验极佳，且正值热带水果盛产期。只需做好防晒与防暑，夏季三亚同样是国内顶级的度假胜地。</p>
+      <div class="info-grid">
+        <div class="info-item"><strong>📅 建议游玩</strong><span>4天3晚</span></div>
+        <div class="info-item"><strong>🌤️ 夏季气候</strong><span>26℃~33℃，多阵雨/雷雨，紫外线极强</span></div>
+        <div class="info-item"><strong>🏝️ 核心体验</strong><span>潜水冲浪、免税购物、海鲜大餐、酒店躺游</span></div>
+        <div class="info-item"><strong>📌 城市特质</strong><span>冬避寒首选 / 海滩品质天花板 / 水上项目天堂</span></div>
+      </div>
+    </section>
+
+    <!-- 行程安排 -->
+    <section id="itinerary">
+      <h2>📅 4天详细行程安排</h2>
+      <div class="itinerary-day">
+        <div class="day-header">DAY 1：抵达三亚 · 拥抱椰风海韵</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-time">🌅 上午</span>飞抵三亚凤凰机场，专车接机直达酒店。建议优先入住亚龙湾或海棠湾区域。办理入住后在客房阳台适应气候，避开正午高温。
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-time">☀️ 下午</span>漫步【亚龙湾】7公里银白沙滩。夏季午后水温极佳，可体验沙滩摩托、拖伞，或租把躺椅在椰林下享用冰镇鲜椰与下午茶。
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-time">🌃 晚上</span>前往“第一市场”或“火车头万人海鲜广场”。自选鲜活海产，找明码标价店加工。餐后逛夜市品尝清补凉、海南炒冰。
+          </div>
+        </div>
+      </div>
+      <div class="itinerary-day">
+        <div class="day-header">DAY 2：人文祈福 · 海阔天空的浪漫</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-time">🌅 上午</span>早8:00前往【南山文化旅游区】。朝拜108米海上观音，参观三十三观音堂，在园区园林中呼吸高浓度负氧离子，祈福静心。
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-time">☀️ 下午</span>驱车前往【天涯海角】。打卡标志性“天涯”“海角”巨石及新晋光影艺术区。建议走树荫步道，利用傍晚柔和光线拍摄人像。
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-time">🌃 晚上</span>漫步三亚湾“椰梦长廊”观赏日落。晚餐体验地道海南椰子鸡火锅，清甜椰汁配文昌鸡，清爽解暑不腻。
+          </div>
+        </div>
+      </div>
+      <div class="itinerary-day">
+        <div class="day-header">DAY 3：海岛狂欢 · 潜水冲浪全体验</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-time">🌅 上午</span>乘早班船赴【蜈支洲岛】（避开人流高峰）。夏季海水能见度达20米+，是深潜/浮潜黄金期。跟随专业教练探索珊瑚礁生态。
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-time">☀️ 下午</span>乘坐环岛电瓶车，打卡情人谷、观海亭、私人定制电影取景地。参与摩托艇、海钓、飞拉达等水上项目。15:30乘船返航。
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-time">🌃 晚上</span>入住海棠湾区域，前往<strong>三亚国际免税城</strong>血拼（离岛前至少提前6小时下单享折扣）。回酒店享受无边泳池夜景或高端SPA。
+          </div>
+        </div>
+      </div>
+      <div class="itinerary-day">
+        <div class="day-header">DAY 4：休闲返程 · 最后的夏日记忆</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-time">🌅 上午</span>酒店睡到自然醒，享用丰盛自助早餐。预约酒店亲子课程/晨间瑜伽/温泉泡汤，彻底放松身心。
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-time">☀️ 下午</span>前往“后海村”感受年轻化冲浪氛围，或前往水果批发市场采购芒果、莲雾、释迦等热带水果（支持冷链邮寄）。
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-time">🌃 晚上</span>根据航班时间安排送机。在凤凰机场免税提货，满载阳光与回忆返程。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 景点详解 -->
+    <section id="spots">
+      <h2>🗺️ 核心景点详细介绍</h2>
+      <div class="spot">
+        <div class="spot-header">
+          <span class="spot-title">1. 亚龙湾 “天下第一湾”</span>
+          <span class="ticket">门票：免费 / 水上项目另计</span>
+        </div>
+        <p><strong>推荐理由：</strong>拥有三亚沙质最细、水质最清的天然海滩。高端度假酒店群呈半弧形环绕，私密性极佳，配套设施完善，是家庭度假与情侣蜜月首选。</p>
+        <div class="tips-box">💡 游玩Tips：夏季沙滩表面温度可达60℃，务必穿溯溪鞋/沙滩鞋。亚龙湾公共区域免费开放，酒店住客可私享优质水域。建议携带浮潜面镜在浅滩探索。</div>
+      </div>
+      <div class="spot">
+        <div class="spot-header">
+          <span class="spot-title">2. 南山文化旅游区</span>
+          <span class="ticket">门票：约 ¥129（含电瓶车约 ¥149）</span>
+        </div>
+        <p><strong>推荐理由：</strong>世界级佛教文化生态园，108米高海上观音比自由女神像还高，三面观音法相慈悲庄严。园区内古建、素斋、热带园林完美融合，极具震撼力与治愈感。</p>
+        <div class="tips-box">💡 游玩Tips：园区极大（步行约3万步），强烈建议购买电瓶车。正殿前台阶较高，穿平底防滑鞋。可提前预约南山素斋（约¥68/位），清淡养生适合夏季。</div>
+      </div>
+      <div class="spot">
+        <div class="spot-header">
+          <span class="spot-title">3. 天涯海角</span>
+          <span class="ticket">门票：免费（需提前1-3天实名预约）</span>
+        </div>
+        <p><strong>推荐理由：</strong>三亚精神地标，以“天涯”“海角”“南天一柱”三组巨石闻名。象征爱情忠贞不渝，近年升级了婚纱旅拍基地、光影秀与休闲咖啡吧，可玩性大幅提升。</p>
+        <div class="tips-box">💡 游玩Tips：免费但必须通过官方小程序实名预约。游览动线建议：正门直下海岸线 → 天涯石 → 海角石 → 乘电瓶车返回出口。海风大、阳光烈，物理防晒（防晒衣+帽子）优于单纯涂霜。</div>
+      </div>
+      <div class="spot">
+        <div class="spot-header">
+          <span class="spot-title">4. 蜈支洲岛</span>
+          <span class="ticket">门票+船票：约 ¥144（项目套票 ¥590-1590）</span>
+        </div>
+        <p><strong>推荐理由：</strong>水质达国家一类标准，能见度极高，珊瑚礁生态系统完整。国内最成熟的综合性海岛娱乐目的地，从安静浮潜到刺激拖伞、飞鱼船，满足全年龄段需求。</p>
+        <div class="tips-box">💡 游玩Tips：易晕船者提前30分钟服用晕船药。岛上餐饮价格偏高，可自带少量零食与饮用水（限2瓶以内）。购买官方套票更划算，切勿相信非正规渠道“内部低价”。</div>
+      </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section id="food">
+      <h2>🥥 地道美食与餐厅推荐</h2>
+      <p style="margin-bottom:18px; color:var(--text-light);">三亚饮食以“鲜、甜、淡”为主。夏季推荐清热降火、开胃爽口的本地特色，避开重油重辣。</p>
+      <div class="list-grid">
+        <div class="card">
+          <h4>🐟 海鲜加工 / 第一市场</h4>
+          <p><strong>必点：</strong>蒜蓉蒸波士顿龙虾、清蒸东星斑、香辣和乐蟹、白灼海虾。</p>
+          <p><strong>推荐：</strong>阿浪海鲜连锁（多分店）、林姐香味海鲜</p>
+          <span class="price-level">人均：¥100-160 | 防坑：自带电子秤复核，加工费明码标价</span>
+        </div>
+        <div class="card">
+          <h4>🍲 椰子鸡火锅</h4>
+          <p><strong>必点：</strong>现砸老椰子做锅底、文昌走地鸡、竹荪、海南珍珠马蹄。</p>
+          <p><strong>推荐：</strong>萌哒哒椰子鸡、沿江海南菜（百年老店）</p>
+          <span class="price-level">人均：¥90-140 | 蘸料灵魂：青金桔+沙姜+酱油+小米椒</span>
+        </div>
+        <div class="card">
+          <h4>🥤 清补凉 & 炒冰</h4>
+          <p><strong>特色：</strong>椰奶冰沙底配通心粉、薏米、芋圆、西瓜，夏日解暑神器。</p>
+          <p><strong>推荐：</strong>郑阿婆清补凉（总店）、琼味苑炒冰</p>
+          <span class="price-level">人均：¥15-30 | 最佳时段：傍晚夜市或海边散步后</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 住宿推荐 -->
+    <section id="hotel">
+      <h2>🏨 住宿推荐（按预算分级）</h2>
+      <p style="margin-bottom:18px; color:var(--text-light);">湾区选择决定体验：三亚湾（近机场/性价比）、大东海（市中心/便利）、亚龙湾（沙滩最佳/高端）、海棠湾（新酒店/免税/风浪大）。</p>
+      <div class="list-grid">
+        <div class="card">
+          <h4>💼 经济高性价比（¥400-800/晚）</h4>
+          <p><strong>区域：</strong>三亚湾 / 大东海</p>
+          <p><strong>推荐：</strong>亚朵S酒店(三亚湾店)、康年酒店(部分房型)</p>
+          <p>交通餐饮极便利，部分高楼层可看海，适合预算控制型旅客。</p>
+        </div>
+        <div class="card">
+          <h4>🛋️ 舒适亲子品质（¥800-1600/晚）</h4>
+          <p><strong>区域：</strong>亚龙湾 / 海棠湾</p>
+          <p><strong>推荐：</strong>天域度假酒店、万豪/喜来登系列</p>
+          <p>私属沙滩、大型水乐园/儿童托管服务、多主题餐厅，暑期家庭游闭眼入。</p>
+        </div>
+        <div class="card">
+          <h4>👑 高端奢华躺游（¥1600-4000+/晚）</h4>
+          <p><strong>区域：</strong>亚龙湾一线海景 / 海棠湾北段</p>
+          <p><strong>推荐：</strong>亚特兰蒂斯（含水世界+水族馆）、柏悦、嘉佩乐</p>
+          <p>顶级设计硬件、24h管家服务、米其林餐饮、极致私密性，彻底释放压力。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 交通指南 -->
+    <section id="transport">
+      <h2>🚗 交通指南</h2>
+      <div style="margin-bottom: 20px;">
+        <h3>✈️ 抵达三亚</h3>
+        <ul style="padding-left: 20px; color: var(--text-light); line-height: 2;">
+          <li><strong>飞机（推荐）：</strong>直飞三亚凤凰国际机场（SYX）。北上广深等城市直飞约3.5小时，夏季常有3-5折特惠机票。</li>
+          <li><strong>高铁中转：</strong>三亚无直达内地高铁网络。可飞抵海口美兰机场（无缝换乘环岛高铁），约1.5小时抵达三亚站（二等座 ¥100），班次密集如公交。</li>
+        </ul>
+      </div>
+      <div>
+        <h3>🚌 市内出行</h3>
+        <ul style="padding-left: 20px; color: var(--text-light); line-height: 2;">
+          <li><strong>租车自驾：</strong>路况极佳，停车便利。夏季经济轿车约 ¥100-150/天，适合前往南山、天涯及各湾区间穿梭。</li>
+          <li><strong>网约车/出租车：</strong>滴滴/高德响应快，打表透明。景区间单程通常 ¥30-80。</li>
+          <li><strong>公交/旅游专线：</strong>24/25路串联核心景区，空调车票价 ¥2-5元，经济但耗时较长，适合慢游背包客。</li>
+          <li><strong>包车带司机：</strong>约 ¥400-600/天（8小时），含油费过路费，带老人/儿童/行李多家庭的首选。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section id="tips">
+      <h2>⚠️ 夏季出行注意事项</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <div>
+          <h3>🌤️ 天气与防护</h3>
+          <ul class="tip-list">
+            <li>夏季常有“东边日出西边雨”，阵雨来得快去得快，随身带折叠晴雨伞。</li>
+            <li>紫外线常年爆表，务必SPF50+ PA++++防水防晒霜（2小时补涂），搭配冰袖、墨镜、宽檐草帽。</li>
+            <li>穿着首选速干透气面料（亚麻/功能纤维），避免厚重纯棉吸水后贴身闷汗。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>🛡️ 安全与避坑</h3>
+          <ul class="warning-list">
+            <li>海鲜防坑：坚持“先询价、后下单、再加工”。拒绝路边拉客车，使用官方市场电子秤。</li>
+            <li>水上安全：潜水/摩托艇认准景区官方窗口及持证教练。雷雨、台风预警期间严禁下水。</li>
+            <li>防暑降温：避开11:30-15:00户外暴晒。备藿香正气水、口服补液盐，多饮温水。</li>
+            <li>台风预案：7-9月为活跃期，关注“三亚气象”公众号，航班易延误，建议购买旅行延误险。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 预算参考 -->
+    <section id="budget">
+      <h2>💰 4天3晚人均预算参考（夏季/较高档次）</h2>
+      <p style="color: var(--text-light); margin-bottom: 14px;">* 预算按双人同行分摊计算，含往返大交通。夏季属淡季，酒店与机票价格较冬季低30%-50%，品质体验性价比极高。</p>
+      <table>
+        <thead>
+          <tr><th>消费类别</th><th>明细说明</th><th>预估费用（元/人）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>✈️ 大交通</td><td>往返机票（夏季均价）+ 接送机</td><td>¥1800 - ¥2500</td></tr>
+          <tr><td>🏨 住宿</td><td>3晚中高端酒店（双人分摊，夏均价）</td><td>¥900 - ¥1600</td></tr>
+          <tr><td>🎫 门票与玩乐</td><td>南山+蜈支洲船票/水上套票+免税折扣</td><td>¥800 - ¥1500</td></tr>
+          <tr><td>🍽️ 餐饮美食</td><td>海鲜/椰子鸡/特色菜+小吃饮品</td><td>¥600 - ¥1000</td></tr>
+          <tr><td>🚗 市内交通</td><td>租车/包车分摊+日常打车</td><td>¥200 - ¥450</td></tr>
+          <tr style="background:#dbeafe; font-weight:bold;"><td>📊 合计</td><td>舒适至高端品质游（单人次）</td><td>¥4300 - ¥7050</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.9rem; color:#d9534f; margin-top:12px;">💡 省钱Tips：提前20天预订“机+酒”套餐立省千元；蜈支洲岛买“门票+基础水上”官方套票；免税城注册CDF会员享积分抵现+生日月多倍积分；部分高端酒店含早+下午茶套餐更划算。</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 专业旅游规划指南 | 数据仅供参考，实际以景区与商家实时公布为准</p>
+    <p style="margin-top:6px;">祝您在三亚拥有一段阳光、海浪与椰林相伴的完美夏日假期 🌴✨</p>
+  </footer>
+</body>
+</html>

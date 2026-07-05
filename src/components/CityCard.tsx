@@ -12,9 +12,18 @@ const budgetLabels = ['', '经济型', '中等消费', '高消费'];
 
 // 有 AI 攻略的城市列表
 const citiesWithGuide = new Set([
-  'yichun', 'taian', 'gannan', 'enshi', 'liupanshui', 'aershan',
-  'qingdao', 'dalian', 'weihai', 'hulunbeier', 'jiuzhaigou', 'lijiang',
-  'chengde', 'guiyang', 'xining', 'yili', 'zhangjiajie'
+  'aershan', 'amsterdam', 'anji', 'bangkok', 'bashang', 'beihai', 'beijing',
+  'changbaishan', 'chengde', 'chongqing', 'dali', 'dali_spring', 'dalian',
+  'daocheng', 'dunhuang', 'ejina', 'enshi', 'fenghuang', 'gannan', 'guangzhou',
+  'guilin', 'guiyang', 'harbin', 'hengdian', 'hokkaido', 'huangshan',
+  'hulunbeier', 'jeju', 'jiuzhaigou', 'kanas', 'kunming', 'kyoto', 'lasa',
+  'lijiang', 'linzhi', 'liupanshui', 'luoyang', 'lushan', 'maldives', 'moganshan',
+  'mohe', 'nanjing', 'nanxun', 'ningbo', 'paris', 'pingyao', 'putuoshan',
+  'qiandaohu', 'qingdao', 'quanzhou', 'queenstown', 'rome', 'santorini', 'sanya',
+  'shaoxing', 'shilin', 'singapore', 'suzhou', 'taian', 'tengchong', 'tonglu',
+  'tulufan', 'weihai', 'wusongdao', 'wuyuan', 'wuyue', 'wuzhen', 'xiamen',
+  'xian', 'xianggelila', 'xianju', 'xining', 'xishuangbanna', 'yandangshan',
+  'yangzhou', 'yichun', 'yili', 'zhangjiajie', 'zhangye', 'zhoushan', 'zhouzhuang', 'zigong'
 ]);
 
 export default function CityCard({ city, onClick, index, isVisited }: CityCardProps) {

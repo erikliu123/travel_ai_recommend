@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>济州岛3天夏季深度游攻略 | 专业旅行规划</title>
+    <style>
+        :root {
+            --primary: #0077b6;
+            --primary-light: #90e0ef;
+            --primary-dark: #023e8a;
+            --bg: #f4f8fb;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.65; }
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+        header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #ffffff; padding: 60px 0 40px; text-align: center; position: relative; overflow: hidden; }
+        header::after { content: ''; position: absolute; bottom: -40px; left: 0; right: 0; height: 60px; background: var(--bg); border-radius: 40px 40px 0 0; }
+        h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 10px; letter-spacing: 1px; }
+        .subtitle { font-size: 1.05rem; opacity: 0.9; max-width: 700px; margin: 0 auto 20px; }
+        .tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .tag { background: rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(4px); }
+        section { padding: 35px 0; }
+        .section-title { font-size: 1.75rem; font-weight: 700; border-left: 5px solid var(--primary); padding-left: 16px; margin-bottom: 25px; color: var(--primary-dark); }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .info-item { background: var(--card-bg); padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .info-label { font-size: 0.85rem; color: var(--text-light); display: block; margin-bottom: 4px; }
+        .info-value { font-size: 1.05rem; font-weight: 600; color: var(--text); }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .list-check, .list-cross { list-style: none; padding: 0; margin: 0; }
+        .list-check li::before { content: "✔"; color: var(--success); margin-right: 8px; font-weight: bold; }
+        .list-cross li::before { content: "✖"; color: var(--text-light); margin-right: 8px; }
+        .card { background: var(--card-bg); border-radius: 12px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border-top: 4px solid var(--primary-light); margin-bottom: 20px; }
+        .card h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .meta { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; font-size: 0.9rem; color: var(--text-light); }
+        .meta span { display: inline-flex; align-items: center; gap: 4px; }
+        .highlight { background: linear-gradient(transparent 60%, var(--primary-light) 40%); padding: 0 4px; }
+        .timeline { position: relative; padding-left: 30px; border-left: 3px dashed var(--primary-light); margin: 20px 0 30px; }
+        .day { margin-bottom: 25px; position: relative; padding-left: 20px; }
+        .day::before { content: attr(data-day); position: absolute; left: -38px; top: -2px; width: 34px; height: 34px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; border: 3px solid var(--bg); }
+        .slot { background: #fff; padding: 16px; border-radius: 10px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
+        .slot-header { display: flex; justify-content: space-between; margin-bottom: 6px; font-weight: 600; color: var(--primary); }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        th, td { padding: 14px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--primary); color: #fff; font-weight: 500; }
+        .price { font-weight: bold; color: var(--success); }
+        .tip-box { background: #eff6ff; border-left: 4px solid var(--primary); padding: 16px; margin-bottom: 15px; border-radius: 0 8px 8px 0; }
+        .tip-title { font-weight: 600; color: var(--primary-dark); margin-bottom: 6px; }
+        footer { background: #0f172a; color: #cbd5e1; text-align: center; padding: 30px 0; margin-top: 40px; font-size: 0.9rem; }
+        footer p { margin: 4px 0; }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.9rem; }
+            .section-title { font-size: 1.45rem; }
+            .pros-cons { grid-template-columns: 1fr; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .timeline { padding-left: 20px; }
+            .day::before { left: -30px; width: 28px; height: 28px; font-size: 0.75rem; }
+            .day { padding-left: 15px; }
+            th, td { padding: 10px 8px; font-size: 0.9rem; }
+        }
+        .btn-scroll { background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; margin: 5px; transition: background 0.2s; }
+        .btn-scroll:hover { background: var(--primary-dark); }
+        .nav-fixed { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🌊 济州岛夏季旅游攻略</h1>
+            <p class="subtitle">韩国的夏威夷，免签入境的海岛天堂。汉拿山的火山地貌、海岸悬崖的日出、柑橘园的芳香，是离中国最近的异国度假胜地。</p>
+            <div class="tags">
+                <span class="tag"># 海边度假</span>
+                <span class="tag"># 高性价比</span>
+                <span class="tag"># 亲子游</span>
+                <span class="tag">💰 预算级别：适中</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 城市概述 -->
+        <section id="overview">
+            <h2 class="section-title">📍 城市概览</h2>
+            <div class="info-grid">
+                <div class="info-item"><span class="info-label">建议游玩天数</span><span class="info-value">3天2晚 / 4天3晚</span></div>
+                <div class="info-item"><span class="info-label">最佳旅行月份</span><span class="info-value">4-6月 / 9-11月</span></div>
+                <div class="info-item"><span class="info-label">签证政策</span><span class="info-value">免签入境（持中国护照）</span></div>
+                <div class="info-item"><span class="info-label">飞行时长</span><span class="info-value">杭州直飞约 2 小时</span></div>
+            </div>
+            <div class="pros-cons">
+                <div>
+                    <h3 style="color:var(--success); margin-bottom:10px;">✅ 核心优势</h3>
+                    <ul class="list-check">
+                        <li>免签政策，说走就走的出国游</li>
+                        <li>距离江浙沪飞行时间短，交通便利</li>
+                        <li>消费水平适中，餐饮性价比高</li>
+                        <li>自然景观丰富，火山、海岸、牧场齐全</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color:var(--text-light); margin-bottom:10px;">⚠️ 注意事项</h3>
+                    <ul class="list-cross">
+                        <li>市内公共交通班次较少，跨岛不便</li>
+                        <li>7-8月雨季及台风季可能影响行程</li>
+                        <li>核心网红区（如涯月邑）旺季人流密集</li>
+                        <li>部分商业化区域餐饮溢价较高</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行程安排 -->
+        <section id="itinerary">
+            <h2 class="section-title">📅 3天经典行程规划</h2>
+            <div class="timeline">
+                <div class="day" data-day="D1">
+                    <div class="slot">
+                        <div class="slot-header"><span>☀️ 上午</span><span>抵达济州 + 酒店休整</span></div>
+                        <p>飞抵济州国际机场，办理入境（免签通道快速通关）。乘坐机场大巴/包车前往酒店办理入住。夏季建议将酒店选在<strong>西归浦市</strong>（安静亲海）或<strong>济州市区</strong>（交通便利、夜市繁华）。</p>
+                    </div>
+                    <div class="slot">
+                        <div class="slot-header"><span>🌤️ 下午</span><span>涯月邑海岸线漫步 + 探店</span></div>
+                        <p>前往网红地标<strong>涯月邑海岸道路</strong>。漫步白色悬崖栈道，打卡橘子海主题的咖啡馆（如Dumbell、Bomnal）。避开正午暴晒，选择树荫区或室内海景座享用柑橘气泡水。</p>
+                    </div>
+                    <div class="slot">
+                        <div class="slot-header"><span>🌙 晚上</span><span>东门市场 / 黑猪肉大餐</span></div>
+                        <p>前往济州市区，逛吃<strong>济州东门传统市场</strong>。晚餐必吃韩式黑猪肉烤肉（推荐：多乐别苑），感受烟火气。餐后沿海堤散步消食。</p>
+                    </div>
+                </div>
+                <div class="day" data-day="D2">
+                    <div class="slot">
+                        <div class="slot-header"><span>☀️ 上午</span><span>牛岛环岛骑行 + 踏浪</span></div>
+                        <p>在城山港乘渡轮登岛（航程约15分钟）。租赁电动自行车或双人自行车，沿顺时针环岛路线骑行。在<strong>西滨白沙</strong>（花生冰淇淋发源地）和<strong>黑沙滩</strong>停留拍照。海水清澈见底，适合夏季玩水。</p>
+                    </div>
+                    <div class="slot">
+                        <div class="slot-header"><span>🌤️ 下午</span><span>城山日出峰登高观海</span></div>
+                        <p>下岛后直奔<strong>城山日出峰</strong>（世界自然遗产）。夏季傍晚光线柔和，攀登至火山口边缘可俯瞰蔚蓝海岸线与辽阔草甸。山顶风大，备好防晒与薄外套。</p>
+                    </div>
+                    <div class="slot">
+                        <div class="slot-header"><span>🌙 晚上</span><span>偶来市场 + 海鲜粥</span></div>
+                        <p>返回西归浦市区，逛<strong>西归浦偶来市场</strong>。晚餐推荐当地人气鲍鱼粥或活章鱼锅。市场旁有众多平价海鲜排档，适合家庭共享。</p>
+                    </div>
+                </div>
+                <div class="day" data-day="D3">
+                    <div class="slot">
+                        <div class="slot-header"><span>☀️ 上午</span><span>汉拿山轻徒步（御里牧/观音寺路线）</span></div>
+                        <p>选择<span class="highlight">御里牧路线</span>（单程1.5小时）进行夏季轻徒步。沿途可穿越针叶林与高山草甸，感受火山地貌垂直植被带变化。夏季山顶气温约22℃，凉爽宜人。体力允许可至山顶白鹿潭远眺。</p>
+                    </div>
+                    <div class="slot">
+                        <div class="slot-header"><span>🌤️ 下午</span><span>柑橘体验园 + 免税购物</span></div>
+                        <p>下山后前往<strong>柑橘采摘体验园</strong>，亲子家庭可参与当季水果采摘。随后前往市区免税店或新罗/乐天购买伴手礼。整理行李前往机场。</p>
+                    </div>
+                    <div class="slot">
+                        <div class="slot-header"><span>🌙 晚上</span><span>返程</span></div>
+                        <p>搭乘晚班机直飞返程，结束充实的济州之旅。建议提前2小时抵达机场办理退税与托运。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 景点介绍 -->
+        <section id="attractions">
+            <h2 class="section-title">🏞️ 核心景点详解</h2>
+            <div class="grid-3">
+                <article class="card">
+                    <h3>汉拿山 <span style="font-size:0.9rem;color:var(--text-light)">韩国屋脊</span></h3>
+                    <div class="meta"><span>📍 济州市中部</span><span>⏱️ 3-5小时</span><span>🎫 免费预约</span></div>
+                    <p><strong>推荐理由：</strong>火山口白鹿潭是济州岛的灵魂。垂直分布的植被带堪称天然植物博物馆，夏季绿意盎然，是绝佳的避暑徒步地。</p>
+                    <div class="tip-box"><div class="tip-title">💡 游玩Tips</div>夏季需提前在“Hallasan National Park”官网实名预约入场。建议穿防滑徒步鞋，携带1.5L饮水。遇雷雨或台风天气，部分路线会临时关闭。</div>
+                </article>
+                <article class="card">
+                    <h3>城山日出峰 <span style="font-size:0.9rem;color:var(--text-light)">世界遗产</span></h3>
+                    <div class="meta"><span>📍 东端城山浦</span><span>⏱️ 1-2小时</span><span>🎫 5,000韩元</span></div>
+                    <p><strong>推荐理由：</strong>海底火山喷发形成的巨大凝灰岩丘，形如巨大的露天碗盘。登顶后可360°无死角欣赏蔚蓝大海与牧场风光。</p>
+                    <div class="tip-box"><div class="tip-title">💡 游玩Tips</div>台阶较陡，坡度大。夏季清晨（5:00-7:00）看日出最美但需早起。下午16:00后光线最佳，人流相对较少。峰顶风极大，务必带好帽子与防风外套。</div>
+                </article>
+                <article class="card">
+                    <h3>牛岛 <span style="font-size:0.9rem;color:var(--text-light)">果冻海骑行天堂</span></h3>
+                    <div class="meta"><span>📍 济州东海岸</span><span>⏱️ 4-5小时</span><span>🎫 船票11,500韩元</span></div>
+                    <p><strong>推荐理由：</strong>水质能见度极高，拥有白沙滩、黑沙滩与珊瑚礁。环岛骑行是体验离岛慢生活的最佳方式，沿途风光媲美冲绳。</p>
+                    <div class="tip-box"><div class="tip-title">💡 游玩Tips</div>电动自行车租赁约15,000韩元/2小时。夏季紫外线极强，必须涂抹防水防晒霜并备墨镜。岛内餐厅较少且贵，建议自备简餐与饮用水。</div>
+                </article>
+                <article class="card">
+                    <h3>涯月邑海岸 <span style="font-size:0.9rem;color:var(--text-light)">韩剧同款网红线</span></h3>
+                    <div class="meta"><span>📍 西海岸涯月邑</span><span>⏱️ 2-3小时</span><span>🎫 免费</span></div>
+                    <p><strong>推荐理由：</strong>悬崖、白沙滩、橘色咖啡馆与碧蓝海水交织。《欢迎回到三达里》等热门韩剧取景地，出片率极高。</p>
+                    <div class="tip-box"><div class="tip-title">💡 游玩Tips</div>周末下午极易堵车，建议工作日前往或选择公共交通。热门咖啡馆排队较长，可沿海岸线步行至人少段，风景同样震撼且无需排队。</div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 美食推荐 -->
+        <section id="food">
+            <h2 class="section-title">🍽️ 必吃美食与餐厅</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>🥩 韩式黑猪肉烤肉</h3>
+                    <p>济州岛特有品种“黑猪肉”，肉质紧实、油脂香而不腻。通常搭配生菜、大酱汤与新鲜蒜片食用。</p>
+                    <p><strong>📍 推荐：</strong>多乐别苑（屠夫之家）、济州市区东门店。人均 25,000~35,000韩元。</p>
+                </div>
+                <div class="card">
+                    <h3>🦑 辣炖带鱼 & 海鲜锅</h3>
+                    <p>带鱼肉质细嫩，以韩式辣酱、萝卜丝、大葱慢炖，鲜甜微辣。搭配济州产海鲜锅（含鲍鱼、虾、蛤蜊）是晚餐绝配。</p>
+                    <p><strong>📍 推荐：</strong>海女之家（海女直捕海鲜）、带鱼专门店。人均 20,000~30,000韩元。</p>
+                </div>
+                <div class="card">
+                    <h3>🍊 鲍鱼粥 & 柑橘甜品</h3>
+                    <p>早餐养胃首选，慢熬米粥融入新鲜鲍鱼。午后必打卡柑橘拿铁或橘子冰淇淋，清爽解暑。</p>
+                    <p><strong>📍 推荐：</strong>汉拿山鲍鱼粥（连锁老字号）、涯月邑海岸各网红甜品店。人均 8,000~15,000韩元。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 住宿推荐 -->
+        <section id="accommodation">
+            <h2 class="section-title">🏨 住宿推荐（按预算分级）</h2>
+            <table>
+                <thead>
+                    <tr><th>档次</th><th>推荐区域</th><th>特点</th><th>参考价格（晚）</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>💰 经济型</td><td>济州市区 / 西归浦市中心</td><td>交通便利，近公交站与市场，干净卫生，适合预算有限或背包客。</td><td class="price">¥300 - ¥500 /间</td></tr>
+                    <tr><td>💎 舒适型</td><td>涯月邑 / 挟才海水浴场周边</td><td>设计感民宿为主，步行至海边3-5分钟，带厨房/洗衣机，适合家庭/情侣。</td><td class="price">¥700 - ¥1,200 /间</td></tr>
+                    <tr><td>👑 高端型</td><td>中文观光区 / 新罗/香格里拉</td><td>五星度假村标准，私属沙滩、海景无边泳池、管家服务，亲子设施完善。</td><td class="price">¥1,800 - ¥3,000+ /间</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 交通指南 -->
+        <section id="transport">
+            <h2 class="section-title">🚌 交通完全指南</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>✈️ 抵达交通</h3>
+                    <p><strong>直飞航班：</strong>杭州/上海/北京等多地直飞济州国际机场（CJU），航程约2小时。持中国护照免签，填写入境卡即可通关。</p>
+                    <p><strong>机场至市区：</strong>机场大巴（约4,500韩元）直达西归浦或济州市区；出租车约20,000-30,000韩元。</p>
+                </div>
+                <div class="card">
+                    <h3>🚗 市内出行</h3>
+                    <p><strong>强烈建议：</strong>公交系统覆盖不全且班次少（尤其周末），<span class="highlight">租车自驾或包车</span>是最高效的选择。</p>
+                    <p><strong>自驾须知：</strong>中国驾照需提前办理韩国指定机构的翻译公证件（非简单翻译），配合护照原件即可合法租车。靠右行驶。</p>
+                </div>
+                <div class="card">
+                    <h3>🚌 公交替代</h3>
+                    <p>若不自驾，可购买<strong>T-money交通卡</strong>（便利店有售），覆盖环岛主干线。下载“Naver Map”或“KakaoMap”导航，公交APP查询准点率极高。牛岛需乘船（城山港出发，刷T-money或现场购票）。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 注意事项 -->
+        <section id="tips">
+            <h2 class="section-title">📌 行前注意事项</h2>
+            <div class="tip-box"><div class="tip-title">🌤️ 天气与穿着</div>夏季（6-8月）平均气温26℃-32℃，湿度大，偶有阵雨/台风。必备：高倍数防水防晒霜、速干衣物、便携雨具、薄外套（室内冷气与山顶防风）。涉水建议穿水母衣。</div>
+            <div class="tip-box"><div class="tip-title">🔌 电源与网络</div>韩国电压220V，插座为双圆孔（欧标）。国内两孔插头通常可用，三孔需转换插头。建议购买韩国本地流量SIM卡或开通国际漫游（济州机场有售KT/LG套餐）。</div>
+            <div class="tip-box"><div class="tip-title">💳 支付与小费</div>便利店/大型餐厅普遍支持Visa/Mastercard及支付宝/微信。但部分小吃摊、公交、民宿仅收现金（韩元/美元）。无需给小费。建议兑换30万-50万韩元现金备用。</div>
+            <div class="tip-box"><div class="tip-title">🚑 安全与健康</div>海水浴场夏季开放救生员值守，注意红色警戒旗。夏季易发肠胃不适，避免生冷海鲜过量。随身携带肠胃药与创可贴。紧急电话：119（急救），112（报警）。</div>
+        </section>
+
+        <!-- 预算参考 -->
+        <section id="budget">
+            <h2 class="section-title">💰 3天2晚预算估算（单人）</h2>
+            <p style="margin-bottom:15px; color:var(--text-light);">*以下为淡季/平季参考价，旺季（暑假、国庆）可能上浮20%-40%。</p>
+            <table>
+                <thead>
+                    <tr><th>项目</th><th>经济型玩法</th><th>舒适型玩法</th><th>高端型玩法</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>往返机票</td><td class="price">¥1,500 - ¥2,000</td><td class="price">¥1,800 - ¥2,500</td><td class="price">¥2,500 - ¥3,500</td></tr>
+                    <tr><td>住宿 (2晚)</td><td class="price">¥600 - ¥900</td><td class="price">¥1,200 - ¥1,800</td><td class="price">¥3,000 - ¥5,000+</td></tr>
+                    <tr><td>当地餐饮</td><td class="price">¥400 - ¥600</td><td class="price">¥600 - ¥900</td><td class="price">¥1,000 - ¥1,500</td></tr>
+                    <tr><td>交通 (含租车/公交)</td><td class="price">¥300 - ¥400</td><td class="price">¥500 - ¥700</td><td class="price">¥800 - ¥1,200</td></tr>
+                    <tr><td>门票/体验/杂项</td><td class="price">¥200 - ¥300</td><td class="price">¥300 - ¥400</td><td class="price">¥500 - ¥800</td></tr>
+                    <tr><td style="font-weight:bold;">总计参考</td><td style="font-weight:bold;color:var(--primary-dark);" class="price">约 ¥3,000 - ¥4,200</td><td style="font-weight:bold;color:var(--primary-dark);" class="price">约 ¥4,400 - ¥6,300</td><td style="font-weight:bold;color:var(--primary-dark);" class="price">约 ¥7,800 - ¥12,000+</td></tr>
+                </tbody>
+            </table>
+            <p style="margin-top:10px; font-size:0.9rem; color:var(--text-light);">注：机票价格随预订提前量波动较大，建议提前1-2个月关注航司大促；韩元汇率按 1000 KRW ≈ 5.2 CNY 计算。</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 济州岛旅行指南 | 资深旅游规划师为您定制</p>
+            <p>行程信息可能因季节、政策调整而变化，出行前请务必核实最新官方公告。</p>
+            <p style="opacity:0.7; font-size:0.8rem; margin-top:10px;">祝您旅途平安，满载而归。</p>
+        </div>
+    </footer>
+</body>
+</html>

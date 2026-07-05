@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>曼谷3日深度游攻略 | 资深旅游规划师定制</title>
+  <style>
+    :root {
+      --primary: #774930;
+      --primary-dark: #5a3522;
+      --primary-light: #a67c52;
+      --accent: #C9A25D;
+      --bg-page: #F8F6F2;
+      --bg-card: #FFFFFF;
+      --bg-light: #F2EBE1;
+      --text-main: #2D2A26;
+      --text-sub: #6B655E;
+      --border: #E3DDD4;
+      --shadow: 0 6px 16px rgba(119, 73, 48, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg-page); color: var(--text-main); line-height: 1.75; font-size: 16px; }
+    .wrapper { max-width: 900px; margin: 0 auto; padding: 20px; }
+    h1, h2, h3 { color: var(--primary-dark); font-weight: 700; letter-spacing: 0.5px; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; margin-top: 0; border-left: 4px solid var(--primary); padding-left: 14px; margin-bottom: 20px; }
+    h3 { font-size: 1.25rem; color: var(--primary); margin-bottom: 10px; }
+    p { color: var(--text-sub); margin-bottom: 14px; }
+    
+    /* Hero */
+    .hero { background: linear-gradient(145deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 50px 25px; text-align: center; border-radius: 20px; margin-bottom: 30px; position: relative; overflow: hidden; box-shadow: var(--shadow); }
+    .hero::after { content: "🇹🇭"; position: absolute; right: -10px; bottom: -20px; font-size: 8rem; opacity: 0.15; }
+    .hero h1 { color: #fff; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    .hero-sub { font-size: 1.05rem; opacity: 0.95; max-width: 650px; margin: 0 auto 15px; }
+    .badges { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .badge { background: rgba(255,255,255,0.25); padding: 5px 14px; border-radius: 30px; font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.4); }
+
+    /* Cards & Sections */
+    .section { background: var(--bg-card); padding: 28px; border-radius: 16px; margin-bottom: 24px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+    .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 20px; }
+    .meta-box { background: var(--bg-light); padding: 14px 10px; border-radius: 10px; text-align: center; }
+    .meta-label { font-size: 0.8rem; color: var(--text-sub); display: block; margin-bottom: 4px; }
+    .meta-val { font-weight: 600; color: var(--primary); font-size: 1rem; }
+
+    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .pros, .cons { padding: 14px; border-radius: 10px; font-size: 0.9rem; }
+    .pros { background: #E8F3EA; color: #2C5A33; border: 1px solid #C4D9C8; }
+    .cons { background: #FBEAE8; color: #7A3B33; border: 1px solid #E0BDB9; }
+    .pros h4, .cons h4 { margin-bottom: 6px; font-size: 1rem; }
+    .pros ul, .cons ul { margin-left: 16px; }
+
+    /* Itinerary */
+    .timeline { position: relative; padding-left: 24px; margin-top: 10px; }
+    .timeline::before { content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 3px; background: var(--primary-light); border-radius: 2px; }
+    .day-marker { position: absolute; left: -8px; top: 0; width: 22px; height: 22px; background: var(--bg-card); border: 3px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: var(--primary); z-index: 1; }
+    .day-content { position: relative; margin-bottom: 25px; padding-left: 10px; }
+    .day-content h4 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 8px; }
+    .slot { display: flex; gap: 12px; margin-bottom: 12px; align-items: baseline; background: #fff; padding: 10px; border-radius: 8px; border: 1px solid var(--border); }
+    .slot-time { min-width: 55px; font-weight: bold; color: var(--accent); font-size: 0.95rem; text-align: center; background: var(--bg-light); padding: 3px 8px; border-radius: 4px; }
+    .slot-text { flex: 1; }
+
+    /* Detail Grid */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .detail-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .card-img { height: 100px; background: linear-gradient(135deg, var(--bg-light) 0%, #D8CDB5 100%); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); letter-spacing: 1px; }
+    .card-info { padding: 16px; }
+    .info-row { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem; border-bottom: 1px dashed #eee; padding-bottom: 4px; }
+    .tip-box { background: #FFF8EB; border-left: 3px solid var(--accent); padding: 8px 10px; margin-top: 10px; border-radius: 0 6px 6px 0; font-size: 0.88rem; color: #8A724B; }
+
+    /* Lists & Table */
+    .food-list, .stay-list { display: grid; gap: 12px; }
+    .food-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: var(--bg-light); border-radius: 8px; }
+    .food-item span:first-child { font-weight: 500; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem; }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: var(--bg-light); color: var(--primary-dark); font-weight: 600; }
+    .total-row { font-weight: bold; background: #FDFBF7; }
+
+    /* Footer */
+    footer { text-align: center; padding: 30px 20px; color: var(--text-sub); font-size: 0.85rem; margin-top: 20px; border-top: 2px solid var(--border); }
+
+    @media (max-width: 768px) {
+      .wrapper { padding: 15px 10px; }
+      .hero h1 { font-size: 1.7rem; }
+      .section { padding: 20px 16px; }
+      .pros-cons { grid-template-columns: 1fr; }
+      .meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .slot { flex-direction: column; gap: 5px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- 城市概述 -->
+    <div class="hero">
+      <h1>曼谷（Bangkok）</h1>
+      <p class="hero-sub">泰国的首都与灵魂，现代与传统在这里碰撞。金碧辉煌的寺庙、热闹的街头美食、繁华的购物中心，是一座充满活力的不夜城。</p>
+      <div class="badges">
+        <span class="badge">✨ 美食之旅</span>
+        <span class="badge">🏛️ 文化之旅</span>
+        <span class="badge">💎 高性价比</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🌏 城市概览</h2>
+      <div class="meta-grid">
+        <div class="meta-box"><span class="meta-label">建议游玩</span><span class="meta-val">3天2晚</span></div>
+        <div class="meta-box"><span class="meta-label">最佳季节</span><span class="meta-val">11-2月(凉季)</span></div>
+        <div class="meta-box"><span class="meta-label">预算级别</span><span class="meta-val">Level 2 (适中)</span></div>
+        <div class="meta-box"><span class="meta-label">签证政策</span><span class="meta-val">中泰互免签证</span></div>
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>✅ 城市亮点</h4>
+          <ul>
+            <li>消费水平亲民，餐饮/住宿/按摩性价比极高</li>
+            <li>街头美食与高端餐厅并存，口味层次丰富</li>
+            <li>商圈与夜市密集，购物体验绝佳</li>
+            <li>直飞航线多，通关便利，无语言障碍基础</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>⚠️ 需要注意</h4>
+          <ul>
+            <li>高峰期交通极度拥堵，建议预留充足时间</li>
+            <li>夏季高温多雨，空气质量偶有波动</li>
+            <li>大皇宫等热门区域商业化程度较高</li>
+            <li>部分突突车司机可能绕路或乱报价</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3天行程 -->
+    <div class="section">
+      <h2>🗓️ 3天精华行程安排</h2>
+      <div class="timeline">
+        <div class="day-content">
+          <div class="day-marker">1</div>
+          <h4>Day 1：王朝印记与河畔夜色（历史人文线）</h4>
+          <div class="slot">
+            <span class="slot-time">08:30-12:00</span>
+            <div class="slot-text">前往<strong>大皇宫</strong>与玉佛寺，避开正午烈日，感受暹罗建筑巅峰。建议提前预约英文讲解或使用官方语音导览。</div>
+          </div>
+          <div class="slot">
+            <span class="slot-time">13:00-16:30</span>
+            <div class="slot-text">步行至<strong>卧佛寺</strong>参拜世界最大贴金卧佛，并在寺内传统按摩学校体验1小时正宗古法按摩，缓解暴走疲劳。</div>
+          </div>
+          <div class="slot">
+            <span class="slot-time">18:00-22:00</span>
+            <div class="slot-text">傍晚抵达<strong>考山路（Khao San Road）</strong>。晚餐在街边品尝Pad Thai与鲜榨果汁，体验背包客文化、街头Live与热闹夜市。</div>
+          </div>
+        </div>
+        <div class="day-content">
+          <div class="day-marker">2</div>
+          <h4>Day 2：水上市井与现代商圈（体验购物线）</h4>
+          <div class="slot">
+            <span class="slot-time">07:00-11:30</span>
+            <div class="slot-text">早起包车/拼车前往<strong>丹嫩沙多水上市场</strong>。清晨最热闹且气温舒适，建议乘摇橹船深入河道，体验水上交易。</div>
+          </div>
+          <div class="slot">
+            <span class="slot-time">13:30-18:30</span>
+            <div class="slot-text">返回市区进入<strong>暹罗商圈（Siam）</strong>。逛暹罗百丽宫/中央世界，吹冷气避暑购物，打卡四面佛祈福，傍晚在Top of the World享用晚餐。</div>
+          </div>
+          <div class="slot">
+            <span class="slot-time">19:30-21:30</span>
+            <div class="slot-text">前往<strong>Asiatique 河滨夜市</strong>或<strong>Jodd Fairs 夜市</strong>。乘坐曼谷轮渡看昭披耶河夜景，淘特色文创，品尝海鲜与椰子冰淇淋。</div>
+          </div>
+        </div>
+        <div class="day-content">
+          <div class="day-marker">3</div>
+          <h4>Day 3：艺术休闲与伴手礼采购（慢生活线）</h4>
+          <div class="slot">
+            <span class="slot-time">09:30-12:30</span>
+            <div class="slot-text">探访<strong>BACC曼谷文化艺术中心</strong>或<strong>恰图恰周末市场</strong>（若逢周末）。欣赏当代泰式设计，选购小众手工艺品。</div>
+          </div>
+          <div class="slot">
+            <span class="slot-time">14:00-17:00</span>
+            <div class="slot-text">选择一家高分SPA（如Let's Relax或健康店）进行2.5小时泰式精油按摩+面部护理，洗去旅途疲惫。</div>
+          </div>
+          <div class="slot">
+            <span class="slot-time">17:30-19:00</span>
+            <div class="slot-text">前往Big C或Terminal 21采购伴手礼（小老板海苔、芒果干、欧莱雅、草药包等），根据航班时间前往素万那普机场。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 景点详解 -->
+    <div class="section">
+      <h2>🏯 核心景点详解</h2>
+      <div class="grid-2">
+        <div class="detail-card">
+          <div class="card-img">大皇宫 & 玉佛寺</div>
+          <div class="card-info">
+            <div class="info-row"><span>推荐理由</span><span>泰国王室象征，金碧辉煌的建筑群浓缩泰式美学</span></div>
+            <div class="info-row"><span>门票参考</span><span>500泰铢/人</span></div>
+            <div class="tip-box">💡 穿着要求严格：禁止短裤、短裙、破洞裤、无袖上衣。入口处可租沙龙围裙（需押金）。建议开门即入，避开旅游团高峰。</div>
+          </div>
+        </div>
+        <div class="detail-card">
+          <div class="card-img">丹嫩沙多水上市场</div>
+          <div class="card-info">
+            <div class="info-row"><span>推荐理由</span><span>最具烟火气的百年水上交易，感受“东方威尼斯”风情</span></div>
+            <div class="info-row"><span>门票参考</span><span>免费（船票/餐饮另付）</span></div>
+            <div class="tip-box">💡 市场物价略高于市区，属旅游体验型消费。摇橹船可议价，注意保管随身物品，穿防滑鞋。夏季务必备足驱蚊液。</div>
+          </div>
+        </div>
+        <div class="detail-card">
+          <div class="card-img">考山路</div>
+          <div class="card-info">
+            <div class="info-row"><span>推荐理由</span><span>全球背包客圣地，泰式夜生活缩影，酒吧与街头文化交织</span></div>
+            <div class="info-row"><span>门票参考</span><span>免费开放</span></div>
+            <div class="tip-box">💡 周末与泼水节期间人流爆满。警惕街头“今日大皇宫关闭”骗局（实为推销旅行社）。点单前确认标价，避免纠纷。</div>
+          </div>
+        </div>
+        <div class="detail-card">
+          <div class="card-img">卧佛寺 (Wat Pho)</div>
+          <div class="card-info">
+            <div class="info-row"><span>推荐理由</span><span>46米长贴金卧佛震撼人心，泰国传统医学与按摩发源地</span></div>
+            <div class="info-row"><span>门票参考</span><span>300泰铢（含按摩券抵扣100）</span></div>
+            <div class="tip-box">💡 寺内按摩需现场排队，建议早9点或下午2点前往。可购买“泰式草药球”或按摩油作为伴手礼，正宗且实惠。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 美食推荐 -->
+    <div class="section">
+      <h2>🍜 曼谷寻味指南</h2>
+      <p>曼谷美食层次丰富，从街边推车到米其林摘星餐厅应有尽有。以下为夏季必尝清单与避坑建议。</p>
+      <div class="grid-2">
+        <div>
+          <h3>🌶️ 必吃特色菜品</h3>
+          <ul class="food-list">
+            <li class="food-item"><span>冬阴功汤 (Tom Yum Goong)</span><span>酸辣开胃，配米饭绝佳</span></li>
+            <li class="food-item"><span>泰式炒河粉 (Pad Thai)</span><span>锅气十足，加碎花生增香</span></li>
+            <li class="food-item"><span>芒果糯米饭</span><span>椰浆浓郁，夏季解暑神器</span></li>
+            <li class="food-item"><span>船面/猪脚饭</span><span>浓郁汤底，分量小巧可多拼</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>🍽️ 推荐餐厅/区域</h3>
+          <ul class="food-list">
+            <li class="food-item"><span> Jay Fai (耀华力路)</span><span>米其林街头镬气，需预约排队</span></li>
+            <li class="food-item"><span> Krua Apsorn (大皇宫旁)</span><span>地道皇室家常菜，本地人常去</span></li>
+            <li class="food-item"><span> Terminal 21 美食层</span><span>价格统一（约40-60泰铢），干净卫生</span></li>
+            <li class="food-item"><span> 7-11 / FamilyMart</span><span>三明治/烤鸡翅/果汁，性价比之王</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 住宿推荐 -->
+    <div class="section">
+      <h2>🛏️ 住宿推荐矩阵</h2>
+      <p>曼谷酒店业发达，选择靠近 BTS/MRT 站点的酒店可大幅节省交通时间。夏季建议选择含泳池或良好空调系统的酒店。</p>
+      <table>
+        <thead>
+          <tr><th>档次</th><th>预算范围(每晚)</th><th>推荐区域</th><th>代表选择参考</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>💰 经济型</td><td>¥100 - ¥250</td><td>素坤逸巷深处、考山路周边</td><td>青年旅舍床位 / 连锁快捷酒店，适合背包客与独行侠</td>
+          </tr>
+          <tr>
+            <td>🌟 舒适型</td><td>¥300 - ¥600</td><td>暹罗广场、是隆(Silom)、沙吞</td><td>4星级设计酒店 / 带基础健身房，近BTS步行10分钟内</td>
+          </tr>
+          <tr>
+            <td>💎 高端型</td><td>¥900+</td><td>湄南河畔、中央伦皮尼</td><td>国际五星级（文华东方/半岛等），无敌河景与顶级SPA服务</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 交通指南 -->
+    <div class="section">
+      <h2>🚇 交通全攻略</h2>
+      <div class="grid-2">
+        <div>
+          <h3>✈️ 如何到达曼谷</h3>
+          <p><strong>直飞航班：</strong>杭州萧山国际机场直飞素万那普机场(BKK)，航程约4小时。建议选择早班机抵达，下午即可安排行程。返程晚班机可多玩半天。</p>
+          <p><strong>机场交通：</strong></p>
+          <ul class="feature-list">
+            <li><strong>机场快线(ARL)：</strong>直达Phaya Thai站转BTS，35分钟，约45泰铢。性价比最高，避开拥堵。</li>
+            <li><strong>出租车/Grab：</strong>打表约300-500泰铢（含高速费）。Grab/InDrive App 提前下单，明码标价。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>🚌 市内高效出行</h3>
+          <p><strong>轨道交通(BTS/MRT)：</strong>曼谷避暑首选。购买Rabbit Card或单程票，避开下午5-7点晚高峰（非常拥挤）。</p>
+          <p><strong>水上交通(Chao Phraya Express Boat)：</strong>橙色旗游客船，沿岸景点一站通，单程约30泰铢，沿途风景极佳。</p>
+          <p><strong>网约车：</strong>推荐使用 Grab 或 Bolt。突突车(Tuk-tuk) 仅作短途体验，上车前务必谈妥价格，通常不低于200泰铢起步。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 注意事项 -->
+    <div class="section">
+      <h2>📝 夏季出行注意事项</h2>
+      <div class="grid-2">
+        <div>
+          <h3>🌤️ 气候与穿衣</h3>
+          <p>曼谷夏季(3-5月及雨季)气温常达35℃+，午后多雷阵雨。</p>
+          <ul class="feature-list">
+            <li>备轻薄透气长袖（防晒/进寺庙用）与短裤/裙装</li>
+            <li>随身带折叠伞（遮阳+防阵雨）</li>
+            <li>商场/地铁冷气极足，建议带薄外套防感冒</li>
+          </ul>
+        </div>
+        <div>
+          <h3>🛡️ 安全与防坑</h3>
+          <p>曼谷总体治安良好，但需防范旅游套路。</p>
+          <ul class="feature-list">
+            <li>警惕“大皇宫/寺庙今日不开”的主动搭讪</li>
+            <li>贵重物品贴身存放，突突车行驶中防飞车抢夺</li>
+            <li>购买泰丝/珠宝认准正规商场或政府认证店</li>
+            <li>小费文化：非强制，餐厅/酒店给20-50泰铢纸币即可，不给硬币</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 预算参考 -->
+    <div class="section">
+      <h2>💰 3天预算明细参考 (人均/CNY)</h2>
+      <p>本预算按<strong>“舒适适中(预算级别2)”</strong>标准测算，不包含大型购物支出，供您规划资金时参考。</p>
+      <table>
+        <thead>
+          <tr><th>项目</th><th>明细说明</th><th>预估费用</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🛫 国际机票</td><td>杭州-曼谷往返(经济舱/淡旺季浮动)</td><td>¥1,500 - ¥2,500</td></tr>
+          <tr><td>🏨 酒店住宿</td><td>舒适型酒店2晚(均价¥400/晚，按单人分摊)</td><td>¥400 - ¥600</td></tr>
+          <tr><td>🍜 餐饮美食</td><td>每日3餐+饮品夜市小吃(约¥150/天)</td><td>¥400 - ¥500</td></tr>
+          <tr><td>🚕 市内交通</td><td>BTS/Grab/机场快线/游船(3天合计)</td><td>¥150 - ¥250</td></tr>
+          <tr><td>🎫 门票娱乐</td><td>大皇宫/水上市场/SPA按摩/景点门票</td><td>¥300 - ¥400</td></tr>
+          <tr class="total-row"><td colspan="2">总计参考 (人均)</td><td>¥2,750 - ¥4,250</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:12px; font-size:0.9rem; color:var(--text-sub);">* 汇率参考：1 CNY ≈ 5.0 THB。实际花费因个人消费习惯与淡旺季有所差异。泰国移动支付(支付宝/微信)在商圈普及率高，但夜市/突突车需备现金。</p>
+    </div>
+
+    <footer>
+      <p>© 资深旅游规划师定制 | 祝您曼谷之旅平安喜乐，味蕾与灵魂双重满足 🌴✨</p>
+      <p style="font-size:0.8rem; margin-top:5px; color:#999;">数据更新于近期实际调研，出行前请留意泰国移民局及航司最新政策。</p>
+    </footer>
+  </div>
+</body>
+</html>

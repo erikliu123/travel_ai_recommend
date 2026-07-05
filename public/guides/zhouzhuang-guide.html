@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>周庄夏季深度游攻略｜中国第一水乡</title>
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --primary-dark: #1b4332;
+      --primary-light: #52b788;
+      --bg-tint: #d8f3dc;
+      --bg-page: #f5f7f6;
+      --text-main: #2c3e50;
+      --text-light: #6c757d;
+      --white: #ffffff;
+      --shadow: 0 6px 15px rgba(45, 106, 79, 0.12);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.7; color: var(--text-main); background: var(--bg-page); padding-bottom: 40px; }
+    .container { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+    /* 顶部 Banner */
+    .hero { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); color: var(--white); padding: 50px 20px 40px; text-align: center; border-radius: 0 0 20px 20px; margin-bottom: 30px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%); pointer-events: none; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 12px; letter-spacing: 3px; font-weight: 700; }
+    .hero p { font-size: 1.05rem; max-width: 650px; margin: 0 auto 20px; opacity: 0.95; }
+    .tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .tag { background: rgba(255,255,255,0.2); color: var(--white); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3); }
+
+    /* 通用卡片样式 */
+    .section { background: var(--white); border-radius: var(--radius); padding: 28px; margin-bottom: 25px; box-shadow: var(--shadow); }
+    .section-title { font-size: 1.4rem; color: var(--primary); border-bottom: 2px solid var(--bg-tint); padding-bottom: 12px; margin-bottom: 22px; display: flex; align-items: center; gap: 12px; font-weight: 600; }
+    .section-title::before { content: ''; display: inline-block; width: 5px; height: 24px; background: var(--primary); border-radius: 3px; }
+
+    /* 城市信息网格 */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; }
+    .info-item { background: linear-gradient(to bottom right, #f9fcfb, var(--bg-tint)); padding: 18px; border-radius: 10px; text-align: center; }
+    .info-item .label { font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; margin-bottom: 6px; }
+    .info-item .val { font-size: 1.15rem; font-weight: bold; color: var(--primary-dark); }
+
+    /* 行程时间轴 */
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 10px; width: 2px; background: var(--bg-tint); }
+    .time-item { position: relative; margin-bottom: 28px; padding-left: 15px; }
+    .time-item::before { content: ''; position: absolute; left: -30px; top: 8px; width: 12px; height: 12px; background: var(--primary-light); border: 3px solid var(--white); border-radius: 50%; box-shadow: 0 2px 6px rgba(45,106,79,0.3); }
+    .time-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .time-period { font-size: 1.25rem; color: var(--primary-dark); font-weight: 700; }
+    .time-range { font-size: 0.9rem; color: var(--text-light); background: var(--bg-tint); padding: 3px 10px; border-radius: 15px; }
+    .time-content { background: #fdfefe; border: 1px dashed #d0e0db; padding: 15px; border-radius: 8px; }
+    .time-content p { margin-bottom: 8px; }
+    .time-content ul { padding-left: 20px; color: var(--text-light); font-size: 0.95rem; }
+
+    /* 景点卡片 */
+    .spots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .spot-card { border: 1px solid #eef4f0; border-radius: 10px; padding: 18px; transition: transform 0.2s ease, box-shadow 0.2s ease; background: #fff; }
+    .spot-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(45,106,79,0.15); }
+    .spot-title { font-size: 1.15rem; color: var(--primary); font-weight: 600; margin-bottom: 10px; border-left: 4px solid var(--primary-light); padding-left: 12px; }
+    .spot-desc { font-size: 0.92rem; color: #555; margin-bottom: 12px; line-height: 1.6; }
+    .spot-meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 0.82rem; }
+    .meta-badge { background: var(--bg-tint); color: var(--primary); padding: 4px 10px; border-radius: 6px; font-weight: 500; }
+    .spot-tip { margin-top: 12px; background: #f4f9f6; border-radius: 6px; padding: 10px; font-size: 0.85rem; color: var(--primary-dark); display: flex; align-items: flex-start; gap: 8px; }
+
+    /* 美食/住宿/交通列表 */
+    .list-group { list-style: none; }
+    .list-group li { padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: flex; flex-direction: column; }
+    .list-group li:last-child { border-bottom: none; }
+    .item-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .item-name { font-weight: 600; color: var(--text-main); }
+    .item-tag { background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 500; }
+    .item-desc { color: var(--text-light); font-size: 0.92rem; margin-top: 6px; }
+    
+    /* 预算表格 */
+    .budget-table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border-radius: 8px; margin-top: 15px; border: 1px solid #e0e8e4; }
+    .budget-table th, .budget-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #e9ecef; }
+    .budget-table th { background: var(--primary); color: #fff; font-weight: 500; font-size: 0.95rem; }
+    .budget-table tr:last-child td { border-bottom: none; }
+    .budget-table .total { background: var(--bg-tint); font-weight: bold; color: var(--primary-dark); }
+    .budget-table td:last-child { text-align: right; font-weight: 600; color: var(--text-main); }
+
+    /* 注意事项 */
+    .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; }
+    .tip-box { background: #fff9e6; border-left: 4px solid #ffc107; padding: 15px; border-radius: 0 8px 8px 0; }
+    .tip-box h4 { color: #856404; margin-bottom: 6px; font-size: 0.95rem; }
+    .tip-box p { color: #555; font-size: 0.88rem; }
+
+    /* 响应式适配 */
+    @media (max-width: 600px) {
+      .hero { padding: 35px 15px; border-radius: 0 0 15px 15px; }
+      .hero h1 { font-size: 1.65rem; letter-spacing: 1px; }
+      .section { padding: 20px; border-radius: 8px; }
+      .spots-grid { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: repeat(2, 1fr); }
+      .budget-table { font-size: 0.88rem; }
+      .budget-table th, .budget-table td { padding: 10px 8px; }
+    }
+    footer { text-align: center; color: var(--text-light); font-size: 0.85rem; padding: 20px 0 10px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- 顶部 Banner -->
+  <header class="hero">
+    <h1>周庄夏季旅游全攻略</h1>
+    <p>中国第一水乡，夏日绿荫掩映古桥，摇橹船穿过斑驳粉墙。避开酷暑喧嚣，沉浸于江南的清凉诗意与水乡慢生活。</p>
+    <div class="tags">
+      <span class="tag">🌿 江南水乡</span>
+      <span class="tag">🏘️ 古村镇</span>
+      <span class="tag">📷 摄影出片</span>
+    </div>
+  </header>
+
+  <!-- 城市概述 -->
+  <section class="section">
+    <h2 class="section-title">📍 城市概述</h2>
+    <p style="margin-bottom:18px; color:#555;">周庄始建于北宋元祐元年，因江南富商沈万三在此定居而声名鹊起。河道纵横交错，古桥保存完好。夏季的周庄褪去部分喧嚣，荷塘新绿，临河茶座微风拂面，夜游灯光与水影交织，是体验“小桥流水人家”的绝佳时机。注：春节/春季为传统旺季，夏季游客相对分散，更适合深度漫游。</p>
+    <div class="info-grid">
+      <div class="info-item"><div class="label">建议游玩</div><div class="val">1天</div></div>
+      <div class="info-item"><div class="label">最佳月份</div><div class="val">3-5月 / 9-10月<br><span style="font-size:0.8rem;font-weight:normal;color:#6c757d">(夏季宜早晚出行)</span></div></div>
+      <div class="info-item"><div class="label">预算级别</div><div class="val">2 (适中)</div></div>
+      <div class="info-item"><div class="label">核心体验</div><div class="val">摇橹船 / 古建 / 水乡夜游</div></div>
+    </div>
+  </section>
+
+  <!-- 行程安排 -->
+  <section class="section">
+    <h2 class="section-title">⏱️ 1天详细行程安排</h2>
+    <div class="timeline">
+      <div class="time-item">
+        <div class="time-header">
+          <span class="time-period">☀️ 上午</span>
+          <span class="time-range">08:30 - 11:30</span>
+        </div>
+        <div class="time-content">
+          <p><strong>晨入水乡·避开人流拍大片</strong></p>
+          <ul>
+            <li><strong>08:30</strong> 抵达周庄古镇入口，验票入园。清晨古镇游客稀少，光线柔和，最适合摄影。</li>
+            <li><strong>09:00-10:30</strong> 漫步至【双桥】。打卡陈逸飞名画《故乡的回忆》原型地，世德桥与永安桥呈直角交错，倒影绝美。</li>
+            <li><strong>10:30-11:30</strong> 参观【沈厅】。七进五门楼格局宏伟，重点欣赏砖雕门楼与江南富商宅邸的生活痕迹。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-item">
+        <div class="time-header">
+          <span class="time-period">🌿 下午</span>
+          <span class="time-range">13:00 - 16:30</span>
+        </div>
+        <div class="time-content">
+          <p><strong>宅院探秘·寻味万三传奇</strong></p>
+          <ul>
+            <li><strong>13:00-14:30</strong> 移步【张厅】。体验“轿从门前进，船自家中过”的独特水陆并行格局，感受官宅规制。</li>
+            <li><strong>14:30-15:30</strong> 游览【沈万三故居】。了解江南第一首富的传奇发家史，参观聚宝盆、沈万三水底墓等传说景观。</li>
+            <li><strong>15:30-16:30</strong> 沿后港街慢行，避开烈日。在临河茶馆或沈厅酒家享用午餐，品尝地道苏帮菜，稍作休息。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-item">
+        <div class="time-header">
+          <span class="time-period">🌙 晚上</span>
+          <span class="time-range">18:00 - 21:00</span>
+        </div>
+        <div class="time-content">
+          <p><strong>夜游周庄·灯火桨声入梦来</strong></p>
+          <ul>
+            <li><strong>18:00-19:30</strong> 购买夜游票（若白天未入园）。沿富安桥至古戏台漫步，两岸红灯笼次第亮起，古桥倒影如画。</li>
+            <li><strong>19:30-20:30</strong> 乘【摇橹船】。船娘吴语小调婉转，水面凉风习习，是夏季最舒适的游览方式。沿途经过全福讲寺、南湖秋月等。</li>
+            <li><strong>20:30-21:00</strong> 返回古镇主街购买伴手礼（万三蹄、芡实糕），准备返程。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详情 -->
+  <section class="section">
+    <h2 class="section-title">🏛️ 核心景点深度解析</h2>
+    <div class="spots-grid">
+      <div class="spot-card">
+        <h3 class="spot-title">1. 双桥 (世德桥 + 永安桥)</h3>
+        <p class="spot-desc">周庄的绝对地标。两桥呈L型跨于南北市河与银子浜上。夏季水面浮萍与荷叶点缀，倒影层次更丰富，是出片率最高的点位。</p>
+        <div class="spot-meta">
+          <span class="meta-badge">门票：含在古镇联票内</span>
+          <span class="meta-badge">游玩：30分钟</span>
+        </div>
+        <div class="spot-tip">💡 Tips：建议清晨8:00前或傍晚19:00后前往，避开人流高峰，轻松拍出“无人大片”。桥面较窄，注意礼让。</div>
+      </div>
+
+      <div class="spot-card">
+        <h3 class="spot-title">2. 沈厅</h3>
+        <p class="spot-desc">江南民居建筑典范，由沈万三后裔沈本仁于清乾隆七年建成。七进五门楼纵深极长，保留完整的“砖雕门楼”与“聚宝盆”陈列。</p>
+        <div class="spot-meta">
+          <span class="meta-badge">门票：含联票</span>
+          <span class="meta-badge">游玩：40分钟</span>
+        </div>
+        <div class="spot-tip">💡 Tips：重点看第三进大厅的“积善人家”匾额。夏季厅内穿堂风凉爽，注意保持安静，尊重历史建筑。</div>
+      </div>
+
+      <div class="spot-card">
+        <h3 class="spot-title">3. 张厅</h3>
+        <p class="spot-desc">明代中山王徐达后裔所建清代官宅。最大看点是“轿从门前进，船自家中过”的私家河埠与石驳岸，生动还原水乡生活图景。</p>
+        <div class="spot-meta">
+          <span class="meta-badge">门票：含联票</span>
+          <span class="meta-badge">游玩：35分钟</span>
+        </div>
+        <div class="spot-tip">💡 Tips：关注后院“怡顺楼”窗棂木雕。此处人流量相对较少，适合慢看细品建筑布局。</div>
+      </div>
+
+      <div class="spot-card">
+        <h3 class="spot-title">4. 沈万三故居</h3>
+        <p class="spot-desc">依托民间传说与历史文献重建，通过实景、雕塑、蜡像还原沈万三从“起于寒微”到“富甲天下”的商业传奇。</p>
+        <div class="spot-meta">
+          <span class="meta-badge">门票：含联票</span>
+          <span class="meta-badge">游玩：45分钟</span>
+        </div>
+        <div class="spot-tip">💡 Tips：故居位于周庄东郊，夏季绿植繁茂。可在此了解明代江南经济史，结合周边街区感受市井烟火气。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section class="section">
+    <h2 class="section-title">🍜 美食推荐：舌尖上的江南</h2>
+    <ul class="list-group">
+      <li>
+        <div class="item-head"><span class="item-name">万三蹄</span><span class="item-tag">必吃招牌</span></div>
+        <div class="item-desc">周庄第一宴。以猪后腿为主料，加入十几种香料文火焖煨数小时，皮润肉酥，甜咸适中。推荐搭配解腻的荷叶或清茶。</div>
+      </li>
+      <li>
+        <div class="item-head"><span class="item-name">白丝鱼 & 莼菜鲈鱼羹</span><span class="item-tag">水乡时令</span></div>
+        <div class="item-desc">夏季太湖流域水产丰美。白丝鱼清蒸最显鲜甜；莼菜口感滑嫩，搭配鲈鱼熬羹，清凉降暑，极具苏帮风味。</div>
+      </li>
+      <li>
+        <div class="item-head"><span class="item-name">推荐餐厅</span></div>
+        <div class="item-desc">
+          <strong>沈厅酒家</strong>（正对沈厅）：老字号，万三蹄正宗，需提前订位。<br>
+          <strong>得月楼</strong>（中市街）：环境雅致，菜品精致，适合家庭聚餐。<br>
+          <strong>富安茶楼</strong>：临水位置佳，下午茶推荐点一壶碧螺春配桂花糕。
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section class="section">
+    <h2 class="section-title">🛏️ 住宿推荐：枕水而眠的选择</h2>
+    <ul class="list-group">
+      <li>
+        <div class="item-head"><span class="item-name">💰 经济型 (150-250元)</span><span class="item-tag">古镇外围/老街客栈</span></div>
+        <div class="item-desc">多为居民自建民宿改造，干净整洁，步行至景区5-10分钟。性价比高，但隔音一般，夏季建议选带空调/风扇的房间。</div>
+      </li>
+      <li>
+        <div class="item-head"><span class="item-name">🌟 舒适型 (300-550元)</span><span class="item-tag">临水客栈/品牌连锁</span></div>
+        <div class="item-desc">位于古镇内部或边缘水系旁，推开窗即见河道与摇橹船。配备独立卫浴、空调、部分带小型露台，体验水乡生活首选。</div>
+      </li>
+      <li>
+        <div class="item-head"><span class="item-name">👑 高端型 (600-900元+)</span><span class="item-tag">精品院落/设计酒店</span></div>
+        <div class="item-desc">由老宅翻新而成，融入现代设计。提供私人管家服务、独立庭院、精致早餐及定制茶歇，适合追求品质与私密性的游客。</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 交通指南 -->
+  <section class="section">
+    <h2 class="section-title">🚌 交通指南</h2>
+    <div style="background:#f8faf9; padding:15px; border-radius:8px; margin-bottom:15px;">
+      <p><strong>🚄 大交通（如何到达）</strong></p>
+      <ul style="margin-top:8px; padding-left:20px; font-size:0.95rem; color:#444;">
+        <li><strong>高铁：</strong>约2小时可达。推荐路线：<code>杭州东站 → 昆山南站</code> 或 <code>上海虹桥 → 昆山南站</code>。出站后在公交枢纽乘坐 <strong>游7线/72路/133路</strong> 直达周庄汽车站（约40分钟，票价约5元）。</li>
+        <li><strong>飞机：</strong>飞抵上海虹桥或苏州苏南硕放机场后，转乘高铁/长途大巴至昆山，再换乘公交至周庄。全程约3-3.5小时。</li>
+        <li><strong>自驾：</strong>导航“周庄古镇停车场”。景区外围有多个大型停车场（约20-30元/天），停好后步行或乘接驳车入园。</li>
+      </ul>
+    </div>
+    <div style="background:#f8faf9; padding:15px; border-radius:8px;">
+      <p><strong>🚲 镇内交通</strong></p>
+      <ul style="margin-top:8px; padding-left:20px; font-size:0.95rem; color:#444;">
+        <li>古镇核心区<b>禁止机动车通行</b>，全程<b>步行</b>游览（石板路为主，建议穿平底鞋）。</li>
+        <li>特色体验：<b>手摇船</b>（白天/夜游票价约80-100元/船，限坐6人），建议傍晚拼船体验更佳。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section class="section">
+    <h2 class="section-title">📝 夏季出行注意事项</h2>
+    <div class="tips-grid">
+      <div class="tip-box">
+        <h4>🌦️ 天气与装备</h4>
+        <p>夏季多阵雨，气温常达30℃+。务必携带晴雨伞、防晒霜、墨镜及便携小风扇。石板路雨后湿滑，请穿防滑平底鞋。</p>
+      </div>
+      <div class="tip-box">
+        <h4>🦟 防蚊与防虫</h4>
+        <p>水乡植被水系丰富，夏季蚊虫较多。建议随身携带驱蚊液/止痒膏，穿着轻薄长袖长裤可有效防护。</p>
+      </div>
+      <div class="tip-box">
+        <h4>🎫 票务与客流</h4>
+        <p>实行实名制电子票，建议提前在官方小程序或OTA平台购票。联票（约100元）包含所有核心景点，单次有效。节假日/周末人流密集，建议错峰游览。</p>
+      </div>
+      <div class="tip-box">
+        <h4>💡 安全与礼仪</h4>
+        <p>临水区域护栏较低，拍照时切勿越线。尊重当地居民生活作息，避免在清晨或深夜大声喧哗。古镇内部分老宅民宿无电梯，行李建议精简。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 预算参考 -->
+  <section class="section">
+    <h2 class="section-title">💰 单人预算参考（适中档）</h2>
+    <p style="color:#666; margin-bottom:10px; font-size:0.95rem;">以下为1天常规游览的费用估算，实际消费因季节与个人选择略有浮动：</p>
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>支出项目</th>
+          <th style="text-align:right;">预估费用（元）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>交通（高铁往返+昆山转公交）</td>
+          <td>100 - 150</td>
+        </tr>
+        <tr>
+          <td>住宿（1晚舒适型临水客栈分摊）</td>
+          <td>150 - 250</td>
+        </tr>
+        <tr>
+          <td>餐饮（正餐+小吃+茶饮）</td>
+          <td>120 - 180</td>
+        </tr>
+        <tr>
+          <td>门票（古镇日场联票+夜游/摇橹船）</td>
+          <td>100 - 150</td>
+        </tr>
+        <tr class="total">
+          <td>💵 总计参考（1人）</td>
+          <td style="text-align:right; color:var(--primary);">570 - 730 元</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.85rem; color:#888; margin-top:12px;">*注：联票通常含所有景点，学生/老人/儿童享半价或免票优惠。旺季酒店价格可能上浮30%-50%，建议提前预订。</p>
+  </section>
+
+  <footer>
+    <p>© 2024 江南水乡旅行指南｜本攻略数据基于公开信息整理，票价与班次以景区实时公告为准。</p>
+    <p style="margin-top:5px;">祝您在周庄邂逅一段清凉诗意的江南夏日 🌿🛶</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西安夏季深度游攻略 | 十三朝古都·长安夏日行</title>
+<style>
+  :root {
+    --primary: #774930;
+    --primary-dark: #4d2f1f;
+    --primary-light: #a87b5c;
+    --accent: #d4b496;
+    --bg: #f8f6f3;
+    --card-bg: #ffffff;
+    --text: #333333;
+    --text-light: #666666;
+    --border: #e6dfd6;
+    --success: #4a90e2;
+    --warning: #e89c3f;
+    --radius: 8px;
+    --shadow: 0 4px 16px rgba(119, 73, 48, 0.1);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+  a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
+  a:hover { color: var(--primary-dark); }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  
+  /* Header */
+  header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%); color: #fff; padding: 60px 0 50px; text-align: center; position: relative; overflow: hidden; }
+  header::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.05)" points="0,100 100,50 100,100"/></svg>'); background-size: 30px; }
+  header h1 { font-size: 2.6rem; margin: 0 0 10px; font-weight: 700; letter-spacing: 2px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+  header p { font-size: 1.1rem; opacity: 0.9; margin: 0; max-width: 800px; margin-inline: auto; }
+  .badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+  .badge { background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); padding: 5px 14px; border-radius: 20px; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.3); }
+
+  /* Sections */
+  section { margin: 35px 0; background: var(--card-bg); padding: 35px; border-radius: var(--radius); box-shadow: var(--shadow); border-top: 4px solid var(--primary); }
+  h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 12px; margin-top: 0; font-size: 1.6rem; display: flex; align-items: center; gap: 10px; }
+  h3 { color: var(--primary-dark); margin: 25px 0 10px; font-size: 1.25rem; }
+  
+  /* Grid System */
+  .grid { display: grid; gap: 20px; margin-top: 20px; }
+  .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+  /* Cards */
+  .card { background: #fdfcf9; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(119,73,48,0.15); }
+  .card h4 { color: var(--primary); margin: 0 0 8px; font-size: 1.15rem; }
+  .card-meta { display: flex; gap: 12px; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-light); margin-bottom: 10px; }
+  .tag { background: #f2e8df; color: var(--primary); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .price { background: #fff3e6; color: var(--warning); padding: 4px 10px; border-radius: 6px; font-weight: 600; display: inline-block; margin: 5px 0; }
+  .tip-box { background: #f5f8fc; border-left: 4px solid var(--success); padding: 12px; margin-top: 12px; border-radius: 0 6px 6px 0; font-size: 0.95rem; }
+  .warn-box { background: #fff8f0; border-left: 4px solid var(--warning); padding: 12px; margin-top: 12px; border-radius: 0 6px 6px 0; font-size: 0.95rem; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 24px; margin-top: 10px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 10px; bottom: 10px; width: 3px; background: var(--accent); border-radius: 2px; }
+  .day-block { position: relative; margin-bottom: 28px; }
+  .day-block::before { content: attr(data-day); position: absolute; left: -24px; top: 0; width: 22px; height: 22px; background: var(--primary); color: #fff; border-radius: 50%; text-align: center; line-height: 22px; font-size: 0.75rem; font-weight: bold; z-index: 2; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+  .slot { background: var(--card-bg); padding: 15px 18px; margin-bottom: 12px; border-left: 4px solid var(--primary); border-radius: 0 6px 6px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .slot h4 { margin: 0 0 4px; color: var(--primary-dark); font-size: 1.05rem; }
+  .slot p { margin: 0; font-size: 0.95rem; color: var(--text-light); }
+  .summer-tip { background: #eef7e9; padding: 6px 10px; border-radius: 4px; font-size: 0.85rem; display: inline-block; margin-top: 6px; color: #2e7d32; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: #f7f4f0; color: var(--primary); font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  .highlight-row { background: #fdf6ee; }
+
+  /* Budget Bar */
+  .budget-row { display: flex; align-items: center; margin-bottom: 15px; }
+  .budget-label { width: 100px; font-weight: 500; color: var(--primary); }
+  .progress-track { flex: 1; height: 12px; background: #e8e3de; border-radius: 6px; margin: 0 15px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 6px; }
+  .budget-val { width: 70px; text-align: right; font-weight: 600; }
+
+  /* Footer */
+  footer { text-align: center; padding: 40px 0 30px; color: var(--text-light); font-size: 0.9rem; background: #f2ede7; margin-top: 40px; border-top: 1px solid var(--border); }
+  .nav-dots { display: flex; justify-content: center; gap: 12px; margin: 30px 0; flex-wrap: wrap; }
+  .nav-dot { background: var(--card-bg); border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; }
+  .nav-dot:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+  @media (max-width: 768px) {
+    header { padding: 40px 0 30px; }
+    header h1 { font-size: 1.9rem; }
+    section { padding: 20px; margin: 20px 10px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .timeline { padding-left: 18px; }
+    .day-block::before { left: -18px; width: 18px; height: 18px; font-size: 0.65rem; }
+    .budget-label { width: 75px; font-size: 0.85rem; }
+    th, td { padding: 10px; font-size: 0.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>🏯 西安夏季深度游攻略</h1>
+    <p>十三朝古都，中华文明的发祥地。穿越长安的夏风，寻味市井的烟火，感受兵马俑的震撼与古城墙的沧桑。</p>
+    <div class="badges">
+      <span class="badge">📅 建议游玩：3天</span>
+      <span class="badge">🌤️ 最佳季节：夏季（避暑+夜游）</span>
+      <span class="badge">💰 预算级别：适中</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="nav-dots">
+    <div class="nav-dot" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">📍 城市概览</div>
+    <div class="nav-dot" onclick="document.getElementById('itinerary').scrollIntoView({behavior:'smooth'})">🗓️ 行程安排</div>
+    <div class="nav-dot" onclick="document.getElementById('attractions').scrollIntoView({behavior:'smooth'})">🏛️ 景点详解</div>
+    <div class="nav-dot" onclick="document.getElementById('food').scrollIntoView({behavior:'smooth'})">🍜 美食指南</div>
+    <div class="nav-dot" onclick="document.getElementById('stay').scrollIntoView({behavior:'smooth'})">🛏️ 住宿推荐</div>
+    <div class="nav-dot" onclick="document.getElementById('transport').scrollIntoView({behavior:'smooth'})">🚆 交通指南</div>
+    <div class="nav-dot" onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">⚠️ 注意事项</div>
+    <div class="nav-dot" onclick="document.getElementById('budget').scrollIntoView({behavior:'smooth'})">🧮 预算参考</div>
+  </div>
+
+  <!-- 城市概述 -->
+  <section id="overview">
+    <h2>📍 城市概述</h2>
+    <div class="grid grid-2">
+      <div>
+        <p>西安，古称长安，是中华文明的重要发祥地之一，拥有三千多年建城史。这里不仅是丝绸之路的起点，更是中国历史上建都朝代最多、时间最长的古都。夏季的西安虽然气温较高，但丰富的室内博物馆、清凉的夜游项目以及地道的关中风味，让这座城市成为“历史+美食”爱好者的完美目的地。</p>
+        <div class="badges" style="justify-content: flex-start; margin-top: 15px;">
+          <span class="tag">历史古迹</span>
+          <span class="tag">文化之旅</span>
+          <span class="tag">美食之旅</span>
+        </div>
+      </div>
+      <div style="background: linear-gradient(135deg, #d4b496, #774930); color: #fff; padding: 25px; border-radius: var(--radius); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <h3 style="color:#fff; margin:0 0 10px;">核心数据速览</h3>
+        <p style="margin:4px 0;"><strong>优点：</strong>文化底蕴深厚、美食种类繁多、交通发达（地铁成网）、消费适中</p>
+        <p style="margin:4px 0; font-size:0.95rem; color:#ffe8d6;"><strong>注意：</strong>夏季午间炎热、热门景点排队较长、部分区域商业化</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3天行程 -->
+  <section id="itinerary">
+    <h2>🗓️ 3天详细行程安排（夏季特调版）</h2>
+    <p style="color:var(--text-light); margin-bottom:20px;">💡 夏季游玩核心策略：早起避高温 + 室内避暑 + 夜间沉浸式体验。行程已避开正午户外暴晒时段。</p>
+    <div class="timeline">
+      <div class="day-block" data-day="D1">
+        <div class="slot">
+          <h4>☀️ 上午（09:00-12:00）：抵达与安顿 + 古城墙骑行</h4>
+          <p>乘高铁/飞机抵达后前往酒店安顿行李。随后前往<strong>永宁门（南门）</strong>登城墙。清晨至上午阳光温和，骑行或步行感受明代城垣的恢弘。</p>
+          <span class="summer-tip">🌿 夏季Tip：建议租带遮阳棚的电动车，或选择北门至东门段（约3km）轻松游览。</span>
+        </div>
+        <div class="slot">
+          <h4>🍉 下午（14:30-17:30）：室内避暑 · 陕西历史博物馆</h4>
+          <p>避开高温，深度游览“古都明珠”。馆藏文物超170万件，何家村窖藏、唐代壁画尤为惊艳。</p>
+          <span class="summer-tip">🌿 夏季Tip：陕历博免费但极难预约，需提前3天在官方小程序蹲点抢票。若未约上可改为西安博物院。</span>
+        </div>
+        <div class="slot">
+          <h4>🌙 晚上（19:00-21:30）：回民街寻味 + 钟楼夜景</h4>
+          <p>傍晚前往回民街及周边小巷（大皮院、洒金桥）开启“碳水盛宴”。餐后步行至钟楼、鼓楼广场拍摄亮灯夜景。</p>
+        </div>
+      </div>
+
+      <div class="day-block" data-day="D2">
+        <div class="slot">
+          <h4>☀️ 上午（08:00-12:30）：秦始皇帝陵博物院（兵马俑）</h4>
+          <p>早班地铁9号线直达临潼。错峰入园，按“一号坑→三号坑→二号坑→铜车马展”顺序参观，感受两千年前的军阵威仪。</p>
+          <span class="summer-tip">🌿 夏季Tip：园区部分区域有遮阴，但步行距离长。自带小风扇、遮阳帽，购买官方讲解器提升体验。</span>
+        </div>
+        <div class="slot">
+          <h4>🍉 下午（14:30-17:00）：华清宫 + 《长恨歌》彩排/温泉文化</h4>
+          <p>与兵马俑相邻。游览骊山脚下皇家园林，了解唐明皇与杨贵妃的历史故事。夏季可参观室内遗址展厅。</p>
+          <span class="summer-tip">🌿 夏季Tip：华清宫植被茂密，相对阴凉。若预算充足，可晚间观看实景演出《长恨歌》（需提前1周订票）。</span>
+        </div>
+        <div class="slot">
+          <h4>🌙 晚上（19:30-22:00）：大唐不夜城</h4>
+          <p>返回市区，沉浸于“唐风”主题步行街。灯光秀、街头演艺、不倒翁表演、盛唐密盒互动，夏夜氛围极佳。</p>
+        </div>
+      </div>
+
+      <div class="day-block" data-day="D3">
+        <div class="slot">
+          <h4>☀️ 上午（09:00-11:30）：大雁塔 & 大慈恩寺</h4>
+          <p>玄奘法师译经地，登塔俯瞰曲江新区。寺内古柏参天，清幽雅致，是夏季静心好去处。</p>
+        </div>
+        <div class="slot">
+          <h4>🍉 下午（13:30-16:00）：书院门文化街 & 碑林博物馆（可选）</h4>
+          <p>漫步关中书院古街，看文人墨客挥毫泼墨。若对书法感兴趣，可购碑林门票深入参观“石刻图书馆”。</p>
+        </div>
+        <div class="slot">
+          <h4>🌙 晚上（18:00-返程）：永兴坊摔碗酒 & 整理行装</h4>
+          <p>最后品尝陕北非遗美食，购买真空包装的腊牛肉、石子馍、黄桂稠酒作为伴手礼，结束长安之旅。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详解 -->
+  <section id="attractions">
+    <h2>🏛️ 核心景点详细介绍</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h4>🛡️ 秦始皇兵马俑博物馆</h4>
+        <div class="card-meta"><span>世界文化遗产</span><span>5A景区</span></div>
+        <p><strong>推荐理由：</strong>“世界第八大奇迹”，8000余件真人大小陶俑军阵排列，千人千面。是了解秦代军事、艺术与冶金技术的终极殿堂。</p>
+        <div class="price">门票：120元/人（含一号坑、二号坑、三号坑及铜车马展厅）</div>
+        <div class="tip-box">📌 游玩Tips：1. 官方讲解约200元/团，拼团讲解约30元/人，强烈建议听讲解否则“看泥人”。2. 临潼区夏季气温高于市区，务必防晒补水。3. 景区外有黑车拉客勿信，认准官方摆渡车或地铁。</div>
+      </div>
+
+      <div class="card">
+        <h4>🧱 西安明城墙</h4>
+        <div class="card-meta"><span>现存最完整古城墙</span><span>13.7公里环线</span></div>
+        <p><strong>推荐理由：</strong>中国现存规模最大、保存最完整的古城墙。登城可俯瞰城内古建筑与现代商圈的交融，骑行一圈极具仪式感。</p>
+        <div class="price">门票：54元/人（骑行单车约45元/2小时）</div>
+        <div class="tip-box">📌 游玩Tips：1. 推荐从永宁门登城，设施最完善。2. 城墙无遮蔽，夏季务必08:00前或18:00后登城，避开暴晒。3. 骑行需押证件或信用分，注意砖面起伏减速慢行。</div>
+      </div>
+
+      <div class="card">
+        <h4>🗼 大雁塔（大慈恩寺）</h4>
+        <div class="card-meta"><span>唐代佛教地标</span><span>玄奘译经地</span></div>
+        <p><strong>推荐理由：</strong>西安精神地标，唐代楼阁式砖塔。登塔可感受唐代建筑古韵，北广场拥有亚洲最大矩阵音乐喷泉，夏夜观赏极为震撼。</p>
+        <div class="price">门票：大慈恩寺40元；登大雁塔25元</div>
+        <div class="tip-box">📌 游玩Tips：1. 音乐喷泉夏季场次通常为19:00/21:00，提前1小时占前排位置。2. 登塔楼梯较陡，老人建议外围参观。3. 周边大唐不夜城步行可达，可串联游览。</div>
+      </div>
+
+      <div class="card">
+        <h4>🍢 回民街 & 洒金桥</h4>
+        <div class="card-meta"><span>百年美食街区</span><span>清真文化集中地</span></div>
+        <p><strong>推荐理由：</strong>西安烟火气最浓之处。汇聚肉夹馍、羊肉泡馍、凉皮、灌汤包、甑糕等陕西代表性美食，夜市热闹非凡。</p>
+        <div class="price">门票：免费开放（餐饮自费）</div>
+        <div class="tip-box">📌 游玩Tips：1. 游客主街（北院门）商业化重，本地人更爱逛洒金桥、大皮院、西羊市。2. 泡馍建议自己掰（越小越入味），体验关中慢生活。3. 夏季注意饮食卫生，备肠胃药。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section id="food">
+    <h2>🍜 美食地图与餐厅推荐</h2>
+    <p style="color:var(--text-light);">西安被誉为“碳水之都”，夏季推荐搭配“冰峰”汽水与“酸梅汤”解腻降温。</p>
+    <div class="grid grid-3">
+      <div class="card">
+        <h4>🥩 羊肉泡馍</h4>
+        <p>汤浓肉烂，馍筋道。夏季可选“水盆羊肉”更清爽解暑。</p>
+        <div class="price">人均：30-45元</div>
+        <p><strong>📍 推荐：</strong>同盛祥（老字号）、刘信牛羊肉小炒泡馍、老米家大雨泡馍</p>
+      </div>
+      <div class="card">
+        <h4>🍖 肉夹馍</h4>
+        <p>白吉馍外酥里嫩，腊汁肉肥而不腻。分腊汁肉（汉民）与腊牛肉（回民）。</p>
+        <div class="price">人均：15-25元</div>
+        <p><strong>📍 推荐：</strong>子午路张记肉夹馍（翠华路店）、樊记腊汁肉、老孙家</p>
+      </div>
+      <div class="card">
+        <h4>🍜 凉皮 / 擀面皮</h4>
+        <p>夏季必吃！秦镇米皮软糯，宝鸡擀面皮筋道酸辣，搭配面筋与黄瓜丝绝配。</p>
+        <div class="price">人均：10-18元</div>
+        <p><strong>📍 推荐：</strong>魏家凉皮（连锁卫生）、盛志望麻酱酿皮子、麻乃家</p>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:20px;">
+      💡 点单建议：遵循“三秦套餐”（凉皮+肉夹馍+冰峰）是性价比最高的吃法。回民街区域尊重清真饮食禁忌，勿携带非清真食品入内就餐。
+    </div>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section id="stay">
+    <h2>🛏️ 住宿推荐（适配适中预算）</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h4>🎒 经济型（150-250元/晚）</h4>
+        <p><strong>推荐区域：</strong>地铁2号线沿线（南稍门/体育场）、大雁塔周边青旅</p>
+        <ul>
+          <li>西安钟楼青年旅舍 / 湘子门国际青旅</li>
+          <li>汉庭/全季（钟楼店）</li>
+        </ul>
+        <p><strong>优势：</strong>交通极便利，靠近夜市区，适合预算有限或结伴游。</p>
+      </div>
+      <div class="card" style="border: 2px solid var(--primary); position: relative;">
+        <div style="position:absolute; top:-12px; right:15px; background:var(--primary); color:#fff; padding:2px 8px; border-radius:12px; font-size:0.8rem;">🌟 推荐</div>
+        <h4>🏨 舒适型（350-600元/晚）</h4>
+        <p><strong>推荐区域：</strong>南门外、小寨赛格商圈、曲江新区</p>
+        <ul>
+          <li>美居酒店（永宁门店）</li>
+          <li>桔子水晶（大雁塔店）</li>
+          <li>西安温德姆至尊酒店（淡季特价时）</li>
+        </ul>
+        <p><strong>优势：</strong>隔音好、设施新、含双早，部分可步行至城墙或地铁，夏季空调强劲。</p>
+      </div>
+      <div class="card">
+        <h4>👑 高端型（800-1500元/晚）</h4>
+        <p><strong>推荐区域：</strong>曲江池畔、高新CBD、城墙内精品院落</p>
+        <ul>
+          <li>西安W酒店 / 西安君乐城堡酒店（城墙内）</li>
+          <li>大唐芙蓉园御宴宫配套民宿</li>
+        </ul>
+        <p><strong>优势：</strong>服务顶级、景观绝佳（泳池/城墙景）、适合度假放松。</p>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:0.9rem; color:var(--text-light); margin-top:15px;">📝 预订提示：暑期为旺季，务必提前2-3周锁定房源。夏季首选空调制冷效果好、提供遮光窗帘的酒店。</p>
+  </section>
+
+  <!-- 交通指南 -->
+  <section id="transport">
+    <h2>🚆 交通指南</h2>
+    <table>
+      <thead>
+        <tr><th>交通方式</th><th>路线说明</th><th>时间参考</th><th>注意事项</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>✈️ 飞机</td><td>杭州萧山 → 西安咸阳国际机场</td><td>约 2.5 小时</td><td>机场大巴/地铁14号线直达市区（约1小时），晚到航班建议提前约接机</td></tr>
+        <tr><td class="highlight-row">🚄 高铁</td><td class="highlight-row">杭州东站 → 西安北站</td><td class="highlight-row">约 7.5 小时</td><td class="highlight-row">二等座约 ¥700，车次密集。抵达后无缝换乘地铁2/4号线进城</td></tr>
+        <tr><td>🚇 市内交通</td><td>地铁成网（覆盖90%景点）+ 公交/打车</td><td>单程约 15-40分钟</td><td>支付宝/微信开通“西安电子地铁卡”，扫码乘车。避开早晚高峰打车</td></tr>
+        <tr><td>🚌 临潼专线</td><td>市区 → 兵马俑/华清宫</td><td>约 1 小时</td><td>强烈建议乘坐地铁9号线（华清池站），不堵车、票价低、环境好</td></tr>
+      </tbody>
+    </table>
+    <div class="warn-box">⚠️ 避坑提示：火车站、机场出口“5元直达兵马俑”“黑车包车”多为虚假宣传，极易被带至购物店。请坚持使用官方地铁、正规公交或滴滴/高德网约车。</div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section id="tips">
+    <h2>⚠️ 夏季出行注意事项</h2>
+    <div class="grid grid-2">
+      <div>
+        <h3>🌡️ 气候与穿着</h3>
+        <ul>
+          <li><strong>气温：</strong>7-8月平均 25℃-36℃，午间紫外线强，体感闷热。</li>
+          <li><strong>穿衣：</strong>短袖/速干面料为主，备薄外套（博物馆/地铁空调极冷）。女士建议长裤或及膝裙防蚊虫。</li>
+          <li><strong>防晒：</strong>高倍防晒霜（SPF50+）、遮阳帽、墨镜、晴雨伞必备。随身带小喷雾风扇。</li>
+        </ul>
+      </div>
+      <div>
+        <h3>🔒 安全与健康</h3>
+        <ul>
+          <li><strong>防中暑：</strong>正午（12:00-15:00）尽量安排室内活动，及时补充电解质水。</li>
+          <li><strong>肠胃保护：</strong>夜市生冷辛辣食物多，避免暴饮暴食。备蒙脱石散、藿香正气水、健胃消食片。</li>
+          <li><strong>财物安全：</strong>景区及地铁人流量大，背包前置，贵重物品不露白。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tip-box">🎟️ 预约制度：西安绝大多数博物馆及兵马俑实行<strong>实名制分时段预约</strong>。务必提前在微信公众号/官方小程序购票，旺季现场几乎无余票。学生证、老年证可享半价优惠。</div>
+  </section>
+
+  <!-- 预算参考 -->
+  <section id="budget">
+    <h2>🧮 3天2晚预算参考（单人适中标准）</h2>
+    <p style="color:var(--text-light); margin-bottom:20px;">以下按2024年暑期物价估算，实际花费因个人消费习惯略有浮动。</p>
+    
+    <div class="budget-row">
+      <span class="budget-label">🚄 大交通</span>
+      <div class="progress-track"><div class="progress-fill" style="width: 45%;"></div></div>
+      <span class="budget-val">¥700</span>
+    </div>
+    <div class="budget-row">
+      <span class="budget-label">🏨 住宿</span>
+      <div class="progress-track"><div class="progress-fill" style="width: 25%;"></div></div>
+      <span class="budget-val">¥350</span>
+    </div>
+    <div class="budget-row">
+      <span class="budget-label">🍜 餐饮</span>
+      <div class="progress-track"><div class="progress-fill" style="width: 15%;"></div></div>
+      <span class="budget-val">¥250</span>
+    </div>
+    <div class="budget-row">
+      <span class="budget-label">🎫 门票</span>
+      <div class="progress-track"><div class="progress-fill" style="width: 10%;"></div></div>
+      <span class="budget-val">¥185</span>
+    </div>
+    <div class="budget-row">
+      <span class="budget-label">🚇 市内交通</span>
+      <div class="progress-track"><div class="progress-fill" style="width: 5%;"></div></div>
+      <span class="budget-val">¥80</span>
+    </div>
+
+    <table style="margin-top:20px;">
+      <tr><th>项目</th><th>明细说明</th><th>费用小计</th></tr>
+      <tr><td>往返高铁</td><td>杭州东-西安北（

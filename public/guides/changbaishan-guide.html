@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>长白山·盛夏秘境避暑攻略 | 资深旅游规划师</title>
+<style>
+  :root {
+    --primary: #2d6a4f;
+    --primary-light: #52b788;
+    --primary-bg: #d8f3dc;
+    --text-main: #1b4332;
+    --text-sub: #555b6e;
+    --bg-page: #f7faf9;
+    --bg-card: #ffffff;
+    --shadow: 0 4px 12px rgba(45, 106, 79, 0.08);
+    --radius: 12px;
+    --gap: 24px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-page);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--primary); text-decoration: none; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  header {
+    background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
+    color: #fff;
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: ""; position: absolute; bottom: -20px; left: 0; width: 100%; height: 40px;
+    background: var(--bg-page); border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  header h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; }
+  header p { opacity: 0.9; font-size: 1.05rem; max-width: 700px; margin: 0 auto 20px; }
+  .tag-box { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .badge {
+    background: rgba(255,255,255,0.25); backdrop-filter: blur(4px);
+    padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;
+  }
+  section { padding: 50px 0; border-bottom: 1px solid #e8ece8; }
+  section:last-child { border-bottom: none; }
+  h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 30px; position: relative; padding-left: 16px; }
+  h2::before {
+    content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 24px;
+    background: var(--primary-light); border-radius: 3px;
+  }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--gap); }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--gap); }
+  .card {
+    background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 24px; transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(45, 106, 79, 0.12); }
+  .card h3 { color: var(--primary); font-size: 1.25rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .card h4 { font-size: 1rem; margin: 12px 0 6px; color: var(--text-main); font-weight: 600; }
+  .pros-cons { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+  .pc-box { flex: 1; min-width: 240px; background: var(--primary-bg); border-radius: 8px; padding: 16px; }
+  .pc-box h4 { margin-top: 0; }
+  .pc-box ul { padding-left: 20px; margin: 0; }
+  .pc-box li { margin-bottom: 4px; font-size: 0.95rem; }
+  .timeline { position: relative; padding-left: 30px; margin: 30px 0; }
+  .timeline::before {
+    content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 3px;
+    background: #c1e0c8; border-radius: 3px;
+  }
+  .time-item { position: relative; margin-bottom: 28px; }
+  .time-item::before {
+    content: ""; position: absolute; left: -30px; top: 4px; width: 14px; height: 14px;
+    background: var(--primary); border-radius: 50%; border: 3px solid var(--primary-bg);
+  }
+  .time-label { font-weight: 700; color: var(--primary); font-size: 0.9rem; margin-bottom: 4px; }
+  .time-content { background: var(--bg-card); padding: 16px; border-radius: 10px; border: 1px solid #e8ece8; }
+  .gradient-card { height: 160px; border-radius: var(--radius) var(--radius) 0 0; margin: -24px -24px 20px; display: flex; align-items: flex-end; padding: 16px; color: #fff; font-weight: 700; font-size: 1.2rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+  .g-tianchi { background: linear-gradient(135deg, #4a90e2, #88d4f2); }
+  .g-falls { background: linear-gradient(135deg, #5c7cfa, #99b5ff); }
+  .g-forest { background: linear-gradient(135deg, #2d6a4f, #74c69d); }
+  .g-resort { background: linear-gradient(135deg, #495057, #adb5bd); }
+  .info-tag { display: inline-block; background: var(--primary-bg); color: var(--primary); padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 500; margin-right: 6px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 500px; }
+  th, td { padding: 14px; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: var(--primary-bg); color: var(--primary); font-weight: 600; }
+  .note-box { background: #fff9db; border-left: 4px solid #e67700; padding: 14px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.95rem; }
+  .footer { text-align: center; padding: 40px 20px; color: var(--text-sub); font-size: 0.85rem; border-top: 1px solid #e8ece8; }
+  @media (max-width: 768px) {
+    header h1 { font-size: 1.8rem; padding: 0 10px; }
+    .timeline { padding-left: 24px; }
+    .time-item::before { left: -26px; width: 10px; height: 10px; }
+    section { padding: 35px 0; }
+    h2 { font-size: 1.35rem; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>长白山·盛夏秘境避暑攻略</h1>
+  <p>东北第一山 | 2天深度游 | 预算适中 | 避暑纳凉·火山地貌·森林温泉</p>
+  <div class="tag-box">
+    <span class="badge">🌲 自然风光</span>
+    <span class="badge">🥾 登山徒步</span>
+    <span class="badge">♨️ 温泉康养</span>
+  </div>
+</header>
+
+<main class="container">
+  <section id="overview">
+    <h2>城市概述</h2>
+    <p style="margin-bottom: 16px;">长白山是中国东北的最高峰，火山地貌与原始森林交织。夏季（6-8月）平均气温仅20℃左右，是绝佳的避暑胜地。此时高山花园百花齐放，天池冰融水清，森林负氧离子爆表，搭配天然火山温泉，体验感极佳。</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+      <span class="info-tag">📍 吉林省东南部</span>
+      <span class="info-tag">📅 建议游玩 2天</span>
+      <span class="info-tag">🌿 最佳月份 6-8月(避暑)、9-10月(秋色)、12-2月(雪季)</span>
+      <span class="info-tag">💰 预算级别 适中</span>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-box">
+        <h4>✨ 核心优势</h4>
+        <ul>
+          <li>夏季凉爽宜人，天然大空调</li>
+          <li>火山天池+长白瀑布地质奇观</li>
+          <li>地下森林纯氧徒步体验</li>
+          <li>高品质温泉康养配套完善</li>
+        </ul>
+      </div>
+      <div class="pc-box">
+        <h4>⚠️ 注意事项</h4>
+        <ul>
+          <li>天池能否看见受天气/运气影响较大</li>
+          <li>距离南方客源地较远，需中转</li>
+          <li>山区气候多变，紫外线强且温差大</li>
+          <li>旺季（暑期）住宿及景区门票需提前预订</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="itinerary">
+    <h2>2天详细行程安排（夏季避暑版）</h2>
+    <div class="timeline">
+      <div class="time-item">
+        <div class="time-label">DAY 01：北坡探秘·天池与瀑布奇观</div>
+        <div class="time-content">
+          <p><strong>上午 08:30-12:00</strong> 抵达长白山北景区山门。乘坐环保车换乘倒站车直达主峰（海拔2189米），观赏盛夏碧蓝如洗的长白山天池。夏季天池水面开阔，周边绿苔与火山岩对比强烈。</p>
+          <p style="margin-top: 8px;"><strong>下午 13:00-17:30</strong> 沿步道下行，打卡长白瀑布（落差68米）、绿渊潭、小天池。步行前往聚龙温泉群，品尝火山地热煮的鸡蛋与玉米。傍晚下山返回二道白河镇。</p>
+          <p style="margin-top: 8px;"><strong>晚上 18:30-20:30</strong> 入住镇上温泉酒店或特色民宿，体验天然偏硅酸火山温泉，洗去徒步疲惫。夜游小镇中华秋沙鸭公园，享受静谧夏夜。</p>
+        </div>
+      </div>
+      <div class="time-item">
+        <div class="time-label">DAY 02：西坡绿野·森林康养与度假体验</div>
+        <div class="time-content">
+          <p><strong>上午 08:30-12:30</strong> 前往长白山西景区。夏季西坡高山花园正值盛花期（7月尤甚）。需徒步攀登1442级木栈道（坡度平缓），登顶后可俯瞰天池及中朝边境风光。</p>
+          <p style="margin-top: 8px;"><strong>下午 14:00-17:00</strong> 前往长白山地下森林（谷底森林）。穿梭于原始火山口森林中，步道平缓，树冠遮阴，负氧离子极高，是绝佳的自然疗愈路线。</p>
+          <p style="margin-top: 8px;"><strong>晚上 18:00</strong> 根据航班/车次前往长白山机场或高铁站，结束清爽避暑之旅。（若时间充裕，可前往万达度假区体验山地自行车、湖景骑行或水上乐园）</p>
+        </div>
+      </div>
+    </div>
+    <div class="note-box">💡 <strong>规划师提示：</strong> 北坡看天池需倒站车，西坡需徒步，夏季建议北坡优先（设施全、体力消耗小），若体力充沛且想看高山花海可加西坡。地下森林与北/西坡门票系统独立或联动，请视景区当日政策购票。</div>
+  </section>
+
+  <section id="attractions">
+    <h2>核心景点详解</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="gradient-card g-tianchi">🌋 长白山天池</div>
+        <p><strong>推荐理由：</strong> 中国最深的高山火山口湖，海拔2189米。中朝界湖，水面如镜，夏季周围绿意环绕，偶有蓝天白云倒映，神秘而壮美。</p>
+        <h4>游玩Tips：</h4>
+        <ul>
+          <li>天池天气瞬息万变，建议早上8-10点前往，晴天概率较高。</li>
+          <li>主峰海拔高、风大，务必携带防风保暖外套。</li>
+        </ul>
+        <p style="margin-top: 10px;"><strong>门票参考：</strong> 北景区套票约225元（含环保车+倒站车，价格随季节浮动）。</p>
+      </div>
+      <div class="card">
+        <div class="gradient-card g-falls">💧 长白瀑布</div>
+        <p><strong>推荐理由：</strong> 天池水自断崖68米处倾泻而下，水声如雷，气势磅礴。夏季水量充沛，周边苔藓翠绿，是地质与水文的双重震撼。</p>
+        <h4>游玩Tips：</h4>
+        <ul>
+          <li>瀑布下方水汽大，台阶湿滑，请穿防滑徒步鞋。</li>
+          <li>可前往聚龙温泉群体验“火山煮温泉蛋”（约10元/个）。</li>
+        </ul>
+        <p style="margin-top: 10px;"><strong>门票参考：</strong> 包含在北景区套票内。</p>
+      </div>
+      <div class="card">
+        <div class="gradient-card g-forest">🌲 地下森林</div>
+        <p><strong>推荐理由：</strong> 火山爆发塌陷形成的原始谷底森林。古树参天，溪水潺潺，夏季宛如绿色隧道，被誉为“天然大氧吧”，负氧离子浓度极高。</p>
+        <h4>游玩Tips：</h4>
+        <ul>
+          <li>全程木栈道，往返约2.5-3小时，坡度平缓，适合全家徒步。</li>
+          <li>林内信号弱、光线暗，建议结伴而行，勿偏离栈道。</li>
+        </ul>
+        <p style="margin-top: 10px;"><strong>门票参考：</strong> 西坡套票约230元（含门票+环保车），或单独购买约90元。</p>
+      </div>
+      <div class="card">
+        <div class="gradient-card g-resort">🏔️ 万达国际度假区（夏季）</div>
+        <p><strong>推荐理由：</strong> 冬季滑雪胜地，夏季转型为山地运动与休闲度假天堂。拥有山地自行车道、果松营地、水乐园、森林步道及高端配套餐饮。</p>
+        <h4>游玩Tips：</h4>
+        <ul>
+          <li>适合家庭亲子、情侣度假，可安排半天体验山地车或缆车观景。</li>
+          <li>度假区内接驳车免费，住宿含部分权益，建议提前咨询。</li>
+        </ul>
+        <p style="margin-top: 10px;"><strong>门票参考：</strong> 度假区公共区域免费，单项游乐项目按次收费（约50-200元）。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="food">
+    <h2>美食推荐</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>🍜 朝鲜族冷面与烤肉</h3>
+        <p>夏季解暑首选。正宗现压冷面酸甜冰爽，搭配锅包肉或铁板烤肉，风味独特。</p>
+        <h4>📍 推荐地点</h4>
+        <p>二道白河镇“朝鲜族民俗美食街”、长白山国际度假区餐饮中心</p>
+      </div>
+      <div class="card">
+        <h3>🥘 东北铁锅炖</h3>
+        <p>林区特色。铁锅炖笨鸡、炖江鱼或炖排骨，锅边贴玉米饼子，酱香浓郁，适合补充徒步体力。</p>
+        <h4>📍 推荐地点</h4>
+        <p>白河镇老字号农家院、二道白河“大东北铁锅炖”</p>
+      </div>
+      <div class="card">
+        <h3>🌽 温泉煮鸡蛋/玉米</h3>
+        <p>长白山独有体验。在83℃聚龙温泉群中慢煮而成，蛋黄呈溏心状，带有淡淡硫磺矿物香，不可错过。</p>
+        <h4>📍 推荐地点</h4>
+        <p>北景区聚龙温泉群售卖亭（现煮现售）</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="accommodation">
+    <h2>住宿推荐（分档次）</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>🏕️ 经济型（¥150-¥300/晚）</h3>
+        <p>适合背包客、学生党。以青旅、快捷客栈、镇上快捷酒店为主。</p>
+        <ul style="padding-left: 18px; margin: 8px 0;">
+          <li><strong>位置：</strong> 二道白河镇中心</li>
+          <li><strong>优点：</strong> 交通便利、性价比高、周边餐饮多</li>
+          <li><strong>提示：</strong> 暑期需提前2周以上预订</li>
+        </ul>
+      </div>
+      <div class="card" style="border: 2px solid var(--primary-light);">
+        <h3>🏨 舒适型（¥400-¥700/晚）</h3>
+        <p>适合情侣、家庭出游。精品民宿、特色木屋酒店或中档连锁。</p>
+        <ul style="padding-left: 18px; margin: 8px 0;">
+          <li><strong>位置：</strong> 白河镇安静街区或近景区接驳点</li>
+          <li><strong>优点：</strong> 环境雅致、含早餐、部分带小型泡汤池</li>
+          <li><strong>推荐：</strong> 长白山木石有约、松云岭温泉酒店</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✨ 高端型（¥1000-¥2000+/晚）</h3>
+        <p>追求品质度假。国际品牌五星酒店或顶级温泉度假村。</p>
+        <ul style="padding-left: 18px; margin: 8px 0;">
+          <li><strong>位置：</strong> 万达度假区/皇冠假日/蓝景国际</li>
+          <li><strong>优点：</strong> 私家温泉入户、管家服务、设施完善</li>
+          <li><strong>提示：</strong> 暑期周末溢价明显，建议连住享套餐</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="transport">
+    <h2>交通指南</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>✈️ 🚄 如何抵达长白山</h3>
+        <p><strong>✈️ 飞机：</strong> 直飞“长白山机场”。南方主要城市飞行约3-3.5小时，抵达后乘机场大巴（约20元/人，40分钟）直达二道白河镇或各度假区。</p>
+        <p><strong>🚄 高铁：</strong> 抵达“长白山站”或“安图西站”。从长春/沈阳中转需8-12小时。出站后打车或乘旅游专线至二道白河镇（约30-40分钟）。</p>
+        <p style="color: var(--primary); font-weight: 500;">💡 暑期机票/车票紧张，建议提前15-20天锁定行程。</p>
+      </div>
+      <div class="card">
+        <h3>🚌 🚙 市内与景区交通</h3>
+        <p><strong>景区内：</strong> 必须统一换乘“环保大巴车”（包含在门票内）。北坡去天池主峰需单独购买“倒站车”（约80元/人）。</p>
+        <p><strong>镇内交通：</strong> 二道白河镇面积小，步行、共享单车（免费）、打车（起步价低）均可轻松搞定。</p>
+        <p><strong>包车建议：</strong> 跨景区（北坡↔西坡↔度假区）拼车/包车最便捷，拼车约50-80元/人，包车约300-400元/天。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tips">
+    <h2>注意事项</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4>🌤️ 天气与穿着</h4>
+        <p>夏季昼夜温差大（12℃-22℃）。<strong>必备：</strong>速干长袖T恤、轻薄冲锋衣/抓绒外套、防滑徒步鞋、防晒帽、墨镜、SPF50+防晒霜。山顶风大，切勿只穿短袖。</p>
+        <h4>🌧️ 天池能见度</h4>
+        <p>天池全年约有60%时间被云雾遮蔽。建议关注“长白山景区”官方公众号，实时查看主峰天气。若北坡关闭，可灵活调整至西坡或地下森林。</p>
+      </div>
+      <div class="card">
+        <h4>🛡️ 安全与健康</h4>
+        <p>林区禁止野外用火；徒步沿木栈道行走，勿靠近断崖或戏水；部分区域海拔高，避免剧烈奔跑；温泉浸泡每次不超过15分钟，心脏病/高血压者慎入高温池。</p>
+        <h4>🌿 生态保护</h4>
+        <p>长白山为国家级自然保护区，严禁采摘植物、投喂野生动物。请随身携带垃圾袋，践行无痕山林（LNT）原则。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="budget">
+    <h2>预算参考（人均/2天1夜）</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>说明</th>
+            <th>预算估算</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>🚌 交通（大交通除外）</strong></td>
+            <td>机场/高铁至镇大巴、镇内打车、景区拼车</td>
+            <td>¥200 - ¥400</td>
+          </tr>
+          <tr>
+            <td><strong>🏨 住宿</strong></td>
+            <td>舒适型/温泉民宿 1晚</td>
+            <td>¥300 - ¥600</td>
+          </tr>
+          <tr>
+            <td><strong>🍲 餐饮</strong></td>
+            <td>3正餐1早餐（含特色烤肉/冷面）</td>
+            <td>¥250 - ¥450</td>
+          </tr>
+          <tr>
+            <td><strong>🎫 门票/交通车</strong></td>
+            <td>北景区套票+倒站车+西景区/森林门票</td>
+            <td>¥350 - ¥500</td>
+          </tr>
+          <tr>
+            <td><strong>💰 合计（不含往返大交通）</strong></td>
+            <td>适中标准，可丰可俭</td>
+            <td><strong>¥1100 - ¥1950</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box" style="margin-top: 20px;">📌 <strong>省钱技巧：</strong> 提前在官方平台购票享优惠；学生/军人/老人凭证件免门票或半价；选择含早餐的舒适民宿可降低餐饮开销；淡季（6月初/9月后）价格可下调20%-30%。</div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>© 2024 资深旅游规划师出品 | 数据仅供参考，景区政策与票价请以官方实时公告为准</p>
+  <p>祝您在长白山的盛夏之旅，遇见晴空与天池，收获清凉与治愈 🌿🏔️</p>
+</footer>
+</body>
+</html>

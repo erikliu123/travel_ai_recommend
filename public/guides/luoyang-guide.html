@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>洛阳夏季深度游攻略 - 千年帝都，神都洛阳</title>
+  <style>
+    :root {
+      --primary: #774930;
+      --primary-dark: #5a3520;
+      --primary-light: #a67c52;
+      --bg: #faf8f5;
+      --card-bg: #ffffff;
+      --text-main: #2c2c2c;
+      --text-sub: #555555;
+      --accent: #e8d5c4;
+      --shadow: 0 6px 20px rgba(119, 73, 48, 0.08);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px 20px 40px; }
+    h1, h2, h3, h4 { color: var(--primary); margin-bottom: 16px; line-height: 1.3; }
+    h2 { font-size: 1.8rem; border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-top: 30px; margin-bottom: 24px; display: inline-block; }
+    h3 { font-size: 1.3rem; margin-top: 10px; }
+    p { margin-bottom: 12px; color: var(--text-sub); }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--primary-light));
+      color: #fff;
+      padding: 60px 30px 50px;
+      border-radius: 0 0 40px 40px;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: -10%; width: 120%; height: 150%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 20px 20px; opacity: 0.4; pointer-events: none;
+    }
+    .hero h1 { color: #fff; font-size: 2.6rem; margin-bottom: 12px; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+    .hero p { color: rgba(255,255,255,0.92); font-size: 1.15rem; max-width: 750px; margin: 0 auto 20px; }
+    .badges { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .badge {
+      display: inline-flex; align-items: center; padding: 6px 14px;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 30px; font-size: 0.9rem; color: #fff; backdrop-filter: blur(4px);
+    }
+    .badge span { font-weight: 600; margin-right: 4px; }
+
+    /* Sections & Layout */
+    section { background: var(--card-bg); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 28px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    
+    /* Cards */
+    .card {
+      border: 1px solid #eee; border-radius: var(--radius); padding: 20px;
+      background: #fff; transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex; flex-direction: column; height: 100%;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); border-color: var(--accent); }
+    .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .card-title { font-weight: 700; font-size: 1.15rem; color: var(--primary-dark); }
+    .tag { background: var(--accent); color: var(--primary-dark); padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; }
+    .img-placeholder {
+      width: 100%; height: 120px; border-radius: 10px; margin-bottom: 14px;
+      background: linear-gradient(110deg, #d9c2a7, #b38e68, #8c6642);
+      display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; letter-spacing: 1px;
+    }
+    .meta { font-size: 0.85rem; color: #888; display: flex; gap: 12px; margin-bottom: 10px; }
+    .meta strong { color: var(--text-main); }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 28px; border-left: 2px solid var(--accent); margin-top: 15px; }
+    .t-item { position: relative; margin-bottom: 24px; padding-bottom: 8px; }
+    .t-item:last-child { margin-bottom: 0; }
+    .t-item::before {
+      content: ''; position: absolute; left: -34px; top: 8px; width: 12px; height: 12px;
+      background: var(--primary); border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .t-time { font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 4px; }
+    .t-content { background: #fdf9f5; padding: 14px; border-radius: 10px; font-size: 0.95rem; }
+    
+    /* Lists & Tables */
+    .feature-list { list-style: none; padding: 0; }
+    .feature-list li { padding: 8px 0 8px 24px; position: relative; border-bottom: 1px dashed #eee; }
+    .feature-list li::before {
+      content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold;
+    }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; border-radius: 8px; overflow: hidden; }
+    th { background: var(--primary-light); color: #fff; font-weight: 600; padding: 14px 16px; text-align: left; }
+    td { padding: 14px 16px; border-bottom: 1px solid #eee; background: #fff; color: var(--text-sub); }
+    tr:last-child td { border-bottom: none; }
+    
+    .tip-box { background: linear-gradient(135deg, #fffaf5, #fff); border-left: 4px solid var(--primary); padding: 16px 20px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+    .highlight { color: var(--primary); font-weight: 600; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero { padding: 40px 20px; }
+      section { padding: 20px; }
+      h2 { font-size: 1.5rem; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .timeline { padding-left: 20px; border-left-width: 2px; }
+      .t-item::before { left: -26px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>洛阳 · 千年帝都深度游</h1>
+  <p>神都洛阳，华夏文明的滥觞之地。穿梭于龙门石窟的千年佛光，聆听白马寺的第一声梵音。本攻略专为夏季出行优化，避开高温时段，主打高性价比与文化沉浸体验。</p>
+  <div class="badges">
+    <span class="badge"><span>🌸</span> 赏花胜地</span>
+    <span class="badge"><span>🏛️</span> 历史古迹</span>
+    <span class="badge"><span>📜</span> 文化之旅</span>
+    <span class="badge"><span>💰</span> 经济优选 (预算级别1)</span>
+    <span class="badge"><span>⏱️</span> 建议2天</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 行程安排 -->
+  <section>
+    <h2>📅 2天详细行程安排（夏季优化版）</h2>
+    <p>夏季洛阳日间气温较高（30℃-35℃+），行程采用<strong>“早出晚归+室内避暑”</strong>策略，最大化舒适度。</p>
+    
+    <h3>Day 1：石窟佛韵与神都夜画</h3>
+    <div class="timeline">
+      <div class="t-item">
+        <span class="t-time">上午 08:00 - 12:30</span>
+        <div class="t-content"><strong>📍 龙门石窟（核心精华）</strong><br>清晨游客较少且气温适宜，优先参观西山石窟，重点打卡奉先寺卢舍那大佛。建议沿伊河步行至东山观景台，拍摄全景。</div>
+      </div>
+      <div class="t-item">
+        <span class="t-time">下午 14:00 - 16:30</span>
+        <div class="t-content"><strong>📍 洛阳博物馆（室内避暑）</strong><br>返回市区，在冷气充足的洛阳博物馆了解十三朝古都历史。馆藏唐三彩、宫廷文物为国内顶尖，提前在公众号预约免票。</div>
+      </div>
+      <div class="t-item">
+        <span class="t-time">晚上 18:30 - 21:00</span>
+        <div class="t-content"><strong>📍 应天门/洛邑古城夜景</strong><br>夏季夜间凉爽，适合汉服游园。洛邑古城夜景绝美，免门票；应天门灯光秀震撼，建议提前预约购票入场。</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:24px;">Day 2：古刹禅意与三国遗风</h3>
+    <div class="timeline">
+      <div class="t-item">
+        <span class="t-time">上午 08:30 - 11:30</span>
+        <div class="t-content"><strong>📍 白马寺（中国佛教祖庭）</strong><br>参观齐云塔院、天王殿。寺内古柏参天，清晨清凉静谧。可顺道参观毗邻的异国佛殿区（泰国、缅甸、印度风格）。</div>
+      </div>
+      <div class="t-item">
+        <span class="t-time">下午 13:30 - 16:00</span>
+        <div class="t-content"><strong>📍 关林 & 洛阳牡丹园（夏景）</strong><br>关林为武圣首级埋葬地，建筑古雅。注：夏季非牡丹盛花期，牡丹园内以园林景观、夏荷、古建及牡丹文化展馆为主，适合作为文化漫步地。</div>
+      </div>
+      <div class="t-item">
+        <span class="t-time">晚上 18:00 - 20:30</span>
+        <div class="t-content"><strong>📍 十字街夜市 / 老集</strong><br>品尝地道洛阳小吃。夏季夜风宜人，感受市井烟火，购买文创伴手礼后返程。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详情 -->
+  <section>
+    <h2>🏛️ 核心景点详解</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="img-placeholder">龙门石窟</div>
+        <div class="card-header"><div class="card-title">龙门石窟</div><span class="tag">世界遗产</span></div>
+        <p><strong>推荐理由：</strong>中国四大石窟之一，唐代石刻艺术巅峰。卢舍那大佛面容慈悲，气势恢宏，是洛阳无可替代的文化名片。</p>
+        <div class="meta"><span>🎫 门票：约¥90</span><span>⏱️ 游玩：3-4小时</span></div>
+        <div class="tip-box"><strong>💡 游玩Tips：</strong>务必穿防滑舒适的运动鞋。夏季建议自备小风扇，景区遮阳较少。租电子讲解器（¥30）体验远胜普通导览。</div>
+      </div>
+      <div class="card">
+        <div class="img-placeholder">白马寺</div>
+        <div class="card-header"><div class="card-title">白马寺</div><span class="tag">佛教祖庭</span></div>
+        <p><strong>推荐理由：</strong>中国第一座官办寺院，释源祖庭。寺内保存有元代夹纻造像、唐代齐云塔，历史与信仰价值极高。</p>
+        <div class="meta"><span>🎫 门票：¥35</span><span>⏱️ 游玩：2小时</span></div>
+        <div class="tip-box"><strong>💡 游玩Tips：</strong>寺内古树提供天然遮阴，夏季游览体感较舒适。尊重宗教礼仪，勿随意拍摄佛像内部。周边有印度风格佛殿，适合拍照。</div>
+      </div>
+      <div class="card">
+        <div class="img-placeholder">洛阳牡丹园</div>
+        <div class="card-header"><div class="card-title">洛阳牡丹园</div><span class="tag">国色天香</span></div>
+        <p><strong>推荐理由：</strong>王城公园、中国国花园等数十万株牡丹争奇斗艳。虽夏季非盛花期，但可观赏园林水系与牡丹文化长廊，清幽雅致。</p>
+        <div class="meta"><span>🎫 门票：淡季约¥10-15（部分免费）</span><span>⏱️ 游玩：1-1.5小时</span></div>
+        <div class="tip-box"><strong>💡 游玩Tips：</strong>夏季建议下午4点后入园避暑。可重点参观牡丹奇石馆与文化碑廊。非花期门票低廉，适合休闲散步。</div>
+      </div>
+      <div class="card">
+        <div class="img-placeholder">关林</div>
+        <div class="card-header"><div class="card-title">关林</div><span class="tag">三国文化</span></div>
+        <p><strong>推荐理由：</strong>国内唯一“林庙”合祀古建群，埋葬关羽首级之处。古柏森森，建筑规制按帝王陵寝，三国迷必访。</p>
+        <div class="meta"><span>🎫 门票：¥40</span><span>⏱️ 游玩：1.5小时</span></div>
+        <div class="tip-box"><strong>💡 游玩Tips：</strong>与龙门石窟距离较远，建议打车或公交衔接。园区内古柏遮天蔽日，夏季相对凉爽。可听讲解员讲述“头枕洛阳”的历史典故。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section>
+    <h2>🍜 洛阳美食寻味</h2>
+    <p>洛阳饮食以“汤文化”闻名，夏季可尝试清爽版水席或冷面浆面条。</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-header"><div class="card-title">🥘 洛阳水席（经典版）</div></div>
+        <p>二十四道菜如行云流水。夏季推荐点清爽的<span class="highlight">燕菜、连汤肉片、焦炸丸子</span>。酸辣开胃，解暑佳品。</p>
+        <p style="font-size:0.85rem; color:#888;">📍 推荐：真不同饭店（老字号）、管记水席（本地人爱去）</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-title">🍲 洛阳汤馆（早餐/夜宵）</div></div>
+        <p>“早晨一碗汤，神仙都不当”。推荐<span class="highlight">牛肉汤、羊肉汤、驴肉汤</span>。配饼丝或锅盔，鲜香暖胃。</p>
+        <p style="font-size:0.85rem; color:#888;">📍 推荐：南关小碗牛肉汤、马杰山清真牛肉汤</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-title">🥢 街头小吃</div></div>
+        <p>必尝<span class="highlight">浆面条</span>（绿豆发酵酸香）、<span class="highlight">不翻汤</span>（胡椒鲜辣）、<span class="highlight">烫面角</span>。夜市烟火气十足，价格亲民。</p>
+        <p style="font-size:0.85rem; color:#888;">📍 推荐：十字街夜市、西工小街（潘家牛肉汤旁）</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section>
+    <h2>🛏️ 住宿推荐（经济优选）</h2>
+    <p>洛阳消费水平低（预算级别1），百元内即可入住舒适连锁酒店。</p>
+    <table>
+      <thead>
+        <tr>
+          <th>档次</th>
+          <th>推荐区域/类型</th>
+          <th>参考价/晚</th>
+          <th>特点</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag">经济</span></td>
+          <td>老城区青旅 / 如家/汉庭</td>
+          <td>¥60 - ¥120</td>
+          <td>位置便利，靠近景区与夜市，干净卫生，适合学生/背包客。</td>
+        </tr>
+        <tr>
+          <td><span class="tag">舒适</span></td>
+          <td>洛龙区全季/亚朵 / 洛河沿岸民宿</td>
+          <td>¥150 - ¥280</td>
+          <td>设施完善，隔音好，周边餐饮丰富，夏季空调给力，停车方便。</td>
+        </tr>
+        <tr>
+          <td><span class="tag">高端</span></td>
+          <td>华阳广场国际大饭店 / 克丽司汀</td>
+          <td>¥350 - ¥600</td>
+          <td>服务一流，含自助早，景观房可俯瞰洛河夜景，商务出行优选。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 交通指南 -->
+  <section>
+    <h2>🚌 交通指南</h2>
+    <div class="grid-2">
+      <div>
+        <h3>🚄 如何到达洛阳</h3>
+        <ul class="feature-list">
+          <li><strong>高铁/动车：</strong>杭州至洛阳龙门站高铁直达（约6-7小时）。龙门站出站即可换乘公交或打车直达市区，最为便捷。</li>
+          <li><strong>飞机：</strong>洛阳北郊机场航班有限。建议飞至郑州新郑机场，出站后乘坐城际铁路至洛阳龙门（约2小时）。</li>
+        </ul>
+      </div>
+      <div>
+        <h3>🏙️ 市内交通</h3>
+        <ul class="feature-list">
+          <li><strong>地铁：</strong>已开通1/2号线，串联主要商圈与高铁站，票价¥2-5，夏季避暑首选。</li>
+          <li><strong>公交：</strong>覆盖极广，空调车多，支持支付宝/微信扫码乘车。</li>
+          <li><strong>打车/网约车：</strong>起步价低，景点间打车多在¥15-30之间，适合家庭出行。</li>
+          <li><strong>共享单车：</strong>老城区/洛邑古城周边适合骑行，但夏季注意防晒。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section>
+    <h2>⚠️ 夏季出行注意事项</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h4>🌞 防暑降温</h4>
+        <p>洛阳夏季常出现35℃+高温。务必携带防晒霜、太阳镜、遮阳帽及便携小风扇。避开12:00-15:00户外暴晒时段。</p>
+      </div>
+      <div class="card">
+        <h4>👟 穿着与装备</h4>
+        <p>以透气速干衣物为主。石窟台阶多、关林古建石板路多，务必穿防滑舒适的平底鞋或运动鞋。备一件薄外套防地铁/室内空调。</p>
+      </div>
+      <div class="card">
+        <h4>🛡️ 安全与预约</h4>
+        <p>夏季雷雨多发，关注天气预报。热门景点（龙门、白马寺）务必<strong>提前1-3天在官方公众号实名预约</strong>。保管好随身物品，避免拥挤。</p>
+      </div>
+    </div>
+    <div class="tip-box">
+      <strong>📌 导游特别提示：</strong>牡丹花期极短（4月中旬-5月初），夏季前往无法观赏盛花，但可避开人流高峰，享受低价门票与深度文化游。建议以石窟、博物馆、古建、夜市为主线，体验更从容的神都慢生活。
+    </div>
+  </section>
+
+  <!-- 预算参考 -->
+  <section>
+    <h2>💰 预算参考（2天1夜 / 人均经济级）</h2>
+    <p>洛阳属高性价比旅游城市（预算级别1），以下为基础参考，丰俭由人。</p>
+    <table>
+      <thead>
+        <tr>
+          <th>项目</th>
+          <th>明细估算</th>
+          <th>人均费用</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>🚆 大交通</strong></td>
+          <td>杭州往返洛阳龙门高铁二等座</td>
+          <td>约 ¥800 - ¥900</td>
+        </tr>
+        <tr>
+          <td><strong>🏨 住宿</strong></td>
+          <td>经济型/舒适型酒店 1晚</td>
+          <td>约 ¥80 - ¥150（拼房）</td>
+        </tr>
+        <tr>
+          <td><strong>🍜 餐饮</strong></td>
+          <td>2天汤品+小吃+1顿正餐水席</td>
+          <td>约 ¥120 - ¥180</td>
+        </tr>
+        <tr>
+          <td><strong>🎫 门票</strong></td>
+          <td>龙门¥90 + 白马寺¥35 + 关林¥40 + 牡丹园(夏)¥10</td>
+          <td>约 ¥175</td>
+        </tr>
+        <tr>
+          <td><strong>🚇 市内交通</strong></td>
+          <td>公交/地铁/短途打车</td>
+          <td>约 ¥50 - ¥80</td>
+        </tr>
+        <tr style="background:#f4e9dc; font-weight:bold;">
+          <td>总计预估</td>
+          <td>不含高铁往返（仅当地） / 含高铁（杭州出发）</td>
+          <td>¥475 起 / ¥1375 起</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="text-align:right; margin-top:10px; font-style:italic; font-size:0.9rem;">* 费用为单人经济出行基准估算，节假日及旺季可能略有上浮，建议预留10%备用金。</p>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 洛阳旅游规划指南 | 用心丈量千年古都 | 祝您旅途平安，满载而归</p>
+</footer>
+
+</body>
+</html>

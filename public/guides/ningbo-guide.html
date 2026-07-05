@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>宁波·夏日漫游指南 | 2天1晚深度旅游攻略</title>
+  <style>
+    :root {
+      --primary: #0077b6;
+      --primary-dark: #023e8a;
+      --primary-light: #90e0ef;
+      --accent: #f77f00;
+      --bg: #eef2f5;
+      --card-bg: #ffffff;
+      --text-main: #2b2d42;
+      --text-sub: #5f6c7b;
+      --border: #e0e6ed;
+      --shadow: 0 4px 16px rgba(0, 119, 182, 0.08);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      background: linear-gradient(180deg, #d4e6f1 0%, var(--bg) 300px);
+      color: var(--text-main);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 920px; margin: 0 auto; padding: 24px 16px; }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 48px 24px;
+      border-radius: 0 0 24px 24px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(2, 62, 138, 0.25);
+      margin-bottom: 30px;
+    }
+    header h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 12px; letter-spacing: 2px; font-weight: 700; }
+    header .sub { font-size: 1rem; opacity: 0.9; max-width: 580px; margin: 0 auto 16px; }
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .tag {
+      background: rgba(255,255,255,0.18);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    /* Cards & Sections */
+    section { margin-bottom: 28px; }
+    h2 {
+      color: var(--primary-dark);
+      font-size: 1.6rem;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2::before { content: ''; display: block; width: 4px; height: 24px; background: var(--primary); border-radius: 2px; }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 500;
+    }
+    .badge.blue { background: #e3f2fd; color: #005c9b; }
+    .badge.orange { background: #fff3e0; color: #d84315; }
+    .badge.green { background: #e8f5e9; color: #2e7d32; }
+    .badge.red { background: #ffebee; color: #c62828; }
+
+    /* Overview Table/Info */
+    .info-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+    .info-list li { background: var(--primary-light); padding: 10px; border-radius: 8px; text-align: center; font-size: 0.9rem; color: var(--primary-dark); }
+    .info-list strong { display: block; font-size: 1rem; margin-bottom: 4px; }
+
+    /* Itinerary Timeline */
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before { content: ''; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: #cbd5e1; }
+    .t-item { position: relative; padding-bottom: 24px; }
+    .t-item::before {
+      content: ''; position: absolute; left: -22px; top: 6px;
+      width: 14px; height: 14px; background: var(--primary);
+      border-radius: 50%; border: 3px solid #eef2f5;
+    }
+    .t-time { font-weight: 700; color: var(--primary); font-size: 0.95rem; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+    .t-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 4px; }
+    .t-desc { color: var(--text-sub); font-size: 0.95rem; }
+    .day-header {
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      color: white; padding: 12px 18px; border-radius: 10px;
+      margin: 24px 0 18px; font-weight: 600; font-size: 1.1rem;
+    }
+
+    /* Attractions */
+    .attr-card {
+      background: linear-gradient(to bottom right, #ffffff, #f8fafc);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .attr-card h3 { margin-bottom: 8px; color: var(--primary-dark); }
+    .meta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; font-size: 0.85rem; }
+    .meta span { background: #f1f5f9; padding: 4px 10px; border-radius: 6px; color: #64748b; }
+    .tip-box {
+      background: #fff8e6; border-left: 4px solid var(--accent);
+      padding: 10px 14px; margin-top: 12px; border-radius: 6px;
+      font-size: 0.9rem; color: #7c6f00;
+    }
+
+    /* Food & Accommodation */
+    .food-list, .hotel-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .food-item, .hotel-item { background: white; padding: 16px; border-radius: 12px; border: 1px solid var(--border); }
+    .price-tag { color: var(--accent); font-weight: bold; font-size: 1.1em; }
+    .rating { color: #fbbf24; }
+
+    /* Budget Table */
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.95rem; }
+    th { background: #e3f2fd; color: var(--primary-dark); font-weight: 600; padding: 12px 14px; text-align: left; }
+    td { padding: 12px 14px; border-bottom: 1px solid #e5e7eb; }
+    tr:last-child td { border-bottom: none; font-weight: bold; color: var(--primary-dark); background: #f8fafc; }
+
+    /* Tips & Footer */
+    .notice-list { padding-left: 20px; margin: 10px 0 20px; }
+    .notice-list li { margin-bottom: 8px; color: var(--text-sub); }
+    footer {
+      text-align: center; padding: 30px 20px; color: #64748b; font-size: 0.9rem; border-top: 1px solid #e5e7eb; margin-top: 40px;
+    }
+    
+    @media (max-width: 768px) {
+      header { padding: 36px 16px; }
+      .grid-2, .food-list, .hotel-list { grid-template-columns: 1fr; }
+      .info-list { grid-template-columns: 1fr 1fr; }
+      table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>宁波·夏日漫游指南</h1>
+    <p class="sub">东方大港，书藏古今。2天1晚沉浸式体验江南港城的烟火与海风</p>
+    <div class="tags">
+      <span class="tag">🌊 海边度假</span>
+      <span class="tag">🦀 美食之旅</span>
+      <span class="tag">📜 文化之旅</span>
+      <span class="tag">🚄 高铁直达1h</span>
+    </div>
+  </header>
+
+  <section id="overview" class="card">
+    <h2>城市速览</h2>
+    <p style="margin-bottom: 16px;">宁波是一座被低估的宝藏江南名城。这里既有天一阁的文脉传承，又有蒋氏故居的民国风云；老外滩的百年西洋建筑与甬江晚风交织，东钱湖的碧波荡漾不输西湖。夏季来甬，虽处台风季边缘，但傍晚的海鲜大排档与湖风夜景，绝对值得专程一趟。</p>
+    <ul class="info-list">
+      <li><span>📅 建议天数</span><strong>2天</strong></li>
+      <li><span>📊 预算级别</span><strong>Level 2 (适中)</strong></li>
+      <li><span>🌸 最佳时节</span><strong>3-5月 / 9-11月</strong></li>
+      <li><span>⚖️ 综合评分</span><strong>4.7/5.0</strong></li>
+    </ul>
+    <div class="grid-2" style="margin-top: 16px;">
+      <div class="badge blue">✅ 优点：海鲜肥美、历史厚重、交通便利、物价友好</div>
+      <div class="badge red">⚠️ 缺点：景点分散、联票偏高、夏季需防台风</div>
+    </div>
+  </section>
+
+  <section id="itinerary">
+    <h2>📅 2天详细行程</h2>
+    <div class="day-header">Day 1：文脉寻踪 × 甬江夜色</div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">09:00 - 11:30 📍 上午</div>
+        <div class="t-title">天一阁博物院</div>
+        <div class="t-desc">避开正午暴晒，清晨入内感受“书藏古今”的静谧。重点游览东明草堂、尊经阁与江南园林水景，建议租借语音导览深度了解藏书文化。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">12:30 - 14:00 🍽 午餐</div>
+        <div class="t-title">月湖·鼓楼沿美食街</div>
+        <div class="t-desc">步行10分钟抵达。品尝正宗宁波汤圆、烤菜年糕、黄鱼面。推荐老字号“缸鸭狗”或街边烟火小店。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">14:30 - 17:30 📍 下午</div>
+        <div class="t-title">老外滩历史文化街区</div>
+        <div class="t-desc">比上海外滩早20年的百年商埠。漫步沿江步道，打卡天主教堂、浙海关旧址。夏日建议16:00后前往，避开烈日，待华灯初上。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">18:30 - 21:30 🌙 晚上</div>
+        <div class="t-title">三江口夜游 & 海鲜排档</div>
+        <div class="t-desc">乘游船或沿江散步，感受“甬江、奉化江、余姚江”三水交汇。晚餐就近选择高品质海鲜餐厅，体验宁波人“夜吃海鲜配黄酒”的夏夜传统。</div>
+      </div>
+    </div>
+
+    <div class="day-header">Day 2：山水禅意 × 民国风云</div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">08:00 - 12:30 📍 上午</div>
+        <div class="t-title">溪口·雪窦山风景区</div>
+        <div class="t-desc">从市区乘车约1h抵达。上午先游山脚下的蒋氏故居（丰镐房、文昌阁、玉泰盐铺），感受民国建筑风貌与历史脉络。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">12:30 - 13:40 🍽 午餐</div>
+        <div class="t-title">溪口镇特色农家菜</div>
+        <div class="t-desc">必点奉化芋艿头、千层饼、溪口鱼头汤。在镇老街边走边吃，体验地道浙东风味。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">14:00 - 16:30 📍 下午</div>
+        <div class="t-title">雪窦山弥勒道场</div>
+        <div class="t-desc">乘坐景交车上山。参访雪窦寺、56.7米高露天弥勒大佛。若体力允许，可走三隐潭步道（夏日清凉避暑），最后至妙高台观景。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">17:00 - 19:00 📍 傍晚</div>
+        <div class="t-title">东钱湖环湖轻徒步 & 返程</div>
+        <div class="t-desc">从雪窦山返回市区方向顺路抵达。租共享单车沿湖骑行小普陀段，看夕阳洒落湖面。晚餐后根据车次/航班返程。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="attractions" class="card">
+    <h2>🏞️ 核心景点详解</h2>
+    <div class="attraction-grid grid-2">
+      <div class="attr-card">
+        <h3>📚 天一阁博物院</h3>
+        <div class="meta"><span>🎫 门票：30元</span><span>⏱ 游玩：2h</span></div>
+        <p><strong>推荐理由：</strong>中国现存最古老的私家藏书楼，明代建筑群与江南园林完美融合，文化底蕴深厚。</p>
+        <div class="tip-box">💡 Tips：周一闭馆。馆内禁喧哗，建议提前在“天一阁”公众号预约。园林区域非常出片，适合穿素雅服饰。</div>
+      </div>
+      <div class="attr-card">
+        <h3>⛰️ 溪口雪窦山</h3>
+        <div class="meta"><span>🎫 联票：约230元</span><span>⏱ 游玩：5h+</span></div>
+        <p><strong>推荐理由：</strong>蒋介石故乡+中国五大佛教名山之一（弥勒道场），自然山水与近代史交织。</p>
+        <div class="tip-box">💡 Tips：必买景区联票。景交车分段运行，注意保留车票。三隐潭夏季凉爽但台阶湿滑，需防滑鞋。</div>
+      </div>
+      <div class="attr-card">
+        <h3>🌉 老外滩</h3>
+        <div class="meta"><span>🎫 门票：免费</span><span>⏱ 游玩：2-3h</span></div>
+        <p><strong>推荐理由：</strong>1844年开埠，百年西洋建筑群保存完好，酒吧、画廊与甬江夜景交织，文艺氛围浓厚。</p>
+        <div class="tip-box">💡 Tips：最佳机位在“外滩天主教堂”前或江北天主教堂侧面。19:30后亮灯，夏夜微风极舒适。</div>
+      </div>
+      <div class="attr-card">
+        <h3>🌊 东钱湖</h3>
+        <div class="meta"><span>🎫 免费/小普陀30</span><span>⏱ 游玩：3-4h</span></div>
+        <p><strong>推荐理由：</strong>浙江最大淡水湖（3个西湖大小）。环湖绿道、南宋石刻、小普陀水上游廊，适合休闲放松。</p>
+        <div class="tip-box">💡 Tips：骑行推荐“小普陀-南宋石刻公园”段，约8km。夏季紫外线强，务必做好物理防晒。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="food" class="card">
+    <h2>🦀 舌尖上的宁波</h2>
+    <p style="margin-bottom: 14px; color: var(--text-sub);">宁波菜属浙东沿海风味，讲究“鲜咸合一，原汁原味”。夏季海鲜正肥，搭配黄酒或姜醋汁，风味绝佳。</p>
+    <div class="food-list">
+      <div class="food-item">
+        <h3>🍽 必吃名菜</h3>
+        <ul class="notice-list" style="padding-left: 18px;">
+          <li><strong>红膏呛蟹：</strong>生腌之王，蟹黄鲜咸，配白粥一绝。</li>
+          <li><strong>雪菜大黄鱼：</strong>宁波灵魂，雪里蕻的酸鲜激发鱼肉甘甜。</li>
+          <li><strong>腐皮包黄鱼：</strong>外酥里嫩，蘸醋解腻，口感层次丰富。</li>
+        </ul>
+      </div>
+      <div class="food-item">
+        <h3>📍 推荐餐厅</h3>
+        <ul class="notice-list" style="padding-left: 18px;">
+          <li><strong>宁海食府：</strong>本地老牌海鲜连锁，明档点菜，性价比高。</li>
+          <li><strong>缸鸭狗：</strong>百年老字号，猪油汤圆、酒酿圆子必点。</li>
+          <li><strong>南塘老街小吃：</strong>油赞子、年糕饺、米馒头，适合边走边吃。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="accommodation" class="card">
+    <h2>🛏️ 住宿指南 (按预算)</h2>
+    <div class="hotel-list">
+      <div class="hotel-item">
+        <h3>💰 经济型 (200-400元/晚)</h3>
+        <p><strong>推荐区域：</strong>宁波火车站/鼓楼地铁站周边</p>
+        <p style="color:var(--text-sub)">全季、亚朵、桔子等连锁酒店密集。地铁1/2/4号线交汇，去哪都方便，适合学生党与背包客。</p>
+      </div>
+      <div class="hotel-item">
+        <h3>🌟 舒适型 (400-800元/晚)</h3>
+        <p><strong>推荐区域：</strong>三江口/老外滩/天一广场</p>
+        <p style="color:var(--text-sub)">江景房视野开阔，下楼即步行街。夜生活丰富，餐饮选择多。推荐：威斯汀周边民宿、开元曼居等。</p>
+      </div>
+      <div class="hotel-item">
+        <h3>👑 高端度假 (1000元+/晚)</h3>
+        <p><strong>推荐区域：</strong>东钱湖旅游度假区</p>
+        <p style="color:var(--text-sub)">宁波柏悦、康得思、希尔顿等。私密性好，湖景露台、无边泳池、SPA配套全。适合纯度假、亲子家庭。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="transport" class="card">
+    <h2>🚇 交通全攻略</h2>
+    <div class="grid-2">
+      <div>
+        <h3>✈️/🚄 如何到达</h3>
+        <ul class="notice-list">
+          <li><strong>高铁：</strong>杭州东站 → 宁波站（约1小时，车次极密，二等座约73元）。</li>
+          <li><strong>飞机：</strong>抵达宁波栎社国际机场，地铁2号线直达市区（约30分钟）。</li>
+          <li><strong>备注：</strong>宁波站本身即交通枢纽，出站即地铁，交通无缝衔接。</li>
+        </ul>
+      </div>
+      <div>
+        <h3>🚖 市内出行</h3>
+        <ul class="notice-list">
+          <li><strong>地铁：</strong>覆盖市区核心景点，支持支付宝/微信乘车码。</li>
+          <li><strong>去溪口：</strong>市区乘高铁至“奉化站”，换乘公交K981或打车至溪口镇（约40分钟）。</li>
+          <li><strong>去东钱湖：</strong>地铁4号线至“东钱湖站”，出站即景区入口。</li>
+          <li><strong>建议：</strong>跨区游玩（尤其含雪窦山）建议网约车/包车更省时。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="budget" class="card">
+    <h2>💰 预算参考 (适中型 2天1晚)</h2>
+    <p style="margin-bottom: 12px; color: var(--text-sub);">以下为单人预估，实际消费视季节与个人选择浮动。不包含往返大交通。</p>
+    <table>
+      <thead>
+        <tr><th>项目</th><th>明细参考</th><th>预估费用 (元/人)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>🏨 住宿</td><td>舒适型江景/商圈酒店 1晚</td><td>250 - 400</td></tr>
+        <tr><td>🍽 餐饮</td><td>正餐+小吃+海鲜 (2天)</td><td>300 - 450</td></tr>
+        <tr><td>🚇 市内交通</td><td>地铁+公交+部分网约车</td><td>80 - 150</td></tr>
+        <tr><td>🎫 景点门票</td><td>天一阁+雪窦山联票+东钱湖小船</td><td>220 - 280</td></tr>
+        <tr><td>📊 <strong>人均总计</strong></td><td><strong>经济舒适平衡</strong></td><td><strong>约 850 - 1280</strong></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="tips" class="card">
+    <h2>📝 实用注意事项</h2>
+    <ul class="notice-list">
+      <li><strong>🌤 天气与台风：</strong>夏季宁波多阵雨与高温，7-9月为台风季。出行前3天务必关注“宁波气象”预警，台风天避免去山区与海边。</li>
+      <li><strong>👕 穿着建议：</strong>透气速干衣物为主，备一件薄外套防空调/海风。去雪窦山务必穿防滑运动鞋。</li>
+      <li><strong>🧴 防护必备：</strong>高倍防晒霜、墨镜、晴雨伞、驱蚊液（湖边/山区蚊虫多）。</li>
+      <li><strong>🍽 饮食提示：</strong>海鲜性寒，肠胃弱者建议搭配姜茶或黄酒。点餐前务必问清计价单位（“两”还是“斤”），保留小票。</li>
+      <li><strong>📱 预约政策：</strong>天一阁、雪窦山均实行实名制分时段预约。节假日联票紧张，建议提前1-3天在官方平台购票。</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 宁波夏日漫游指南 | 数据更新于2024年 | 攻略仅供参考，实际以景区最新公告为准</p>
+    <p style="margin-top:8px; font-size:0.85rem;">祝您在东方大港，遇见一场不期而遇的江南夏风。</p>
+  </footer>
+</div>
+</body>
+</html>

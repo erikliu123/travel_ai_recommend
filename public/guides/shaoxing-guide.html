@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绍兴夏季一日游全攻略｜鲁迅故里·黄酒之乡</title>
+    <style>
+        :root {
+            --primary: #774930;
+            --primary-light: #a67c52;
+            --primary-bg: #e9d5c4;
+            --bg: #faf8f5;
+            --text: #3a332a;
+            --text-light: #6b6359;
+            --card-bg: #ffffff;
+            --accent: #c49a6c;
+            --shadow: 0 6px 16px rgba(119, 73, 48, 0.08);
+            --radius: 14px;
+            --summer-warm: #e67e22;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding-bottom: 40px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #5a3624, var(--primary), #9c7a5a);
+            color: #fff;
+            padding: 45px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 35px;
+        }
+        header h1 { font-size: 2.4em; margin-bottom: 12px; font-weight: 800; letter-spacing: 1px; }
+        header .subtitle { font-size: 1.1em; opacity: 0.92; max-width: 700px; margin: 0 auto; }
+        
+        /* Sections */
+        section { background: var(--card-bg); border-radius: var(--radius); padding: 28px; margin-bottom: 24px; box-shadow: var(--shadow); }
+        h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 22px;
+            font-size: 1.55em;
+            display: flex;
+            align-items: center;
+        }
+        h2::before { content: "◼"; margin-right: 12px; font-size: 0.6em; color: var(--accent); }
+        
+        /* Badges & Meta */
+        .badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0; }
+        .badge { background: var(--primary-bg); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-size: 0.85em; font-weight: 600; border: 1px solid rgba(119,73,48,0.15); }
+        .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; background: #fdf9f3; padding: 18px; border-radius: 12px; }
+        .meta-item { font-size: 0.95em; }
+        .meta-item strong { color: var(--primary); display: block; margin-bottom: 3px; }
+        
+        /* Timeline */
+        .timeline { border-left: 3px solid var(--accent); padding-left: 24px; margin: 10px 0 15px; position: relative; }
+        .time-item { margin-bottom: 28px; position: relative; }
+        .time-item::before {
+            content: ""; width: 16px; height: 16px; background: var(--primary); border-radius: 50%;
+            position: absolute; left: -28px; top: 4px; border: 3px solid #fff; box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+        .time-item:last-child { margin-bottom: 0; }
+        .time-label { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 1.1em; display: flex; justify-content: space-between; align-items: center; }
+        .time-content { background: #fdfbf9; padding: 14px; border-radius: 10px; border: 1px solid #f0e6d8; }
+        .highlight-summer { background: linear-gradient(90deg, #fff5eb, #fff); padding: 10px; border-radius: 8px; margin-top: 8px; font-size: 0.9em; color: #8a5a3a; border-left: 4px solid var(--summer-warm); }
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: #fdfbf9; border-radius: 12px; padding: 18px; border: 1px solid #e8ddd3; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(119, 73, 48, 0.12); }
+        .card h3 { color: var(--primary); margin-bottom: 8px; font-size: 1.25em; display: flex; align-items: center; gap: 8px; }
+        .card-tags { display: flex; gap: 6px; margin: 10px 0; flex-wrap: wrap; }
+        .tag { background: #f2e6d9; color: #774930; font-size: 0.75em; padding: 3px 8px; border-radius: 4px; }
+        
+        /* Tables & Lists */
+        ul { padding-left: 22px; margin: 10px 0; }
+        li { margin-bottom: 6px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.95em; }
+        th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #e8ddd3; }
+        th { background: #f7f1ea; color: var(--primary); font-weight: 600; }
+        tr:last-child td { border-bottom: none; }
+        
+        /* Utility */
+        .note-box {
+            background: linear-gradient(120deg, #fdf6ed 0%, #f4e8d8 100%);
+            border-left: 5px solid var(--primary);
+            padding: 16px;
+            margin-top: 12px;
+            border-radius: 0 10px 10px 0;
+            font-size: 0.92em;
+        }
+        .price { font-weight: bold; color: #b55a2a; }
+        .icon { margin-right: 6px; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 25px 20px; color: var(--text-light); font-size: 0.85em; margin-top: 30px; }
+        footer a { color: var(--primary); text-decoration: none; border-bottom: 1px dashed var(--primary-light); }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.9em; }
+            section { padding: 20px 16px; }
+            .meta-grid { grid-template-columns: 1fr; }
+            .timeline { padding-left: 18px; }
+            .time-item::before { left: -23px; width: 14px; height: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>绍兴夏季一日游全攻略</h1>
+        <p class="subtitle">一座没有围墙的博物馆，乌篷船摇橹声里的江南夏日</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- 城市概述 -->
+    <section id="overview">
+        <h2>城市概述</h2>
+        <p>鲁迅故里，黄酒之乡。绍兴是一座沉淀着千年文脉的历史名城，古桥、古街、古镇与潺潺流水交织出最纯粹的江南韵味。这里没有过度商业化的喧嚣，只有乌篷船的欸乃声与街巷里的烟火气。夏季虽热，但傍晚的微雨、夜游的沈园与清凉的古镇水巷，别具一番风味。</p>
+        <div class="badges">
+            <span class="badge">江南水乡</span>
+            <span class="badge">文化之旅</span>
+            <span class="badge">城市漫步</span>
+            <span class="badge">预算友好</span>
+        </div>
+        <div class="meta-grid">
+            <div class="meta-item"><strong>📅 建议游玩</strong> 1天（精华紧凑线）</div>
+            <div class="meta-item"><strong>🌤️ 最佳季节</strong> 3-5月最佳，夏季需避暑</div>
+            <div class="meta-item"><strong>💰 预算级别</strong> 经济型（人均约500-700元）</div>
+            <div class="meta-item"><strong>📍 核心区域</strong> 越城区、柯桥区</div>
+        </div>
+    </section>
+
+    <!-- 1天行程安排 -->
+    <section id="itinerary">
+        <h2>🕑 1天详细行程安排</h2>
+        <div class="timeline">
+            <div class="time-item">
+                <div class="time-label"><span>☀️ 上午 08:30 - 12:00</span> <span>鲁迅故里 & 咸亨早茶</span></div>
+                <div class="time-content">
+                    <p>清晨避开人流，从鲁迅故里景区南门进入。依次参观鲁迅故居、百草园、三味书屋、鲁迅祖居，感受课本里的场景。11点左右步行至街对面的咸亨酒店（总店），点一碟茴香豆、一碗黄酒或一碗特色片儿川，体验原汁原味的绍兴晨间风味。</p>
+                    <div class="highlight-summer">💡 夏日贴士：早晨气温相对舒适，务必在10:30前结束户外步行。咸亨酒店二楼有冷气雅座，适合避暑歇脚。</div>
+                </div>
+            </div>
+            <div class="time-item">
+                <div class="time-label"><span>🌤️ 下午 13:30 - 16:30</span> <span>沈园寻梦 & 东湖乌篷船</span></div>
+                <div class="time-content">
+                    <p>午餐后乘坐公交/打车前往沈园（距离鲁迅故里仅1.5公里）。在园林水榭间漫步，观赏《钗头凤》碑刻，感受陆游与唐婉的千古绝恋。15:30前往东湖（距沈园约15分钟车程），这里峭壁临水，景色堪比“水上盆景”。务必体验一次乌篷船，船工脚踏明轮穿行于崖壁与石桥之间，是绍兴夏日最清凉的打开方式。</p>
+                </div>
+            </div>
+            <div class="time-item">
+                <div class="time-label"><span>🌙 傍晚 17:30 - 20:30</span> <span>安昌古镇漫步 & 返程</span></div>
+                <div class="time-content">
+                    <p>前往安昌古镇（柯桥区，车程约30分钟）。相比其他开发过度的水乡，这里保留着原生态的市井生活。傍晚沿廊棚看夕阳洒在河道上，品尝古镇自酿黄酒、腊肠、臭豆腐。19:30左右可在古镇茶馆或沿河小馆用完晚餐，随后从安昌打车至绍兴北站（约20分钟）或市区酒店休息。</p>
+                    <div class="highlight-summer">💡 夏日贴士：安昌古镇夏季傍晚常有阵雨，备好折叠伞；古镇石板路雨后微滑，注意行走安全。夜风清凉，适合拍照。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 景点详情 -->
+    <section id="attractions">
+        <h2>📍 核心景点详解</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>📜 鲁迅故里</h3>
+                <div class="card-tags"><span class="tag">文化地标</span><span class="tag">免费开放</span><span class="tag">预约制</span></div>
+                <p><strong>推荐理由：</strong>绍兴旅游必打卡第一站，完整保留晚清至民国时期的建筑风貌与历史痕迹，人文气息极浓。</p>
+                <p><strong>门票信息：</strong>免费（需提前在“绍兴文旅”或景区公众号实名预约）。</p>
+                <p><strong>游玩Tips：</strong>暑期客流量大，建议08:30开门即入。景区内有文创商店，鲁迅Q版周边很有纪念意义。带孩子的家庭可领取“研学打卡护照”。</p>
+            </div>
+            <div class="card">
+                <h3>🌸 沈园</h3>
+                <div class="card-tags"><span class="tag">爱情胜地</span><span class="tag">古典园林</span><span class="tag">夜游演艺</span></div>
+                <p><strong>推荐理由：</strong>“红酥手，黄藤酒，满城春色宫墙柳”。宋代江南名园，亭台水榭、碑刻廊桥极具宋代美学，夏季荷花盛开时极美。</p>
+                <p><strong>门票信息：</strong>白天票约40元/人，夜场票约70元/人（含《沈园之夜》越剧表演，性价比高）。</p>
+                <p><strong>游玩Tips：</strong>白天适合拍照打卡；若预算允许，强烈推荐购买夜场票，夏季晚间凉快且越剧演出沉浸感极强。园内古树多，蚊虫较多，需备驱蚊液。</p>
+            </div>
+            <div class="card">
+                <h3>🛶 东湖</h3>
+                <div class="card-tags"><span class="tag">浙江三大名湖</span><span class="tag">悬崖碧水</span><span class="tag">必坐乌篷船</span></div>
+                <p><strong>推荐理由：</strong>古代采石场遗址经水蚀形成奇峰异洞，崖壁倒映碧水，被古人誉为“天下第一水石盆景”。乘船体验极佳。</p>
+                <p><strong>门票信息：</strong>门票约50元/人，乌篷船另付约50元/船（限坐3人，可拼船）。</p>
+                <p><strong>游玩Tips：</strong>乌篷船是核心体验，上船需穿戴救生衣。夏季水面反光强烈，务必戴墨镜。船程约20分钟，沿途有仙桃洞、陶公洞等天然奇观。</p>
+            </div>
+            <div class="card">
+                <h3>🏮 安昌古镇</h3>
+                <div class="card-tags"><span class="tag">原生态</span><span class="tag">师爷故里</span><span class="tag">美食天堂</span></div>
+                <p><strong>推荐理由：</strong>绍兴四大古镇之一，无门票商业化。沿河长廊、古桥、乌篷船、临水茶座，完整保留了明清市井风貌与生活节奏。</p>
+                <p><strong>门票信息：</strong>免费（进馆联票约50元/人，可不购，纯逛免费）。</p>
+                <p><strong>游玩Tips：</strong>避开主干道，往支巷走更能发现老手艺。夏季古镇三宝（腊肠、黄酒、臭豆腐）现做现卖，建议买“酒酿大饼”和“黄酒棒冰”边走边吃。部分河道夏季有轻微水草，属正常生态现象。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section id="food">
+        <h2>🍽️ 绍兴美食与餐厅</h2>
+        <p>绍兴菜属浙菜系，讲究“霉、臭、醉、腌”，口味偏咸鲜微甜，黄酒入菜是灵魂。夏季炎热，建议搭配清爽的糟货与黄酒棒冰解暑。</p>
+        <table>
+            <thead>
+                <tr><th>必尝菜品</th><th>口味特点</th><th>推荐餐厅/档口</th><th>人均参考</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>🥢 醉鸡/糟鸡/茴香豆</td>
+                    <td>酒香浓郁，咸鲜下酒</td>
+                    <td>咸亨酒店（鲁迅路店总店）</td>
+                    <td>40-60元</td>
+                </tr>
+                <tr>
+                    <td>🥢 绍兴三鲜（肉圆/鱼圆/猪肚）</td>
+                    <td>汤清味醇，解腻消暑</td>
+                    <td>寻宝记绍兴菜（多家分店）</td>
+                    <td>60-80元</td>
+                </tr>
+                <tr>
+                    <td>🥢 奶油小攀 & 黄酒奶茶</td>
+                    <td>中西结合，甜而不腻</td>
+                    <td>东街老街/景区周边小店</td>
+                    <td>10-20元</td>
+                </tr>
+                <tr>
+                    <td>🥢 古镇臭豆腐 & 腊肠</td>
+                    <td>外酥里嫩，烟熏风味</td>
+                    <td>安昌古镇沿街老字号</td>
+                    <td>5-15元</td>
+                </tr>
+                <tr>
+                    <td>🥢 黄酒棒冰 & 绿豆糕</td>
+                    <td>微醺清凉，夏日必备</td>
+                    <td>各大景区文创店/便利店</td>
+                    <td>8-12元</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="note-box">⚠️ <strong>口味提示：</strong>绍兴菜整体偏咸甜，且“霉鲜”风味独特（如霉苋菜梗）。初次尝试建议点单时备注“少盐/微甜”，肠胃敏感者避免过量食用生冷腌制品。</div>
+    </section>
+
+    <!-- 住宿推荐 -->
+    <section id="hotel">
+        <h2>🛏️ 住宿推荐（经济优先）</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🟢 经济实惠（80-150元/晚）</h3>
+                <p><strong>鲁迅故里青年旅舍 / 经济连锁酒店（如全季/如家）</strong></p>
+                <p><strong>优势：</strong>步行可达核心区，节省交通时间；设施干净，适合背包客与学生党。</p>
+                <p><strong>位置：</strong>越城区解放路/鲁迅中路沿线。</p>
+            </div>
+            <div class="card">
+                <h3>🟡 舒适体验（200-350元/晚）</h3>
+                <p><strong>水乡特色民宿 / 仓桥直街院落</strong></p>
+                <p><strong>优势：</strong>临水或青砖老房改造，体验“推窗见河”；部分提供黄酒品鉴与早茶，服务贴心。</p>
+                <p><strong>位置：</strong>仓桥直街、八字桥历史街区周边。</p>
+            </div>
+        </div>
+        <div class="note-box">💡 夏季为旅游小旺季，建议提前5-7天在OTA平台预订。选择酒店时务必确认“空调制冷效果良好”及“独立卫浴”，老街区部分民宿隔音较弱，睡眠轻者可选择临街内院房型。</div>
+    </section>
+
+    <!-- 交通指南 -->
+    <section id="transport">
+        <h2>🚌 交通指南</h2>
+        <p><strong>🚄 外部到达：</strong>全国多地高铁可直达。杭州东站 → 绍兴北站仅需约 <span class="price">20分钟</span>（票价约25元），班次密集如公交。飞机旅客可飞抵杭州萧山国际机场，出站后转乘机场大巴或城际线约30-40分钟直达绍兴市区。</p>
+        <p><strong>🚌 市内交通：</strong></p>
+        <ul>
+            <li><strong>公交/地铁：</strong>绍兴地铁1号线串联杭州与绍兴，鲁迅故里、镜湖、安昌方向可覆盖大部分景点。公交1元，支持支付宝“绍兴公交电子卡”。</li>
+            <li><strong>打车/网约车：</strong>市区景点间距离较近，打车起步价8-9元，跨区（如至安昌/东湖）约15-25元，性价比高且节省步行暴晒。</li>
+            <li><strong>特色交通：</strong>乌篷船仅限景区体验（东湖、柯岩等），不可作为代步工具。景区外无公共乌篷船运营，谨防黑车宰客。</li>
+        </ul>
+        <div class="note-box">🗺️ <strong>动线建议：</strong>杭州出发建议买早班高铁（7:30-8:00），上午抵绍；返程建议预订19:30后的高铁，充分利用傍晚时段。</div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section id="tips">
+        <h2>📋 夏季注意事项</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🌡️ 天气与穿着</h3>
+                <p>绍兴夏季（6-8月）气温常达32-38℃，午后多雷阵雨。建议穿着透气速干的浅色棉麻衣物、宽檐帽、防晒袖套。务必携带晴雨伞（遮阳+挡雨两用）。</p>
+            </div>
+            <div class="card">
+                <h3>🦟 防蚊与防暑</h3>
+                <p>水乡植被茂密，蚊虫活跃。请携带含避蚊胺（DEET）或派卡瑞丁的驱蚊液。户外游览时每小时补水200-300ml，可随身携带藿香正气水防中暑。</p>
+            </div>
+            <div class="card">
+                <h3>👣 路线与安全</h3>
+                <p>古镇多为青石板路，雨天湿滑，建议穿防滑平底鞋/运动鞋。部分老街区巷弄较窄，注意避让当地自行车与电动车。贵重物品随身携带，景区入口防扒。</p>
+            </div>
+            <div class="card">
+                <h3>🎫 门票与设施</h3>
+                <p>热门景点（沈园夜场、乌篷船）支持线上提前购票，免排队。绍兴博物馆、鲁迅故里需实名预约。夏季部分景区正在微改造，请以官方公告为准，不影响主线游览。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 预算参考 -->
+    <section id="budget">
+        <h2>💰 经济型预算参考（单人1天）</h2>
+        <p>按“预算级别1（经济）”标准规划，兼顾体验与性价比。实际花费因个人选择浮动，以下为保守估算：</p>
+        <table>
+            <thead>
+                <tr><th>项目</th><th>明细说明</th><th>预估费用</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>🚄 大交通</td><td>杭州东-绍兴北往返高铁（或杭州大巴往返）</td><td class="price">约 50 元</td></tr>
+                <tr><td>🚌 市内交通</td><td>公交/地铁+1-2次短途打车+拼船费</td><td class="price">约 40 元</td></tr>
+                <tr><td>🛏️ 住宿（可选）</td><td>经济型青旅床位或快捷酒店单间</td><td class="price">80 - 160 元</td></tr>
+                <tr><td>🍽️ 餐饮</td><td>早午餐（咸亨/快餐）+ 下午茶点 + 晚餐（古镇小吃/家常菜）</td><td class="price">70 - 110 元</td></tr>
+                <tr><td>🎫 门票体验</td><td>沈园白天票40 + 东湖门票50 + 乌篷船分摊30（拼船）</td><td class="price">约 120 元</td></tr>
+                <tr><td>🎒 杂项</td><td>矿泉水、防晒、驱蚊液、纪念品等</td><td class="price">约 50 元</td></tr>
+                <tr style="background:#f9f4ee; font-weight:bold;"><td>📊 总计参考</td><td colspan="1">单人单日紧凑经济游</td><td class="price" style="font-size:1.15em;">约 410 - 530 元</td></tr>
+            </tbody>
+        </table>
+        <div class="note-box">💡 <strong>省钱技巧：</strong>学生证/老年证/军人证可享沈园、东湖半价；乌篷船尽量拼船；安昌古镇免费开放，餐饮选择本地人常去的小店比景区中心便宜30%以上；购买“绍兴文旅一卡通”若计划多次来更划算。</div>
+    </section>
+
+    <footer>
+        <p>© 2024 绍兴夏季旅游攻略指南 | 数据仅供参考，实际以景区及交通部门公告为准</p>
+        <p style="margin-top:8px;">祝您的江南水乡之旅清凉、惬意、满载而归！🌿🛶</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

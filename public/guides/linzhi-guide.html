@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>林芝夏季旅游攻略 | 藏地江南深度游</title>
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --primary-light: #40916c;
+      --primary-dark: #1b4332;
+      --accent: #d8f3dc;
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-main: #212529;
+      --text-muted: #6c757d;
+      --border: #dee2e6;
+      --shadow: 0 4px 16px rgba(45, 106, 79, 0.1);
+      --shadow-hover: 0 8px 24px rgba(45, 106, 79, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header / Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+      color: white;
+      padding: 60px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -50px; left: 0; right: 0; height: 100px;
+      background: var(--bg); border-radius: 50% 50% 0 0;
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 12px; letter-spacing: 1px; }
+    .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+    .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
+    .badge {
+      background: rgba(255,255,255,0.2); backdrop-filter: blur(4px);
+      padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    /* Section Base */
+    section { padding: 50px 0; }
+    .section-title {
+      font-size: 1.75rem; color: var(--primary-dark);
+      position: relative; padding-bottom: 12px; margin-bottom: 30px;
+    }
+    .section-title::after {
+      content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px;
+      background: var(--primary); border-radius: 2px;
+    }
+
+    /* Cards Grid */
+    .grid-2, .grid-3, .grid-4 { display: grid; gap: 24px; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+    .card {
+      background: var(--card-bg); border-radius: 12px; padding: 24px;
+      box-shadow: var(--shadow); transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+    .card-icon {
+      width: 100%; height: 140px; border-radius: 8px; margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: bold; color: white; font-size: 1.2rem; letter-spacing: 2px;
+    }
+    .card h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 8px; }
+    .card-meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px; display: block; }
+    .tag-inline { display: inline-block; background: var(--accent); color: var(--primary); font-size: 0.8rem; padding: 2px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 8px; }
+
+    /* Itinerary Timeline */
+    .timeline { position: relative; padding-left: 30px; margin-top: 20px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 4px;
+      background: linear-gradient(to bottom, var(--accent), var(--primary-light)); border-radius: 2px;
+    }
+    .day-block { position: relative; margin-bottom: 40px; background: var(--card-bg); padding: 24px; border-radius: 12px; box-shadow: var(--shadow); }
+    .day-block::before {
+      content: attr(data-day); position: absolute; left: -46px; top: 24px; width: 32px; height: 32px;
+      background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: bold; box-shadow: 0 2px 8px rgba(45,106,79,0.4);
+    }
+    .time-slot { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border); }
+    .time-label { font-weight: 700; color: var(--primary); margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+    .time-label::before { content: '●'; font-size: 0.6rem; opacity: 0.7; }
+    
+    /* Table */
+    .table-wrap { overflow-x: auto; margin-top: 15px; border-radius: 8px; box-shadow: var(--shadow); }
+    table { width: 100%; border-collapse: collapse; background: var(--card-bg); min-width: 600px; }
+    th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: var(--primary); color: white; font-weight: 600; }
+    tr:nth-child(even) { background: #f9fbf9; }
+    .price-tag { color: var(--primary); font-weight: 600; }
+
+    /* Lists & Alerts */
+    ul.styled { list-style: none; padding-left: 0; }
+    ul.styled li { padding: 8px 0 8px 20px; position: relative; }
+    ul.styled li::before { content: '✔'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+    .alert { background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+    .alert.tip { background: #d1e7dd; border-left-color: #198754; }
+
+    /* Footer */
+    footer { background: var(--primary-dark); color: rgba(255,255,255,0.8); padding: 40px 0; text-align: center; margin-top: 40px; }
+    footer p { margin-top: 10px; font-size: 0.9rem; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .timeline { padding-left: 20px; }
+      .day-block::before { left: -38px; width: 26px; height: 26px; font-size: 0.8rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .section-title { font-size: 1.4rem; }
+      th, td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <h1>林芝 · 夏日绿野秘境</h1>
+      <p>逃离酷暑，深入西藏的江南。4天3夜沉浸式徒步、雪山云海与高山杜鹃的交响，开启一场治愈身心的高原之旅。</p>
+      <div class="badges">
+        <span class="badge">🏔 高原风光</span>
+        <span class="badge">📷 摄影出片</span>
+        <span class="badge">🌲 自然风光</span>
+        <span class="badge">🍃 6-8月最佳避暑</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 城市概述 -->
+    <section id="overview">
+      <h2 class="section-title">城市概述</h2>
+      <div class="card" style="margin-bottom: 24px;">
+        <p style="margin-bottom: 16px;"><strong>林芝</strong>，藏语意为“太阳的宝座”。这里平均海拔约3100米，植被覆盖率极高，氧气含量在西藏地区相对充足，被称为“西藏江南”。夏季（6-8月）的林芝，褪去了春日的桃花，迎来了满目苍翠与漫山遍野的高山杜鹃。此时雨季未至顶峰，南迦巴瓦峰在云雾缭绕中若隐若现，雅鲁藏布江水量充沛，是徒步、摄影与避暑的绝佳时节。</p>
+        <div class="alert tip">
+          <strong>🌟 优缺点速览：</strong><br>
+          ✅ 优点：夏季气候温润（15-25℃）、含氧量较高不易高反、自然景观层次丰富（从河谷到雪山）、藏地人文体验纯粹。<br>
+          ⚠️ 注意：夏季为雨季初期，天气多变需备雨具；部分观景台需徒步爬坡；交通以包车为主，费用相对较高（预算级别：3/较高）。
+        </div>
+      </div>
+    </section>
+
+    <!-- 行程安排 -->
+    <section id="itinerary">
+      <h2 class="section-title">4天3晚 · 详细行程</h2>
+      <div class="timeline">
+        <div class="day-block" data-day="D1">
+          <h3>初抵林芝 · 适应海拔与城市漫步</h3>
+          <div class="time-slot">
+            <div class="time-label">上午</div>
+            <p>抵达林芝米林机场/抵达拉萨后转车。办理入住后，建议在酒店休息，勿剧烈运动。多喝温水，可饮用葡萄糖口服液或提前含服红景天。</p>
+          </div>
+          <div class="time-slot">
+            <div class="time-label">下午</div>
+            <p>沿尼洋河风光带漫步，前往<strong>世界柏树王园林</strong>（门票约30元）。这里古柏参天，空气清新，是适应高海拔的绝佳热身地。随后可至林芝市区<strong>工布公园</strong>感受当地慢生活。</p>
+          </div>
+          <div class="time-slot">
+            <div class="time-label">晚上</div>
+            <p>入住八一镇（林芝市区）。晚餐推荐品尝地道藏餐或川菜，饭后避免饮酒。20:30前休息，保证充足睡眠。</p>
+          </div>
+        </div>
+
+        <div class="day-block" data-day="D2">
+          <h3>穿越色季拉 · 鲁朗林海深度游</h3>
+          <div class="time-slot">
+            <div class="time-label">上午</div>
+            <p>包车/自驾前往鲁朗（约2.5小时）。途经<strong>色季拉山口</strong>（海拔4720米），天气晴好时可远眺南迦巴瓦峰群。沿盘山公路而下，正式进入<strong>鲁朗林海</strong>，夏季云杉与冷杉交织，高山草甸如绿色绒毯。</p>
+          </div>
+          <div class="time-slot">
+            <div class="time-label">下午</div>
+            <p>深入鲁朗国际小镇，漫步扎塘鲁措湖畔。推荐前往<strong>鲁朗牧场</strong>体验轻徒步（约2-3公里），近距离观赏藏式木屋、悠闲牦牛与夏季盛开的杜鹃花/格桑花。</p>
+          </div>
+          <div class="time-slot">
+            <div class="time-label">晚上</div>
+            <p>入住鲁朗镇特色民宿或高端度假村。必尝<strong>鲁朗石锅鸡</strong>，以手掌参、松茸和墨脱石锅慢炖，滋补暖胃。夜晚气温较低，可围炉夜话，观赏高原星空。</p>
+          </div>
+        </div>
+
+        <div class="day-block" data-day="D3">
+          <h3>深入峡谷 · 南迦巴瓦与雅鲁藏布江</h3>
+          <div class="time-slot">
+            <div class="time-label">上午</div>
+            <p>前往<strong>雅鲁藏布大峡谷景区</strong>（门票+观光车约290-330元）。夏季江水呈碧绿色，乘区间车沿观景台依次游览：大渡卡遗址、情比石坚、千年古桑树、雅鲁藏布观景台。</p>
+          </div>
+          <div class="time-slot">
+            <div class="time-label">下午</div>
+            <p>抵达大峡谷深处，近距离仰望<strong>南迦巴瓦峰</strong>（海拔7782米）。夏季云雾较易散开，建议15:00-18:00在索松村对岸或景区内最佳观景台守候日照金山。</p>
+          </div>
+          <div class="time-slot">
+            <div class="time-label">晚上</div>
+            <p>入住大峡谷南岸的<strong>索松村</strong>。这里是摄影爱好者的天堂，推窗即见雪山与峡谷。晚餐后在村口草坪拍摄星空延时（需三脚架），夜间注意防风保暖。</p>
+          </div>
+        </div>
+
+        <div class="day-block" data-day="D4">
+          <h3>嘎拉田园晨景 · 返程或延伸</h3>
+          <div class="time-slot">
+            <div class="time-label">上午</div>
+            <p>清晨前往<strong>嘎拉桃花村</strong>（夏季无桃花，但绿意正浓，田园风光极佳）。漫步藏式村落，拍摄溪流、白塔与原始桃树交织的静谧画面。随后可体验当地藏族家访，品尝酥油茶与青稞饼。</p>
+          </div>
+          <div class="time-slot">
+            <div class="time-label">下午</div>
+            <p>沿林拉高等级公路返程至八一镇或米林机场。途中可购买松茸、天麻、藏香等特产（建议正规店铺）。若时间充裕，可顺道游览苯日神山观景台。</p>
+          </div>
+          <div class="time-slot">
+            <div class="time-label">晚上</div>
+            <p>根据航班/车次安排送机，结束愉快的藏地江南之旅。温馨提示：下山/返程途中注意补水，适当拉伸缓解疲劳。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 核心景点 -->
+    <section id="attractions">
+      <h2 class="section-title">核心景点详解</h2>
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-icon" style="background: linear-gradient(135deg, #40916c 0%, #52b788 100%);">雅鲁藏布大峡谷</div>
+          <h3>雅鲁藏布大峡谷</h3>
+          <span class="card-meta">🎫 门票+观光车 ¥290-330/人</span>
+          <p><strong>推荐理由：</strong> 世界第一大峡谷，拥有从热带季雨林到高山冰雪带的完整垂直自然带谱。夏季水量丰沛，峡谷水汽蒸腾形成独特小气候。</p>
+          <div style="margin-top:10px; padding-top:10px; border-top:1px solid var(--border);">
+            <p><strong>💡 游玩Tips：</strong> 景区内仅能乘坐指定观光车，不可自驾。建议自备防滑鞋套与轻便雨衣；优先前往“雅鲁藏布观景台”和“南迦巴瓦观景台”；夏季蚊虫较多，备好驱蚊液。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background: linear-gradient(135deg, #2b9348 0%, #74c69d 100%);">南迦巴瓦峰</div>
+          <h3>南迦巴瓦峰</h3>
+          <span class="card-meta">🎫 含在大峡谷门票内</span>
+          <p><strong>推荐理由：</strong> 《中国国家地理》评选的“中国最美山峰”。海拔7782米，终年云雾缭绕，有“十人九不遇”之说。夏季雨后初晴时，山体如银剑出鞘，极为震撼。</p>
+          <div style="margin-top:10px; padding-top:10px; border-top:1px solid var(--border);">
+            <p><strong>💡 游玩Tips：</strong> 最佳观景点为索松村北崖、雅江大拐弯处。日照金山概率在夏季约为30%-40%（高于冬季阴云期）。需携带长焦镜头（200mm以上），耐心守候，勿轻信“包看金山”的商业承诺。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background: linear-gradient(135deg, #52796f 0%, #84a98c 100%);">鲁朗林海</div>
+          <h3>鲁朗林海</h3>
+          <span class="card-meta">🎫 观景台免费/部分区间 ¥50</span>
+          <p><strong>推荐理由：</strong> “东方瑞士”风貌，云杉林绵延百里，高山草甸与雪山相映成趣。夏季是杜鹃花与狼毒花盛开季，色彩层次极为丰富。</p>
+          <div style="margin-top:10px; padding-top:10px; border-top:1px solid var(--border);">
+            <p><strong>💡 游玩Tips：</strong> 色季拉山口风大温低，下车拍照建议不超过15分钟。林海徒步路线成熟，但需沿木栈道行走，避免踩踏脆弱草甸。摄影建议广角拍森林纵深，长焦拍牦牛特写。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background: linear-gradient(135deg, #74c69d 0%, #b7e4c7 100%); color: var(--primary-dark);">嘎拉桃花村</div>
+          <h3>嘎拉桃花村（夏）</h3>
+          <span class="card-meta">🎫 免费（非桃花节期）</span>
+          <p><strong>推荐理由：</strong> 春季桃花节主会场，夏季则转为宁静的高原田园村落。百年野生桃树枝繁叶茂，掩映藏式石木结构房屋，溪流潺潺，是体验藏家生活与轻摄影的绝佳地。</p>
+          <div style="margin-top:10px; padding-top:10px; border-top:1px solid var(--border);">
+            <p><strong>💡 游玩Tips：</strong> 夏季可重点拍摄“绿树+白塔+雪山”的构图组合。村内设有非遗体验馆与藏装租赁点，适合人文纪实摄影。请尊重当地习俗，拍摄牧民或房屋前建议先征得同意。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 食宿推荐 -->
+    <section id="food-stay">
+      <h2 class="section-title">美食与住宿指南</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>🍲 必吃美食 & 推荐餐厅</h3>
+          <ul class="styled">
+            <li><strong>鲁朗石锅鸡</strong>：选用藏香鸡+墨脱石锅慢炖，汤底浓郁含手掌参与松茸。推荐：<em>阿沛石锅鸡（鲁朗镇）</em>、<em>蜀香石锅（八一镇）</em></li>
+            <li><strong>藏香猪</strong>：放养于林间，肉质紧实。推荐碳烤或风干做法。</li>
+            <li><strong>酥油茶/甜茶</strong>：高海拔必备，缓解干燥与疲劳。市区茶馆随处可见。</li>
+            <li><strong>青稞饼 & 牦牛酸奶</strong>：天然发酵，口感醇厚，搭配蜂蜜极佳。</li>
+            <li>⚠️ <em>夏季饮食提示：</em> 初到高原避免暴饮暴食，少饮酒，多吃易消化食物，预防肠胃不适。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>🏡 住宿推荐（分档次）</h3>
+          <p style="margin-bottom: 12px;">林芝住宿价格夏季处于高位（6-8月旺季），建议提前30天预订。</p>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div>
+              <span class="tag-inline">💰 经济型 (¥300-600/晚)</span><br>
+              如家精选林芝店、八一镇藏式家庭客栈。干净卫生，适合背包客与自驾中转。
+            </div>
+            <div>
+              <span class="tag-inline">✨ 舒适型 (¥600-1200/晚)</span><br>
+              大峡谷观景民宿（索松村）、工布庄园·林芝酒店。含早，部分带地暖/加湿器，位置优越。
+            </div>
+            <div>
+              <span class="tag-inline">👑 高端型 (¥1500-3000+/晚)</span><br>
+              松赞林卡·林芝、林芝希尔顿逸林、鲁朗国际小镇高端度假酒店。提供吸氧服务、藏地文化体验、专业旅拍指导。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 交通指南 -->
+    <section id="transport">
+      <h2 class="section-title">交通与行程指南</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>✈️ 如何到达林芝</h3>
+          <ul class="styled">
+            <li><strong>飞机直达：</strong> 林芝米林机场。目前主要通航成都、重庆、西安等城市。夏季航班较少，建议提前购票。飞行时间约2.5-3小时（成都出发）。</li>
+            <li><strong>拉萨中转：</strong> 若无直飞，可先飞拉萨贡嘎机场，随后选择包车/拼车（约5小时，G318转林拉高速，路况极佳）或乘坐机场大巴+火车/大巴前往林芝。</li>
+            <li><strong>高铁：</strong> 拉萨至林芝铁路已开通，但林芝境内目前无直达高铁。可在拉萨乘坐动车至林芝站（约3.5小时），再转乘当地车辆。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>🚗 当地交通方式</h3>
+          <ul class="styled">
+            <li><strong>包车/拼车（推荐）：</strong> 林芝景点分散，公共交通不便。建议包越野车（普拉多/坦克300等），约¥800-1200/天（含司机）。拼车约¥250-350/人/天。</li>
+            <li><strong>租车自驾：</strong> 机场与市区均有租车点。夏季雨季部分路段偶有落石，需熟悉盘山路驾驶经验。务必购买全险。</li>
+            <li><strong>景区交通：</strong> 大峡谷内强制观光车，其他景点多为自驾/包车直达停车坪后步行。</li>
+          </ul>
+          <div class="alert">
+            注意：西藏境内严禁非营运车辆从事旅游客运，切勿乘坐“黑车”或非法营运车辆。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section id="tips">
+      <h2 class="section-title">夏季出行注意事项</h2>
+      <div class="card">
+        <div class="grid-2" style="gap: 30px;">
+          <div>
+            <h4 style="color: var(--primary); margin-bottom: 10px;">🌡️ 气候与穿着</h4>
+            <p>林芝夏季昼夜温差大（白天18-24℃，夜间8-12℃）。<strong>建议“洋葱式穿衣”：</strong> 内层速干T恤，中层抓绒/薄毛衣，外层防风防水冲锋衣。必带：墨镜（防紫外线+雪地反光）、遮阳帽、高倍防晒霜（SPF50+）、驱蚊喷雾。</p>
+          </div>
+          <div>
+            <h4 style="color: var(--primary); margin-bottom: 10px;">⚠️ 安全与健康</h4>
+            <ul class="styled">
+              <li>首日避免洗澡、剧烈运动，预防高反（头痛、失眠可服用布洛芬或乙酰唑胺）。</li>
+              <li>雨季山路湿滑，徒步务必穿防滑登山鞋，勿越警戒线靠近江岸。</li>
+              <li>尊重藏族习俗：转经需顺时针，不随意拍摄僧侣，进入寺庙脱帽、不穿短裙/背心。</li>
+              <li>通讯：三大运营商4G信号覆盖市区及主干道，部分偏远村落信号弱，建议下载离线地图。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 预算参考 -->
+    <section id="budget">
+      <h2 class="section-title">4天行程预算参考</h2>
+      <p style="color: var(--text-muted); margin-bottom: 15px;">以下为单人预算估算（按双人/小团均摊计算，预算级别：3-较高），实际花费受出行季节、住宿标准与航班折扣影响较大。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>消费项目</th>
+              <th>明细说明</th>
+              <th>预估费用（元）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>✈️ 往返大交通</td>
+              <td>机票（非直飞中转/拉萨进出）+ 拉萨-林芝动车或包车分摊</td>
+              <td class="price-tag">¥1800 - ¥3500</td>
+            </tr>
+            <tr>
+              <td>🚗 当地交通</td>
+              <td>4天越野车包车（含司机油费过路费，2-3人拼车）</td>
+              <td class="price-tag">¥1600 - ¥2200</td>
+            </tr>
+            <tr>
+              <td>🏡 住宿（3晚）</td>
+              <td>舒适型/观景民宿为主（¥700-1500/晚），双人分摊</td>
+              <td class="price-tag">¥1200 - ¥2200</td>
+            </tr>
+            <tr>
+              <td>🍽 餐饮</td>
+              <td>每日约¥150-250（含特色石锅鸡、藏餐、简餐）</td>
+              <td class="price-tag">¥600 - ¥900</td>
+            </tr>
+            <tr>
+              <td>🎫 门票 & 体验</td>
+              <td>大峡谷套票、观景车、藏族家访/小景点杂费</td>
+              <td class="price-tag">¥400 - ¥600</td>
+            </tr>
+            <tr style="background: var(--accent); font-weight: 600;">
+              <td>💰 总计预估</td>
+              <td>按中等舒适标准（不含购物）</td>
+              <td class="price-tag" style="font-size: 1.1em;">¥5600 - ¥9400 /人</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert tip" style="margin-top: 20px;">
+        💡 <strong>省钱建议：</strong> 提前15天预订机票与住宿可省15%-20%；选择6月中上旬或8月下旬错峰出行；部分观景台（如色季拉山口、鲁朗免费草甸）无需门票，合理安排即可控制预算。
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>🌿 林芝，一场与自然的久别重逢</h3>
+      <p>本攻略基于最新实地信息与夏季气候特征整理。高原旅行请量力而行，敬畏自然，无痕出行。<br>© 旅游规划工作室 | 数据更新时间：2024年</p>
+    </div>
+  </footer>
+
+</body>
+</html>

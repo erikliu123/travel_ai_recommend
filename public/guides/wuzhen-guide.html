@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乌镇夏季旅游攻略 | 24小时水乡梦境</title>
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --primary-dark: #1b4332;
+            --primary-light: #52b788;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --text-main: #212529;
+            --text-sec: #6c757d;
+            --accent-bg: #d8f3dc;
+            --border: #e9ecef;
+            --radius: 12px;
+            --shadow: 0 6px 20px rgba(45, 106, 79, 0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.6; color: var(--text-main); background: var(--bg); }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* 顶部导航与Hero */
+        header { background: linear-gradient(135deg, var(--primary-dark), var(--primary), #40916c); color: #fff; padding: 50px 0 40px; text-align: center; position: relative; overflow: hidden; }
+        header h1 { font-size: 2.2rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
+        header .subtitle { font-size: 1rem; opacity: 0.9; margin-bottom: 20px; }
+        .badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .badge { background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3); }
+        .badge.budget { background: #f4a261; color: #5a3a1a; }
+
+        /* 通用板块 */
+        .section { background: var(--card); margin: 30px auto; padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); }
+        .section-title { font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--accent-bg); padding-bottom: 12px; }
+        .section-title::before { content: ''; display: block; width: 6px; height: 24px; background: var(--primary); border-radius: 3px; }
+
+        /* 概览信息网格 */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px; }
+        .info-card { background: var(--accent-bg); padding: 18px; border-radius: 10px; border-left: 4px solid var(--primary); }
+        .info-card h4 { color: var(--primary); margin: 0 0 8px; font-size: 0.95rem; }
+        .info-card p { margin: 0; font-size: 0.95rem; color: var(--text-main); }
+
+        /* 行程时间线 */
+        .timeline { position: relative; padding-left: 30px; margin: 20px 0 10px; }
+        .timeline::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--primary), var(--primary-light)); border-radius: 2px; }
+        .tl-item { position: relative; margin-bottom: 30px; padding: 20px; background: #fff; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .tl-item:last-child { margin-bottom: 0; }
+        .tl-item::before { content: ''; position: absolute; left: -31px; top: 26px; width: 14px; height: 14px; background: var(--card); border: 3px solid var(--primary); border-radius: 50%; z-index: 2; }
+        .tl-time { font-weight: bold; color: var(--primary); font-size: 0.85rem; background: var(--accent-bg); padding: 3px 10px; border-radius: 15px; display: inline-block; margin-bottom: 8px; }
+        .tl-title { font-size: 1.2rem; margin-bottom: 6px; color: var(--primary-dark); }
+        .tl-desc { font-size: 0.95rem; color: var(--text-sec); }
+
+        /* 景点与美食/住宿网格 */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+        
+        .item-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: transform 0.2s; }
+        .item-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .card-header { height: 100px; background: linear-gradient(90deg, var(--primary-light), var(--primary)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 1.3rem; }
+        .card-header.art { background: linear-gradient(90deg, #4a4e69, #22223b); }
+        .card-header.night { background: linear-gradient(90deg, #1b263b, #415a77); }
+        .card-header.food { background: linear-gradient(90deg, #d62828, #f77f00); }
+        .card-body { padding: 18px; }
+        .card-body h4 { margin-top: 0; color: var(--primary-dark); font-size: 1.1rem; }
+        .card-meta { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; font-size: 0.9rem; color: var(--text-sec); }
+        .card-meta span { background: #f8f9fa; padding: 4px 8px; border-radius: 4px; }
+        .tag-reason { color: var(--primary); font-weight: 600; }
+
+        /* 交通指南 */
+        .transport-box { background: linear-gradient(135deg, #eef4ed, #f8f9fa); padding: 20px; border-radius: 10px; border: 1px solid var(--primary-light); }
+        .transport-item { margin-bottom: 15px; display: flex; gap: 15px; align-items: flex-start; }
+        .transport-item:last-child { margin-bottom: 0; }
+        .icon-box { min-width: 44px; height: 44px; background: var(--accent-bg); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--primary); }
+        .trans-content h4 { margin: 0 0 5px; font-size: 1rem; }
+        .trans-content p { margin: 0; font-size: 0.9rem; color: var(--text-sec); }
+
+        /* 注意事项 */
+        .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .tip-card { padding: 15px; background: #fff; border: 1px solid var(--border); border-radius: 8px; }
+        .tip-card h4 { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; color: var(--primary); }
+        .tip-card p { margin: 0; font-size: 0.9rem; color: var(--text-sec); }
+
+        /* 预算表格 */
+        .budget-table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+        .budget-table th, .budget-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border); }
+        .budget-table th { background: var(--primary); color: #fff; font-weight: 600; }
+        .budget-table tr:last-child td { border-bottom: none; background: var(--accent-bg); font-weight: 700; color: var(--primary-dark); }
+        
+        footer { text-align: center; padding: 40px 0; color: var(--text-sec); font-size: 0.85rem; background: #fff; margin-top: 40px; border-top: 1px solid var(--border); }
+        .note { background: #fff3cd; padding: 10px 15px; border-radius: 6px; color: #856404; margin-top: 20px; border-left: 4px solid #ffc107; }
+        
+        @media (max-width: 480px) {
+            .section { padding: 20px; margin: 15px 0; }
+            .timeline { padding-left: 25px; }
+            header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>夏日漫游 · 乌镇古镇攻略</h1>
+        <p class="subtitle">枕水人家，入画江南 | 建议游玩 1 天</p>
+        <div class="badges">
+            <span class="badge"># 江南水乡</span>
+            <span class="badge"># 古村镇</span>
+            <span class="badge"># 摄影出片</span>
+            <span class="badge budget">预算级别：适中</span>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- 城市概述 -->
+    <div class="section" id="overview">
+        <h2 class="section-title">城市概述</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>📍 目的地</h4>
+                <p>乌镇（浙江省嘉兴市桐乡市），中国最具代表性的水乡古镇标杆。东栅保留原始生活气息，西栅主打文艺夜游，双栅联动体验完整水乡脉络。</p>
+            </div>
+            <div class="info-card">
+                <h4>🌤️ 最佳时节</h4>
+                <p>传统旺季为 3-5月、9-11月。<strong>夏季（6-8月）</strong>绿意盎然、荷花开满水道，午后雷雨多但游客相对分散，适合错峰体验“烟雨江南”与绝美夜景。</p>
+            </div>
+            <div class="info-card">
+                <h4>⚖️ 优缺点速览</h4>
+                <p style="color:#2b9348;"><strong>✓ 优点：</strong>夜景全国顶尖、高铁便捷、文化设施丰富（戏剧节/互联网大会）、服务管理规范。</p>
+                <p style="color:#c1121f; margin-top:5px;"><strong>✕ 缺点：</strong>联票价格偏高、节假日人流拥挤、西栅商业化程度较深、旺季住宿溢价明显。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1天详细行程 -->
+    <div class="section" id="itinerary">
+        <h2 class="section-title">24小时精华行程（1天版）</h2>
+        <div class="timeline">
+            <div class="tl-item">
+                <span class="tl-time">上午 08:30 - 12:00</span>
+                <h3 class="tl-title">🌿 东栅寻迹：原生态市井烟火</h3>
+                <p class="tl-desc">清晨避开人流首逛东栅，参观百床馆、江南木雕馆与茅盾故居。沿东市河漫步，观看水上婚礼表演，体验更生活化的水乡日常。午餐在东栅老街品尝地道红烧羊肉面。</p>
+            </div>
+            <div class="tl-item">
+                <span class="tl-time">下午 13:30 - 17:00</span>
+                <h3 class="tl-title">🎭 艺术漫游：大剧院与木心美术馆</h3>
+                <p class="tl-desc">午后移步西栅外围。打卡乌镇大剧院（世界互联网大会/戏剧节主会场）的几何建筑美学，随后步入木心美术馆。极简清水混凝土结构与水景倒影相映，是避开酷热的绝佳避暑艺术空间。</p>
+            </div>
+            <div class="tl-item">
+                <span class="tl-time">晚上 17:30 - 21:30</span>
+                <h3 class="tl-title">🏮 西栅夜游：灯火阑珊的终极浪漫</h3>
+                <p class="tl-desc">傍晚进入西栅，趁蓝调时刻拍摄白莲塔与定升桥。登临水上集市感受水乡商贸遗韵，夜幕降临后乘摇橹船夜游（强烈建议）。泛舟水上，两岸暖光倒影如梦境，结束一日行程。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 景点详情 -->
+    <div class="section" id="spots">
+        <h2 class="section-title">核心景点详解</h2>
+        <div class="grid-2">
+            <div class="item-card">
+                <div class="card-header night">西栅</div>
+                <div class="card-body">
+                    <h4>📸 乌镇精华与夜景核心</h4>
+                    <div class="card-meta">
+                        <span><strong class="tag-reason">推荐理由：</strong>灯光系统设计专业，白莲塔、水上集市、古戏台夜景出片率极高。管理统一，体验流畅。</span>
+                        <span><strong class="tag-reason">游玩Tips：</strong>建议17:30后入园，避开白天酷热；租船排队常需40分钟，建议先吃饭再排船；景区内有免费渡船和电瓶车接驳。</span>
+                        <span><strong>🎫 门票：</strong>东西栅联票 150元（单西栅150，单东栅110，仅联票推荐）</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="card-header">东栅</div>
+                <div class="card-body">
+                    <h4>🍃 原生态水乡生活区</h4>
+                    <div class="card-meta">
+                        <span><strong class="tag-reason">推荐理由：</strong>原住民仍居住于此，百床馆、民俗馆、染坊保留了传统手工艺与建筑风貌，人文气息浓厚。</span>
+                        <span><strong class="tag-reason">游玩Tips：</strong>面积较小，1.5-2小时可逛完；务必早起前往，上午9点后人流剧增；高家厅等老宅阴凉，适合夏日穿梭。</span>
+                        <span><strong>🎫 门票：</strong>含在联票内</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="card-header art">木心美术馆</div>
+                <div class="card-body">
+                    <h4>📖 极简建筑与文学朝圣</h4>
+                    <div class="card-meta">
+                        <span><strong class="tag-reason">推荐理由：</strong>由贝聿铭弟子设计，临水而建的清水混凝土建筑极具现代感，与周边古镇形成奇妙对话。馆藏木心手稿、画作珍贵。</span>
+                        <span><strong class="tag-reason">游玩Tips：</strong>室内冷气充足，是夏季避暑首选；闭馆前1小时停止入场，需单独预约或购票（常与联票有优惠套票）。</span>
+                        <span><strong>🎫 门票：</strong>约20元/人（持联票有时有折扣）</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="card-header art">乌镇大剧院</div>
+                <div class="card-body">
+                    <h4>🎭 文化地标与建筑艺术</h4>
+                    <div class="card-meta">
+                        <span><strong class="tag-reason">推荐理由：</strong>并蒂莲造型建筑，世界互联网大会乌镇峰会永久会址。外部造型震撼，内部声学设计一流。</span>
+                        <span><strong class="tag-reason">游玩Tips：</strong>非演出日可预约参观外围广场及序厅；关注“乌镇戏剧节”档期（通常在秋季），夏季偶有先锋剧目或展览开放。</span>
+                        <span><strong>🎫 门票：</strong>外观免费，内部需根据具体展览/演出购票</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 美食推荐 -->
+    <div class="section" id="food">
+        <h2 class="section-title">地道美食寻味</h2>
+        <div class="grid-3">
+            <div class="item-card">
+                <div class="card-header food">招牌必吃</div>
+                <div class="card-body">
+                    <h4>🥩 乌镇红烧羊肉面 & 定胜糕</h4>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin-top:10px;">选用本地湖羊肉慢火煨制，肉质酥烂、酱香浓郁。搭配软糯香甜的定胜糕，是夏日清晨唤醒味蕾的经典组合。</p>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="card-header food">水乡特色</div>
+                <div class="card-body">
+                    <h4>🐟 白水鱼 & 酱鸭 & 姑嫂饼</h4>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin-top:10px;">清蒸白水鱼鲜甜无刺，酱鸭咸甜适口宜下酒。姑嫂饼外脆内酥，甜咸交织，极适合作为伴手礼。</p>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="card-header food">推荐餐厅</div>
+                <div class="card-body">
+                    <h4>📍 民国时代老菜馆 / 裕生餐馆</h4>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin-top:10px;">景区内性价比高的老字号，环境古色古香。夏季推荐点“冰镇绿豆汤”解暑，避开景区主干道临水铺位，小巷内价格更亲民。</p>
+                </div>
+            </div>
+        </div>
+        <div class="note">💡 餐饮提示：西栅景区实行统一物价管理，品质有保障但单价略高于镇外；建议自备少量饮用水与零食。</div>
+    </div>
+
+    <!-- 住宿推荐 -->
+    <div class="section" id="stay">
+        <h2 class="section-title">住宿分级指南</h2>
+        <table class="budget-table">
+            <thead>
+                <tr><th>档次</th><th>类型/位置</th><th>价格参考（夏日）</th><th>特色与Tip</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>🎒 经济型</strong></td><td>景区外青旅/客栈（步行10-15分钟至入口）</td><td>¥150 - ¥280 /晚</td><td>性价比高，周边餐饮选择多。推荐选带独立卫浴的新装修民宿，避开潮湿老宅。</td></tr>
+                <tr><td><strong>🛋️ 舒适型</strong></td><td>景区外精品酒店 / 西栅外围临河民宿</td><td>¥300 - ¥550 /晚</td><td>交通便利，兼顾安静与配套。夏季空调足，隔音好，适合家庭或情侣。</td></tr>
+                <tr><td><strong>👑 高端型</strong></td><td>乌镇官方自营通安客栈/望津里/锦堂（西栅内）</td><td>¥600 - ¥1200+ /晚</td><td>含双早+门票，享VIP专属服务。清晨/夜晚可独享无游客的古镇，体验感顶级。需提前2-3周预订。</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 交通指南 -->
+    <div class="section" id="transport">
+        <h2 class="section-title">交通全指南</h2>
+        <div class="transport-box">
+            <div class="transport-item">
+                <div class="icon-box">✈️</div>
+                <div class="trans-content">
+                    <h4>飞机抵达</h4>
+                    <p>飞抵杭州萧山国际机场或上海虹桥/浦东机场，车程约1-1.5小时。可换乘高铁至桐乡站，或直接在机场乘坐客运大巴至乌镇汽车站（直达约1.5h）。</p>
+                </div>
+            </div>
+            <div class="transport-item">
+                <div class="icon-box">🚄</div>
+                <div class="trans-content">
+                    <h4>高铁推荐</h4>
+                    <p>最优选：至<strong>桐乡站</strong>（杭州东站出发约40分钟，上海虹桥出发约1小时）。出站右转至公交枢纽，乘坐K281/K282路直达乌镇汽车站，票价约5元，耗时约40分钟。</p>
+                </div>
+            </div>
+            <div class="transport-item">
+                <div class="icon-box">🚌</div>
+                <div class="trans-content">
+                    <h4>景区内部交通</h4>
+                    <p>东栅至西栅有免费公交K350路。西栅内部极大，步行较累，可乘坐景区电瓶车（单次3-5元，24h无限次需额外购票）；景区内各码头提供免费水上公交摆渡船。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 注意事项 -->
+    <div class="section" id="tips">
+        <h2 class="section-title">夏季出行注意事项</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h4>🌦️ 天气与穿着</h4>
+                <p>夏季高温多雨，湿度大。必带轻便雨具/防晒伞。建议穿速干透气衣物、防滑平底鞋（青石板路遇水极滑）。避免深色长裙，拍照白色/浅蓝更出片。</p>
+            </div>
+            <div class="tip-card">
+                <h4>🦟 防蚊与防晒</h4>
+                <p>水乡草木丰茂，蚊虫活跃。务必准备驱蚊液/风油精。正午紫外线强，每2小时补涂防晒霜。建议利用上午和傍晚游览户外，正午安排室内展馆。</p>
+            </div>
+            <div class="tip-card">
+                <h4>💡 游玩安全</h4>
+                <p>临水区域无护栏处切勿倚靠或下水。古镇夜间照明虽好，但部分巷道石板破损，夜间行走注意脚下。贵重物品贴身保管，防扒。</p>
+            </div>
+            <div class="tip-card">
+                <h4>🎫 票务与预约</h4>
+                <p>实行实名制分时段预约。联票含一次入园权限（东/西栅不可反复进出，除非住西栅官方酒店）。建议通过官方小程序提前购票，刷身份证入园。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 预算参考 -->
+    <div class="section" id="budget">
+        <h2 class="section-title">单人预算参考（适中档）</h2>
+        <table class="budget-table">
+            <thead>
+                <tr><th>项目</th><th>明细说明</th><th>费用估算（元/人）</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>🚄 交通</td><td>杭州东-桐乡往返高铁 + 公交接驳 + 景区电瓶车</td><td>¥110 - ¥140</td></tr>
+                <tr><td>🎫 门票</td><td>东栅西栅联票（官方渠道）</td><td>¥150</td></tr>
+                <tr><td>🍽️ 餐饮</td><td>午餐简餐 + 晚餐正餐 + 小吃饮品</td><td>¥180 - ¥250</td></tr>
+                <tr><td>🏡 住宿</td><td>舒适型酒店/客栈 1晚（按单人/双人拼房折算）</td><td>¥200 - ¥350</td></tr>
+                <tr><td>🚤 体验</td><td>摇橹船拼船（限载6人）或 文创纪念品</td><td>¥50 - ¥100</td></tr>
+                <tr><td><strong>总计</strong></td><td><strong>1天夏季精华游参考</strong></td><td><strong>¥690 - ¥990</strong></td></tr>
+            </tbody>
+        </table>
+        <p style="font-size:0.85rem; color:var(--text-sec); margin-top:12px;">注：节假日（五一、国庆、暑期周末）住宿价格可能上浮 50%-100%，建议提前规划。</p>
+    </div>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2024 乌镇夏季旅游攻略 | 规划师精心整理 · 数据仅供参考，请以景区实时公告为准</p>
+        <p style="margin-top:8px; font-size:0.8rem; opacity:0.7;">愿您在江南的微风与桨声灯影中，收获一段清凉惬意的夏日记忆。</p>
+    </div>
+</footer>
+
+</body>
+</html>

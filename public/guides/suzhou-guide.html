@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>苏州夏季旅游攻略 | 寻梦江南园林水乡</title>
+  <style>
+    :root {
+      --primary: #774930;
+      --primary-light: #A67B5B;
+      --primary-dark: #5A3520;
+      --bg: #F9F6F1;
+      --card: #FFFFFF;
+      --text: #333333;
+      --text-light: #555555;
+      --accent: #C9A276;
+      --border: #E3D9CF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Header */
+    header {
+      background: linear-gradient(160deg, #774930 0%, #4A2E1D 100%);
+      color: #fff;
+      padding: 50px 0 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px);
+    }
+    header h1 { font-size: 2.4rem; margin-bottom: 12px; font-weight: 700; letter-spacing: 2px; position: relative; z-index: 1; }
+    header .subtitle { font-size: 1.1rem; opacity: 0.85; position: relative; z-index: 1; }
+    .quick-stats { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; position: relative; z-index: 1; }
+    .stat-box { background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.3); }
+    .tags { display: flex; justify-content: center; gap: 10px; margin-top: 15px; position: relative; z-index: 1; }
+    .tag { background: #fff; color: var(--primary); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
+
+    /* Sections */
+    section {
+      background: var(--card);
+      padding: 32px 28px;
+      margin: 30px 0;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 5px 20px rgba(119,73,48,0.08);
+    }
+    h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      padding-bottom: 12px;
+      margin-bottom: 22px;
+      border-bottom: 2px solid var(--primary-light);
+      display: flex; align-items: center; gap: 10px;
+    }
+    h2::before { content: "◆"; color: var(--primary-light); font-size: 1rem; }
+    p, li { color: var(--text-light); margin-bottom: 10px; }
+    ul { padding-left: 20px; }
+
+    /* Overview */
+    .intro-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
+    .pc-box { padding: 15px; border-radius: 10px; font-size: 0.9rem; }
+    .pc-box.pro { background: #F4F9F6; border-left: 4px solid #4CAF50; }
+    .pc-box.con { background: #FDF5F3; border-left: 4px solid #E57373; }
+    .pc-title { font-weight: bold; margin-bottom: 6px; display: block; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 24px; margin-top: 10px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 6px; top: 10px; bottom: 20px;
+      width: 3px; background: linear-gradient(to bottom, var(--primary), var(--accent)); border-radius: 4px;
+    }
+    .day-header { background: var(--primary); color: #fff; padding: 8px 16px; border-radius: 8px; display: inline-block; margin-bottom: 15px; font-weight: bold; }
+    .tl-item { position: relative; margin-bottom: 28px; }
+    .tl-item::before {
+      content: ''; position: absolute; left: -22px; top: 4px; width: 14px; height: 14px;
+      background: var(--primary); border: 3px solid var(--card); border-radius: 50%;
+    }
+    .tl-time { font-weight: 700; color: var(--primary); font-size: 0.95rem; margin-bottom: 4px; }
+    .tl-content { background: #FAF8F5; padding: 14px; border-radius: 8px; border-left: 4px solid var(--accent); }
+    .tl-content h4 { margin-bottom: 6px; color: var(--text); }
+    .tl-content p { font-size: 0.92rem; margin: 0; }
+
+    /* Cards Grid */
+    .grid { display: grid; gap: 20px; margin-top: 20px; }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card {
+      background: #FDFBF9; border: 1px solid var(--border); border-radius: 10px;
+      padding: 20px; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+    .card h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .card .price { font-size: 0.85rem; color: #D4843E; font-weight: bold; background: #FFF3E5; padding: 3px 8px; border-radius: 12px; }
+    .card .desc { font-size: 0.9rem; color: var(--text-light); margin-bottom: 12px; line-height: 1.5; }
+    .card .tips { background: #F5F0E9; padding: 10px; border-radius: 6px; font-size: 0.85rem; color: #5C4432; }
+
+    /* Food & Stay */
+    .food-list, .stay-list { list-style: none; padding: 0; }
+    .food-list li, .stay-list li { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px dashed var(--border); }
+    .item-name { font-weight: 600; color: var(--text); }
+    .item-note { color: var(--text-light); font-size: 0.85rem; }
+    .price-tag { color: var(--primary); font-weight: 500; white-space: nowrap; }
+
+    /* Transport & Budget */
+    .info-row { display: flex; gap: 15px; align-items: flex-start; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .info-icon { width: 36px; height: 36px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; flex-shrink: 0; }
+    table.budget-tbl { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; border-radius: 8px; overflow: hidden; }
+    table.budget-tbl th { background: var(--primary); color: #fff; padding: 12px; text-align: left; font-weight: normal; }
+    table.budget-tbl td { padding: 12px; border-bottom: 1px solid var(--border); color: var(--text-light); }
+    table.budget-tbl tr:last-child td { border-bottom: none; background: #FDF8F2; font-weight: bold; color: var(--primary); }
+
+    /* Tips Box */
+    .warning-box { background: linear-gradient(to right, #FFF8F0, #FFFFFF); border-left: 5px solid var(--primary); padding: 18px; margin: 20px 0; border-radius: 6px; font-size: 0.92rem; }
+    .warning-box strong { color: var(--primary-dark); }
+
+    footer { text-align: center; padding: 40px 20px 30px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 20px; background: #F4F0E9; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header { padding: 35px 0 25px; }
+      header h1 { font-size: 1.8rem; }
+      section { padding: 22px 18px; margin: 20px 0; }
+      .pros-cons, .grid { grid-template-columns: 1fr; }
+      .timeline { padding-left: 18px; }
+      h2 { font-size: 1.3rem; }
+      table.budget-tbl { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>苏州夏季旅游攻略</h1>
+      <div class="subtitle">园林之城 · 2日精华行程 · 夏季避暑与夜游指南</div>
+      <div class="quick-stats">
+        <div class="stat-box">📅 建议游玩：2天</div>
+        <div class="stat-box">🌡️ 季节提示：夏季高温/宜夜游</div>
+        <div class="stat-box">💰 预算级别：适中（¥1000-1500）</div>
+      </div>
+      <div class="tags">
+        <span class="tag">江南水乡</span>
+        <span class="tag">园林建筑</span>
+        <span class="tag">文化之旅</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 城市概述 -->
+    <section id="overview">
+      <h2>城市概览</h2>
+      <div class="intro-grid">
+        <p>苏州，一座将中国古典造园艺术推向极致的城市。拙政园、留园等世界文化遗产点缀其间，粉墙黛瓦与曲水流觞相映成趣。周庄、同里等古镇完好保留了明清时期的江南水乡原貌。虽然最佳旅游季节为春秋两季，但夏季的苏州别有韵味：拙政园的夏日荷风、网师园的夜花园演出、以及水乡清晨的薄雾与摇橹船，都值得细细品味。只需合理规划行程与防暑，便能享受一次精致惬意的文化之旅。</p>
+      </div>
+      <div class="pros-cons">
+        <div class="pc-box pro">
+          <span class="pc-title">✨ 旅行亮点</span>
+          <ul style="margin:0; padding-left:15px;">
+            <li>长三角高铁枢纽，1.5小时直达，交通极便利</li>
+            <li>古典园林艺术独一无二，移步换景</li>
+            <li>苏帮菜清鲜雅致，苏式面点与小食遍地</li>
+            <li>城市精致宜居，古街区生活气息浓厚</li>
+          </ul>
+        </div>
+        <div class="pc-box con">
+          <span class="pc-title">⚠️ 注意事项</span>
+          <ul style="margin:0; padding-left:15px;">
+            <li>园林风格相近，建议精选2-3个代表</li>
+            <li>夏季高温高湿，易生疲乏，需做好防晒防暑</li>
+            <li>周末及节假日平江路、拙政园人流密集</li>
+            <li>部分古镇商业化程度较高，建议清晨或夜游体验更佳</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2天行程 -->
+    <section id="itinerary">
+      <h2>2日精华行程安排</h2>
+      <div class="timeline">
+        <div class="day-header">Day 1：园林雅韵与古城烟火</div>
+        <div class="tl-item">
+          <div class="tl-time">⏰ 上午 08:00 - 12:00</div>
+          <div class="tl-content">
+            <h4>📍 拙政园（中国四大名园之首）</h4>
+            <p>建议8:00开门即入，避开旅行团高峰。以水为中心布局，廊桥交错，夏日可赏满池荷花与精巧的借景造园艺术。游览时长约1.5-2小时。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">⏰ 中午 12:30 - 14:00</div>
+          <div class="tl-content">
+            <h4>🍜 午餐 & 休息</h4>
+            <p>步行至西北街或观前街区域用餐。推荐品尝松鼠鳜鱼或苏式汤面。夏季午后炎热，可在附近咖啡馆或茶社小憩。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">⏰ 下午 15:00 - 18:00</div>
+          <div class="tl-content">
+            <h4>📍 平江路历史街区</h4>
+            <p>漫步保存最完好的古街巷，小桥流水人家。可体验手摇橹船（40元/人），探访评弹馆听一曲《声声慢》，感受地道的苏式慢生活。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">⏰ 晚上 19:30 - 21:30</div>
+          <div class="tl-content">
+            <h4>🌙 网师园夜花园 / 金鸡湖夜景</h4>
+            <p>若逢夏季夜花园开放，网师园的昆曲评弹实景演出极具韵味。或前往金鸡湖看“大裤衩”东方之门与音乐喷泉，感受现代苏州。</p>
+          </div>
+        </div>
+
+        <div class="day-header">Day 2：吴中胜迹与梦里水乡</div>
+        <div class="tl-item">
+          <div class="tl-time">⏰ 上午 07:30 - 11:30</div>
+          <div class="tl-content">
+            <h4>📍 虎丘风景区</h4>
+            <p>苏东坡言：“到苏州不游虎丘，乃憾事也”。重点观赏斜而不倒的云岩寺塔（东方比萨斜塔）、剑池与真娘墓。晨间游览凉爽清幽，约2小时。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">⏰ 中午 12:30 - 14:00</div>
+          <div class="tl-content">
+            <h4>🚌 转场周庄古镇</h4>
+            <p>乘地铁+公交或打车前往周庄（约1.5小时车程）。沿途休息，抵达后在古镇外围或入口处用午餐（推荐万三蹄、白丝鱼）。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">⏰ 下午 15:00 - 20:00</div>
+          <div class="tl-content">
+            <h4>🌊 周庄古镇深度游</h4>
+            <p>避开正午烈日，下午游览双桥、沈厅、张厅。18:30后古镇亮灯，沿河长廊与水面倒影如梦幻水墨画。可乘画舫夜游，体验“中国第一水乡”的夜色。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 景点详情 -->
+    <section id="attractions">
+      <h2>核心景点指南</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>🏛️ 拙政园 <span class="price">门票约 ¥70</span></h3>
+          <p class="desc">推荐理由：苏州园林之首，以水景见长，夏季荷花盛开，亭台楼榭与曲径通幽尽显文人意境。世界文化遗产，必打卡。</p>
+          <div class="tips">💡 游玩Tips：需提前1-3天在“苏州园林旅游”公众号实名预约；建议请官方讲解或使用语音导览，否则易走马观花；穿防滑平底鞋。</div>
+        </div>
+        <div class="card">
+          <h3>⛰️ 虎丘 <span class="price">门票约 ¥70</span></h3>
+          <p class="desc">推荐理由：“吴中第一山”，自然山水与人文古迹完美融合。云岩寺塔斜而不倒，剑池深壑引人遐想，历史文化底蕴深厚。</p>
+          <div class="tips">💡 游玩Tips：山路台阶较多，夏季易出汗，带足饮用水；避开11:00-14:00暴晒时段；可搭配游览山塘街（步行可达）。</div>
+        </div>
+        <div class="card">
+          <h3>🚣 平江路 <span class="price">门票免费</span></h3>
+          <p class="desc">推荐理由：苏州古城缩影，历史街区原貌保存最佳。沿河古建、非遗手作、苏式茶点与评弹表演交织，烟火气十足。</p>
+          <div class="tips">💡 游玩Tips：摇橹船建议傍晚乘坐，约35-40分钟；主街人多，可拐入两侧支巷（如中张家巷、钮家巷）感受宁静；注意保管随身物品。</div>
+        </div>
+        <div class="card">
+          <h3>🏮 周庄古镇 <span class="price">门票约 ¥100</span></h3>
+          <p class="desc">推荐理由：“中国第一水乡”，明清建筑保存完好。双桥、沈万三故居必看，夜景灯光与水巷倒影极具江南梦幻感。</p>
+          <div class="tips">💡 游玩Tips：商业化较重，建议清晨8:00前或19:00后避开人流；门票含夜游权益；古镇内石板路不平，勿穿高跟鞋；住宿建议选临河客栈体验更佳。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section id="food">
+      <h2>舌尖上的苏州</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>🥢 必尝经典</h3>
+          <ul class="food-list">
+            <li><span class="item-name">松鼠鳜鱼</span><span class="item-note">外酥里嫩，酸甜口，淮扬名菜</span><span class="price-tag">¥98起</span></li>
+            <li><span class="item-name">苏式汤面（头汤面）</span><span class="item-note">红汤/白汤，浇头丰富，清晨必吃</span><span class="price-tag">¥25-50</span></li>
+            <li><span class="item-name">响油鳝糊</span><span class="item-note">热油泼蒜蓉，鲜香扑鼻，夏季开胃</span><span class="price-tag">¥68</span></li>
+            <li><span class="item-name">桂花糖藕 / 酒酿圆子</span><span class="item-note">经典苏式甜品，清甜解暑</span><span class="price-tag">¥18-28</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>📍 推荐餐厅/食肆</h3>
+          <ul class="food-list">
+            <li><span class="item-name">松鹤楼（观前街店）</span><span class="item-note">百年老字号，苏帮菜标杆</span><span class="price-tag">人均 ¥120</span></li>
+            <li><span class="item-name">同得兴（十全街/嘉余坊）</span><span class="item-note">《舌尖上的中国》取景地，枫镇大肉面</span><span class="price-tag">人均 ¥35</span></li>
+            <li><span class="item-name">平江路小吃街</span><span class="item-note">桂花糕、鸡爪、苏式鲜肉月饼集中地</span><span class="price-tag">人均 ¥40</span></li>
+            <li><span class="item-name">得月楼</span><span class="item-note">临街赏景，传统苏式宴席，适合家庭</span><span class="price-tag">人均 ¥110</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="warning-box">
+        <strong>📌 夏季饮食提示：</strong>苏帮菜偏甜，点单时可备注减糖。夏季湿热，可搭配绿豆汤、薄荷糕等清凉小食。注意食材新鲜，避免生冷过量引起肠胃不适。
+      </div>
+    </section>
+
+    <!-- 住宿推荐 -->
+    <section id="stay">
+      <h2>住宿推荐（适中预算）</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>🛏️ 经济舒适型 <span class="price">¥180-300/晚</span></h3>
+          <p class="desc">推荐区域：观前街、平江路外围支巷、地铁2号线沿线。</p>
+          <p class="desc">代表选择：全季/汉庭/如家等连锁酒店，或评价良好的精品青旅/客栈。</p>
+          <div class="tips">性价比高，交通便利，餐饮选择多。周末需提前5-7天预订。</div>
+        </div>
+        <div class="card">
+          <h3>🏡 文化民宿型 <span class="price">¥350-600/晚</span></h3>
+          <p class="desc">推荐区域：平江路历史街区、山塘街周边、姑苏区老宅院。</p>
+          <p class="desc">代表选择：临水苏式院落、设计师民宿（如平江府、书香世家系列）。</p>
+          <div class="tips">沉浸式体验江南生活，部分含庭院与早茶，隔音与设施参差不齐，建议看真实客评。</div>
+        </div>
+        <div class="card">
+          <h3>✨ 高端度假型 <span class="price">¥800-1500+/晚</span></h3>
+          <p class="desc">推荐区域：金鸡湖周边、古典园林旁、太湖度假区。</p>
+          <p class="desc">代表选择：苏州中茵皇冠假日、W酒店、南园宾馆（原蒋介石官邸）。</p>
+          <div class="tips">服务完善，景观优越。夏季常有下午茶或夜花园体验套餐，适合追求品质的旅客。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 交通指南 -->
+    <section id="transport">
+      <h2>交通指南</h2>
+      <div class="info-row">
+        <div class="info-icon">🚄</div>
+        <div>
+          <strong>高铁/火车</strong>：首选“苏州站”（市中心，近平江路/山塘街）。杭州东站出发班次极密集，约1.5小时直达。苏州北站稍远但地铁2号线直达市区。
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">✈️</div>
+        <div>
+          <strong>飞机</strong>：苏州无独立民航机场。可飞抵上海虹桥（转高铁30分至苏州站）或无锡苏南硕放机场（大巴/高铁约1小时），实际空中飞行时间约1小时。
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🚇</div>
+        <div>
+          <strong>市内交通</strong>：地铁1/2/3/4号线覆盖主要景点与商圈，扫码乘车。公交网络发达。景点间建议地铁+共享单车/短途打车（起步价13元左右）。
+        </div>
+      </div>
+      <div class="warning-box">
+        <strong>🚦 避堵提示：</strong>古城区（护城河内）周末及节假日常实行交通管制，私家车/网约车可能绕行。建议优先选择地铁或公交，前往周庄可乘苏州旅游集散中心专线大巴。
+      </div>
+    </section>
+
+    <!-- 预算参考 -->
+    <section id="budget">
+      <h2>预算参考（2天1晚 / 单人）</h2>
+      <p style="margin-bottom: 15px;">以下按<b>适中（Level 2）</b>标准估算，不含跨城往返大交通费用。</p>
+      <table class="budget-tbl">
+        <thead>
+          <tr><th>项目</th><th>明细说明</th><th>预估费用</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🏨 住宿</td><td>舒适型民宿/连锁酒店1晚</td><td>¥350 - ¥450</td></tr>
+          <tr><td>🚇 市内交通</td><td>地铁/公交/短途打车/摇橹船</td><td>¥60 - ¥90</td></tr>
+          <tr><td>🍜 餐饮</td><td>2正1早+小吃饮品（非奢华餐厅）</td><td>¥250 - ¥350</td></tr>
+          <tr><td>🎫 门票/体验</td><td>拙政园¥70 + 虎丘¥70 + 周庄¥100</td><td>¥240 - ¥280</td></tr>
+          <tr style="background: #FDF8F2; font-weight: bold; color: var(--primary);"><td>💰 总计参考</td><td>单人适中预算（浮动±15%）</td><td>¥900 - ¥1,170</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 注意事项 -->
+    <section id="tips">
+      <h2>夏季出行注意事项</h2>
+      <div class="grid grid-2">
+        <div>
+          <h3>🌦️ 天气与穿着</h3>
+          <ul>
+            <li><strong>高温高湿：</strong>7-8月均温30-36℃，午后多雷阵雨。务必避开11:00-15:00户外暴晒时段。</li>
+            <li><strong>衣物建议：</strong>透气速干短袖/衬衫、轻薄长裤（防蚊虫/防晒）。备一件薄外套应对室内强冷气。</li>
+            <li><strong>必备配件：</strong>晴雨伞（防晒防雨两用）、遮阳帽、墨镜、便携小风扇。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>🔒 安全与健康</h3>
+          <ul>
+            <li><strong>防暑降温：</strong>随身携带藿香正气水/清凉油/电解质水。园林水池边易滑，行走勿低头看手机。</li>
+            <li><strong>防蚊防虫：</strong>夏季江南水网密集，蚊虫活跃，必带驱蚊液或风油精，穿浅色衣物。</li>
+            <li><strong>预约规则：</strong>拙政园、苏州博物馆、虎丘实行严格分时段实名预约，未预约不可入园。建议提前3天在官方小程序锁定名额。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="warning-box">
+        <strong>🎒 行前Checklist：</strong>身份证原件（入园核验） | 手机充电宝（导航拍照耗电快） | 舒适防滑步行鞋（日均步数1.5w+） | 少量现金（部分老字号仅支持部分移动支付或备用）。
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 苏州夏季旅游攻略 | 数据仅供参考，门票价格及营业时间可能随政策调整，出行前请以景区官方公告为准。</p>
+      <p style="margin-top:8px; font-size: 0.8rem;">祝您在姑苏城，寻得一段清凉雅致的江南记忆。</p>
+    </div>
+  </footer>
+
+</body>
+</html>

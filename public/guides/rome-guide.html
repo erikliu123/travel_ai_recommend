@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罗马夏日深度游攻略 | 永恒之城4日之旅</title>
+    <style>
+        :root {
+            --primary: #774930;
+            --primary-dark: #5a3724;
+            --primary-light: #b89a7d;
+            --primary-fade: rgba(119, 73, 48, 0.08);
+            --bg: #f9f6f1;
+            --card: #ffffff;
+            --text: #2c2c2c;
+            --text-light: #6b6b6b;
+            --border: #e6ddd3;
+            --shadow: 0 6px 16px rgba(119, 73, 48, 0.1);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #9e6a4b 100%); color: #fff; padding: 50px 0 30px; text-align: center; position: relative; overflow: hidden; }
+        header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M50 20 Q80 50 50 80 Q20 50 50 20Z" fill="rgba(255,255,255,0.05)"/></svg>') repeat; opacity: 0.3; }
+        header h1 { font-size: 2.4rem; margin-bottom: 12px; letter-spacing: 2px; position: relative; z-index: 2; }
+        header p { font-size: 1.1rem; opacity: 0.9; max-width: 650px; margin: 0 auto; position: relative; z-index: 2; }
+        
+        .meta-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; position: relative; z-index: 2; }
+        .meta-item { background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.3); }
+        .badge-container { margin: 15px 0 5px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .badge { display: inline-block; background: #e8d8c5; color: var(--primary-dark); padding: 5px 12px; border-radius: 16px; font-size: 0.85rem; font-weight: 500; border: 1px solid #d4c1ad; }
+
+        section { background: var(--card); padding: 30px; margin-bottom: 25px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+        h2 { color: var(--primary); font-size: 1.6rem; margin: 25px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--primary-light); display: inline-block; }
+        h3 { color: var(--primary-dark); margin: 18px 0 10px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px; }
+        h4 { color: #555; font-size: 1rem; margin: 12px 0 6px; font-weight: 600; }
+        p, li { margin-bottom: 8px; color: var(--text); }
+        ul { padding-left: 20px; margin-bottom: 12px; }
+        
+        .visual-placeholder { width: 100%; height: 140px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 2px; }
+        .vis-1 { background: linear-gradient(135deg, #d4b896 0%, #8c5c3a 100%); }
+        .vis-2 { background: linear-gradient(135deg, #a890b5 0%, #63456b 100%); }
+        .vis-3 { background: linear-gradient(135deg, #89b0c1 0%, #4a728f 100%); }
+        .vis-4 { background: linear-gradient(135deg, #bfa37a 0%, #7a603e 100%); }
+
+        .timeline { border-left: 3px solid var(--primary-light); padding-left: 20px; margin: 15px 0; }
+        .timeline-day { position: relative; margin-bottom: 25px; }
+        .timeline-day::before { content: ''; position: absolute; left: -28px; top: 4px; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; border: 3px solid var(--card); }
+        .time-slot { display: flex; gap: 15px; margin-bottom: 10px; background: var(--primary-fade); padding: 12px; border-radius: 8px; }
+        .time-label { font-weight: 700; color: var(--primary); min-width: 50px; }
+        .time-content h4 { margin: 0 0 4px; }
+        .time-content p { margin: 0; font-size: 0.95rem; color: var(--text-light); }
+
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: #fdfbf9; border: 1px solid var(--border); padding: 20px; border-radius: 10px; transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(119, 73, 48, 0.12); }
+        .price { background: #e8e0d8; color: var(--primary-dark); padding: 3px 8px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; }
+        .tip-box { background: #f4ede4; padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary); margin: 10px 0; font-size: 0.95rem; }
+        .warn-box { background: #fdf2f0; border-left-color: #c23d3d; }
+
+        table.budget { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; }
+        table.budget th, table.budget td { padding: 14px; text-align: left; border-bottom: 1px solid var(--border); }
+        table.budget th { background: #f5efe8; color: var(--primary); font-weight: 600; }
+        table.budget td { color: #444; }
+        .total { font-weight: bold; color: var(--primary-dark); background: #faf7f2; }
+
+        .transport-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .transport-item { border: 1px dashed var(--primary-light); padding: 15px; border-radius: 10px; background: #fdfbf9; }
+        .transport-title { font-weight: bold; color: var(--primary); margin-bottom: 5px; }
+
+        footer { text-align: center; padding: 30px 0 50px; color: var(--text-light); font-size: 0.9rem; }
+        .divider { height: 1px; background: var(--border); margin: 30px 0; }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 15px; }
+            header { padding: 35px 0 25px; }
+            header h1 { font-size: 1.9rem; }
+            section { padding: 20px; margin-bottom: 15px; }
+            h2 { font-size: 1.4rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .time-slot { flex-direction: column; gap: 5px; }
+            .time-label { min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>罗马 · 永恒之城夏日深度游</h1>
+        <p>一座露天的历史博物馆。两千年的历史浓缩在每一步街头，从斗兽场的残垣到梵蒂冈的穹顶，感受艺术与时光的交响。</p>
+        <div class="meta-bar">
+            <div class="meta-item">📅 建议游玩：4天</div>
+            <div class="meta-item">🌤 最佳月份：4-6月、9-10月</div>
+            <div class="meta-item">💰 预算级别：Level 3（较高）</div>
+        </div>
+        <div class="badge-container">
+            <span class="badge">🏛 历史古迹</span>
+            <span class="badge">🎨 文化之旅</span>
+            <span class="badge">🍝 美食之旅</span>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section id="overview">
+        <h2>城市速览与核心提示</h2>
+        <div class="grid-2">
+            <div>
+                <p><strong>城市魅力：</strong>罗马拥有极高的历史遗迹密度，核心区几乎全靠步行即可串联。意大利正宗美食遍地开花，4-6月及9-10月气候最为宜人，阳光充足而不灼热，是深度游览的黄金期。</p>
+                <div class="tip-box warn-box">
+                    <strong>⚠️ 避坑提醒：</strong>夏季高温炎热（日均30°C+），部分区域石板路（Sanpietrini）颠簸难走；热门景点排队极长，务必提前官网预约；游客密集区扒手猖獗，请保持警惕。
+                </div>
+            </div>
+            <div class="visual-placeholder vis-1">🌇 永恒之城天际线</div>
+        </div>
+    </section>
+
+    <section id="itinerary">
+        <h2>4天经典行程规划</h2>
+        <div class="timeline">
+            <div class="timeline-day">
+                <h4>Day 1：帝国荣光与古罗马回响</h4>
+                <div class="time-slot">
+                    <div class="time-label">上午</div>
+                    <div class="time-content">
+                        <h4>斗兽场 Colosseum & 古罗马广场 & 帕拉蒂尼山</h4>
+                        <p>从斗兽场内部感受角斗士的悲壮，随后步入古罗马广场遗址群，沿帕拉蒂尼山登顶俯瞰帝国遗迹全貌。</p>
+                    </div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label">下午</div>
+                    <div class="time-content">
+                        <h4>威尼斯广场 & 卡比托利欧博物馆</h4>
+                        <p>参观维克多·埃曼纽尔二世纪念碑（祖国祭坛），登顶可360度俯瞰罗马城。随后漫步至卡比托利欧广场欣赏米开朗基罗规划的城市杰作。</p>
+                    </div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label">晚上</div>
+                    <div class="time-content">
+                        <h4>特莱维喷泉 Trevi Fountain 夜景漫步</h4>
+                        <p>华灯初上时前往许愿池，背对喷泉右手投币许愿。避开白天人潮，在巴洛克光影中感受如梦似幻的罗马之夜。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-day">
+                <h4>Day 2：教国巅峰与文艺复兴圣殿</h4>
+                <div class="time-slot">
+                    <div class="time-label">上午</div>
+                    <div class="time-content">
+                        <h4>梵蒂冈博物馆 & 西斯廷教堂</h4>
+                        <p>提前预约最早入场。穿越数千件艺术珍品，最终抵达西斯廷教堂仰望米开朗基罗《创世纪》天顶画与《最后的审判》。</p>
+                    </div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label">下午</div>
+                    <div class="time-content">
+                        <h4>圣彼得大教堂 & 登顶 & 圣天使城堡</h4>
+                        <p>参观全球最大天主教堂（免费安检排队久，建议登顶预约），随后沿协和大道步行至圣天使城堡，在台伯河畔欣赏落日。</p>
+                    </div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label">晚上</div>
+                    <div class="time-content">
+                        <h4>纳沃纳广场 Piazza Navona 晚餐</h4>
+                        <p>在巴洛克广场边享用罗马传统菜，欣赏贝尔尼尼四河喷泉，感受老罗马的街头艺术与咖啡文化。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-day">
+                <h4>Day 3：万神穹顶与老城烟火气</h4>
+                <div class="time-slot">
+                    <div class="time-label">上午</div>
+                    <div class="time-content">
+                        <h4>万神殿 Pantheon</h4>
+                        <p>古罗马保存最完好的建筑奇迹。感受直径43.3米的混凝土穹顶与中央圆孔（Oculus）的采光设计，瞻仰拉斐尔墓。</p>
+                    </div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label">下午</div>
+                    <div class="time-content">
+                        <h4>西班牙台阶 & 波波洛花园 & 购物街</h4>
+                        <p>打卡《罗马假日》经典场景，随后登上阶梯至山顶波波洛公园休憩。沿Condotti大道体验奢侈品与意式手工皮具。</p>
+                    </div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label">晚上</div>
+                    <div class="time-content">
+                        <h4>特拉斯提弗列区 Trastevere 夜游</h4>
+                        <p>穿越台伯河进入最具罗马市井气息的老区。鹅卵石小巷、爬墙常春藤、地道小酒馆与手风琴声交织。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-day">
+                <h4>Day 4：艺术珍藏与古典告别</h4>
+                <div class="time-slot">
+                    <div class="time-label">上午</div>
+                    <div class="time-content">
+                        <h4>博尔盖塞美术馆 Galleria Borghese</h4>
+                        <p>需严格预约2小时参观时段。珍藏贝尼尼雕塑巅峰之作与卡拉瓦乔真迹，园林环境清幽宜人。</p>
+                    </div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label">下午</div>
+                    <div class="time-content">
+                        <h4>真理之口 & 阿文提诺山橘园</h4>
+                        <p>前往科斯梅丁圣堂与“真理之口”合影，随后步行至阿文提诺山橘园（Parco Savello）钥匙孔观景台，框出圣彼得大教堂完美剪影。</p>
+                    </div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label">晚上</div>
+                    <div class="time-content">
+                        <h4>返程准备 / 菲乌米奇诺机场</h4>
+                        <p>市区享用最后一顿Gelato与Aperitivo，搭乘Leonardo Express或机场巴士前往FCO，结束永恒之旅。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="attractions">
+        <h2>核心景点详解</h2>
+        <div class="grid-2">
+            <div class="card">
+                <div class="visual-placeholder vis-1" style="height:120px;">🏟 斗兽场</div>
+                <h3>推荐理由</h3>
+                <p>古罗马帝国最伟大的角斗场，可容纳5-8万名观众。走进内部拱廊与地下通道，能直观感受古罗马建筑的力学奇迹与角斗士的历史沧桑。</p>
+                <h4>🎫 门票信息</h4>
+                <span class="price">约 €24</span>（含古罗马广场与帕拉蒂尼山联票）
+                <div class="tip-box">
+                    <strong>游玩Tips：</strong>务必提前1-2个月在官网预约；夏季暴晒，务必带足水与遮阳帽；建议租用官方语音导览（€6）或参加地下/顶层专属导览团。
+                </div>
+            </div>
+            <div class="card">
+                <div class="visual-placeholder vis-2" style="height:120px;">🎨 梵蒂冈博物馆</div>
+                <h3>推荐理由</h3>
+                <p>全球最大博物馆之一，馆藏跨越数千年。西斯廷教堂的米开朗基罗巅峰之作《创世纪》与《最后的审判》是人类艺术史上的绝对坐标。</p>
+                <h4>🎫 门票信息</h4>
+                <span class="price">约 €21</span>（含西斯廷教堂，每月最后一个周日免费但排队极长）
+                <div class="tip-box">
+                    <strong>游玩Tips：</strong>穿着需遮盖肩膀与膝盖；西斯廷教堂内严禁拍照与大声喧哗；选择早晨开门或下午闭馆前1小时入场可大幅减少人流拥堵。
+                </div>
+            </div>
+            <div class="card">
+                <div class="visual-placeholder vis-3" style="height:120px;">💧 特莱维喷泉</div>
+                <h3>推荐理由</h3>
+                <p>罗马最大、最著名的巴洛克喷泉。海神尼普顿驾驭贝壳战车的雕塑群气势恢宏，传说背对投掷一枚硬币即可确保重返罗马。</p>
+                <h4>🎫 门票信息</h4>
+                <span class="price">免费</span>（24小时开放）
+                <div class="tip-box">
+                    <strong>游玩Tips：</strong>白天人山人海，强烈建议清晨（8点前）或深夜（22点后）前往；警惕周边强行送彩绳或推销的小贩；硬币会被政府回收用于慈善。
+                </div>
+            </div>
+            <div class="card">
+                <div class="visual-placeholder vis-4" style="height:120px;">🏛 万神殿</div>
+                <h3>推荐理由</h3>
+                <p>古罗马保存最完好的建筑，历经两千年风雨屹立不倒。无支撑巨大穹顶与中央Oculus采光孔令人惊叹，内部安葬着拉斐尔等文艺复兴巨匠。</p>
+                <h4>🎫 门票信息</h4>
+                <span class="price">约 €5</span>（原免费，现已实行预约收费制）
+                <div class="tip-box">
+                    <strong>游玩Tips：</strong>雨天可见Oculus“天降甘霖”，地面排水系统极为精妙；保持安静肃穆；周边Gelateria del Teatro的手工冰淇淋不容错过。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="food">
+        <h2>地道美食与餐厅指南</h2>
+        <div class="grid-2">
+            <div>
+                <h3>🍽 必尝罗马四大传统面食</h3>
+                <ul>
+                    <li><strong>Carbonara（培根蛋酱意面）：</strong>鸡蛋、佩科里诺干酪、Guanciale猪脸肉与黑胡椒的经典融合，浓郁丝滑。</li>
+                    <li><strong>Cacio e Pepe（黑胡椒奶酪面）：</strong>仅用Pecorino Romano奶酪与现磨黑胡椒乳化，考验厨师功底。</li>
+                    <li><strong>Amatriciana（番茄培根意面）：</strong>加入圣马扎诺番茄与Guanciale，酸甜开胃。</li>
+                    <li><strong>Gricia（白酱意面）：</strong>上述三者的原型，无蛋无番茄，纯粹展现猪油与奶酪的香气。</li>
+                </ul>
+                <h3>🍕 其他特色</h3>
+                <p>Suppli（炸米团）、Pizza al Taglio（切片烤饼）、Maritozzo（甜奶油包）、Gelato（意式冰淇淋，认准天然色素不鼓起的）。咖啡吧站着喝（Al banco）比坐堂便宜一半以上。</p>
+            </div>
+            <div>
+                <h3>📍 推荐餐厅（Level 3品质）</h3>
+                <div class="tip-box">
+                    <strong>Armando al Pantheon：</strong>万神殿旁老字号，传统罗马菜天花板，需提前数周预约。
+                </div>
+                <div class="tip-box">
+                    <strong>Da Enzo al 29：</strong>Trastevere区热门小店，无固定菜单，食材新鲜，建议11:30开门即去排队。
+                </div>
+                <div class="tip-box">
+                    <strong>La Rosetta：</strong>历史悠久的海鲜名店（罗马非沿海但海鲜烹饪极佳），适合体验精致晚宴。
+                </div>
+                <p style="font-size:0.9em; color:#666; margin-top:10px;">注：意大利午餐套餐（Menù del Giorno / Pranzo）通常含头盘+主食+饮品/咖啡，约€15-25，性价比极高。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="accommodation">
+        <h2>住宿区域与档次推荐</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🏨 经济舒适型（€80-150/晚）</h3>
+                <p><strong>推荐区域：</strong>火车站/Esquilino区、Prati区（梵蒂冈北）</p>
+                <p><strong>特点：</strong>交通便利（地铁枢纽），超市餐馆多，生活成本低。Prati区治安较好，街道整洁。</p>
+                <p><strong>参考：</strong>连锁商务酒店、干净的家庭旅馆（B&B）或设计型青旅单间。</p>
+            </div>
+            <div class="card">
+                <h3>✨ 品质高端型（€150-300/晚）</h3>
+                <p><strong>推荐区域：</strong>特米尼周边、纳沃纳广场外围、西班牙广场步行区</p>
+                <p><strong>特点：</strong>步行至核心景点15分钟内，周边商业成熟，餐饮选择丰富，适合家庭与情侣。</p>
+                <p><strong>参考：</strong>三至四星级酒店、带独立卫浴的精品民宿，服务规范，含早。</p>
+            </div>
+            <div class="card" style="grid-column: 1 / -1;">
+                <h3>💎 奢华度假型（€350+/晚）</h3>
+                <p><strong>推荐区域：</strong>历史中心（Centro Storico）核心区、Via del Corso沿线、特拉斯提弗列河景带</p>
+                <p><strong>特点：</strong>百年历史建筑改造、顶层露台可俯瞰罗马全景、专属管家服务、米其林餐厅或私人导览体验。预算充足者的首选。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="transport">
+        <h2>交通指南（杭州出发）</h2>
+        <div class="transport-grid">
+            <div class="transport-item">
+                <div class="transport-title">✈️ 国际段航班</div>
+                <p><strong>路线：</strong>杭州萧山(HGH) → 中转(如法兰克福/阿姆斯特丹/伊斯坦布尔) → 罗马菲乌米奇诺(FCO)</p>
+                <p><strong>耗时：</strong>约12-15小时（含转机等待）。建议预留充足转机时间，注意行李直挂政策。</p>
+            </div>
+            <div class="transport-item">
+                <div class="transport-title">🚆 机场至市区</div>
+                <p><strong>Leonardo Express：</strong>直达中央火车站(Termini)，€14/人，约30分钟。最快捷。</p>
+                <p><strong>机场大巴：</strong>如Terravision/SIT，约€6-8，45-60分钟，停靠Termini/Vatican。</p>
+                <p><strong>正规出租车：</strong>固定€48/车（含4件行李），务必上车前确认“Taxa Fissa per Roma Centro”。</p>
+            </div>
+            <div class="transport-item">
+                <div class="transport-title">🚌 市内交通</div>
+                <p><strong>步行：</strong>核心区景点密集，步行最佳体验。但石板路易累，务必穿舒适平底鞋。</p>
+                <p><strong>地铁/公交：</strong>单次票€1.50（100分钟内有效）。Metro仅A/B/C三线，无法直达万神殿/特莱维喷泉。</p>
+                <p><strong>Roma Pass：</strong>含交通+2个免费景点+快速通道，若行程紧凑（2天卡€31/3天€53）可考虑。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tips">
+        <h2>实用注意事项</h2>
+        <div class="grid-2">
+            <div>
+                <h3>☀️ 天气与穿着</h3>
+                <p>夏季高温干燥（6-8月可达30-35°C）。必备：<strong>高倍防晒霜、墨镜、宽檐帽、便携水壶</strong>（罗马街头有数百个直饮水龙头<em>nasoni</em>，水质优良可免费接饮）。进教堂必须长裤/过膝裙，且遮盖肩膀，建议随身带轻薄披肩。</p>
+                
+                <h3>🛡 安全防骗</h3>
+                <ul>
+                    <li><strong>防盗：</strong>地铁（尤其是B线）、特莱维喷泉、西班牙台阶周边扒手极多。背包前背，口袋不放手机钱包。</li>
+                    <li><strong>常见骗局：</strong>吉普赛人强行塞“红绳/幸运手链”、喂鸽子、假签名请愿。直接无视或大声说“NO”并快速走开。</li>
+                    <li><strong>紧急电话：</strong>报警112，救护车118。手机丢失可立即致电运营商挂失。</li>
+                </ul>
+            </div>
+            <div>
+                <h3>💳 消费与礼仪</h3>
+                <p><strong>支付：</strong>支持Visa/Mastercard广泛，但小店/市集/公交票机需备少量欧元现金。餐厅账单常含<em>Coperto</em>（座位费€2-3/人），小费非强制，凑整或留5-10%即可。</p>
+                <p><strong>预约：</strong>热门餐厅务必提前3-7天预约；博物馆严格分时段，迟到可能无法入场。夏季旺季建议<em>提前1个月以上</em>锁定票源。</p>
+                <p><strong>饮水/用餐：</strong>意大利人习惯晚吃晚餐（20:00后），午餐12:30-14:30。自来水可安全饮用。避免在景区门口无明码标价/多语言图文菜单的“游客陷阱”餐厅用餐。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="budget">
+        <h2>预算参考（单人/4天，Level 3较高标准）</h2>
+        <p style="color:#666; font-size:0.9em; margin-bottom:15px;">注：汇率按 1€ ≈ 7.8 RMB 估算，实际受季节、舱位、提前预订时间影响较大。</p>
+        <table class="budget">
+            <thead>
+                <tr>
+                    <th>项目</th>
+                    <th>明细说明</th>
+                    <th>预估费用 (RMB)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>国际交通</strong></td>
+                    <td>杭州往返罗马经济舱（含转机税费），旺季提前预订</td>
+                    <td>¥7,500 - ¥11,000</td>
+                </tr>
+                <tr>
+                    <td><strong>当地交通</strong></td>
+                    <td>机场快线+市内地铁/公交票+Roma Pass+偶尔打车</td>
+                    <td>¥800 - ¥1,200</td>
+                </tr>
+                <tr>
+                    <td><strong>住宿</strong></td>
+                    <td>3晚高品质四星级/核心区精品民宿（双人分摊参考价）</td>
+                    <td>¥4,500 - ¥7,500</td>
+                </tr>
+                <tr>
+                    <td><strong>餐饮</strong></td>
+                    <td>每日：早餐€10 + 午餐套餐€20 + 晚餐€40 + 咖啡/冰淇淋/饮水€10</td>
+                    <td>¥2,400 - ¥3,200</td>
+                </tr>
+                <tr>
+                    <td><strong>门票体验</strong></td>
+                    <td>斗兽场联票、梵蒂冈、博尔盖塞、登顶、语音导览等</td>
+                    <td>¥800 - ¥1,000</td>
+                </tr>
+                <tr>
+                    <td><strong>其他/备用</strong></td>
+                    <td>保险、购物、伴手礼、突发支出预留</td>
+                    <td>¥1,500 - ¥3,000</td>
+                </tr>
+                <tr class="total">
+                    <td>💰 总计参考</td>
+                    <td>单人4天舒适偏高预算</td>
+                    <td>¥17,500 - ¥26,900+</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="divider"></div>
+    <p style="text-align:center; color:var(--primary); font-size:1.2rem; margin: 20px 0;">“All roads lead to Rome. 但最美的路，往往藏在石板小巷的转角。”</p>
+</main>
+
+<footer>
+    <div class="container">
+        <p>本攻略由资深旅游规划师定制 | 数据更新于 2023-2024年 | 门票与票价请以官方实时公布为准</p>
+        <p style="font-size:0.85em; margin-top:8px; opacity:0.7;">祝您在永恒之城留下一段难忘的夏日记忆 ✨</p>
+    </div>
+</footer>
+
+</body>
+</html>

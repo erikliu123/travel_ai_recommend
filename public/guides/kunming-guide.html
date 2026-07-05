@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>昆明夏季旅游攻略 - 春城花都3日深度游</title>
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --secondary: #40916c;
+      --accent: #95d5b2;
+      --bg: #f5f7f6;
+      --card-bg: #ffffff;
+      --text-main: #1a3c34;
+      --text-sub: #526b5d;
+      --border: #d8e2dc;
+      --shadow: 0 4px 12px rgba(45, 106, 79, 0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.7; }
+    a { color: var(--secondary); text-decoration: none; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 16px; }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
+      color: #fff;
+      padding: 70px 0 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    header h1 { font-size: 2.4rem; margin-bottom: 12px; font-weight: 700; letter-spacing: 1px; }
+    header .subtitle { font-size: 1.05rem; opacity: 0.9; max-width: 750px; margin: 0 auto 24px; }
+    .badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      padding: 6px 16px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.25);
+      white-space: nowrap;
+    }
+
+    /* Layout & Sections */
+    .section {
+      background: var(--card-bg);
+      margin: 32px auto;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 36px;
+      transition: transform 0.2s ease;
+    }
+    h2 {
+      font-size: 1.7rem;
+      color: var(--primary);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(45,106,79,0.18); border-color: var(--secondary); }
+    .card h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px; }
+    .card p { color: var(--text-sub); margin-bottom: 10px; font-size: 0.95rem; }
+    
+    /* Timeline */
+    .timeline { position: relative; padding-left: 24px; margin-top: 10px; }
+    .timeline::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 16px; width: 3px; background: var(--accent); border-radius: 2px; }
+    .timeline-item { position: relative; padding: 12px 0 28px; border-bottom: 1px dashed #eee; }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -22px; top: 16px; width: 12px; height: 12px;
+      background: var(--primary); border-radius: 50%; border: 3px solid var(--card-bg); box-shadow: 0 0 0 2px var(--secondary);
+    }
+    .time-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+    .time-block { flex: 1 1 300px; }
+    .time-tag {
+      display: inline-block; background: #e6f4ea; color: var(--primary);
+      padding: 3px 10px; border-radius: 4px; font-size: 0.82rem; font-weight: bold; margin-bottom: 6px;
+    }
+
+    /* Pro/Con & Tips */
+    .pro-con { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; }
+    .pro, .con { flex: 1 1 48%; padding: 14px; border-radius: 8px; background: #f8faf9; border-left: 4px solid; font-size: 0.9rem; }
+    .pro { border-left-color: var(--secondary); }
+    .con { border-left-color: #e76f51; }
+    .tip-box {
+      background: #fff8e1; border-left: 4px solid #f4a261; padding: 14px; margin-top: 12px;
+      border-radius: 4px; font-size: 0.92rem; color: #5c4b2b;
+    }
+
+    /* Budget */
+    .budget-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 16px; }
+    .budget-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 18px; text-align: center;
+      transition: background 0.2s;
+    }
+    .budget-card.highlight { background: linear-gradient(135deg, #e6f4ea 0%, #c8e6c9 100%); border-color: var(--secondary); }
+    .budget-card .label { font-size: 0.9rem; color: var(--text-sub); }
+    .budget-card .amount { font-size: 1.35rem; font-weight: bold; color: var(--primary); margin: 6px 0; display: block; }
+    .budget-card .sub { font-size: 0.78rem; color: #6b7c75; display: block; }
+
+    /* Footer */
+    footer { text-align: center; padding: 40px 16px; color: var(--text-sub); font-size: 0.88rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+    @media (max-width: 768px) {
+      header { padding: 50px 16px 36px; }
+      header h1 { font-size: 1.8rem; }
+      .section { margin: 20px auto; padding: 24px 18px; border-radius: 12px; }
+      h2 { font-size: 1.4rem; }
+      .pro-con { flex-direction: column; }
+      .timeline-item::before { left: -20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🌿 昆明夏季旅游攻略</h1>
+      <p class="subtitle">春城四季如春，避暑赏花正当时。3天2夜，从喀斯特奇观到高原明珠，轻松解锁彩云之南的慢生活。</p>
+      <div class="badges">
+        <span class="badge">🌸 赏花胜地</span>
+        <span class="badge">🌤️ 四季如春</span>
+        <span class="badge">💰 高性价比</span>
+        <span class="badge">📅 建议游玩：3天</span>
+        <span class="badge">⭐ 预算级别：适中</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- 城市概述与行程 -->
+    <div class="section">
+      <h2>🗺️ 3天详细行程安排</h2>
+      <p style="color:var(--text-sub); margin-bottom:16px;">结合夏季气候与景点分布，采用“市区休闲+周边深度+环湖人文”动线，避免奔波，体验最佳。</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>🟢 Day 1：城中漫步 & 市井烟火</h3>
+          <div class="time-row">
+            <div class="time-block">
+              <span class="time-tag">08:30-10:00 上午</span>
+              <strong>翠湖公园 & 云南陆军讲武堂</strong><br>
+              <span style="font-size:0.9rem;">漫步“城中翡翠湖”，观夏日荷花与晨练市民；免费参观黄墙碧瓦的百年军校旧址。</span>
+            </div>
+            <div class="time-block">
+              <span class="time-tag">10:30-16:00 下午</span>
+              <strong>昆明老街 & 黄公东街</strong><br>
+              <span style="font-size:0.9rem;">打卡网红“昆明”墙，漫步光华街/钱局街，看对月楼、酒杯楼等民国建筑，逛文创小店。</span>
+            </div>
+            <div class="time-block">
+              <span class="time-tag">17:00-20:30 晚上</span>
+              <strong>南强街巷夜市 & 金马碧鸡坊</strong><br>
+              <span style="font-size:0.9rem;">体验春城夜生活，吃烤肉、小锅米线、木瓜水，感受多民族文化交融的街巷氛围。</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <h3>🪨 Day 2：世界自然遗产探秘 (石林一日游)</h3>
+          <div class="time-row">
+            <div class="time-block">
+              <span class="time-tag">08:00-09:30 上午</span> 市区乘地铁至东部客运站，转乘旅游专线大巴前往<strong>石林风景区</strong>。
+            </div>
+            <div class="time-block">
+              <span class="time-tag">09:30-14:00 下午</span>
+              深度游览大小石林（阿诗玛化身石、剑峰池）及乃古石林（原生态石林群）。午餐可选景区外彝族农家乐，尝土鸡米线与烤洋芋。
+            </div>
+            <div class="time-block">
+              <span class="time-tag">14:30-17:30 傍晚</span>
+              乘电瓶车至出口，体验彝族撒尼人歌舞，乘车返回市区休整。
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <h3>🌊 Day 3：滇池风光 & 千年古镇</h3>
+          <div class="time-row">
+            <div class="time-block">
+              <span class="time-tag">08:30-11:30 上午</span>
+              <strong>海埂大坝 & 滇池生态廊道</strong><br>
+              <span style="font-size:0.9rem;">夏季虽无海鸥，但湖风清凉，水杉成林。沿湖骑行或漫步，远眺西山睡美人。</span>
+            </div>
+            <div class="time-block">
+              <span class="time-tag">13:00-16:00 下午</span>
+              <strong>官渡古镇</strong><br>
+              <span style="font-size:0.9rem;">滇池北岸历史重镇。重点参观妙湛寺金刚塔（明代古建筑），品尝现烤官渡粑粑，感受市井与非遗交融。</span>
+            </div>
+            <div class="time-block">
+              <span class="time-tag">16:30-晚间 晚上</span>
+              根据航班/高铁时间，前往长水机场或昆明南站，采购鲜花饼伴手礼，结束旅程。
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pro-con">
+        <div class="pro">
+          <strong>✅ 优势亮点：</strong> 气候常年18-25℃体感极佳，航班高铁密集，消费适中。多民族文化与高原地貌集中，3天可高效覆盖核心精华。
+        </div>
+        <div class="con">
+          <strong>⚠️ 需注意：</strong> 紫外线辐射强，物理防晒不可少；石林距市区较远需预留车程；暑期旺季人流较多，核心场馆需提前预约。
+        </div>
+      </div>
+    </div>
+
+    <!-- 景点详情 -->
+    <div class="section">
+      <h2>📍 核心景点深度导览</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>🏞️ 石林风景区</h3>
+          <p><strong>推荐理由：</strong> 世界自然遗产与地质奇观。亿万年的喀斯特地貌造就形态各异的石柱森林，彝族撒尼人传说赋予其浪漫灵魂。</p>
+          <p><strong>门票信息：</strong> 成人130元/人（含大石林、小石林）。景区电瓶车25元建议购买。</p>
+          <div class="tip-box">💡 <strong>游玩Tips：</strong> 景区面积大、台阶多，务必穿防滑运动鞋。建议上午入园避开午后暴晒，租赁语音导览或请彝族向导体验更佳。</div>
+        </div>
+        <div class="card">
+          <h3>🌊 滇池</h3>
+          <p><strong>推荐理由：</strong> 云南最大淡水湖，高原明珠。夏季湖面开阔、水草丰美，是昆明人天然的“避暑后花园”，湖光山色与城市天际线相映成趣。</p>
+          <p><strong>门票信息：</strong> 环湖湿地公园及大坝免费开放。乘船或西山索道需另购票。</p>
+          <div class="tip-box">💡 <strong>游玩Tips：</strong> 推荐沿“环滇池生态廊道”租共享单车骑行，绿荫遮蔽度高，风景绝佳。注意防晒防蚊虫。</div>
+        </div>
+        <div class="card">
+          <h3>🌿 翠湖公园</h3>
+          <p><strong>推荐理由：</strong> 昆明市中心的“城中碧玉”。夏赏接天莲叶，周边串联云南大学、讲武堂、卢汉公馆，人文与生态完美融合，适合慢节奏Citywalk。</p>
+          <p><strong>门票信息：</strong> 全天免费开放。</p>
+          <div class="tip-box">💡 <strong>游玩Tips：</strong> 清晨8点前或傍晚19点后光线最佳，适合摄影。公园外围遍布独立咖啡馆与书店，逛累可随时歇脚。</div>
+        </div>
+        <div class="card">
+          <h3>🏘️ 官渡古镇</h3>
+          <p><strong>推荐理由：</strong> 滇池古渡，千年商埠。保存有唐风宋韵的金刚塔与法定寺，市井烟火与古建遗存交织，是了解滇中民俗与宗教历史的窗口。</p>
+          <p><strong>门票信息：</strong> 街区免费（金刚塔及寺庙内部按需购票或随喜）。</p>
+          <div class="tip-box">💡 <strong>游玩Tips：</strong> 主街商业成熟，推荐拐进背街小巷（如土主庙周边）更原生态。必吃“眼镜官渡粑粑”，胡麻与核桃馅最香。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 美食推荐 -->
+    <div class="section">
+      <h2>🍜 舌尖上的春城 (夏季限定)</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>🍲 野生菌火锅</h3>
+          <p>6-9月为云南雨季菌子季！鸡枞、松茸、见手青等鲜掉眉毛。高温慢煮锁住山野精华。</p>
+          <p style="color:var(--secondary); font-weight:500;">📍 推荐：菌彩野生菌火锅、福华园、云平风味园</p>
+          <div class="tip-box" style="margin-top:6px; font-size:0.85rem;">🔔 <strong>安全提示：</strong> 务必在正规餐厅食用，严格遵循“煮熟计时”，不拼盘混煮陌生菌类。</div>
+        </div>
+        <div class="card">
+          <h3>🥢 过桥米线 & 小锅米线</h3>
+          <p>滚汤现烫，仪式感十足；铜锅小煮，酸辣开胃。一清二白三红四绿，碳水快乐天花板。</p>
+          <p style="color:var(--secondary); font-weight:500;">📍 推荐：建新园、铁棚小锅米线、桥香园</p>
+        </div>
+        <div class="card">
+          <h3>🥐 鲜花饼 & 烧饵块</h3>
+          <p>食用玫瑰入馅酥香清甜；烤饵块抹酱卷油条，搭配稀豆粉是本地人最爱的清晨滋味。</p>
+          <p style="color:var(--secondary); font-weight:500;">📍 推荐：嘉华鲜花饼(伴手礼)、南屏街老字号烧饵块</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 住宿推荐 -->
+    <div class="section">
+      <h2>🛏️ 住宿推荐 (预算适中)</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>💰 经济型 (120-250元/晚)</h3>
+          <p><strong>📍 区域：</strong> 昆明站/火车北站、五华区老街背街</p>
+          <p><strong>✨ 特点：</strong> 连锁快捷酒店或青年旅舍。交通接驳便利，适合独行/学生党/背包客。步行或骑行可达地铁。</p>
+        </div>
+        <div class="card" style="border:2px solid var(--accent);">
+          <h3>🌿 舒适/精选型 (300-550元/晚)</h3>
+          <p><strong>📍 区域：</strong> 翠湖周边、南屏步行街、金马碧鸡坊</p>
+          <p><strong>✨ 特点：</strong> 市中心核心，步行即达翠湖与夜市。精品民宿与设计感酒店集中，服务完善，性价比首选。</p>
+        </div>
+        <div class="card">
+          <h3>✨ 高端度假型 (800-1500+元/晚)</h3>
+          <p><strong>📍 区域：</strong> 滇池度假区、公园1903、世博园</p>
+          <p><strong>✨ 特点：</strong> 湖景房、花园庭院、私汤或泳池。环境清幽私密，适合家庭亲子、情侣度假及追求高品质体验者。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 交通指南 -->
+    <div class="section">
+      <h2>🚌 交通全指南</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>✈️ 如何抵达昆明</h3>
+          <p><strong>飞机：</strong> 昆明长水国际机场。国内主要城市直飞约3小时10分钟。机场有地铁6号线直达市区（东部客运站/塘子巷站），约45分钟，票价7元。</p>
+          <p><strong>高铁：</strong> 昆明南站（呈贡区）或昆明站（市中心）。部分线路需在贵阳或长沙中转，全程约8-10小时。出站即换乘地铁/公交。</p>
+        </div>
+        <div class="card">
+          <h3>🚇 市内出行</h3>
+          <p><strong>地铁：</strong> 运营中1-6号线，覆盖机场、高铁站及核心景区（翠湖近1/2号线，滇池近5号线）。支持支付宝/微信乘车码。</p>
+          <p><strong>公交/打车：</strong> 公交1-2元；网约车/出租车方便，起步价10元。去石林建议乘“昆明东部客运站旅游直通车”或地铁转大巴，避开黑车。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 注意事项 -->
+    <div class="section">
+      <h2>⚠️ 夏季出行注意事项</h2>
+      <div class="grid-3" style="margin-top:10px;">
+        <div class="card">
+          <h3>🌤️ 天气与防晒</h3>
+          <p>夏季平均18-25℃，凉爽但<strong>紫外线极强</strong>。高海拔导致体感温度与实际不同。必备SPF50+防晒霜、墨镜、遮阳帽、晴雨两用伞。</p>
+        </div>
+        <div class="card">
+          <h3>👕 穿衣建议</h3>
+          <p>“洋葱式”穿搭：短袖/薄长袖+薄风衣/防晒衣。雨季阵雨频繁（多为午后雷阵雨），随身备轻便雨衣。多步行，请穿舒适运动鞋。</p>
+        </div>
+        <div class="card">
+          <h3>🔒 安全与健康</h3>
+          <p>海拔约1900米，一般无高反，首日避免剧烈运动。保管好随身财物，景区内勿轻信“低价一日游”托儿。饮食注意肠胃适应。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 预算参考 -->
+    <div class="section">
+      <h2>💰 3天人均预算参考 (适中档)</h2>
+      <p style="color:var(--text-sub); margin-bottom:12px;">以下费用按1人出行、选择舒适型消费标准估算（不含往返出发地大交通），实际价格随季节与预订时间浮动。</p>
+      <div class="budget-grid">
+        <div class="budget-card highlight">
+          <span class="label">🎫 门票/体验</span>
+          <span class="amount">¥300-400</span>
+          <span class="sub">石林+电瓶车/索道等</span>
+        </div>
+        <div class="budget-card">
+          <span class="label">🛏️ 住宿(3晚)</span>
+          <span class="amount">¥900-1200</span>
+          <span class="sub">舒适型/特色民宿</span>
+        </div>
+        <div class="budget-card">
+          <span class="label">🍜 餐饮(3天)</span>
+          <span class="amount">¥450-600</span>
+          <span class="sub">每日150-200元</span>
+        </div>
+        <div class="budget-card">
+          <span class="label">🚕 市内交通</span>
+          <span class="amount">¥100-150</span>
+          <span class="sub">地铁/公交/短途打车</span>
+        </div>
+        <div class="budget-card highlight" style="grid-column: 1 / -1; border:2px solid var(--primary);">
+          <span class="label">💵 昆明当地小计(不含往返机票/高铁)</span>
+          <span class="amount" style="font-size:1.5rem;">¥1750-2350</span>
+          <span class="sub">丰俭由人，整体消费水平适中，适合大众旅行</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>🌿 本攻略由资深旅游规划师定制 | 数据更新于2024年夏季 | 实际政策请以景区官方公告为准</p>
+      <p>昆明旅游服务热线：0871-12345 | 祝您在春城收获一段惬意难忘的旅程！</p>
+    </div>
+  </footer>
+</body>
+</html>

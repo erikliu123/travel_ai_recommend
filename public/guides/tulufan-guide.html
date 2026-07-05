@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火洲探秘｜吐鲁番夏季两日深度游攻略</title>
+    <style>
+        :root {
+            --primary: #774930;
+            --primary-light: #a67c52;
+            --primary-dark: #5a3724;
+            --bg: #faf8f5;
+            --card-bg: #ffffff;
+            --text-main: #2c2520;
+            --text-sec: #6b5d54;
+            --accent: #c98a52;
+            --success: #5a8c42;
+            --warn: #d97706;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+        .container { max-width: 1050px; margin: 0 auto; padding: 0 20px; }
+        
+        header {
+            background: linear-gradient(145deg, #3e2416 0%, #774930 45%, #b5723e 100%);
+            color: #fff;
+            padding: 60px 0 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: ''; position: absolute; top: -50px; right: -50px;
+            width: 250px; height: 250px; background: rgba(255,255,255,0.08);
+            border-radius: 50%; transform: scale(1.5);
+        }
+        h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .subtitle { font-size: 1.15rem; opacity: 0.92; margin-bottom: 20px; }
+        .stats-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px; }
+        .stat {
+            background: rgba(255,255,255,0.15); backdrop-filter: blur(4px);
+            padding: 6px 14px; border-radius: 20px; font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .wave-divider {
+            height: 40px; background: var(--bg);
+            clip-path: ellipse(70% 100% at 50% 0%);
+            margin-top: -10px;
+        }
+
+        section { padding: 40px 0; }
+        h2 {
+            font-size: 1.6rem; color: var(--primary);
+            border-left: 6px solid var(--primary);
+            padding-left: 14px; margin-bottom: 24px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .tag-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+        .tag {
+            background: linear-gradient(135deg, #d4a776, #b88646);
+            color: #fff; padding: 4px 10px; border-radius: 6px;
+            font-size: 0.82rem; font-weight: 600;
+        }
+        p { color: var(--text-sec); margin-bottom: 12px; }
+
+        .card {
+            background: var(--card-bg); border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(119,73,48,0.12);
+            padding: 24px; margin-bottom: 20px; transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(119,73,48,0.18); }
+        
+        .pc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+        .pro-box { background: #f0f7ee; border-left: 4px solid var(--success); padding: 15px; border-radius: 8px; }
+        .con-box { background: #fdf2f0; border-left: 4px solid var(--warn); padding: 15px; border-radius: 8px; }
+        ul { margin-left: 20px; margin-top: 8px; }
+        li { margin-bottom: 6px; color: var(--text-sec); }
+
+        .timeline { position: relative; padding-left: 35px; border-left: 3px solid #e6dcd1; margin: 25px 0; }
+        .time-block { position: relative; margin-bottom: 25px; }
+        .dot {
+            position: absolute; left: -41px; top: 4px; width: 16px; height: 16px;
+            background: #fff; border: 3px solid var(--primary); border-radius: 50%;
+        }
+        .time-label { font-weight: 700; color: var(--primary-dark); font-size: 1rem; margin-bottom: 4px; }
+        .day-header { background: #f7f2eb; padding: 10px 15px; border-radius: 8px; margin-bottom: 15px; font-weight: 700; color: var(--primary); }
+        
+        .spot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .spot-card { border-top: 4px solid var(--primary-light); }
+        .spot-title { font-size: 1.25rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+        .ticket { display: inline-block; background: #f4efe9; color: var(--primary-dark); padding: 4px 10px; border-radius: 5px; font-size: 0.88rem; margin-top: 10px; font-weight: 500; border: 1px dashed #c4a992; }
+        
+        .food-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 15px; }
+        .food-item { text-align: center; padding: 15px; background: #fff8f0; border-radius: 10px; }
+        .food-name { font-weight: 700; color: var(--primary); display: block; margin-bottom: 4px; }
+        .food-desc { font-size: 0.9rem; color: var(--text-sec); }
+        
+        .hotel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .tier { padding: 15px; border-radius: 10px; text-align: center; }
+        .tier.econ { background: #f3f0eb; border: 1px solid #e0d5c5; }
+        .tier.mid { background: linear-gradient(135deg, #fdf6ec, #fff); border: 1px solid #e8d8c2; }
+        .tier.lux { background: linear-gradient(135deg, #fff5eb, #fff8f0); border: 2px solid var(--primary-light); box-shadow: 0 2px 8px rgba(119,73,48,0.15); }
+        .price { font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+        th { background: #f4efe9; color: var(--primary-dark); font-weight: 600; }
+        tr:last-child td { border-bottom: none; }
+        .total-row td { font-weight: 700; color: var(--primary); font-size: 1.05rem; }
+
+        .notice { background: #fffdf8; padding: 20px; border-radius: 12px; border: 1px dashed var(--accent); }
+        .notice h3 { margin-top: 0; color: var(--primary-dark); }
+        
+        footer { background: var(--primary-dark); color: #e0d5c8; text-align: center; padding: 30px 0; margin-top: 40px; font-size: 0.9rem; }
+        .divider { height: 1px; background: #e8e0d5; margin: 30px 0; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; } .stats-bar { flex-direction: column; }
+            .pc-grid, .food-grid, .hotel-grid { grid-template-columns: 1fr; }
+            .timeline { padding-left: 25px; } .dot { left: -32px; width: 12px; height: 12px; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>火洲探秘｜吐鲁番夏季深度游</h1>
+        <div class="subtitle">穿越千年丝路，品味西域甜城，感受极致高温下的文化绿洲</div>
+        <div class="stats-bar">
+            <span class="stat">📅 建议游玩：2天</span>
+            <span class="stat">☀️ 最佳月份：8-10月（含夏季）</span>
+            <span class="stat">💰 预算级别：适中</span>
+            <span class="stat">🏷️ 标签：历史古迹 · 沙漠探险 · 美食之旅</span>
+        </div>
+    </div>
+</header>
+<div class="wave-divider"></div>
+
+<section>
+    <div class="container">
+        <h2>🏜️ 城市概述</h2>
+        <div class="tag-group">
+            <span class="tag">西域文化</span><span class="tag">丝路重镇</span><span class="tag">瓜果之乡</span><span class="tag">生土建筑</span>
+        </div>
+        <p>吐鲁番，古称“高昌”、“交河”，是古丝绸之路上的繁华枢纽，也是中国地势最低（-154米）、夏季最热的地方。这里拥有独特的干旱气候、璀璨的历史遗迹与甜蜜的瓜果资源。夏季虽酷热难耐，但正是体验葡萄沟绿意、感受火焰山奇观、探秘千年古城的最佳时节。干燥的气候与漫长的白昼，让每一次出行都充满极致的西域风情。</p>
+        
+        <div class="pc-grid">
+            <div class="pro-box">
+                <strong style="color:var(--success)">✨ 核心优势</strong>
+                <ul>
+                    <li>葡萄节体验独特，瓜果香甜管饱</li>
+                    <li>丝路文化厚重，遗址保存极佳</li>
+                    <li>美食丰富且极具民族特色</li>
+                    <li>日照充足，夏季气候干燥舒适（体感干热）</li>
+                </ul>
+            </div>
+            <div class="con-box">
+                <strong style="color:var(--warn)">⚠️ 旅行注意</strong>
+                <ul>
+                    <li>夏季地表温度可达50℃+，易中暑脱水</li>
+                    <li>距杭州等东部城市极远，交通耗时</li>
+                    <li>紫外线极强，需全方位物理防晒</li>
+                    <li>景点分布较散，公共交通不便</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background: #f5f1eb;">
+    <div class="container">
+        <h2>🗓️ 2天详细行程安排</h2>
+        <div class="card">
+            <div class="day-header">📍 Day 1：火洲初探 · 丝路传奇与自然奇观</div>
+            <div class="timeline">
+                <div class="time-block">
+                    <div class="dot"></div>
+                    <div class="time-label">上午 09:30 - 12:30</div>
+                    <div class="timeline-content">
+                        <h4>火焰山地质公园</h4>
+                        <p>清晨出发避开正午高温。近距离感受赤红色砂岩山体如烈焰翻腾的震撼，打卡《西游记》取景地，体验地表温度计挑战。</p>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="dot"></div>
+                    <div class="time-label">下午 13:30 - 16:30</div>
+                    <div class="timeline-content">
+                        <h4>交河故城</h4>
+                        <p>午餐后前往世界最大最古老的生土建筑遗址。在秋夏交替的斜阳下漫步断壁残垣，聆听2300年的车师国与大唐安西都护府沧桑往事。注意防晒，建议携带便携遮阳伞。</p>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="dot"></div>
+                    <div class="time-label">晚上 18:00 - 21:00</div>
+                    <div class="timeline-content">
+                        <h4>吐鲁番市区夜市（高昌路）</h4>
+                        <p>体验地道维吾尔族烧烤、烤包子与手工酸奶。饭后散步感受吐鲁番的夏夜烟火气，为次日储备体力。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-header">📍 Day 2：绿洲秘境 · 智慧工程与甜蜜时光</div>
+            <div class="timeline">
+                <div class="time-block">
+                    <div class="dot"></div>
+                    <div class="time-label">上午 10:00 - 13:00</div>
+                    <div class="timeline-content">
+                        <h4>坎儿井民俗园 / 地下水利工程</h4>
+                        <p>走进地下暗渠，亲身体验中国古代三大工程之一的“地下大运河”。了解维吾尔族先民如何利用天山雪水对抗干旱，感受人类生存智慧的伟大。</p>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="dot"></div>
+                    <div class="time-label">下午 14:30 - 18:00</div>
+                    <div class="timeline-content">
+                        <h4>葡萄沟风景区</h4>
+                        <p>穿越5.6公里长的火焰峡谷，抵达清凉的绿洲世界。8-10月正值葡萄丰收季，可进入农家果园采摘品尝无核白、马奶子等上百种葡萄，体验维吾尔族歌舞与农家乐，享受夏日终极避暑胜地。</p>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="dot"></div>
+                    <div class="time-label">晚上 19:00 - 返程</div>
+                    <div class="timeline-content">
+                        <h4>特色伴手礼采购 & 送机/站</h4>
+                        <p>前往当地市场选购葡萄干、哈密瓜、桑葚干、手工刺绣等特产。结束充实的两日行程，踏上归途。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>🏛️ 核心景点深度解析</h2>
+        <div class="spot-grid">
+            <div class="card spot-card">
+                <div class="spot-title">🌿 葡萄沟</div>
+                <p>推荐理由：夏季吐鲁番唯一的天然避暑胜地。峡谷内溪流纵横、藤蔓遮天，8月起进入甜蜜丰收期。</p>
+                <p><strong>游玩Tips：</strong>建议租自行车或乘坐区间车深入内部果园；品尝葡萄时注意肠胃耐受度，勿过量食用；可预约维吾尔族家访体验歌舞与地毯编织。</p>
+                <div class="ticket">门票参考：¥75/人（含区间车）</div>
+            </div>
+            <div class="card spot-card">
+                <div class="spot-title">🔥 火焰山</div>
+                <p>推荐理由：《西游记》文化原型地，中国最热的地质奇观。赤红山脊在阳光下极具视觉冲击力。</p>
+                <p><strong>游玩Tips：</strong>必须上午9-10点或下午18点后进出；地表温度可达70℃，务必穿隔热厚底鞋；金箍棒造型温度计是必拍打卡点。</p>
+                <div class="ticket">门票参考：¥40/人</div>
+            </div>
+            <div class="card spot-card">
+                <div class="spot-title">🏚️ 交河故城</div>
+                <p>推荐理由：生土建筑活化石，2300年未被雨水侵蚀的奇迹。残垣断壁在落日余晖中极具史诗感。</p>
+                <p><strong>游玩Tips：</strong>遗址内无遮挡，全程暴晒，务必携带防晒霜、墨镜与充足饮水；请导游讲解更能理解唐代城郭布局；傍晚光线最佳，摄影出片率高。</p>
+                <div class="ticket">门票参考：¥70/人</div>
+            </div>
+            <div class="card spot-card">
+                <div class="spot-title">💧 坎儿井</div>
+                <p>推荐理由：与长城、运河齐名的中国古代三大工程，地下暗渠系统至今仍在灌溉吐鲁番绿洲。</p>
+                <p><strong>游玩Tips：</strong>地下水温常年保持15℃左右，体感极凉，建议带一件薄外套；参观时间较短（约1-1.5小时），可搭配民俗园一起游览。</p>
+                <div class="ticket">门票参考：¥40/人</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background: #f5f1eb;">
+    <div class="container">
+        <h2>🍽️ 地道美食推荐</h2>
+        <p>吐鲁番的饮食融合了绿洲农耕与游牧文化，夏季瓜果与烤肉是绝对主角。</p>
+        <div class="food-grid">
+            <div class="food-item"><span class="food-name">红柳烤肉</span><span class="food-desc">红柳枝穿插羊肉，自带清香，肉汁丰盈</span></div>
+            <div class="food-item"><span class="food-name">葡萄叶子馕</span><span class="food-desc">当地特色，微带果木酸香，搭配热茶绝佳</span></div>
+            <div class="food-item"><span class="food-name">手抓饭（Polo）</span><span class="food-desc">黄萝卜、羊肉、葡萄干焖制，甜咸交织</span></div>
+            <div class="food-item"><span class="food-name">烤包子（萨木萨）</span><span class="food-desc">皮薄馅大，刚出炉的羊腿肉配洋葱爆汁</span></div>
+            <div class="food-item"><span class="food-name">手工老酸奶</span><span class="food-desc">表面结黄皮，撒坚果葡萄干，解暑神器</span></div>
+            <div class="food-item"><span class="food-name">无核白鲜葡萄</span><span class="food-desc">皮薄肉脆，甜度极高，夏季按串称重吃</span></div>
+        </div>
+        <div class="card" style="margin-top: 20px;">
+            <h3 style="margin:0 0 10px;">📍 餐厅推荐区域</h3>
+            <ul>
+                <li><strong>高昌路夜市/团结路餐饮街：</strong>本地人聚集，性价比极高，推荐“阿凡提烤肉店”、“老维家手工酸奶”。</li>
+                <li><strong>葡萄沟农家乐：</strong>景区内部有多家维吾尔族家庭院，提供地道农家菜、烤全羊与歌舞表演，人均 ¥80-150。</li>
+                <li><strong>交河驿站餐厅：</strong>靠近火焰山景区，适合简餐休整，提供大盘鸡与拌面。</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>🛏️ 住宿指南（预算适中）</h2>
+        <p>建议统一住宿在<strong>吐鲁番市区（高昌区老城周边或广场商圈）</strong>，交通便利且餐饮集中，每日可包车往返各景区（车程30-50分钟）。</p>
+        <div class="hotel-grid">
+            <div class="card tier econ">
+                <strong style="color:var(--success)">💰 经济型</strong>
+                <div class="price">¥150 - 280 /晚</div>
+                <p style="font-size:0.9rem; margin-top:8px;">如：吐鲁番快捷酒店、汉庭（老城店）</p>
+                <p style="font-size:0.85rem; color:var(--text-sec)">基础干净，位置便利，适合预算有限、主要在外游玩的背包客。</p>
+            </div>
+            <div class="card tier mid">
+                <strong style="color:var(--primary)">⭐ 舒适型（推荐）</strong>
+                <div class="price">¥300 - 500 /晚</div>
+                <p style="font-size:0.9rem; margin-top:8px;">如：吐鲁番饭店、全季酒店、丝路花园民宿</p>
+                <p style="font-size:0.85rem; color:var(--text-sec)">设施完善，含空调/加湿器，周边餐饮丰富，符合适中预算定位。</p>
+            </div>
+            <div class="card tier lux">
+                <strong style="color:var(--warn)">🌙 高端/特色型</strong>
+                <div class="price">¥600 - 1200+ /晚</div>
+                <p style="font-size:0.9rem; margin-top:8px;">如：吐鲁番迎宾馆、葡萄沟内精品院落民宿</p>
+                <p style="font-size:0.85rem; color:var(--text-sec)">庭院式建筑，体验维吾尔族传统居住风格，含接送与特色早餐。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background: #f5f1eb;">
+    <div class="container">
+        <h2>🚗 交通全攻略</h2>
+        <div class="card">
+            <h3>✈️ 如何抵达吐鲁番</h3>
+            <ul>
+                <li><strong>飞机：</strong>国内多数城市直飞或经停乌鲁木齐地窝堡机场（约5-6小时）。抵达后换乘高铁/动车或包车前往吐鲁番。</li>
+                <li><strong>高铁/动车：</strong>从乌鲁木齐乘动车至<strong>吐鲁番北站</strong>，车程约<strong>1小时</strong>，班次密集，票价约 ¥54，强烈推荐此方案，省时省力。</li>
+                <li><strong>长途高铁（东部出发）：</strong>如从兰州等地出发，约14-16小时可直达吐鲁番北站，适合深度环游新疆的游客。</li>
+            </ul>
+            <div class="divider"></div>
+            <h3>🚕 市内与景区交通</h3>
+            <ul>
+                <li><strong>包车（首选）：</strong>吐鲁番景点分散，且夏季公共交通间隔长、体验差。建议4人同行包车（5座轿车），约 ¥350-500/天（含司机），可自由安排行程与停车。</li>
+                <li><strong>网约车/出租车：</strong>市区内使用滴滴或出租车非常方便。至交河故城约 ¥40，至葡萄沟约 ¥25，火焰山稍远约 ¥50。</li>
+                <li><strong>公交：</strong>市区有旅游专线，但耗时且夏季等车体验不佳，仅建议预算极低者参考。</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>📝 夏季出游注意事项</h2>
+        <div class="notice card">
+            <ul>
+                <li><strong>防暑与补水：</strong>夏季白天气温常破40℃，务必每30分钟饮水200ml，随身携带藿香正气水或电解质饮料。正午12:30-15:30尽量在室内或车内休息。</li>
+                <li><strong>防晒装备：</strong>新疆紫外线等级极高，需SPF50+防晒霜、墨镜、宽檐遮阳帽、防晒冰袖。建议穿浅色、透气长袖长裤防灼伤。</li>
+                <li><strong>温差与穿着：</strong>虽为火洲，但坎儿井地下、葡萄沟葡萄藤下及夜间体感较凉，随身备一件薄外套。</li>
+                <li><strong>风俗尊重：</strong>进入清真餐厅或当地民居请脱鞋或注意着装；拍照前征得维吾尔族老乡同意，尊重民族禁忌。</li>
+                <li><strong>信号与安全：</strong>交河故城及火焰山腹地部分区域手机信号弱，建议结伴而行，勿擅自进入未开放遗址保护区。</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section style="background: #f5f1eb;">
+    <div class="container">
+        <h2>💰 预算参考（2天1夜/人，适中标准）</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="20%">消费项目</th>
+                        <th width="50%">明细说明</th>
+                        <th width="30%" style="text-align:right;">预估费用</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🚗 交通</td>
+                        <td>乌鲁木齐-吐鲁番动车往返 + 景区2日包车/打车分摊 + 市区短途</td>
+                        <td style="text-align:right;">¥300 - 450</td>
+                    </tr>
+                    <tr>
+                        <td>🛏️ 住宿</td>
+                        <td>1晚舒适型酒店/民宿（标间分摊）</td>
+                        <td style="text-align:right;">¥180 - 250</td>
+                    </tr>
+                    <tr>
+                        <td>🍜 餐饮</td>
+                        <td>2日三餐 + 夜市小吃/饮品（人均约80-100/餐）</td>
+                        <td style="text-align:right;">¥300 - 380</td>
+                    </tr>
+                    <tr>
+                        <td>🎫 门票</td>
+                        <td>火焰山+交河+坎儿井+葡萄沟+区间车/讲解</td>
+                        <td style="text-align:right;">¥225 - 280</td>
+                    </tr>
+                    <tr>
+                        <td>🎁 其他</td>
+                        <td>防晒用品、特产购买、应急备用金</td>
+                        <td style="text-align:right;">¥150 - 200</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="total-row">
+            📊 人均总计参考：约 ¥1155 - ¥1560（不含大交通往返新疆机票）
+        </div>
+        <p style="text-align: right; font-size: 0.85rem; color: #999; margin-top: 10px;">*价格受淡旺季波动影响，仅供参考，以实际支付为准。</p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2024 资深旅游规划师定制攻略 | 吐鲁番夏季深度游指南</p>
+        <p style="opacity: 0.7; margin-top: 5px;">提示：新疆地域广阔，政策与景区运营时间可能临时调整，出行前请通过官方渠道核实最新信息。祝您火洲之旅平安、甜蜜、难忘！</p>
+    </div>
+</footer>
+</body>
+</html>

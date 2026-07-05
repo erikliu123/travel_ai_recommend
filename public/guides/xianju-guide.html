@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神仙居夏季旅游攻略 | 浙江仙境山水之旅</title>
+<style>
+  :root {
+    --primary: #2d6a4f;
+    --primary-dark: #1b4332;
+    --primary-light: #40916c;
+    --primary-pale: #b7e4c7;
+    --bg: #f5f9f7;
+    --text: #2c3e50;
+    --text-light: #666;
+    --white: #ffffff;
+    --shadow: 0 4px 16px rgba(45, 106, 79, 0.12);
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  
+  /* Header */
+  header { background: linear-gradient(145deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%); color: var(--white); padding: 70px 0 100px; text-align: center; clip-path: ellipse(80% 100% at 50% 0%); margin-bottom: -40px; position: relative; }
+  header h1 { font-size: 2.4rem; margin-bottom: 12px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); letter-spacing: 1px; }
+  header .subtitle { font-size: 1.05rem; opacity: 0.9; max-width: 700px; margin: 0 auto 20px; }
+  .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px; }
+  .badge { background: rgba(255,255,255,0.25); backdrop-filter: blur(4px); padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.4); color: #fff; }
+  .info-box { background: rgba(0,0,0,0.2); display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 15px; padding: 12px 24px; border-radius: 10px; margin-top: 20px; font-size: 0.9rem; }
+  .info-item { display: flex; align-items: center; gap: 5px; }
+
+  /* Sections & Cards */
+  section { margin-bottom: 50px; }
+  h2 { color: var(--primary); font-size: 1.75rem; border-left: 5px solid var(--primary-light); padding-left: 15px; margin-bottom: 24px; background: linear-gradient(90deg, var(--primary-pale) 0%, transparent 60%); padding: 12px 15px 12px 20px; border-radius: 0 10px 10px 0; display: inline-block; width: 100%; }
+  .card { background: var(--white); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; box-shadow: var(--shadow); transition: transform 0.2s; }
+  .card:hover { transform: translateY(-3px); }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  
+  .visual-placeholder { height: 120px; width: 100%; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.3); font-size: 1.1rem; }
+  .vp-mountain { background: linear-gradient(135deg, #40916c 0%, #2d6a4f 100%); }
+  .vp-water { background: linear-gradient(135deg, #4cc9f0 0%, #3a86c8 100%); }
+  .vp-ancient { background: linear-gradient(135deg, #d4a373 0%, #a98467 100%); }
+  .vp-skyline { background: linear-gradient(135deg, #8a8d8f 0%, #5c6366 100%); }
+
+  /* Pros & Cons */
+  .pc-box { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pro, .con { padding: 16px; border-radius: 10px; font-size: 0.95rem; line-height: 1.6; }
+  .pro { background: linear-gradient(135deg, #d8f3dc, #b7e4c7); border-left: 4px solid var(--primary); }
+  .con { background: linear-gradient(135deg, #fde2e2, #fecaca); border-left: 4px solid #ef4444; }
+  .pc-title { font-weight: bold; margin-bottom: 6px; display: block; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 24px; border-left: 3px solid var(--primary-pale); margin: 10px 0 30px; }
+  .tl-item { position: relative; padding: 0 0 30px 15px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot { position: absolute; left: -9px; top: 0; width: 14px; height: 14px; background: var(--primary); border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 2px var(--primary-pale); }
+  .tl-time { font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; font-size: 0.95rem; }
+  .tl-content { background: #f8faf9; padding: 12px 16px; border-radius: 8px; border: 1px solid #e0e6e3; }
+  .tl-content h4 { color: var(--primary); margin-bottom: 5px; }
+  .tl-content p { font-size: 0.92rem; color: var(--text-light); }
+
+  /* Attractions */
+  .att-title { font-size: 1.25rem; font-weight: bold; color: var(--primary); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .att-price { background: var(--primary-pale); color: var(--primary-dark); font-size: 0.85rem; padding: 3px 8px; border-radius: 4px; font-weight: normal; }
+  .tip-box { background: linear-gradient(to right, #e9f5f0, #f0f7f4); border-left: 3px solid var(--primary-light); padding: 10px 12px; margin-top: 12px; border-radius: 0 6px 6px 0; font-size: 0.88rem; }
+  .tip-label { font-weight: bold; color: var(--primary); }
+
+  /* Lists & Tables */
+  .feature-list { list-style: none; padding: 0; }
+  .feature-list li { padding: 10px 0; border-bottom: 1px dashed #d0d7d3; display: flex; align-items: baseline; gap: 8px; }
+  .feature-list li:last-child { border-bottom: none; }
+  .list-tag { min-width: 65px; font-weight: 600; color: var(--primary); }
+  table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.95rem; }
+  th { background: var(--primary-pale); color: var(--primary-dark); padding: 12px 15px; text-align: left; font-weight: 600; border-bottom: 2px solid #88b0a2; }
+  td { padding: 12px 15px; border-bottom: 1px solid #e2e8e5; }
+  tr:last-child td { border-bottom: none; }
+  .budget-total { font-weight: bold; color: #e63946; font-size: 1.05rem; }
+
+  /* Notes */
+  .note-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .note-card { background: var(--white); padding: 16px; border-radius: 10px; border-top: 4px solid var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .note-card h4 { color: var(--primary); margin-bottom: 6px; }
+  .note-card p { font-size: 0.9rem; color: var(--text-light); }
+
+  footer { text-align: center; padding: 40px 20px 30px; color: #7a8a82; font-size: 0.85rem; border-top: 1px solid #dce4e0; margin-top: 20px; }
+  
+  @media (max-width: 768px) {
+    header { padding: 50px 0 80px; clip-path: none; border-radius: 0 0 24px 24px; }
+    h1 { font-size: 1.9rem; }
+    .pc-box, .card-grid, .note-grid { grid-template-columns: 1fr; }
+    h2 { font-size: 1.5rem; }
+    .timeline { padding-left: 16px; }
+    .tl-item { padding-left: 10px; }
+    .info-box { flex-direction: column; gap: 6px; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>神仙居夏季旅游攻略</h1>
+    <p class="subtitle">浙江台州 · 浙东最后一片秘境 · 云海奇峰与高空栈道的山水画卷</p>
+    <div class="info-box">
+      <span class="info-item">📍 浙江台州仙居县</span>
+      <span class="info-item">🗓️ 建议游玩：1天</span>
+      <span class="info-item">💰 预算级别：经济型</span>
+      <span class="info-item">🌿 最佳季节：4-6月、9-11月（夏季可避暑观瀑）</span>
+    </div>
+    <div class="badges">
+      <span class="badge">🏞️ 自然风光</span>
+      <span class="badge">🥾 登山徒步</span>
+      <span class="badge">📸 摄影出片</span>
+      <span class="badge">☁️ 云海奇观</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- 城市概述 -->
+  <section>
+    <h2>📖 目的地概述</h2>
+    <div class="card">
+      <p style="margin-bottom: 16px; font-size: 1.05rem;">神仙居是浙江最美的山岳景区之一，以火山流纹岩地貌为核心，奇峰环列、飞瀑流泉。景区最大的亮点是悬挂于百米悬崖之上的<span style="font-weight:bold; color:var(--primary);">高空栈道</span>，行走其上如入云端仙境。夏季虽为雨季，但瀑布水量充沛、植被苍翠，是极佳的避暑徒步与摄影胜地。</p>
+      <div class="pc-box">
+        <div class="pro">
+          <span class="pc-title">✅ 核心优势</span>
+          山岳景观在浙江属第一梯队；高空栈道体验感强且安全系数高；雨后初晴极易出现云海；距杭州/上海高铁约2.5小时，交通便利；门票与索道组合性价比高。
+        </div>
+        <div class="con">
+          <span class="pc-title">⚠️ 注意事项</span>
+          景区较大需较多步行与上下台阶；夏季雷阵雨多发，天气不佳时观景视野受限；知名度略逊于雁荡山，部分周边配套仍在升级中；建议避开正午高温。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行程安排 -->
+  <section>
+    <h2>🕒 1日精华行程（夏季避暑版）</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-time">07:30 - 08:30｜抵达景区 & 进山</span>
+        <div class="tl-content">
+          <h4>南门入园，避开人流高峰</h4>
+          <p>夏季建议清晨入园，气温适宜。购买“门票+往返索道”套票。乘索道上行约15分钟即可抵达山顶南天顶区域，节省体力。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-time">08:30 - 12:00｜神仙居核心环线</span>
+        <div class="tl-content">
+          <h4>高空栈道漫步 & 打卡地标</h4>
+          <p>顺时针游览：莲花台 ➜ 观音峰 ➜ 飞天瀑（夏季水大壮观） ➜ 如意桥（网红悬空玻璃桥，必拍） ➜ 南天桥。全程栈道平缓，穿梭于云雾与奇峰之间。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-time">12:30 - 14:00｜山下午餐 & 休整</span>
+        <div class="tl-content">
+          <h4>补充能量，避开烈日</h4>
+          <p>乘索道下山，在景区外农家乐用餐。建议品尝仙居土鸡煲、溪鱼、时令野菜。餐后在客栈或树荫下小憩30分钟，恢复体力。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-time">14:30 - 16:30｜清凉体验：永安溪漂流</span>
+        <div class="tl-content">
+          <h4>竹筏轻舟，山水画廊</h4>
+          <p>距神仙居仅15分钟车程。夏季漂流极为惬意，溪水清凉见底，两岸翠竹成荫。全程约2小时，无激流险滩，适合全家休闲。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-time">17:30 - 19:30｜文化漫步：皤滩古镇</span>
+        <div class="tl-content">
+          <h4>千年龙形古街 & 晚餐</h4>
+          <p>返回途中顺访皤滩古镇。古街保存完好，石板路幽静，可参观针刺无骨花灯、品尝仙居麦饼。傍晚光线柔和，非常适合人文纪实摄影。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详解 -->
+  <section>
+    <h2>🏞️ 核心景点详解</h2>
+    <div class="card-grid">
+      <div class="card attraction-card">
+        <div class="visual-placeholder vp-mountain">神仙居景区</div>
+        <div class="att-title">1. 神仙居景区 <span class="att-price">门票 ¥110 | 索道 ¥100</span></div>
+        <p style="font-size:0.92rem; color:#555; margin-bottom:8px;">国家级5A景区，火山流纹岩地貌博物馆。高空栈道全长约3公里，串联起观音岩、如来峰、天柱峰等数十处奇观。如意桥凌空跨越两峰，是摄影与打卡的绝对C位。</p>
+        <div class="tip-box"><span class="tip-label">💡 游玩Tips：</span>推荐“南上北下”或“南上南下”环线。夏季易起雾，建议携带雨披；穿防滑运动鞋；如意桥玻璃面夏季可能较滑，勿穿高跟鞋。</div>
+      </div>
+      <div class="card attraction-card">
+        <div class="visual-placeholder vp-water">永安溪漂流</div>
+        <div class="att-title">2. 永安溪漂流 <span class="att-price">门票 ¥80 | 竹筏往返</span></div>
+        <p style="font-size:0.92rem; color:#555; margin-bottom:8px;">“浙东第一溪”，水质达国家I类标准。全程平缓无险，艄公撑篙前行，可近距离观察白鹭、水鸟。两岸是典型的浙东田园与喀斯特地貌，适合放空与亲子。</p>
+        <div class="tip-box"><span class="tip-label">💡 游玩Tips：</span>夏季午后易有雷阵雨，漂流可能临时暂停，请提前致电确认。建议带备用衣物与防水袋，防晒指数需达SPF50+。</div>
+      </div>
+      <div class="card attraction-card">
+        <div class="visual-placeholder vp-ancient">皤滩古镇</div>
+        <div class="att-title">3. 皤滩古镇 <span class="att-price">免费开放 | 联票 ¥30</span></div>
+        <p style="font-size:0.92rem; color:#555; margin-bottom:8px;">始建于唐，兴于明清的商贸古镇。街道呈“龙”型排列，保留大量古盐埠、钱庄、妓院遗址。无商业化喧嚣，只有原住民的生活气息。针刺无骨花灯是省级非遗。</p>
+        <div class="tip-box"><span class="tip-label">💡 游玩Tips：</span>游览1-1.5小时足够。建议购买花灯体验装或手作材料包；古镇部分老宅光线暗，拍照建议调高手机ISO或使用补光灯。</div>
+      </div>
+      <div class="card attraction-card">
+        <div class="visual-placeholder vp-skyline">景星岩</div>
+        <div class="att-title">4. 景星岩（备选） <span class="att-price">门票 ¥55</span></div>
+        <p style="font-size:0.92rem; color:#555; margin-bottom:8px;">海拔742米，神仙居的制高点。山顶有景星寺、望月亭。盘山公路有18弯，自驾或包车可直达半山。登顶可360°俯瞰神仙居全貌，日出与晚霞绝美。</p>
+        <div class="tip-box"><span class="tip-label">💡 游玩Tips：</span>若时间/体力有限，建议与神仙居二选一。夏季蚊虫较多，需备驱蚊液。山路弯多，晕车者请提前服用晕车药。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section>
+    <h2>🍜 在地美食推荐</h2>
+    <div class="card">
+      <ul class="feature-list">
+        <li><span class="list-tag">仙居八大碗</span> 传统宴席菜，含敲肉、豆腐、红烧肉等，用料扎实，咸鲜适口，适合家庭共享。</li>
+        <li><span class="list-tag">仙居杨梅</span> 6-7月为盛产期（夏季特供），果肉饱满多汁，酸甜爆汁。路边摊可现挑现吃，注意清洗防蛀。</li>
+        <li><span class="list-tag">仙居麦饼</span> 炭火烤制，内馅分咸（雪菜肉、豆腐）甜（红糖、豆沙）两种，外酥里韧，步行补给最佳。</li>
+        <li><span class="list-tag">溪石斑鱼</span> 永安溪特产，清蒸或酱烧，肉质紧实无腥味。夏季冰镇溪鱼刺身亦为特色。</li>
+        <li><span class="list-tag">推荐餐厅</span> <span style="color:var(--primary);">老街饭店（皤滩店）</span>（地道土菜）、<span style="color:var(--primary);">仙居人家</span>（近景区南门）、<span style="color:var(--primary);">溪边人家</span>（漂流终点农家，食材新鲜）。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section>
+    <h2>🏨 住宿推荐（按预算分级）</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>档位</th><th>推荐类型/区域</th><th>参考价格（夏）</th><th>适合人群</th></tr></thead>
+        <tbody>
+          <tr><td><span style="font-weight:bold;color:#666;">💚 经济型</span></td><td>白塔镇/景区南门周边农家客栈</td><td>¥120 - ¥200/晚</td><td>学生党、穷游背包客，基础干净，含早餐</td></tr>
+          <tr><td><span style="font-weight:bold;color:#666;">💛 舒适型</span></td><td>神仙居景区精品民宿（如：云上仙居、隐仙居）</td><td>¥280 - ¥450/晚</td><td>情侣/家庭，设计感强，带观景阳台或茶室</td></tr>
+          <tr><td><span style="font-weight:bold;color:#666;">❤️ 高端型</span></td><td>永安溪畔野奢度假村 / 景星岩山景别墅</td><td>¥600 - ¥1200/晚</td><td>度假放松，含私汤/泳池、管家服务、定制餐饮</td></tr>
+        </tbody>
+      </table>
+      <div class="tip-box" style="margin-top:15px;"><span class="tip-label">📌 预订建议：</span>夏季周末房源紧张，建议提前3-5天在主流平台预订。若需早起看云海，优先选“神仙居南门”5公里内住宿。</div>
+    </div>
+  </section>
+
+  <!-- 交通指南 -->
+  <section>
+    <h2>🚌 交通指南</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4 style="color:var(--primary); margin-bottom:10px;">✈️ 飞机 & 🚅 高铁</h4>
+        <ul class="feature-list">
+          <li><span class="list-tag">飞机</span> 飞抵台州路桥机场，机场大巴/拼车至仙居客运中心约1小时（费用¥80-120）。</li>
+          <li><span class="list-tag">高铁</span> 杭州东/上海虹桥 ➜ 仙居南站/台州西站，高铁车程约2-2.5小时。</li>
+          <li><span class="list-tag">换乘</span> 仙居南站出站后，乘坐公交专线（神仙居旅游巴士）约40分钟直达景区南门，班次密集。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--primary); margin-bottom:10px;">🚗 自驾 & 🚕 市内</h4>
+        <ul class="feature-list">
+          <li><span class="list-tag">自驾</span> 杭州出发约3小时（常台高速S15转诸永高速S26，仙居白塔出口下）。景区南门/北门均有大型生态停车场（¥20/天）。</li>
+          <li><span class="list-tag">包车</span> 若多人同行，建议高铁到仙居后包车一日游（¥300-400/车/天），灵活串联神仙居+漂流+古镇。</li>
+          <li><span class="list-tag">公交</span> 仙居县城至各景点公交覆盖良好，但末班车约18:00结束，注意时间。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section>
+    <h2>⚠️ 注意事项（夏季专项）</h2>
+    <div class="note-grid">
+      <div class="note-card">
+        <h4>🌤️ 天气与行程</h4>
+        <p>夏季午后多阵雨，建议“早进山、午休、下午水上/古镇”。关注“仙居气象”预报，雷雨天气栈道可能临时封闭。</p>
+      </div>
+      <div class="note-card">
+        <h4>👟 穿着与装备</h4>
+        <p>必穿防滑登山鞋或运动鞋。备轻薄透气速干衣裤。携带便携雨披（比雨伞安全）、防晒帽、冰袖。背包内放1-1.5L饮用水。</p>
+      </div>
+      <div class="note-card">
+        <h4>🛡️ 安全须知</h4>
+        <p>高空栈道严禁攀爬护栏；漂流务必穿戴救生衣；夏季山间紫外线强且蚊虫活跃，备高倍防晒霜与含避蚊胺驱蚊液。</p>
+      </div>
+      <div class="note-card">
+        <h4>📱 实用信息</h4>
+        <p>景区内信号覆盖良好，但部分深谷有盲区。索道末班时间约16:30，请留意广播。门票可提前在“神仙居旅游”公众号实名预约。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 预算参考 -->
+  <section>
+    <h2>💰 预算参考（1人/经济型）</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>项目</th><th>说明</th><th>预估费用（¥）</th></tr></thead>
+        <tbody>
+          <tr><td>🚄 大交通</td><td>杭州往返仙居高铁/动车二等座</td><td>¥220</td></tr>
+          <tr><td>🚌 当地接驳</td><td>公交/打车至景区+漂流点+古镇</td><td>¥60</td></tr>
+          <tr><td>🎫 门票套票</td><td>神仙居门票¥110+索道¥100+漂流¥80</td><td>¥290</td></tr>
+          <tr><td>🍽️ 餐饮</td><td>正餐2顿+小吃/饮品/水</td><td>¥100</td></tr>
+          <tr><td>🛏️ 住宿</td><td>经济客栈/青旅（1晚）</td><td>¥150</td></tr>
+          <tr style="background:var(--primary-pale);"><td class="budget-total">合计</td><td>人均单日预算</td><td class="budget-total">约 ¥820</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:15px; font-size:0.88rem; color:var(--text-light); text-align:right;">*注：预算按淡季/平日价格估算，暑期周末及法定节假日上浮约15%-25%。丰俭由人，实际以实时消费为准。</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2024 神仙居夏季旅行指南 | 数据更新于 2024年6月</p>
+    <p style="margin-top:8px; font-size:0.8rem;">本攻略仅供参考，景区政策、交通班次及门票价格可能变动，出行前请务必通过官方渠道核实。</p>
+  </div>
+</footer>
+
+</body>
+</html>

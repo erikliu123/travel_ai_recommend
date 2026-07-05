@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拉萨夏日朝圣之旅 | 3日深度旅游攻略</title>
+  <style>
+    :root {
+      --primary: #774930;
+      --primary-light: #a37b58;
+      --accent: #c4956a;
+      --bg: #f8f5f0;
+      --text: #2c241f;
+      --light: #e8dcd3;
+      --white: #ffffff;
+      --shadow: 0 6px 16px rgba(119, 73, 48, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, #5a3822 100%);
+      color: var(--white);
+      padding: 45px 20px 35px;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: ''; position: absolute; bottom: -20px; left: 0; right: 0; height: 40px;
+      background: var(--bg); border-radius: 100% 100% 0 0;
+    }
+    h1 { font-size: 2.2rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
+    .subtitle { opacity: 0.9; font-size: 1.05rem; max-width: 700px; margin: 0 auto 15px; }
+    .badge-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .badge {
+      background: rgba(255,255,255,0.2); color: #fff; padding: 5px 12px; border-radius: 20px;
+      font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(4px);
+    }
+    .section-title {
+      color: var(--primary); font-size: 1.5rem; border-left: 5px solid var(--primary);
+      padding-left: 14px; margin: 35px 0 20px; display: flex; align-items: center; gap: 10px;
+    }
+    .card {
+      background: var(--white); border-radius: 14px; padding: 25px; margin-bottom: 25px;
+      box-shadow: var(--shadow); border: 1px solid rgba(119,73,48,0.05);
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .tag-box { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+    .tag { background: var(--light); color: #5a3822; padding: 6px 14px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; }
+    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+    .pros, .cons { padding: 16px; border-radius: 10px; font-size: 0.95rem; }
+    .pros { background: #e9f5e9; border-left: 4px solid #2e7d32; color: #1b431e; }
+    .cons { background: #f8ecec; border-left: 4px solid #c62828; color: #7f1d1d; }
+    .timeline { position: relative; padding-left: 25px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 12px; bottom: 12px; width: 3px; background: #e5ddd5; border-radius: 2px; }
+    .day-block { margin-bottom: 30px; }
+    .day-label { font-weight: 700; color: var(--primary); font-size: 1.15rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; background: #faf7f4; padding: 10px 15px; border-radius: 8px; }
+    .event { background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #eee; margin-bottom: 12px; position: relative; }
+    .event::after {
+      content: ''; position: absolute; left: -25px; top: 18px; width: 12px; height: 12px;
+      background: var(--primary); border: 3px solid var(--white); border-radius: 50%; box-shadow: 0 0 0 2px var(--accent);
+    }
+    .time-badge { font-weight: 700; color: var(--accent); font-size: 0.9rem; display: block; margin-bottom: 4px; }
+    .spot-card { background: #fdfbf9; border: 1px solid #e6ddd4; border-radius: 12px; padding: 20px; height: 100%; display: flex; flex-direction: column; }
+    .spot-card h3 { color: var(--primary); margin: 0 0 8px; font-size: 1.2rem; }
+    .price-tag { display: inline-block; background: #e8dcd3; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; }
+    .tip-box { background: #fffbf3; border: 1px dashed #d4b494; padding: 12px; border-radius: 8px; margin-top: auto; font-size: 0.9rem; color: #6b5036; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; background: var(--white); border-radius: 10px; overflow: hidden; }
+    th { background: var(--primary); color: var(--white); padding: 14px; text-align: left; font-weight: 500; }
+    td { padding: 13px; border-bottom: 1px solid #eee; color: var(--text); }
+    tr:last-child td { border-bottom: none; }
+    .note-list { padding-left: 20px; }
+    .note-list li { margin-bottom: 10px; color: #444; }
+    .note-list li::marker { color: var(--primary); font-weight: bold; }
+    .budget-summary { background: linear-gradient(90deg, var(--light) 0%, #fff 100%); padding: 15px; border-radius: 10px; margin-top: 15px; text-align: center; font-weight: 500; color: var(--primary); }
+    footer { text-align: center; padding: 40px 20px 30px; color: #888; font-size: 0.9rem; margin-top: 40px; border-top: 1px solid #ddd; }
+    @media (max-width: 768px) {
+      .container { padding: 15px; }
+      h1 { font-size: 1.7rem; }
+      .pros-cons, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .timeline { padding-left: 20px; }
+      .event::after { left: -22px; }
+      section, .card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>拉萨夏日深度游攻略</h1>
+  <p class="subtitle">日光之城，雪域高原的心脏。布达拉宫的雄伟、大昭寺的虔诚与八廓街的烟火气，交织成一场触及灵魂的朝圣之旅。</p>
+  <div class="badge-container">
+    <span class="badge">建议游玩：3天</span>
+    <span class="badge">最佳月份：4月-10月</span>
+    <span class="badge">预算级别：★★★ 较高</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+      <h2 style="margin:0; border:none; padding:0;">🌍 城市概述</h2>
+      <span class="price-tag" style="background:var(--primary); color:#fff;">含氧量：偏低 / 海拔：3650m</span>
+    </div>
+    <p style="margin-top:15px; color:#555;">拉萨，藏语意为“圣地”或“佛地”。这里不仅是西藏自治区的首府，更是藏传佛教文化的核心。夏季（4-10月）气候相对温和，日照充足，含氧量达一年中峰值，是体验高原风光、探访千年古刹的最佳时节。</p>
+    
+    <div class="tag-box">
+      <span class="tag"># 高原风光</span>
+      <span class="tag"># 历史古迹</span>
+      <span class="tag"># 文化之旅</span>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <strong>✨ 核心优势</strong><br>
+        布达拉宫举世闻名，藏族文化底蕴深厚；自然风光壮美纯净；宗教氛围浓厚，能带来独特的精神洗礼体验。
+      </div>
+      <div class="cons">
+        <strong>⚠️ 旅行提示</strong><br>
+        高海拔（3650m）高反风险较大；进藏交通成本较高；需提前规划行程与票务；冬季部分高海拔湖泊/景区可能临时关闭。
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">🗓️ 3天详细行程安排</h2>
+  <div class="card">
+    <div class="timeline">
+      <div class="day-block">
+        <div class="day-label">🌞 Day 1：初抵圣城 · 适应海拔</div>
+        <div class="event"><span class="time-badge">上午 | 抵达与休整</span>抵达贡嘎机场或拉萨火车站，专车接机/站入住酒店。首日避免洗澡洗头，多饮水，静卧适应高原环境。</div>
+        <div class="event"><span class="time-badge">下午 | 八廓街漫步</span>轻装游览八廓街转经道，体验藏式市井生活。在甜茶馆喝杯藏甜茶，品尝一碗地道藏面，感受拉萨的慢节奏。</div>
+        <div class="event"><span class="time-badge">晚上 | 布宫广场夜景</span>晚餐后步行至布达拉宫广场，欣赏世界屋脊明珠的璀璨夜景。拍摄布宫倒影，随后返回酒店早睡蓄力。</div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label">🏯 Day 2：信仰巅峰 · 藏地灵魂</div>
+        <div class="event"><span class="time-badge">上午 | 布达拉宫朝圣</span>持预约门票进入布达拉宫，参观白宫、红宫，细赏历代达赖灵塔、珍贵唐卡与佛像。内部限流且限参观1小时，需按指定路线行走。</div>
+        <div class="event"><span class="time-badge">下午 | 大昭寺与转经</span>前往“西藏的眼睛”大昭寺，朝拜文成公主带来的释迦牟尼十二岁等身金像。观看觉康殿外的磕长头信众，感受信仰的力量。</div>
+        <div class="event"><span class="time-badge">晚上 | 藏餐体验与夜市</span>在八廓街周边品尝正宗藏式料理（如香烤牦牛肉、人参果饭）。餐后逛藏文化夜市，选购藏香、天珠等纪念品。</div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label">💎 Day 3：天湖秘境 · 纳木错朝圣</div>
+        <div class="event"><span class="time-badge">上午 | 纳木错环线</span>清晨出发前往纳木错（车程约4h）。翻越海拔5190米的纳根拉山口，远眺念青唐古拉山脉。抵达湖畔，徒步至扎西半岛，观“天湖”碧波与雪山同辉。</div>
+        <div class="event"><span class="time-badge">下午 | 湖畔静思与返程</span>在湖畔玛尼堆祈福，拍摄纳木错标志性合掌树与湖心石。下午沿原路返回拉萨市区，途中可远观藏北草原风光。</div>
+        <div class="event"><span class="time-badge">晚上 | 行程总结与休整</span>返回拉萨后安排轻松晚餐，整理行装。若次日返程，可购买牦牛肉干、青稞茶等伴手礼。若续住，建议前往色拉寺看辩经或药王山观景台补拍布宫。</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">📍 核心景点详解</h2>
+  <div class="grid-2">
+    <div class="spot-card">
+      <h3>1. 布达拉宫</h3>
+      <span class="price-tag">🎫 门票：200元</span>
+      <p>世界上海拔最高的宫殿建筑群（117米），集宫殿、城堡和寺院于一体的藏式建筑巅峰。内部珍藏无数佛像、经书、唐卡及灵塔。</p>
+      <div class="tip-box"><strong>💡 Tips：</strong>必须通过“布达拉宫票务预约系统”小程序提前1-10天实名预约；参观限时1小时；严禁携带水包入内，宫内禁止拍照。</div>
+    </div>
+    <div class="spot-card">
+      <h3>2. 大昭寺</h3>
+      <span class="price-tag">🎫 门票：85元</span>
+      <p>藏传佛教最神圣的寺院，始建于公元7世纪。供奉着全西藏唯一一尊由文成公主带入大唐的释迦牟尼12岁等身像，是藏民心中的宇宙中心。</p>
+      <div class="tip-box"><strong>💡 Tips：</strong>参观请遵循顺时针方向；殿内严禁摄影；可提前在门口请酥油灯供奉；建议早到避开人流高峰。</div>
+    </div>
+    <div class="spot-card">
+      <h3>3. 八廓街</h3>
+      <span class="price-tag">🎫 门票：免费</span>
+      <p>围绕大昭寺修建的环形转经道，亦是拉萨最繁华的商业文化街。集藏式手工艺品、唐卡画坊、藏香铺、老字号甜茶馆于一体。</p>
+      <div class="tip-box"><strong>💡 Tips：</strong>清晨转经最纯粹，下午购物最热闹；购买文玩需谨慎辨别；注意尊重当地转经方向（顺时针）。</div>
+    </div>
+    <div class="spot-card">
+      <h3>4. 纳木错</h3>
+      <span class="price-tag">🎫 门票：120元/人 + 景区交通60元</span>
+      <p>藏语“纳木错”意为天湖，海拔4718米，世界上海拔最高的大型咸水湖之一。湖水碧蓝如宝石，与远处的念青唐古拉雪峰相映成画。</p>
+      <div class="tip-box"><strong>💡 Tips：</strong>海拔骤升易引发高反，动作需放缓；湖风大，必备防风外套与墨镜；建议包车或拼正规旅游车前往。</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">🍜 美食与餐厅推荐</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3 style="color:var(--primary); margin-bottom:15px;">🥢 必吃特色</h3>
+      <ul class="note-list">
+        <li><strong>酥油茶/甜茶：</strong>藏地能量之源，甜茶类似港式奶茶但更温润。</li>
+        <li><strong>藏面：</strong>青稞面制成，汤底为牛骨熬制，口感筋道。</li>
+        <li><strong>风干牦牛肉：</strong>冬季自然风干，肉质紧实，越嚼越香。</li>
+        <li><strong>糌粑 & 酥油饼：</strong>高原传统主食，配茶绝佳。</li>
+        <li><strong>牦牛酸奶：</strong>天然发酵，酸度较高，通常加白糖或蜂蜜食用。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--primary); margin-bottom:15px;">🏠 口碑餐厅</h3>
+      <ul class="note-list">
+        <li><strong>光明港琼甜茶馆：</strong>拉萨最具烟火气的老茶馆，1元/杯藏甜茶+3元/碗藏面，体验地道市井文化。</li>
+        <li><strong>玛吉阿米餐吧：</strong>坐落于八廓街东南角，黄色小楼极具浪漫色彩，藏餐与融合菜结合，适合拍照。</li>
+        <li><strong>措吉凉粉店：</strong>本地人挚爱，特色藏式凉粉、炸土豆、血肠，价格亲民，口味地道。</li>
+        <li><strong>娜玛瑟德餐厅：</strong>位于平措康桑青年旅舍内，酥油奶渣饼和炸羊排备受好评，环境舒适。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title">🛏️ 住宿推荐指南</h2>
+  <div class="grid-3">
+    <div class="spot-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <h3 style="margin:0;">经济型（背包客）</h3>
+        <span class="tag">¥100-250/晚</span>
+      </div>
+      <p><strong>平措康桑青年旅舍 / 东孜苏路民宿群</strong><br>
+      位于八廓街周边，步行可达核心景区。氛围浓厚，提供氧气房、藏餐体验，适合预算有限、注重社交的年轻旅行者。</p>
+    </div>
+    <div class="spot-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <h3 style="margin:0;">舒适型（品质优选）</h3>
+        <span class="tag">¥350-650/晚</span>
+      </div>
+      <p><strong>拉萨香格里拉大酒店 / 瑞吉精选周边精品客栈</strong><br>
+      配备弥散式供氧系统、地暖、加湿器。地理位置便利，服务完善，能有效缓解初到高反不适，适合家庭或追求性价比的游客。</p>
+    </div>
+    <div class="spot-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <h3 style="margin:0;">高端型（奢华体验）</h3>
+        <span class="tag">¥1000+/晚</span>
+      </div>
+      <p><strong>拉萨瑞吉度假酒店 / 洲际天堂酒店</strong><br>
+      全景落地窗直面布达拉宫或山景，24小时管家服务、独立制氧机、藏浴SPA。将顶级舒适与藏地文化完美融合。</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">🚌 交通指南</h2>
+  <div class="card">
+    <div class="grid-2">
+      <div>
+        <h3 style="color:var(--primary); margin-bottom:10px;">✈️ 如何抵达拉萨</h3>
+        <ul class="note-list">
+          <li><strong>飞机：</strong>拉萨贡嘎国际机场。国内多数城市需在成都/重庆中转，飞行约3.5h，总行程约5-6小时。贡嘎机场距市区约65公里，有机场大巴（¥35/人）或拼车前往。</li>
+          <li><strong>火车：</strong>青藏铁路（Z164/Z21等）从西宁始发，沿途穿越可可西里、唐古拉山口，风景绝美。全程约14-16小时（视始发站而定）。</li>
+          <li><strong>备注：</strong>杭州/东部沿海出发建议“飞成都+火车”或直飞。高原铁路建议购买卧铺以适应海拔变化。</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--primary); margin-bottom:10px;">🚕 市内与周边交通</h3>
+        <ul class="note-list">
+          <li><strong>市区公交/打车：</strong>拉萨市区不大，核心景点（布宫、大昭寺、八廓街、药王山）均可步行或骑共享单车抵达。出租车起步价¥10元，支持网约车。</li>
+          <li><strong>纳木错专线：</strong>无直达旅游大巴，需提前1-2天在客栈或通过正规旅行社预订拼车/包车（SUV/商务车约¥200-400/人含门票/保险）。</li>
+          <li><strong>边防证提示：</strong>仅前往拉萨市区及纳木错无需办理。若计划前往珠峰大本营、阿里地区、墨脱等边境县，须提前在户籍所在地公安局办理《边境管理区通行证》。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">⚠️ 高反与安全注意事项</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3 style="color:var(--primary);">🌤️ 天气与穿着</h3>
+      <ul class="note-list">
+        <li><strong>昼夜温差大：</strong>夏季白天15-22℃，夜间5-10℃。采用“洋葱式穿衣法”：速干打底+抓绒/薄羽绒+防风冲锋衣。</li>
+        <li><strong>极强紫外线：</strong>必须配备SPF50+防晒霜、宽檐帽、UV400墨镜。嘴唇干裂需常备润唇膏。</li>
+        <li><strong>干燥气候：</strong>携带便携加湿器，鼻腔涂抹红霉素软膏防干裂出血。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--primary);">🛡️ 健康与文化安全</h3>
+      <ul class="note-list">
+        <li><strong>高反应对：</strong>抵达首日不洗澡、不剧烈运动、不饮酒。备好布洛芬（缓解头痛）、葡萄糖口服液、便携式氧气瓶（约¥25-50）。</li>
+        <li><strong>寺庙礼仪：</strong>进殿脱帽、摘墨镜；不踩门槛；不随意用手指佛像；顺时针绕行转经筒/玛尼堆。</li>
+        <li><strong>拍摄尊重：</strong>大昭寺等殿堂内部严禁摄影；拍摄磕长头信徒前请征得同意；不随意拍摄边防武警。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title">💰 预算参考（单人/3天，不含进藏大交通）</h2>
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:20%;">费用项目</th>
+          <th style="width:35%;">明细说明</th>
+          <th style="width:25%;">预估费用 (RMB)</th>
+          <th style="width:20%;">备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>🏨 住宿</strong></td>
+          <td>舒适型/供氧酒店 3晚</td>
+          <td>¥1200 - ¥1800</td>
+          <td>旺季价格上浮，建议提前预订</td>
+        </tr>
+        <tr>
+          <td><strong>🚌 交通</strong></td>
+          <td>市区打车+纳木错拼车/包车</td>
+          <td>¥600 - ¥1000</td>
+          <td>含机场往返及纳木错分摊油费</td>
+        </tr>
+        <tr>
+          <td><strong>🍜 餐饮</strong></td>
+          <td>藏餐/融合菜+零食水饮</td>
+          <td>¥500 - ¥800</td>
+          <td>人均¥150-¥250/日</td>
+        </tr>
+        <tr>
+          <td><strong>🎫 门票</strong></td>
+          <td>布达拉宫+大昭寺+纳木错</td>
+          <td>¥400 - ¥450</td>
+          <td>景区观光车/讲解另计约¥100</td>
+        </tr>
+        <tr>
+          <td><strong>🛍️ 购物/备用</strong></td>
+          <td>氧气、药品、伴手礼、祈福</td>
+          <td>¥300 - ¥600</td>
+          <td>弹性支出</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="budget-summary">
+      🎯 预估总计：¥3,000 - ¥4,650 元/人（预算级别 ★★★ 较高，实际花费因出行季节与个人消费习惯浮动 ±20%）
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 拉萨深度游规划指南 | 数据更新于2024年夏季 | 建议出发前关注“西藏发布”及景区官方公告</p>
+  <p style="margin-top:5px; font-size:0.8rem; opacity:0.8;">祝您的雪域之旅平安顺遂，所遇皆欢喜。</p>
+</footer>
+
+</body>
+</html>

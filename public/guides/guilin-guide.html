@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>桂林夏季旅游攻略 | 山水画廊深度游指南</title>
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --primary-dark: #1b4332;
+      --primary-light: #52b788;
+      --bg-light: #d8f3dc;
+      --bg-page: #f5f7f6;
+      --text-main: #2c3e35;
+      --text-sub: #5a6b64;
+      --white: #ffffff;
+      --shadow: 0 6px 18px rgba(45,106,79,0.08);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 18px; }
+    header.hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: var(--white);
+      padding: 70px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header.hero::after {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(circle at 15% 85%, rgba(255,255,255,0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 85% 15%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    }
+    header.hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; margin-bottom: 12px; position: relative; z-index: 2; letter-spacing: 1px; }
+    header.hero p { font-size: 1.05rem; opacity: 0.92; max-width: 650px; margin: 0 auto; position: relative; z-index: 2; }
+
+    section { margin: 45px 0; }
+    .section-title {
+      font-size: 1.65rem;
+      color: var(--primary-dark);
+      border-left: 6px solid var(--primary);
+      padding-left: 16px;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(45,106,79,0.12); }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .badge { background: var(--bg-light); color: var(--primary-dark); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; }
+
+    .day-title { font-size: 1.25rem; color: var(--primary); font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; }
+    .day-title::before { content: ""; display: inline-block; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; margin-right: 10px; }
+
+    .timeline { list-style: none; padding-left: 18px; border-left: 2px solid var(--bg-light); }
+    .timeline li { position: relative; margin-bottom: 18px; padding-bottom: 18px; }
+    .timeline li:last-child { margin-bottom: 0; padding-bottom: 0; }
+    .timeline li::before { content: ""; position: absolute; left: -25px; top: 6px; width: 8px; height: 8px; background: var(--primary-light); border-radius: 50%; border: 2px solid var(--white); box-shadow: 0 0 0 3px var(--bg-light); }
+    .time-slot { font-weight: 700; color: var(--primary-dark); display: inline-block; margin-right: 8px; }
+
+    .attraction-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; flex-wrap: wrap; }
+    .attraction-header h3 { margin-right: 10px; }
+    .ticket { background: var(--bg-light); color: var(--primary-dark); padding: 5px 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 500; white-space: nowrap; }
+
+    .price { color: var(--primary); font-weight: 700; float: right; }
+    .list-item { padding: 10px 0; border-bottom: 1px dashed #e0e8e4; display: block; }
+    .list-item:last-child { border-bottom: none; }
+
+    .budget-table { width: 100%; border-collapse: collapse; margin-top: 8px; background: var(--white); border-radius: var(--radius); overflow: hidden; }
+    .budget-table th, .budget-table td { padding: 14px 12px; text-align: left; border-bottom: 1px solid #eaecee; font-size: 0.92rem; }
+    .budget-table th { background: var(--bg-light); color: var(--primary-dark); font-weight: 700; }
+    .budget-table tr:last-child td { border-bottom: none; font-weight: 700; background: #fafcfb; }
+
+    .tip-box { border-left: 5px solid var(--primary); background: #eef7f2; padding: 18px; border-radius: 0 var(--radius) var(--radius) 0; }
+    .tip-box.warning { border-color: #d97706; background: #fff8e8; }
+
+    footer { text-align: center; padding: 40px 0 30px; color: var(--text-sub); font-size: 0.88rem; border-top: 1px solid #dde4e1; margin-top: 30px; }
+
+    @media (max-width: 768px) {
+      header.hero { padding: 50px 16px 40px; }
+      .section-title { font-size: 1.4rem; padding-left: 12px; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .attraction-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .price { float: none; display: inline-block; margin-top: 4px; }
+      .budget-table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <h1>桂林 · 山水画廊夏日行旅</h1>
+    <p>3天2晚深度游攻略｜“桂林山水甲天下”的沉浸式体验与避坑指南</p>
+  </div>
+</header>
+
+<main class="container">
+  <section id="overview">
+    <div class="card">
+      <h2 class="section-title">🏙️ 城市概述</h2>
+      <p>“桂林山水甲天下”，漓江两岸的喀斯特地貌是中国最经典的山水画卷。阳朔西街的烟火气、龙脊梯田的农耕奇观、象鼻山的灵动剪影，共同构成了这座世界级旅游名城的独特魅力。夏季虽闷热多雨，但雨后漓江的云雾与梯田的葱郁绿意，正是摄影出片的绝佳时节。</p>
+      <div class="badges">
+        <span class="badge">🌿 自然风光</span>
+        <span class="badge">🖼️ 山水画廊</span>
+        <span class="badge">📸 摄影出片</span>
+        <span class="badge">🍜 桂北风味</span>
+      </div>
+      <div style="margin-top:18px; display:flex; flex-wrap:wrap; gap:16px; font-size:0.95rem; color:var(--text-sub);">
+        <span><strong>建议天数：</strong>3天</span>
+        <span><strong>最佳月份：</strong>4-10月</span>
+        <span><strong>预算级别：</strong>适中（Level 2）</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="itinerary">
+    <h2 class="section-title">🗺️ 3天详细行程安排</h2>
+    <div class="grid-3">
+      <div class="day-block card">
+        <div class="day-title">Day 1：初识桂林，城水相依</div>
+        <ul class="timeline">
+          <li><span class="time-slot">上午</span>抵达桂林，入住市区酒店稍作休整。前往【象鼻山公园】打卡地标，漫步象山水月广场，感受喀斯特山水微缩景观。</li>
+          <li><span class="time-slot">下午</span>乘竹筏/画舫体验【漓江精华游】（杨堤至兴坪段），近距离欣赏20元人民币背景实景，拍摄经典机位。</li>
+          <li><span class="time-slot">晚上</span>乘旅游专线或包车前往阳朔，办理入住后夜游【阳朔西街】，感受中西文化交融的夜生活。</li>
+        </ul>
+      </div>
+      <div class="day-block card">
+        <div class="day-title">Day 2：阳朔田园，户外撒欢</div>
+        <ul class="timeline">
+          <li><span class="time-slot">上午</span>租电动车沿【遇龙河】田园步道骑行，体验金龙桥至旧县段经典人工竹筏漂流，避开机动船喧嚣。</li>
+          <li><span class="time-slot">下午</span>参与阳朔特色户外项目：月亮山攀岩体验或探秘【银子岩】溶洞，感受“钟乳石博物馆”的地质奇观。</li>
+          <li><span class="time-slot">晚上</span>观看大型山水实景演出《印象·刘三姐》或《桂林千古情》，随后返回西街品尝特色精酿与烧烤。</li>
+        </ul>
+      </div>
+      <div class="day-block card">
+        <div class="day-title">Day 3：龙脊梯田，云端归途</div>
+        <ul class="timeline">
+          <li><span class="time-slot">上午</span>早起包车前往【龙脊梯田】（金坑大寨），乘缆车或轻徒步至二号观景台，俯瞰夏日连绵“绿浪”。</li>
+          <li><span class="time-slot">下午</span>深入瑶族古寨，体验少数民族农耕文化，品尝地道农家油茶。午后整理行装，启程返回桂林市区。</li>
+          <li><span class="time-slot">晚上</span>抵达市区，于正阳步行街享用地道桂林米粉与伴手礼，结束旅程，乘高铁/航班返程。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="attractions">
+    <h2 class="section-title">📍 核心景点详解</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="attraction-header">
+          <h3>🚢 漓江风光（精华段）</h3>
+          <span class="ticket">💰 船票/筏票：150-240元/人</span>
+        </div>
+        <p><strong>推荐理由：</strong>83公里漓江两岸奇峰罗列，碧水萦回，是20元人民币背面图案取景地。夏季江水丰沛，两岸凤尾竹摇曳，乘船如入青绿山水画境。</p>
+        <p style="margin-top:10px;"><strong>游玩Tips：</strong>建议购买“兴坪-九马画山”段游线；夏季日照强，备遮阳帽与冰袖；竹筏限1米以下儿童及70岁以上老人乘坐，请提前核实政策。</p>
+      </div>
+      <div class="card">
+        <div class="attraction-header">
+          <h3>🌃 阳朔西街</h3>
+          <span class="ticket">🎟️ 门票：免费开放</span>
+        </div>
+        <p><strong>推荐理由：</strong>千年古街融合中西文化，酒吧、咖啡馆、手工艺品店林立。这里是背包客与文艺青年的聚集地，夜间霓虹与漓江微风交织，氛围感拉满。</p>
+        <p style="margin-top:10px;"><strong>游玩Tips：</strong>白天适合扫街摄影，夜晚21:00后最为喧闹；避开主干道临街餐厅，转入支巷（如府前巷）更地道；旺季注意随身防盗。</p>
+      </div>
+      <div class="card">
+        <div class="attraction-header">
+          <h3>🌾 龙脊梯田</h3>
+          <span class="ticket">💰 门票：80元/人（景交车/索道另计）</span>
+        </div>
+        <p><strong>推荐理由：</strong>壮族和瑶族先民历经数百年开垦的梯田群，从山脚盘绕至山顶。夏季注水插秧后呈现壮观“绿浪”，晨起常有云海缭绕，视觉震撼。</p>
+        <p style="margin-top:10px;"><strong>游玩Tips：</strong>盘山公路弯道极多，晕车者务必提前30分钟服药；建议轻装徒步，穿防滑运动鞋；尊重当地民俗，未经允许勿拍摄老人特写或擅闯晒谷场。</p>
+      </div>
+      <div class="card">
+        <div class="attraction-header">
+          <h3>🐘 象鼻山</h3>
+          <span class="ticket">🎟️ 门票：免费（需实名预约）</span>
+        </div>
+        <p><strong>推荐理由：</strong>桂林城市标志，酷似巨象临水饮水的孤峰，是桂林山水的微缩名片。夜间亮灯后轮廓分明，江面倒映如诗如画。</p>
+        <p style="margin-top:10px;"><strong>游玩Tips：</strong>全面免费但需提前在官方公众号预约时段；傍晚前往可同时捕捉日落与夜景；园区不大，1-1.5小时即可深度游览。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="food">
+    <h2 class="section-title">🍜 地道美食与餐厅推荐</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="margin-bottom:12px;">🥢 必吃特色</h3>
+        <ul style="list-style:none; padding:0;">
+          <li class="list-item">桂林卤菜粉（干捞+锅烧+酸笋） <span class="price">15-25元</span></li>
+          <li class="list-item">阳朔啤酒鱼（漓江鱼+番茄+秘制酱焖） <span class="price">68-108元/份</span></li>
+          <li class="list-item">荔浦芋扣肉 / 龙脊竹筒饭 / 船上糕 <span class="price">30-60元</span></li>
+          <li class="list-item">恭城油茶 / 桂花糖藕 / 马蹄糕 <span class="price">10-25元</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:12px;">📍 口碑餐厅参考</h3>
+        <ul style="list-style:none; padding:0;">
+          <li class="list-item"><strong>老东江米粉（总店）</strong>：本地人认可的干捞粉鼻祖，自助小料丰富</li>
+          <li class="list-item"><strong>大师傅啤酒鱼（阳朔总店）</strong>：老字号连锁，鱼刺少入味，明码标价</li>
+          <li class="list-item"><strong>椿记烧鹅（中山路店）</strong>：烧鹅皮脆肉嫩，卤味拼盘一绝</li>
+          <li class="list-item"><strong>明记粉店 / 崇善米粉</strong>：社区老店，汤底用牛骨慢熬，性价比高</li>
+        </ul>
+        <p style="margin-top:14px; color:var(--text-sub); font-size:0.9rem;">💡 <strong>避坑提示：</strong>桂林米粉正宗吃法为先干拌吃粉和卤肉，最后加骨汤喝汤收尾；景区点海鲜/活鱼前务必确认称重单价与加工费。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="stay">
+    <h2 class="section-title">🏨 住宿推荐（按预算分级）</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3 style="color:var(--primary-light); margin-bottom:10px;">🎒 经济型</h3>
+        <p><strong>推荐区域：</strong>桂林十字街商圈、阳朔遇龙河沿岸青旅</p>
+        <p><strong>参考价位：</strong>150-300元/晚</p>
+        <p style="margin-top:8px; color:var(--text-sub);">连锁快捷或高评分青旅，交通便捷，社交氛围好，适合学生党与独行客。推荐：阳朔花筑系列、桂林如家精选。</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--primary); margin-bottom:10px;">🛏️ 舒适型</h3>
+        <p><strong>推荐区域：</strong>阳朔西街外围/十里画廊、龙脊半山观景民宿</p>
+        <p><strong>参考价位：</strong>400-800元/晚</p>
+        <p style="margin-top:8px; color:var(--text-sub);">设计感精品民宿为主，多带独立露台/浴缸，服务细致，兼顾景观与舒适度。推荐：阳朔画山云舍、悦水阁度假酒店。</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--primary-dark); margin-bottom:10px;">🌟 高端型</h3>
+        <p><strong>推荐区域：</strong>漓江一线江景带、龙脊金坑全景台</p>
+        <p><strong>参考价位：</strong>1000-3000+元/晚</p>
+        <p style="margin-top:8px; color:var(--text-sub);">野奢度假体验，私享管家、无边泳池、在地SPA。推荐：阳朔阿丽拉（糖舍）、阳朔悦榕庄、龙脊全景楼高星套房。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="transport">
+    <h2 class="section-title">🚌 交通指南</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="margin-bottom:12px;">🚄 抵达交通</h3>
+        <ul style="list-style:none; padding:0;">
+          <li class="list-item"><strong>高铁/动车：</strong>杭州东至桂林北约6-7小时。桂林北站距市中心约25分钟车程，公交/网约车直达。</li>
+          <li class="list-item"><strong>飞机：</strong>落地两江国际机场，飞行约2.5小时。机场大巴直达市区民航大厦（约20元），打车约80-100元。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:12px;">🛵 市内/跨区联动</h3>
+        <ul style="list-style:none; padding:0;">
+          <li class="list-item"><strong>桂林→阳朔：</strong>漓江游船（三星/四星约210-360元，航程4小时）或高铁至阳朔站（约24元，30分钟+转乘接驳车）。</li>
+          <li class="list-item"><strong>阳朔/桂林→龙脊：</strong>推荐拼车/包车（单程约1.5-2小时），或乘客运大巴至龙胜县换乘景区专线。</li>
+          <li class="list-item"><strong>微出行：</strong>市区公交扫码便捷；阳朔遇龙河骑行首选共享电动车（注意佩戴头盔）。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="budget">
+    <h2 class="section-title">💰 预算参考（3天2晚/人）</h2>
+    <div class="card">
+      <table class="budget-table">
+        <thead>
+          <tr><th>消费项目</th><th>经济档</th><th>适中档（推荐）</th><th>舒适/高端</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🚄 往返大交通</td><td>高铁二等座 900-1100元</td><td>高铁/早鸟机票 1000-1400元</td><td>灵活舱位 1500+元</td></tr>
+          <tr><td>🏨 住宿（2晚）</td><td>300-500元</td><td>700-1200元</td><td>2000-4000+元</td></tr>
+          <tr><td>🍽️ 餐饮小吃</td><td>300-400元</td><td>500-800元</td><td>1000-1500元</td></tr>
+          <tr><td>🎫 门票体验</td><td>400-600元（核心项）</td><td>700-1000元（含漂流/演出）</td><td>1200+元（VIP/包车体验）</td></tr>
+          <tr><td>🚌 当地交通</td><td>200-300元（公交/拼车）</td><td>400-600元（打车/接驳）</td><td>800-1000元（专车服务）</td></tr>
+          <tr><td><strong>💡 总计预估</strong></td><td><strong>约 2100-2900元</strong></td><td><strong>约 3300-4800元</strong></td><td><strong>约 5500-8500+元</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:14px; font-size:0.9rem; color:var(--text-sub);">* 费用基于双人出行平摊测算，未含个人购物。7-8月暑期旺季建议提前15-20天锁定机酒与船票，价格可能上浮15%-25%。</p>
+    </div>
+  </section>
+
+  <section id="tips">
+    <h2 class="section-title">📝 夏季出行注意事项</h2>
+    <div class="tip-box warning">
+      <h3 style="margin-bottom:10px; color:#9a3412;">🌦️ 天气与穿着</h3>
+      <p>桂林夏季湿热，常伴午后雷阵雨。体感温度高，建议穿着速干透气衣物与溯溪防滑鞋。必备清单：晴雨两用伞/轻便雨衣、SPF50+防晒霜、驱蚊液、藿香正气水、便携小风扇。龙脊山上早晚温差大，需带薄外套。</p>
+    </div>
+    <div class="tip-box" style="margin-top:16px;">
+      <h3 style="margin-bottom:10px; color:#1b4332;">🛡️ 安全与避坑指南</h3>
+      <ul style="margin-left:20px; margin-top:6px;">
+        <li>水上项目务必穿戴合规救生衣，遇龙河漂流严禁站立、戏水或下水游泳。</li>
+        <li>警惕非正规渠道“低价一日游”与“黑车拉客”，购票认准官方小程序（如“漓江售票”）。阳朔部分区域建议优先使用网约车平台计价透明。</li>
+        <li>暴雨期间漓江水位上涨可能触发禁航/停漂机制，每日出发前请查看景区公告与天气预报。</li>
+        <li>商业街区特产溢价较高，购买干果、茶叶、糕点建议前往本地农贸市场（如北门菜市、乐群路）。</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>🌿 攻略制作：资深旅游规划师 ｜ 数据更新于 2024年夏季｜ 祝您在桂林收获一场诗画般的旅程</p>
+</footer>
+
+</body>
+</html>

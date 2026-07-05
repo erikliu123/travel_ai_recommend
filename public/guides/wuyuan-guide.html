@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>婺源夏季深度游攻略 | 资深规划师版</title>
+<style>
+:root {
+  --primary: #2d6a4f;
+  --primary-dark: #1b4332;
+  --secondary: #40916c;
+  --light: #d8f3dc;
+  --bg: #f4f7f5;
+  --card-bg: #ffffff;
+  --text: #333333;
+  --text-light: #666666;
+  --border: #e2e8e4;
+  --shadow: 0 4px 12px rgba(45, 106, 79, 0.08);
+  --radius: 12px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px;
+}
+header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: #fff;
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  text-align: center;
+}
+header h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+header p { font-size: 1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+section { background: var(--card-bg); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; box-shadow: var(--shadow); }
+section h2 { color: var(--primary-dark); border-bottom: 2px solid var(--light); padding-bottom: 10px; margin-bottom: 16px; font-size: 1.5rem; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.badge { display: inline-block; background: var(--light); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-size: 0.85em; margin: 4px; font-weight: 500; }
+.info-box { display: flex; gap: 10px; margin: 8px 0; align-items: center; }
+.info-label { min-width: 80px; font-weight: 600; color: var(--primary); }
+.pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
+.pros, .cons { padding: 12px; border-radius: 8px; font-size: 0.95rem; }
+.pros { background: #e8f5e9; border-left: 4px solid var(--secondary); }
+.cons { background: #fff3e0; border-left: 4px solid #f57c00; }
+.timeline { position: relative; padding-left: 20px; border-left: 3px solid var(--light); margin: 16px 0; }
+.timeline-item { margin-bottom: 20px; position: relative; }
+.timeline-item::before { content: ""; position: absolute; left: -11px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--primary); border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+.time-badge { background: var(--primary); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-bottom: 4px; display: inline-block; }
+.card { border: 1px solid var(--border); border-radius: 10px; padding: 16px; background: #fafcfa; transition: transform 0.2s; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.05); }
+.card h3 { color: var(--primary-dark); margin-bottom: 8px; }
+.tag-row { margin: 4px 0; }
+.food-item, .stay-item { border-left: 3px solid var(--secondary); padding-left: 12px; margin-bottom: 12px; }
+.stay-tier { display: inline-block; background: var(--light); padding: 2px 6px; border-radius: 4px; font-weight: bold; color: var(--primary); margin-right: 6px; font-size: 0.8rem; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: #f0f7f2; color: var(--primary-dark); font-weight: 600; }
+.tip-box { background: #eef6f1; padding: 12px; border-radius: 8px; margin-top: 8px; font-size: 0.95rem; border: 1px dashed var(--secondary); }
+footer { text-align: center; padding: 20px; color: var(--text-light); font-size: 0.85rem; margin-top: 20px; }
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .pros-cons { grid-template-columns: 1fr; }
+  header h1 { font-size: 1.8rem; }
+  section { padding: 16px; }
+  table { display: block; overflow-x: auto; }
+}
+.img-placeholder { width: 100%; height: 140px; background: linear-gradient(135deg, #81c784 0%, #2d6a4f 100%); border-radius: 8px 8px 0 0; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>🌿 婺源夏季深度游攻略</h1>
+  <p>避开人潮，拥抱满目苍翠与徽派清凉的避世之旅（经济版 2天1夜）</p>
+</header>
+
+<section id="overview">
+  <h2>📍 城市概览</h2>
+  <div class="info-box"><span class="info-label">简介</span><span>中国最美乡村，春季油菜花与白墙黛瓦相映成趣，夏季梯田泛绿、溪水潺潺，秋季篁岭晒秋惊艳全国。夏季游客较少，古村更显宁静，适合慢节奏深度体验。</span></div>
+  <div class="info-box"><span class="info-label">标签</span><div class="tag-row"><span class="badge">🍃 古村镇漫游</span><span class="badge">📷 摄影出片</span><span class="badge">🌧️ 夏季避暑</span><span class="badge">🛖 徽派建筑</span></div></div>
+  <div class="pros-cons">
+    <div class="pros"><strong>✅ 夏季优点</strong><br>1. 避开春秋季拥挤，住宿性价比高<br>2. 梯田绿意盎然，溪水清凉适合溯溪<br>3. 夜晚气温舒适，适合夜游与观星<br>4. 经济型预算友好（级别1）</div>
+    <div class="cons"><strong>⚠️ 注意事项</strong><br>1. 夏季午后有阵雨或雷暴，需备好雨具<br>2. 气温较高（30-35℃），需做好防晒防蚊<br>3. 部分古村石板路湿滑，建议穿防滑鞋<br>4. 公共交通班次较少，建议包车/拼车</div>
+  </div>
+</section>
+
+<section id="itinerary">
+  <h2>📅 2天精华行程安排</h2>
+  <p style="color:var(--text-light); margin-bottom:12px;">*本行程专为夏季设计，采用“早起避暑+午后室内/阴凉古村+傍晚清凉漫步”的节奏，兼顾舒适与出片。</p>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="time-badge">DAY 1 上午 | 07:30 - 11:30</div>
+      <h3 style="margin-bottom:4px;">🌿 抵达 & 江岭梯田（晨雾与绿意）</h3>
+      <p style="color:var(--text-light);">高铁抵达婺源站后，乘车前往东线。夏季清晨江岭常有薄雾，梯田虽无金黄油菜，但翠绿稻浪与古村交错，空气极佳，适合徒步与呼吸负氧离子。</p>
+    </div>
+    <div class="timeline-item">
+      <div class="time-badge">DAY 1 下午 | 13:00 - 16:30</div>
+      <h3 style="margin-bottom:4px;">🏡 李坑村（小桥流水与清凉古街）</h3>
+      <p style="color:var(--text-light);">午后气温较高，转入李坑沿溪古村。沿李源溪漫步，树荫浓密，徽派民居倒映水中。可品尝当地绿豆汤，参观古宗祠，避开正午烈日。</p>
+    </div>
+    <div class="timeline-item">
+      <div class="time-badge">DAY 1 晚上 | 17:30 - 20:30</div>
+      <h3 style="margin-bottom:4px;">🌙 婺女洲度假区 / 县城夜市（夜游放松）</h3>
+      <p style="color:var(--text-light);">傍晚返回县城或前往婺女洲（门票另计）。夏季夜间凉快，可体验打铁花表演（视景区排期）、乘竹筏、逛夜市尝小吃。住宿建议安排在县城，交通便利且经济。</p>
+    </div>
+    <div class="timeline-item">
+      <div class="time-badge">DAY 2 上午 | 08:30 - 12:30</div>
+      <h3 style="margin-bottom:4px;">🎨 思溪延村（三雕艺术与避暑古宅）</h3>
+      <p style="color:var(--text-light);">前往北线思溪延村。明清徽商古宅连片，内部雕梁画栋、天井通风极佳，是天然的“避暑空调房”。重点欣赏砖雕、木雕、石雕细节。</p>
+    </div>
+    <div class="timeline-item">
+      <div class="time-badge">DAY 2 下午 | 14:00 - 18:00</div>
+      <h3 style="margin-bottom:4px;">🌄 篁岭古村（缆车上山 & 晒秋文化初探）</h3>
+      <p style="color:var(--text-light);">乘索道上山，避开夏季闷热。篁岭海拔较高，夏季均温约28℃。游览天街、垒心桥。虽非秋季晒秋，但夏季有花卉布景与梯田景观，日落时分光影绝佳。</p>
+    </div>
+    <div class="timeline-item">
+      <div class="time-badge">DAY 2 晚上 | 18:30</div>
+      <h3 style="margin-bottom:4px;">🚄 返程 / 高铁离婺</h3>
+      <p style="color:var(--text-light);">根据高铁班次安排下山返回车站。杭州东方向约3-4小时直达，结束清凉夏日之旅。</p>
+    </div>
+  </div>
+</section>
+
+<section id="attractions">
+  <h2>📸 核心景点详解</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#a8d5ba,#2d6a4f);">江岭梯田</div>
+      <h3>🌾 江岭梯田</h3>
+      <p><strong>推荐理由：</strong> 华东第一梯田，夏季满目翠绿，晨间云雾缭绕，摄影层次感极强。</p>
+      <p><strong>游玩Tips：</strong> 建议7:00前抵达观景台；穿舒适防滑运动鞋；带驱蚊水与防晒帽。</p>
+      <p><strong>门票参考：</strong> 免费（部分观景台维护期或需交通车约¥20）</p>
+    </div>
+    <div class="card">
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#ffecd2,#f57c00);">李坑古村</div>
+      <h3>🌉 李坑村</h3>
+      <p><strong>推荐理由：</strong> “小桥流水人家”的缩影，商业化适度，溪流环绕，适合慢走闲拍。</p>
+      <p><strong>游玩Tips：</strong> 避开中午高温，选择沿溪廊桥阴凉处；可体验竹筏（约¥30/人）。</p>
+      <p><strong>门票参考：</strong> 约¥60（含在婺源通票内）</p>
+    </div>
+    <div class="card">
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#b0bec5,#455a64);">思溪延村</div>
+      <h3>🏛️ 思溪延村</h3>
+      <p><strong>推荐理由：</strong> 徽商古宅群，保存完好的“三雕”艺术，天井结构带来极佳的自然通风。</p>
+      <p><strong>游玩Tips：</strong> 重点看百寿图大厅；古宅光线较暗，手机备充电宝；安静游览尊重居民。</p>
+      <p><strong>门票参考：</strong> 约¥50（含在婺源通票内）</p>
+    </div>
+    <div class="card">
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#ff9800,#bf360c);">篁岭古村</div>
+      <h3>🍁 篁岭古村</h3>
+      <p><strong>推荐理由：</strong> 悬崖上的古村落，索道体验独特，夏季凉爽，晒秋平台四季皆景。</p>
+      <p><strong>游玩Tips：</strong> 务必乘缆车（节省体力且避暑）；下午4点后至傍晚光线最柔和；穿浅色衣服更出片。</p>
+      <p><strong>门票参考：</strong> 约¥145（含往返索道+古村门票，提前网订常优惠¥10-20）</p>
+    </div>
+  </div>
+  <div class="tip-box">💡 <strong>通票提示：</strong> 婺源北线/东线景点多可购买“婺源风景区联票”（约¥210，含李坑、思溪延村、江湾等12景），有效期5天，性价比极高。夏季可单购或按需搭配。</div>
+</section>
+
+<section id="food">
+  <h2>🍜 夏季美食指南</h2>
+  <div class="grid-3">
+    <div class="food-item">
+      <h3 style="color:var(--primary); margin-bottom:4px;">荷包红鲤鱼</h3>
+      <p style="font-size:0.95rem; color:var(--text-light);">婺源四大名菜之首，夏季建议清蒸或红烧，鱼肉鲜嫩不腻，价格约¥68/斤。</p>
+    </div>
+    <div class="food-item">
+      <h3 style="color:var(--primary); margin-bottom:4px;">婺源糊豆腐</h3>
+      <p style="font-size:0.95rem; color:var(--text-light);">清淡爽口，适合夏季开胃。豆腐切丁配高汤熬制，微辣提鲜，约¥28/份。</p>
+    </div>
+    <div class="food-item">
+      <h3 style="color:var(--primary); margin-bottom:4px;">汽糕 & 蒸汽糕</h3>
+      <p style="font-size:0.95rem; color:var(--text-light);">传统发酵米糕，松软微甜，搭配辣椒酱绝佳，早餐必吃，约¥5/块。</p>
+    </div>
+  </div>
+  <h4 style="margin-top:16px;">🏪 推荐就餐区域/店铺：</h4>
+  <ul style="padding-left:20px; margin-top:6px;">
+    <li><strong>县城紫阳路美食街：</strong> 大排档密集，价格透明，适合晚餐。推荐“老地方土菜馆”。</li>
+    <li><strong>古村农家乐：</strong> 李坑村口、思溪村内的农家小院，菜品新鲜。点菜前务必问清价格（防夏季旅游旺季浮动）。</li>
+    <li><strong>夜市小吃：</strong> 婺女洲外街、县城中心广场，夏季有夜宵摊位，绿豆汤、凉粉、烤串丰富。</li>
+  </ul>
+</section>
+
+<section id="accommodation">
+  <h2>🏨 住宿推荐（经济型 预算级别1）</h2>
+  <div class="grid-3">
+    <div>
+      <span class="stay-tier">💰 经济档</span><br>
+      <strong>县城连锁酒店 / 青年旅舍</strong><br>
+      <span style="color:var(--text-light); font-size:0.9rem;">参考：¥100-180/晚<br>推荐：如家/汉庭（紫阳广场店）、青驿国际青年旅舍<br>优点：交通极便利，餐饮选择多，适合预算控制。</span>
+    </div>
+    <div>
+      <span class="stay-tier">🛋️ 舒适档</span><br>
+      <strong>李坑/思溪溪畔民宿</strong><br>
+      <span style="color:var(--text-light); font-size:0.9rem;">参考：¥250-350/晚<br>推荐：李坑听泉民宿、思溪延村老宅客栈<br>优点：推窗见溪，环境清幽，含早，老板可包车/拼车。</span>
+    </div>
+    <div>
+      <span class="stay-tier">✨ 特色体验</span><br>
+      <strong>篁岭周边观景客栈</strong><br>
+      <span style="color:var(--text-light); font-size:0.9rem;">参考：¥180-300/晚<br>推荐：山脚下晓起/晓容村农家客栈<br>优点：距索道口近，可早起避开人流，夏季凉爽安静。</span>
+    </div>
+  </div>
+  <div class="tip-box">💡 夏季预订提示：非节假日无需抢房，建议提前2-3天预订。优先选择带独立空调与除湿机的房间，梅雨季/雨季更舒适。部分古村民宿隔音一般，对睡眠敏感者建议选县城酒店。</div>
+</section>
+
+<section id="transport">
+  <h2>🚗 交通指南</h2>
+  <div class="grid-2">
+    <div>
+      <h3 style="color:var(--primary); margin-bottom:8px;">🚆 抵达婺源</h3>
+      <ul style="padding-left:18px; line-height:2;">
+        <li><strong>高铁（首选）：</strong> 杭州东站乘高铁至<span style="color:var(--secondary); font-weight:bold;">婺源站</span>，车程约3-4小时，班次密集。</li>
+        <li><strong>飞机+接驳：</strong> 飞抵景德镇机场，出站后租车/拼车至婺源（约1.5小时车程）。</li>
+      </ul>
+      <p style="margin-top:8px; font-size:0.95rem; color:var(--text-light);">🎫 高铁票价参考：杭州东-婺源 二等座约¥260-310（视车次浮动）。</p>
+    </div>
+    <div>
+      <h3 style="color:var(--primary); margin-bottom:8px;">🚌 市内/景区交通</h3>
+      <ul style="padding-left:18px; line-height:2;">
+        <li><strong>公交/旅游专线：</strong> 婺源客运中心有至东线（江岭、李坑）、北线（思溪、篁岭）班车，票价¥5-15，夏季班次约1-2小时/趟。</li>
+        <li><strong>包车/拼车（强推）：</strong> 2天包车约¥300-400/车（含司机），适合2-4人拼摊，灵活避暑。</li>
+        <li><strong>共享单车/步行：</strong> 县城及李坑村内适合慢行，夏季注意防暑。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="budget">
+  <h2>💰 预算参考（经济型 2天1夜/人）</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>项目</th>
+        <th>明细</th>
+        <th>预估费用</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>交通（往返+当地）</td>
+        <td>高铁二等座（按杭州往返估算）+ 景区拼车/班车分摊</td>
+        <td>¥600 - ¥750</td>
+      </tr>
+      <tr>
+        <td>住宿（1晚）</td>
+        <td>经济型酒店或民宿标间（2人拼房）</td>
+        <td>¥80 - ¥150</td>
+      </tr>
+      <tr>
+        <td>餐饮（2天）</td>
+        <td>正餐2顿+早餐/小吃（人均¥50-70/顿）</td>
+        <td>¥180 - ¥220</td>
+      </tr>
+      <tr>
+        <td>门票/索道</td>
+        <td>李坑+思溪+篁岭索道联票（单点按需购买）</td>
+        <td>¥200 - ¥260</td>
+      </tr>
+      <tr style="background:#eef6f1; font-weight:bold;">
+        <td>合计</td>
+        <td>不含购物与自由消费，按最经济拼车/拼房核算</td>
+        <td>¥1,060 - ¥1,380</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="tips">
+  <h2>📋 夏季出行注意事项</h2>
+  <div class="grid-2">
+    <ul style="padding-left:20px;">
+      <li>🌧️ <strong>天气与衣物：</strong> 夏季多雷阵雨，随身带轻便雨衣+折叠伞。穿速干衣裤、透气运动鞋。备一件薄外套应对山区早晚温差。</li>
+      <li>☀️ <strong>防晒与降温：</strong> 紫外线强，SPF50+防晒霜+墨镜+遮阳帽必备。携带小风扇、藿香正气水/清凉油防中暑。</li>
+      <li>🦟 <strong>防蚊虫：</strong> 古村植被茂密、临水，驱蚊喷雾/风油精必带，傍晚尽量穿长裤。</li>
+      <li>📸 <strong>摄影提示：</strong> 夏季光线硬，建议清晨(6:30前)和傍晚(16:30后)拍摄；古村石板路雨后反光，适合黑白或高对比色调。</li>
+      <li>🤝 <strong>尊重与安全：</strong> 古村落多为原住民生活区，保持安静，勿擅闯私人院落；雷雨天气避免在开阔地、古树下逗留。</li>
+      <li>💧 <strong>饮水与饮食：</strong> 购买瓶装水，古村农家乐食材新鲜但口味偏咸辣，肠胃敏感者提前说明“少油少辣”。</li>
+    </ul>
+    <div style="background:linear-gradient(135deg,#d8f3dc,#b7e4c7); padding:20px; border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+      <div style="font-size:2.5rem; margin-bottom:10px;">🍃</div>
+      <h3 style="color:var(--primary-dark); margin-bottom:8px;">规划师寄语</h3>
+      <p style="font-size:0.95rem;">婺源的夏日，褪去了春日的喧嚣与秋日的浓烈，多了一份“蝉鸣林愈静，溪水流更长”的从容。避开人潮，慢下来，在白墙黛瓦间听一场骤雨，品一杯清茶，你会发现，夏天的婺源，同样值得被收藏。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 资深旅游规划师出品 | 攻略内容基于实地调研与景区公示更新 | 价格/班次仅供参考，请以实时情况为准</p>
+  <p style="margin-top:6px; font-size:0.8rem;">祝您旅途愉快，平安顺遂！</p>
+</footer>
+</div>
+</body>
+</html>

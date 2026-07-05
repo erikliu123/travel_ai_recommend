@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>莫干山夏季深度旅游攻略 | 1日行程</title>
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --primary-light: #52b788;
+            --primary-dark: #1b4332;
+            --accent: #d8f3dc;
+            --bg: #f4f7f5;
+            --card-bg: #ffffff;
+            --text-main: #2c3e36;
+            --text-light: #5a6b63;
+            --shadow: 0 6px 16px rgba(45, 106, 79, 0.12);
+            --radius: 12px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", sans-serif; line-height: 1.7; color: var(--text-main); background: var(--bg); }
+        a { text-decoration: none; color: var(--primary); }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+        header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%); color: #fff; padding: 50px 20px; text-align: center; border-radius: 0 0 24px 24px; box-shadow: 0 4px 20px rgba(27, 67, 50, 0.25); margin-bottom: 40px; }
+        header h1 { font-size: 2.6rem; margin-bottom: 12px; letter-spacing: 1px; font-weight: 700; }
+        header p { font-size: 1.15rem; opacity: 0.95; max-width: 800px; margin: 0 auto 20px; }
+        .badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .badge { background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); padding: 6px 14px; border-radius: 24px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.4); color: #fff; }
+        section { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); padding: 30px; margin-bottom: 30px; }
+        h2 { color: var(--primary); font-size: 1.65rem; border-left: 5px solid var(--primary-light); padding-left: 14px; margin-bottom: 24px; display: flex; align-items: center; }
+        h3 { color: var(--primary-dark); font-size: 1.2rem; margin: 18px 0 10px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .card { background: #fafcfb; border: 1px solid #e8ede9; border-radius: 10px; padding: 20px; transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(45, 106, 79, 0.1); }
+        .img-placeholder { width: 100%; height: 160px; border-radius: 8px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.3rem; font-weight: 600; text-shadow: 0 2px 6px rgba(0,0,0,0.3); letter-spacing: 2px; }
+        .ip-1 { background: linear-gradient(120deg, #40916c, #74c69d); }
+        .ip-2 { background: linear-gradient(120deg, #95d5b2, #d8f3dc); color: var(--primary-dark); text-shadow: none; }
+        .ip-3 { background: linear-gradient(120deg, #52b788, #b7e4c7); color: var(--primary-dark); text-shadow: none; }
+        .ip-4 { background: linear-gradient(120deg, #1b4332, #40916c); }
+        .timeline { position: relative; padding-left: 22px; border-left: 3px solid var(--accent); margin: 15px 0; }
+        .timeline-item { position: relative; margin-bottom: 18px; }
+        .timeline-item::before { content: ''; position: absolute; left: -27px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary-light); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--primary); }
+        .time-label { font-weight: 700; color: var(--primary); font-size: 1.05rem; margin-bottom: 6px; display: block; }
+        .tag { display: inline-block; background: var(--accent); color: var(--primary-dark); padding: 3px 9px; border-radius: 5px; font-size: 0.8rem; margin-right: 6px; font-weight: 500; }
+        .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 15px; }
+        .pro, .con { padding: 14px; border-radius: 8px; font-size: 0.92rem; line-height: 1.5; }
+        .pro { background: #e0f2f1; border: 1px solid #a8dadc; color: #00695c; }
+        .con { background: #fdecea; border: 1px solid #f8b4a0; color: #bf360c; }
+        .tip-box { background: #edf7f1; padding: 16px; border-radius: 8px; margin: 18px 0; border-left: 4px solid var(--primary-light); font-size: 0.95rem; color: #1b4332; }
+        .budget-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; }
+        .budget-table th, .budget-table td { padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: left; font-size: 0.95rem; }
+        .budget-table th { background: var(--primary); color: #fff; font-weight: 500; }
+        .budget-table tr:last-child td { background: #e8f5e9; font-weight: 700; color: var(--primary-dark); border-bottom: none; }
+        .note { font-size: 0.88rem; color: var(--text-light); background: #f1f5f2; padding: 10px 12px; border-radius: 6px; margin-top: 12px; border-left: 3px solid #a3b18a; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 6px; }
+        .highlight { color: var(--primary); font-weight: 600; }
+        footer { text-align: center; padding: 35px 0; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid #d1d9ce; margin-top: 40px; background: #fff; border-radius: 20px 20px 0 0; }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.9rem; }
+            .pro-con, .grid-2, .grid-4 { grid-template-columns: 1fr; }
+            section { padding: 20px; }
+            .container { padding: 0 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>莫干山 · 夏季避暑深度游</h1>
+        <p>江南第一山 | 中国民宿发源地 | 竹海清风与民国旧梦的交融</p>
+        <div class="badges">
+            <span class="badge">🌿 避暑胜地</span>
+            <span class="badge">🥾 登山徒步</span>
+            <span class="badge">🎨 文艺青年</span>
+            <span class="badge">📅 建议1天</span>
+            <span class="badge">💰 预算级别：较高</span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <section id="overview">
+        <h2>📍 城市概览</h2>
+        <p>莫干山位于浙江省德清县，素有“江南第一山”之美誉。这里不仅是夏季长三角的避暑后花园，更是中国高端民宿（“洋家乐”）的诞生地。漫山遍野的翠竹、掩映在林木间的百年民国别墅群、以及山间沁人心脾的负氧离子，构成了莫干山独特的度假气质。无论是徒步吸氧、探访历史，还是找一家精品民宿躺平发呆，这里都能满足你对理想假期的想象。</p>
+        <div class="pro-con">
+            <div class="pro"><strong>✅ 亮点优势：</strong>民宿文化全国顶尖、杭州自驾仅1h直达、竹林空气质量极佳、周末微度假首选、夜观星空与听溪声绝佳。</div>
+            <div class="con"><strong>❌ 注意事项：</strong>暑期/周末民宿溢价严重（建议提前预订）、景区内交通需换乘接驳车、核心景点需一定体力步行/爬台阶、无高铁直达（需至德清站中转）。</div>
+        </div>
+        <div class="tip-box">
+            <strong>💡 规划师提示：</strong> 夏季（4-10月最佳）山间气温比平原低约5-8℃，体感凉爽，但午后偶有阵雨。本攻略以<strong>1天经典精华游</strong>为基准设计，节奏适中，兼顾自然与人文。
+        </div>
+    </section>
+
+    <section id="itinerary">
+        <h2>🗓️ 1天详细行程安排</h2>
+        <div class="grid-2">
+            <div class="card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-label">⏰ 上午 08:30 - 12:00 | 探索民国风云</span>
+                        <p>抵达莫干山旅游集散中心，换乘景区环保车上山。首站前往【荫山街】周边，漫步于【民国别墅群】之间。重点参观毛泽东下榻处、蒋宋官邸、白云山馆等。感受中西合璧的石砌建筑，聆听百年前的避暑往事。</p>
+                        <div class="note">📍 动线建议：集散中心 → 白云山馆 → 武陵村 → 皇后饭店（周边午餐）</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-label">⏰ 下午 13:00 - 16:00 | 剑池飞瀑 & 大坑吸氧</span>
+                        <p>轻装徒步前往【大坑景区】，沿步道穿梭于竹海怪石间，进行森林浴。随后下行至莫干山地标【剑池飞瀑】。相传为干将莫邪磨剑之地，四叠瀑布气势磅礴，旁有历代摩崖石刻。在此戏水纳凉，彻底驱散夏日暑气。</p>
+                        <div class="note">⚠️ 体力提示：大坑至剑池多为台阶，约1.5小时，请穿防滑鞋，备足饮用水。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-2" style="margin-top: 20px;">
+            <div class="card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-label">🌆 傍晚 16:30 - 18:00 | 裸心谷周边漫游</span>
+                        <p>前往【裸心谷】或【裸心堡】周边打卡。欣赏夯土建筑与竹林山地的完美融合。在竹林咖啡馆或观景平台品尝下午茶，感受“洋家乐”的设计美学与松弛感。此时光线柔和，极适合拍摄风景与建筑。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-label">🌙 晚上 18:30 后 | 庾村晚餐 & 返程</span>
+                        <p>下山前往【庾村文化市集】（民国风情小镇）。逛独立书店、手作工坊，享用莫干山特色农家菜。若安排返程，此时段避开晚高峰最宜；若留宿，可入住山脚或半山民宿，体验山间静谧与星空。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="attractions">
+        <h2>🏔️ 核心景点详解</h2>
+        <div class="grid-4">
+            <div class="card">
+                <div class="img-placeholder ip-1">剑池飞瀑</div>
+                <h3>🌊 剑池飞瀑</h3>
+                <p><span class="tag">必游</span><span class="tag">自然/人文</span></p>
+                <p><strong>推荐理由：</strong>莫干山自然景观精华，四叠瀑布飞流直下，干将莫邪传说与宋代摩崖石刻交相辉映，文化底蕴深厚。</p>
+                <p><strong>门票：</strong>含于景区大门票（约¥45）</p>
+                <p><strong>Tips：</strong>雨天水量最大最壮观。观景台石板常年湿滑，切勿跨越护栏拍照。</p>
+            </div>
+            <div class="card">
+                <div class="img-placeholder ip-2">裸心谷度假村</div>
+                <h3>🌿 裸心谷 / 裸心堡</h3>
+                <p><span class="tag">地标</span><span class="tag">设计/度假</span></p>
+                <p><strong>推荐理由：</strong>“洋家乐”鼻祖，将南非生态建筑理念与江南竹海结合，是体验莫干山顶级度假文化的窗口。</p>
+                <p><strong>门票：</strong>外围免费（部分体验需预约消费）</p>
+                <p><strong>Tips：</strong>非住客建议提前致电预约下午茶。周边公共步道与观景台对游客开放。</p>
+            </div>
+            <div class="card">
+                <div class="img-placeholder ip-3">民国别墅群</div>
+                <h3>🏛️ 民国别墅群</h3>
+                <p><span class="tag">历史</span><span class="tag">建筑</span></p>
+                <p><strong>推荐理由：</strong>保留最完整的近代名人避暑别墅群，蒋介石、宋美龄、杜月笙等曾居于此，每栋皆是一段民国史。</p>
+                <p><strong>门票：</strong>含于大门票（部分内部陈列馆¥20）</p>
+                <p><strong>Tips：</strong>重点观察石砌外墙、百叶窗与老虎窗等细节。建议搭配讲解器或导游词游览。</p>
+            </div>
+            <div class="card">
+                <div class="img-placeholder ip-4">大坑景区</div>
+                <h3>🥾 大坑景区</h3>
+                <p><span class="tag">徒步</span><span class="tag">吸氧</span></p>
+                <p><strong>推荐理由：</strong>怪石嶙峋、古木参天，莫干山生态保存最完好的区域。步道平缓交错，森林浴体验极佳。</p>
+                <p><strong>门票：</strong>含于景区大门票</p>
+                <p><strong>Tips：</strong>全程环线约3km，夏季林下阴凉但蚊虫多，务必携带驱蚊喷雾。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="food">
+        <h2>🍜 舌尖上的莫干山</h2>
+        <div class="grid-2">
+            <div>
+                <h3>🥘 必尝特色美食</h3>
+                <ul>
+                    <li><span class="highlight">莫干笋宴：</span>“无笋不成席”，推荐油焖鲜笋、笋干老鸭煲、手剥清炒。</li>
+                    <li><span class="highlight">竹林走地鸡：</span>山地散养，肉质紧实，白切或炖汤皆为上选。</li>
+                    <li><span class="highlight">高山野菜与时蔬：</span>夏季马兰头、野蕨、清炒芦瓜，清甜解暑。</li>
+                    <li><span class="highlight">德清茶糕与笋干：</span>糯米夹鲜肉黄酒蒸制，伴手礼首选。</li>
+                </ul>
+            </div>
+            <div>
+                <h3>📍 推荐餐厅</h3>
+                <ul>
+                    <li><strong>义远有机餐厅：</strong>环境开阔，主打农场直供有机食材，人均¥150。</li>
+                    <li><strong>庾村1932创意园餐厅：</strong>民国复古风，融合江浙本帮与创意菜，适合傍晚用餐，人均¥120。</li>
+                    <li><strong>莫干山庄中餐厅：</strong>老牌品质，地道农家菜与笋宴，口味正宗，人均¥100。</li>
+                    <li><strong>山脚村落农家乐（仙潭/后坞）：</strong>烟火气浓，食材新鲜，性价比高，人均¥80-100。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="accommodation">
+        <h2>🏡 住宿指南（按1晚人均计）</h2>
+        <div class="grid-4">
+            <div class="card">
+                <h3>🌟 经济实惠型</h3>
+                <p><strong>推荐：</strong>庾村/筏头乡青旅 & 独立客栈<br><strong>预算：</strong>¥200 - ¥400/晚<br><strong>特点：</strong>位置便利，老民居改造，氛围轻松，适合学生与背包客。</p>
+            </div>
+            <div class="card">
+                <h3>💎 舒适精品型</h3>
+                <p><strong>推荐：</strong>大乐之野 / 莫干山居图 / 芝麻谷<br><strong>预算：</strong>¥800 - ¥1500/晚<br><strong>特点：</strong>设计感强，服务标准，含泳池/书吧。选址竹林溪畔，度假体验佳。</p>
+            </div>
+            <div class="card">
+                <h3>👑 奢华顶配型</h3>
+                <p><strong>推荐：</strong>裸心谷 / 裸心堡 / 法国山居<br><strong>预算：</strong>¥3000 - ¥8000+/晚<br><strong>特点：</strong>国际设计，全包式服务（含餐/活动），私密极高，适合纪念日/家庭。</p>
+            </div>
+            <div class="card">
+                <h3>📝 预订建议</h3>
+                <ul>
+                    <li>暑期/节假日需提前1-2个月锁定房源。</li>
+                    <li>关注官方直订渠道，常享早鸟或连住折扣。</li>
+                    <li>确认停车政策与是否含接驳/早餐服务。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="transport">
+        <h2>🚗 交通全指南</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🛫 如何抵达莫干山</h3>
+                <p><strong>✈️ 飞机：</strong>抵<strong>杭州萧山机场</strong>。租车自驾（约1h，过路费¥40）或乘大巴/地铁转至德清站。</p>
+                <p><strong>🚄 高铁：</strong>无直达莫干山。乘高铁至<strong>德清站</strong>。出站换乘旅游专线大巴或网约车（约40分钟至集散中心）。</p>
+                <p><strong>🚙 自驾（推荐）：</strong>杭州出发1-1.5h，导航至“莫干山旅游集散中心”。非特许车辆停集散中心（¥15-20/次），换乘免费环保车上山。部分民宿报备可直达半山。</p>
+            </div>
+            <div class="card">
+                <h3>🚌 景区内部交通</h3>
+                <p><strong>接驳环保车：</strong>集散中心 ↔ 荫山街/各核心点，票价¥35（往返），班次密集。</p>
+                <p><strong>观光环线：</strong>串联剑池、大坑、别墅群，支持分段乘坐。</p>
+                <p><strong>步行/徒步：</strong>景点间步道完善，单程15-30分钟。建议轻装，穿徒步鞋。</p>
+                <div class="tip-box">💡 错峰提示：周末上午8-10点、下午4-6点为进出山高峰，建议早到或周日错峰返程。</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="notes">
+        <h2>⚠️ 实用注意事项</h2>
+        <div class="grid-2">
+            <div>
+                <h3>🌤️ 天气与穿着</h3>
+                <p>夏季均温22-28℃，早晚微凉，午后紫外线较强。建议“洋葱式”穿搭：速干T恤+薄防晒衣+长裤（防刮/防蚊）。备薄外套应对夜间山风。</p>
+                <h3>🎒 行囊清单</h3>
+                <p>防晒霜(SPF50)、宽檐帽、墨镜、防滑徒步鞋、强效驱蚊液、轻便雨衣、充电宝（步道信号弱耗电快）、少量现金（备用）。</p>
+            </div>
+            <div>
+                <h3>🛡️ 安全与环保</h3>
+                <p><strong>防滑防跌：</strong>剑池步道湿滑，严禁攀爬湿石或跨越安全线。雷雨天气暂停徒步。</p>
+                <p><strong>绝对禁火：</strong>全山属一级林区，<strong>严禁吸烟及明火</strong>，违者重罚。</p>
+                <p><strong>无痕山林：</strong>竹林生态脆弱，不采野笋、不喂野生动物，垃圾请随身带至山下分类。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="budget">
+        <h2>💰 预算参考（1人/1天）</h2>
+        <p>以下为<span class="highlight">中高品质体验</span>估算，不含往返大交通。实际支出受季节、住宿档次及餐饮选择影响较大。</p>
+        <table class="budget-table">
+            <thead>
+                <tr>
+                    <th>项目</th>
+                    <th>经济型玩法</th>
+                    <th>品质型玩法</th>
+                    <th>奢享型玩法</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>🎫 门票 & 景区交通</strong></td>
+                    <td>¥90（门票¥45+接驳）</td>
+                    <td>¥120（含观光环线）</td>
+                    <td>¥150（专属导览/优先乘车）</td>
+                </tr>
+                <tr>
+                    <td><strong>🍽️ 餐饮（1日3餐+茶歇）</strong></td>
+                    <td>¥150 - ¥200</td>
+                    <td>¥300 - ¥450</td>
+                    <td>¥800+</td>
+                </tr>
+                <tr>
+                    <td><strong>🏡 住宿（1晚人均分摊）</strong></td>
+                    <td>¥150 - ¥250</td>
+                    <td>¥500 - ¥800</td>
+                    <td>¥2000 - ¥4000+</td>
+                </tr>
+                <tr>
+                    <td><strong>🚗 当地交通分摊</strong></td>
+                    <td>¥50（公交/拼车）</td>
+                    <td>¥150（自驾/租车）</td>
+                    <td>¥300+（专车接送）</td>
+                </tr>
+                <tr>
+                    <td>合计预估</td>
+                    <td>¥440 - ¥690</td>
+                    <td>¥1,070 - ¥1,520</td>
+                    <td>¥3,250 - ¥5,450+</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="note" style="margin-top: 15px;">💡 <strong>控费技巧：</strong> 提前3周在官方平台订票享早鸟价；工作日出行民宿可降30%-50%；自备饮用水与零食，景区内物价溢价约40%。</p>
+    </section>
+</div>
+
+<footer>
+    <p>© 2024 莫干山深度游攻略 | 资深旅游规划师出品</p>
+    <p>本攻略数据基于实地调研与官方信息整理，票价/政策以景区最新公告为准。祝您旅途愉快，尽享清凉竹海！</p>
+</footer>
+
+</body>
+</html>

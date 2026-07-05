@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自贡夏季旅游攻略 | 千年盐都·中国灯城</title>
+<style>
+  :root {
+    --bronze: #774930;
+    --bronze-light: #a3714f;
+    --bg-warm: #f8f4ef;
+    --text-main: #2c2a28;
+    --text-muted: #6b635e;
+    --card-bg: #ffffff;
+    --accent-gold: #d4af83;
+    --success: #4a8c6f;
+    --radius: 12px;
+    --shadow: 0 4px 12px rgba(119, 73, 48, 0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background-color: var(--bg-warm);
+    color: var(--text-main);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    background: linear-gradient(135deg, var(--bronze) 0%, #553322 100%);
+    color: #fff;
+    padding: 3.5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  }
+  h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 0.5rem; font-weight: 700; letter-spacing: 1px; }
+  .subtitle { font-size: 1.05rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  section { margin-bottom: 2.5rem; }
+  .section-title {
+    font-size: 1.6rem;
+    color: var(--bronze);
+    border-left: 4px solid var(--bronze);
+    padding-left: 0.8rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+  }
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.2rem;
+    border-top: 3px solid var(--bronze-light);
+  }
+  .tag {
+    display: inline-block;
+    background: rgba(119, 73, 48, 0.1);
+    color: var(--bronze);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  
+  /* 时间轴样式 */
+  .timeline-day {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+  }
+  .timeline-header {
+    background: linear-gradient(120deg, #774930, #9c6b4a);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    border-left: 2px solid #e5ddd5;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 0.3rem;
+    width: 10px;
+    height: 10px;
+    background: var(--bronze);
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+  .timeline-time { font-weight: 600; color: var(--bronze); min-width: 65px; padding-top: 2px; font-size: 0.95rem; }
+  .timeline-content h4 { margin-bottom: 0.3rem; color: #2c2a28; }
+  .timeline-content p { color: var(--text-muted); font-size: 0.92rem; }
+
+  /* 景点与美食 */
+  .spot-img-placeholder {
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(45deg, #d4af83 0%, #a3714f 100%);
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    margin-bottom: 1rem;
+  }
+  .info-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.8rem; font-size: 0.85rem; color: var(--text-muted); }
+  .info-row span { display: flex; align-items: center; gap: 0.3rem; background: #f4f0eb; padding: 0.2rem 0.5rem; border-radius: 4px; }
+  .tip-box {
+    background: #fdf8f4;
+    border-left: 3px solid var(--accent-gold);
+    padding: 0.8rem 1rem;
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: #5a4535;
+  }
+  
+  /* 预算表格 */
+  .budget-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem; }
+  .budget-table th { background: var(--bronze); color: #fff; padding: 0.8rem; text-align: left; font-weight: 500; }
+  .budget-table td { padding: 0.7rem 0.8rem; border-bottom: 1px solid #e8e0d6; background: #fff; }
+  .budget-table tr:last-child td { font-weight: 600; color: var(--bronze); border-bottom: 2px solid var(--bronze); }
+  
+  /* 交通与注意事项 */
+  .transport-steps { list-style: none; counter-reset: step; }
+  .transport-steps li {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 1rem;
+  }
+  .transport-steps li::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 0;
+    width: 2rem; height: 2rem;
+    background: var(--bronze-light);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600;
+  }
+  .warning-list { background: #fff5eb; border-radius: 8px; padding: 1rem 1.5rem; }
+  .warning-list li { margin-bottom: 0.5rem; list-style: none; }
+  .warning-list li::before { content: "⚠️ "; }
+  
+  footer { text-align: center; padding: 2rem; background: #eee; color: var(--text-muted); font-size: 0.9rem; border-top: 3px solid var(--bronze); }
+  
+  @media (max-width: 600px) {
+    header { padding: 2.5rem 1rem; }
+    .timeline-item { flex-direction: column; gap: 0.2rem; }
+    .timeline-time { margin-bottom: 0.2rem; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>自贡·夏日漫游指南</h1>
+  <p class="subtitle">千年盐都 | 中国灯城 | 恐龙故乡<br><em>注：本攻略以夏季出行视角优化，侧重避暑文化探索与地道盐帮美食，经典灯会项目亦提供夏季夜游参考。</em></p>
+</header>
+
+<div class="container">
+
+  <!-- 城市概述 -->
+  <section id="overview">
+    <h2 class="section-title">城市概述</h2>
+    <div class="card">
+      <h3 style="color:var(--bronze); margin-bottom:0.8rem;">四川·自贡</h3>
+      <p style="margin-bottom:1rem; color:var(--text-muted);">“天下第一灯”自贡灯会享誉全国，春节期间全城彩灯点亮夜空，是中国规模最大、历史最悠久的灯会。夏季虽为淡季，却正是避开人潮、沉浸式感受井盐开采历史、探寻恐龙化石奥秘、慢逛釜溪河畔古镇的黄金期。冷吃兔、鲜锅兔等盐帮菜更是夏日开胃首选。</p>
+      <div style="margin-bottom:1rem;">
+        <span class="tag">🍜 美食之旅</span>
+        <span class="tag">🏛️ 文化之旅</span>
+        <span class="tag">📜 历史古迹</span>
+        <span class="tag">👨‍👩‍👧‍👦 亲子友好</span>
+      </div>
+      <div class="grid-2">
+        <div class="info-row">🗓️ <strong>建议游玩：</strong>2天1夜</div>
+        <div class="info-row">💰 <strong>预算级别：</strong>经济型 (¥)</div>
+        <div class="info-row">⏳ <strong>最佳月份：</strong>传统旺季为腊月至正月(春节灯会)；夏季(6-8月)游客较少，体验更从容</div>
+        <div class="info-row">🌡️ <strong>夏季气候：</strong>闷热多阵雨，均温26-32℃，室内博物馆与古镇树荫下体感较舒适</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 详细行程 -->
+  <section id="itinerary">
+    <h2 class="section-title">2天详细行程安排</h2>
+    
+    <div class="timeline-day">
+      <span class="timeline-header">🌞 Day 1：恐龙探秘与千年盐都</span>
+      <div class="timeline-item">
+        <div class="timeline-time">上午</div>
+        <div class="timeline-content">
+          <h4>自贡恐龙博物馆</h4>
+          <p>直奔大山铺遗址，世界三大恐龙遗址博物馆之一。重点参观“恐龙遗址厅”与“恐龙时代”常设展。室内恒温，极佳的夏季避暑起点。建议预留2.5-3小时。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">午餐</div>
+        <div class="timeline-content">
+          <h4>品尝正宗盐帮菜</h4>
+          <p>博物馆附近或打车至市区（约25分钟），享用鲜锅兔、水煮牛肉、火爆黄喉。自贡菜以“鲜、辣、烫”著称，夏日搭配冰镇唯怡豆奶解辣。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">下午</div>
+        <div class="timeline-content">
+          <h4>燊海井·古法采盐体验</h4>
+          <p>参观世界第一口超千米深井（1835年凿成）。观看传统天车提卤、牛推碓、灶火熬盐的全过程。体验古人智慧，避开午后烈日。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">晚上</div>
+        <div class="timeline-content">
+          <h4>夜游彩灯公园 / 汇东路美食街</h4>
+          <p>非春节期彩灯公园亦有主题夜灯与园林景观开放，晚风微凉适宜散步。随后至汇东路体验“冷吃兔、冷吃牛肉”夜市小吃，感受烟火气。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-day">
+      <span class="timeline-header">🌤️ Day 2：釜溪古镇慢生活</span>
+      <div class="timeline-item">
+        <div class="timeline-time">上午</div>
+        <div class="timeline-content">
+          <h4>仙市古镇</h4>
+          <p>距市区约40分钟车程。千年盐运码头，保留完好的明清川南民居。清晨或上午光线柔和，沿釜溪河漫步，参观南华宫、天上宫等会馆建筑。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">午餐</div>
+        <div class="timeline-content">
+          <h4>古镇农家风味</h4>
+          <p>品尝仙市特色“河水豆花”、“烟熏腊肉”、“黄粑”。价格亲民，环境古朴。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">下午</div>
+        <div class="timeline-content">
+          <h4>市区自由活动 / 伴手礼采购</h4>
+          <p>返回市区，参观盐业历史博物馆（可选）或前往超市/特产店选购“火边子牛肉”、“太源井晒醋”。整理行装，准备返程。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详情 -->
+  <section id="attractions">
+    <h2 class="section-title">核心景点详解</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="spot-img-placeholder" style="background:linear-gradient(135deg,#c75a5a,#8a3b3b);">🏮 自贡灯会</div>
+        <h4>中国彩灯大世界 / 彩灯公园</h4>
+        <p style="font-size:0.9rem; margin:0.5rem 0;">数百组巨型彩灯展现神话、传统故事与现代光影艺术。夏季常设“夏夜灯景”或“非遗灯彩特展”，人流适中，体验更佳。</p>
+        <div class="info-row"><span>🎫 门票：约¥40-80（视当期主题）</span><span>⏱️ 游玩：1.5-2小时</span></div>
+        <div class="tip-box"><strong>Tips：</strong>灯会通常在18:00亮灯。夏季晚间闷热多雨，备好晴雨伞与驱蚊液。非灯会期部分展区可能维护，出行前请关注官方公告。</div>
+      </div>
+      <div class="card">
+        <div class="spot-img-placeholder" style="background:linear-gradient(135deg,#6a8c7f,#3d5a50);">🦕 恐龙博物馆</div>
+        <h4>自贡恐龙博物馆</h4>
+        <p style="font-size:0.9rem; margin:0.5rem 0;">建于大山铺恐龙化石群遗址之上，馆藏化石100余具。化石埋藏现场极具视觉冲击力，科普性强。</p>
+        <div class="info-row"><span>🎫 门票：¥40（学生/老人半价）</span><span>⏱️ 游玩：2.5-3小时</span></div>
+        <div class="tip-box"><strong>Tips：</strong>馆内冷气充足，夏季建议带薄外套。可租语音导览器或跟免费讲解员（整点发车），亲子家庭强烈建议提前预约科普研学活动。</div>
+      </div>
+      <div class="card">
+        <div class="spot-img-placeholder" style="background:linear-gradient(135deg,#a3714f,#774930);">⛏️ 燊海井</div>
+        <h4>燊海井古盐场</h4>
+        <p style="font-size:0.9rem; margin:0.5rem 0;">1835年凿成的超千米深井，至今保留完整采卤、输卤、煎盐工艺。高耸的木制天车是工业遗产地标。</p>
+        <div class="info-row"><span>🎫 门票：¥25</span><span>⏱️ 游玩：1-1.5小时</span></div>
+        <div class="tip-box"><strong>Tips：</strong>现场可体验传统“推磨”运盐，互动性强。注意地面湿滑，穿防滑平底鞋。夏季午后卤锅区温度较高，建议上午或傍晚前往。</div>
+      </div>
+      <div class="card">
+        <div class="spot-img-placeholder" style="background:linear-gradient(135deg,#8a7f6b,#5c5548);">🛶 仙市古镇</div>
+        <h4>仙市古镇</h4>
+        <p style="font-size:0.9rem; margin:0.5rem 0;">釜溪河畔千年盐运重镇，青石板街、穿斗木结构建筑错落有致。非商业化，保留原生态川南生活气息。</p>
+        <div class="info-row"><span>🎫 门票：免费</span><span>⏱️ 游玩：2-3小时</span></div>
+        <div class="tip-box"><strong>Tips：</strong>避开正午暴晒，利用河边茶馆歇脚。古镇无大型娱乐设施，适合喜欢人文摄影、慢节奏的旅行者。部分老宅年久，注意台阶。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section id="food">
+    <h2 class="section-title">舌尖上的自贡（美食指南）</h2>
+    <div class="card">
+      <p style="margin-bottom:1rem;">自贡菜属川菜分支“小河帮”，以味厚、香浓、辣烈为特色，极其下饭。夏季食用可促进排汗祛湿，但需注意肠胃承受力。</p>
+      <div class="grid-3">
+        <div>
+          <h4 style="color:var(--bronze); margin-bottom:0.5rem;">🌶️ 必尝菜品</h4>
+          <ul style="padding-left:1.2rem; color:#444; font-size:0.95rem;">
+            <li><strong>鲜锅兔：</strong>鲜椒+仔姜，辣而不燥，肉质细嫩</li>
+            <li><strong>冷吃兔/牛肉：</strong>干香麻辣，夏日佐酒冷盘一绝</li>
+            <li><strong>水煮牛肉：</strong>麻辣鲜香，红油浮面，传统名菜</li>
+            <li><strong>火边子牛肉：</strong>灯影牛肉工艺，薄如纸片，酥脆透光</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--bronze); margin-bottom:0.5rem;">🍽️ 推荐餐厅</h4>
+          <ul style="padding-left:1.2rem; color:#444; font-size:0.95rem;">
+            <li><strong>鸿鹤仔鲜锅兔：</strong>老字号，口味地道，常年排队</li>
+            <li><strong>王三多传统名菜馆：</strong>环境较好，适合家庭聚餐</li>
+            <li><strong>老街口/十字口夜市：</strong>小吃集中，价格亲民，烟火气足</li>
+            <li><strong>仙市河边农家院：</strong>河水豆花、黄粑、时蔬新鲜</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--bronze); margin-bottom:0.5rem;">💡 点单Tips</h4>
+          <div class="tip-box">自贡菜默认辣度较高。点餐时务必说明“微辣”或“免辣”。搭配唯怡豆奶、冰粉或凉虾，能极大缓解辛辣。肠胃敏感者建议备好肠胃药。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section id="accommodation">
+    <h2 class="section-title">住宿推荐（按预算分级）</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h4 style="color:#555;">🛏️ 经济型 (¥)</h4>
+        <p style="font-size:0.9rem; color:#444; margin:0.5rem 0;">连锁快捷酒店、青年旅舍、公寓民宿</p>
+        <div class="info-row"><span>📍 区域：汇川路/彩灯公园周边</span><span>💵 均价：¥120-220</span></div>
+        <p style="font-size:0.85rem; margin-top:0.5rem; color:#666;">适合背包客与学生。交通便利，周边餐饮多。夏季空调为必选项，预订时确认隔音。</p>
+      </div>
+      <div class="card" style="border-top-color:var(--bronze); box-shadow: 0 6px 16px rgba(119,73,48,0.15);">
+        <h4 style="color:var(--bronze);">🏨 舒适型 (¥¥)</h4>
+        <p style="font-size:0.9rem; color:#444; margin:0.5rem 0;">中端商务/精品连锁、特色文化客栈</p>
+        <div class="info-row"><span>📍 区域：高新区/华商国际城</span><span>💵 均价：¥280-450</span></div>
+        <p style="font-size:0.85rem; margin-top:0.5rem; color:#666;">推荐选择含早餐、设施较新的品牌。服务规范，床品舒适，性价比最高，适合大多数家庭与情侣。</p>
+      </div>
+      <div class="card">
+        <h4 style="color:#888;">🌟 高端型 (¥¥¥)</h4>
+        <p style="font-size:0.9rem; color:#444; margin:0.5rem 0;">国际五星/高端度假酒店、盐都公馆</p>
+        <div class="info-row"><span>📍 区域：南湖生态城/景区周边</span><span>💵 均价：¥500-900</span></div>
+        <p style="font-size:0.85rem; margin-top:0.5rem; color:#666;">注重私密性与景观，部分带泳池与恒温客房。春节期间价格翻倍，夏季性价比显著提升。</p>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:1rem;">⚠️ <strong>预订提醒：</strong>春节/灯会期间需提前1-2个月订房且价格暴涨。夏季属平季/淡季，可当天预订或提前3天，常有折扣。选择近商圈或公交枢纽区域出行更便捷。</div>
+  </section>
+
+  <!-- 交通指南 -->
+  <section id="transport">
+    <h2 class="section-title">交通指南</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="color:var(--bronze); margin-bottom:0.8rem;">🚄 如何到达（大交通）</h4>
+        <ul class="transport-steps">
+          <li><strong>高铁直达：</strong>长三角/成渝/西南方向多趟动车直达“自贡站”。例如：杭州东至自贡约9-10小时（G字头），票价约¥750-850。</li>
+          <li><strong>飞机+接驳：</strong>飞抵成都天府/双流机场（约2.5-3.5h），出站后无缝衔接高铁至自贡（约40-50分钟），班次密集，体验最优。</li>
+          <li><strong>长途客车：</strong>成都东站/新南门有客运班车，约2小时车程，票价¥80左右。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--bronze); margin-bottom:0.8rem;">🚌 市内交通</h4>
+        <ul style="list-style:none; padding:0;">
+          <li style="margin-bottom:0.8rem; padding-bottom:0.8rem; border-bottom:1px dashed #ddd;"><strong>网约车/出租车：</strong>市区范围小，打车起步价低，景点间互动车程多在20-40分钟，夏季高温首选。</li>
+          <li style="margin-bottom:0.8rem;"><strong>公交系统：</strong>公交线路覆盖全，支持微信/支付宝乘车码。前往仙市古镇可乘专线巴士。</li>
+          <li><strong>共享单车：</strong>老城区与商圈密集，短途接驳方便。注意避开正午暴晒时段。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section id="tips">
+    <h2 class="section-title">出行注意事项（夏季特辑）</h2>
+    <div class="grid-2">
+      <div>
+        <h4 style="color:#555; margin-bottom:0.5rem;">🌦️ 气候与穿着</h4>
+        <ul style="padding-left:1.2rem; font-size:0.95rem; color:#444; line-height:1.8;">
+          <li>夏季闷热潮湿，午后偶有雷阵雨，务必携带轻便雨伞/雨衣。</li>
+          <li>穿着透气速干衣物，备薄外套应对博物馆、餐厅强冷空调。</li>
+          <li>步行量较大，务必穿防滑、透气的运动鞋或休闲鞋。</li>
+          <li>高倍数防晒霜、墨镜、遮阳帽是标配。</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#555; margin-bottom:0.5rem;">🛡️ 安全与健康</h4>
+        <ul style="padding-left:1.2rem; font-size:0.95rem; color:#444; line-height:1.8;">
+          <li><strong>饮食：</strong>自贡菜重油重辣，肠胃敏感者循序渐进，备好健胃消食片、蒙脱石散。</li>
+          <li><strong>防暑防蚊：</strong>景区植被茂密，夏季蚊虫多，携带驱蚊液。及时补水，防中暑。</li>
+          <li><strong>票务：</strong>热门场馆（恐龙博物馆、灯会特展）建议提前在官方微信公众号实名预约购票。</li>
+          <li><strong>防骗：</strong>景区周边“野导”或高价特产店需谨慎，认准明码标价正规商户。</li>
+        </ul>
+      </div>
+    </div>
+    <ul class="warning-list" style="margin-top:1.2rem;">
+      <li>灯会虽以春节闻名，但夏季部分园区会调整开放时间或举办临时夜游活动，出行前务必通过“自贡灯会”官微核实最新开放状态与亮灯时间。</li>
+      <li>城市知名度相对较小，部分偏远景点（如仙市）晚间公交收班较早（约20:00），注意控制游玩时长。</li>
+    </ul>
+  </section>
+
+  <!-- 预算参考 -->
+  <section id="budget">
+    <h2 class="section-title">人均预算参考（经济型·2天1夜）</h2>
+    <div class="card">
+      <table class="budget-table">
+        <thead>
+          <tr>
+            <th width="25%">消费项目</th>
+            <th width="45%">明细说明</th>
+            <th width="30%">预算参考（¥/人）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>大交通</strong></td>
+            <td>高铁二等座（以成渝/周边往返计）或 飞机转接驳高铁</td>
+            <td>¥400 - ¥900（视出发地）</td>
+          </tr>
+          <tr>
+            <td><strong>市内交通</strong></td>
+            <td>网约车+公交+古镇专线（2天）</td>
+            <td>¥60 - ¥100</td>
+          </tr>
+          <tr>
+            <td><strong>住宿</strong></td>
+            <td>舒适型酒店标间（经济型分摊或单人住青旅/快捷）1晚</td>
+            <td>¥150 - ¥280</td>
+          </tr>
+          <tr>
+            <td><strong>餐饮</strong></td>
+            <td>4顿正餐+小吃/饮品（含2次鲜锅兔/特色餐）</td>
+            <td>¥200 - ¥350</td>
+          </tr>
+          <tr>
+            <td><strong>门票</strong></td>
+            <td>恐龙博物馆¥40 + 燊海井¥25 + 灯会特展¥50（夏季浮动）</td>
+            <td>¥100 - ¥150</td>
+          </tr>
+          <tr>
+            <td><strong>总计</strong></td>
+            <td style="color:var(--bronze); font-weight:500;">经济型2天1夜预估（不含大交通往返长途差价）</td>
+            <td><strong>¥900 - ¥1780 / 人</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.85rem; color:#777; margin-top:1rem; text-align:center;">* 以上为淡季/平季参考价。春节期间住宿与餐饮价格通常上浮50%-150%，且需提前抢订。</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2024 自贡深度游规划指南 | 数据更新于2024年夏季 | 实际票价与开放状态请以景区官方公告为准</p>
+  <p style="font-size:0.8rem; margin-top:0.5rem;">安全出行，文明旅游，品味盐都烟火，感受千年文脉。</p>
+</footer>
+
+</body>
+</html>

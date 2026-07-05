@@ -1,0 +1,376 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雾凇岛深度旅游攻略</title>
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --primary-light: #52b788;
+      --primary-dark: #1b4332;
+      --accent: #d4a373;
+      --bg-body: #f4f7f6;
+      --bg-card: #ffffff;
+      --text-main: #1d1d1d;
+      --text-muted: #5a6a7a;
+      --radius: 14px;
+      --shadow: 0 6px 16px rgba(0,0,0,0.06);
+      --shadow-hover: 0 8px 24px rgba(45,106,79,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+    header {
+      background: linear-gradient(140deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+      color: #fff;
+      padding: 50px 24px 40px;
+      text-align: center;
+      border-radius: 0 0 28px 28px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(27, 67, 50, 0.3);
+    }
+    header h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 12px; letter-spacing: 1px; }
+    header p.subtitle { font-size: 1rem; opacity: 0.9; margin-bottom: 18px; }
+    .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+    .badge {
+      background: rgba(255,255,255,0.25); backdrop-filter: blur(4px);
+      padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.4);
+    }
+    .note-box {
+      background: #fff8e1; border: 1px solid #ffe082; color: #b8860b;
+      padding: 12px 16px; border-radius: 10px; font-size: 0.9rem; margin-top: 18px;
+      display: inline-block; max-width: 100%;
+    }
+    .section {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 26px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .section:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .section h2 {
+      color: var(--primary);
+      font-size: 1.45rem;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eef2f0;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section h2::before { content: ''; display: inline-block; width: 4px; height: 22px; background: var(--primary); border-radius: 2px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card {
+      border: 1px solid #e8ecef; border-radius: 12px; overflow: hidden; background: #fafcfc;
+    }
+    .card-img {
+      height: 140px;
+      background: linear-gradient(135deg, #dbeae2, #b5d5c5);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; letter-spacing: 1px;
+    }
+    .card-body { padding: 16px; }
+    .card-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; color: var(--primary-dark); }
+    .card-text { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 10px; }
+    .tag-inline { background: #e8f4ed; color: var(--primary); padding: 3px 8px; border-radius: 4px; font-size: 0.78rem; font-weight: 500; }
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--primary-light); }
+    .timeline-item { position: relative; margin-bottom: 28px; padding-left: 18px; }
+    .timeline-item::before { content: ''; position: absolute; left: -2px; top: 8px; width: 14px; height: 14px; background: var(--white); border: 3px solid var(--primary); border-radius: 50%; }
+    .time-label { font-weight: 700; color: var(--primary); font-size: 1rem; margin-bottom: 4px; display: block; }
+    .activity-desc { color: var(--text-muted); font-size: 0.95rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; background: #fafafa; border-radius: 8px; overflow: hidden; }
+    th, td { padding: 12px 10px; border-bottom: 1px solid #eee; text-align: left; font-size: 0.92rem; }
+    th { background: var(--primary); color: #fff; font-weight: 500; }
+    tr:last-child td { border-bottom: none; }
+    .price-tag { color: #c0392b; font-weight: 600; }
+    .tip-box { background: linear-gradient(to right, #f0f8f5, #ffffff); border-left: 4px solid var(--primary-light); padding: 16px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 0.93rem; }
+    .highlight { color: var(--primary); font-weight: 600; }
+    .footer { text-align: center; padding: 30px 20px 20px; color: var(--text-muted); font-size: 0.85rem; }
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.8rem; }
+      .container { padding: 14px; }
+      .section { padding: 18px 14px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      th, td { padding: 8px 6px; font-size: 0.88rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>吉林·雾凇岛深度旅游攻略</h1>
+    <p class="subtitle">松花江畔的冰雪童话 · 中国四大自然奇观之一</p>
+    <div class="badges">
+      <span class="badge">❄️ 冰雪世界</span>
+      <span class="badge">📷 摄影出片</span>
+      <span class="badge">🚗 自驾旅行</span>
+      <span class="badge">💰 经济型(级别1)</span>
+      <span class="badge">⏱ 建议游玩：1天</span>
+    </div>
+    <div class="note-box">⚠️ 规划师提示：雾凇为冬季（12月下旬-次年2月）特有气象景观。夏季该区域为常规江畔田园风光。本攻略严格依据您提供的冬季核心参数与最佳观赏期数据编制，以确保攻略的专业性与高实用性。</div>
+  </header>
+
+  <div class="container">
+    <!-- 城市概述 -->
+    <section class="section" id="overview">
+      <h2>目的地概述</h2>
+      <p>雾凇岛位于吉林市龙潭区乌拉街满族镇，是松花江上的一段冲击岛。因冬季松花湖丰满水电站放水，江水温度较高，遇极寒天气在江面蒸腾起浓雾，凝结于沿岸柳树枝头，形成晶莹剔透的雾凇奇观。这里相比哈尔滨、雪乡更加原生态，商业化程度低，是摄影发烧友与追求纯粹冰雪体验旅行者的首选之地。</p>
+      <div style="margin-top: 16px;">
+        <p><span class="highlight">📍 地理位置：</span>吉林省吉林市龙潭区</p>
+        <p><span class="highlight">🌡 最佳月份：</span>12月下旬 - 次年2月中旬</p>
+        <p><span class="highlight">💵 预算级别：</span>Level 1（经济实惠，主打高性价比）</p>
+      </div>
+    </section>
+
+    <!-- 1天详细行程 -->
+    <section class="section" id="itinerary">
+      <h2>1日精华行程安排（雾凇追光版）</h2>
+      <p style="color:var(--text-muted); margin-bottom:15px; font-size:0.92rem;">雾凇观赏极度依赖气象与时间窗口。江面温度极低，雾凇通常在日出后最浓，约上午9:30后随气温上升逐渐脱落。行程已按“黄金观赏期”科学排布。</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="time-label">🌅 06:00 - 07:30 | 抵达与晨雾守候</span>
+          <div class="activity-desc">提前入住韩屯或曾通岛内农家院。早餐简单热汤后，携带装备步行至江边最佳机位。此时江面雾气最盛，等待“千树万树梨花开”的第一缕晨光。</div>
+        </div>
+        <div class="timeline-item">
+          <span class="time-label">📸 07:30 - 10:00 | 核心观赏：韩屯雾凇区</span>
+          <div class="activity-desc">雾凇最密集时段。沿松花江数十里长堤漫步，利用逆光或侧光拍摄冰晶细节。建议携带广角拍全景，长焦拍树挂特写。此阶段务必专注拍摄与体验。</div>
+        </div>
+        <div class="timeline-item">
+          <span class="time-label">🥘 10:00 - 12:30 | 农家午餐与民俗体验</span>
+          <div class="activity-desc">返回客栈或村内农家乐，享用正宗东北铁锅炖。餐后参观满族老屋、冰上娱乐项目（如抽冰尜、雪圈），感受关东年味。</div>
+        </div>
+        <div class="timeline-item">
+          <span class="time-label">🌲 13:00 - 15:30 | 深度探索：曾通雾凇区</span>
+          <div class="activity-desc">乘摆渡车或包车前往曾通岛。相比韩屯，此处游客稀少，保留原始村落风貌与朝鲜族民居。拍摄人文纪实与静谧雪景的绝佳地。</div>
+        </div>
+        <div class="timeline-item">
+          <span class="time-label">🚙 16:00 - 18:30 | 松花湖畔/返程整理</span>
+          <div class="activity-desc">驱车前往松花湖外围观景台，远眺冰封湖面与雪山倒影。傍晚返回吉林市或长春市区，整理素材，结束充实的一日行程。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 景点详细介绍 -->
+    <section class="section" id="attractions">
+      <h2>核心景点推荐</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-img" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">📍 雾凇景观长堤</div>
+          <div class="card-body">
+            <div class="card-title">松花江畔长堤</div>
+            <div class="card-text">“忽如一夜春风来”的真实写照。绵延数十里的柳林被白霜包裹，晨雾缭绕如仙境。长堤平坦，适合各年龄段漫步。</div>
+            <div><span class="tag-inline">推荐理由：</span>视觉震撼、出片率极高</div>
+            <div style="margin-top:8px;"><span class="tag-inline">Tips：</span>清晨7:00-8:30光线最佳，注意脚下薄冰</div>
+            <div style="margin-top:8px;"><span class="price-tag">门票：免费</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">📷 韩屯雾凇观赏区</div>
+          <div class="card-body">
+            <div class="card-title">韩屯核心观赏区</div>
+            <div class="card-text">雾凇岛开发最早、设施最完善的区域。江边雾凇最为密集壮观，配套客栈众多，摄影师扎堆的热门机位集中地。</div>
+            <div><span class="tag-inline">推荐理由：</span>经典机位、配套成熟、易于出片</div>
+            <div style="margin-top:8px;"><span class="tag-inline">Tips：</span>住宿需提前预订，抢占临江第一排</div>
+            <div style="margin-top:8px;"><span class="price-tag">门票：含在进岛费内</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background: linear-gradient(135deg, #e1f5fe, #b3e5fc);">🏡 曾通雾凇观赏区</div>
+          <div class="card-body">
+            <div class="card-title">曾通原生态岛</div>
+            <div class="card-text">未经大规模商业开发，保留朝鲜族传统村落与原始江滩。雾凇形态更自然，游客少，适合喜欢静谧与人文纪实的旅行者。</div>
+            <div><span class="tag-inline">推荐理由：</span>原始风貌、人文气息浓、避开人流</div>
+            <div style="margin-top:8px;"><span class="tag-inline">Tips：</span>需乘小船/摆渡车上岛，穿防滑鞋</div>
+            <div style="margin-top:8px;"><span class="price-tag">门票/船票：约30元/人</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">🏔 松花湖风景区</div>
+          <div class="card-body">
+            <div class="card-title">冰封松花湖</div>
+            <div class="card-text">冬季湖面完全冻结如镜，周边群山披银。是户外越野滑雪、冰面摄影、观日落雪景的延伸目的地。</div>
+            <div><span class="tag-inline">推荐理由：</span>宏大场景、摄影延伸、空气极佳</div>
+            <div style="margin-top:8px;"><span class="tag-inline">Tips：</span>切勿私自走深水区冰面，注意防风</div>
+            <div style="margin-top:8px;"><span class="price-tag">门票：约20元/人（部分观景台免费）</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section class="section" id="food">
+      <h2>关东美食推荐</h2>
+      <p style="margin-bottom:12px; color:var(--text-muted);">东北菜分量极大，点餐请量力而行。雾凇岛内以农家铁锅炖为主，吉林市区选择更丰富。</p>
+      <div class="grid-2">
+        <div>
+          <h3 style="color:var(--primary); margin-bottom:10px; font-size:1.05rem;">🍲 必尝特色</h3>
+          <ul style="padding-left:18px; font-size:0.93rem; line-height:2;">
+            <li><strong>农家铁锅炖（鱼/鸡/大鹅）：</strong>土灶柴火慢炖，贴饼子蘸汤，驱寒绝配。</li>
+            <li><strong>乌拉满族火锅：</strong>白肉血肠、酸菜底锅，铜锅炭火，地道满族风味。</li>
+            <li><strong>吉林煎粉：</strong>外脆里糯，浇上麻酱与蒜汁，当地经典街头小吃。</li>
+            <li><strong>雪衣豆沙：</strong>蛋清打发炸制如云朵，内裹红豆沙，甜而不腻。</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="color:var(--primary); margin-bottom:10px; font-size:1.05rem;">🍴 推荐餐厅</h3>
+          <table>
+            <tr><th>类型</th><th>名称/位置</th><th>人均</th></tr>
+            <tr><td>岛内农家</td><td>韩屯“雪乡缘”/“雾凇人家”</td><td>¥40-60</td></tr>
+            <tr><td>市区火锅</td><td>吉林市“乌拉满族火锅”（连锁老店）</td><td>¥50-70</td></tr>
+            <tr><td>本地小吃</td><td>江南公园周边“王记煎粉”</td><td>¥15-20</td></tr>
+            <tr><td>特色菜馆</td><td>“东北老家”菜馆（锅包肉/雪衣豆沙）</td><td>¥45-60</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 住宿推荐 -->
+    <section class="section" id="accommodation">
+      <h2>住宿推荐（分级参考）</h2>
+      <div class="tip-box">💡 预算策略：追求极致体验与出片建议住韩屯/曾通农家火炕；追求舒适与便捷建议住吉林市区，早晨拼车或包车前往。</div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-body" style="border-top:3px solid var(--primary);">
+            <div class="card-title">💰 经济型：岛内农家火炕</div>
+            <div class="card-text">韩屯/曾通村内家庭客栈，提供传统火炕、独立卫浴、含早晚餐。体验东北民俗，步行可达江边。</div>
+            <p><span class="tag-inline">价格：</span><span class="price-tag">¥80-150/晚/人</span></p>
+            <p><span class="tag-inline">适合：</span>学生党、背包客、民俗体验者</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body" style="border-top:3px solid var(--accent);">
+            <div class="card-title">🛏 舒适型：雾凇岛精品民宿/市区快捷</div>
+            <div class="card-text">岛内新装修地暖民宿或吉林市区连锁酒店（如全季/亚朵）。供暖稳定，干湿分离，交通中转方便。</div>
+            <p><span class="tag-inline">价格：</span><span class="price-tag">¥200-350/晚</span></p>
+            <p><span class="tag-inline">适合：</span>情侣、家庭出游、对睡眠要求较高者</p>
+          </div>
+        </div>
+        <div class="card" style="grid-column: 1 / -1;">
+          <div class="card-body" style="border-top:3px solid var(--primary-dark);">
+            <div class="card-title">✨ 高端型：吉林/长白山度假区酒店</div>
+            <div class="card-text">建议作为联游选项。如吉林万达长白山国际度假区、万科松花湖度假区滑雪场配套酒店。提供五星服务、温泉与雪具大厅。</div>
+            <p><span class="tag-inline">价格：</span><span class="price-tag">¥600-1200+/晚</span></p>
+            <p><span class="tag-inline">适合：</span>滑雪度假、高端休闲、全家游</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 交通指南 -->
+    <section class="section" id="transport">
+      <h2>交通指南</h2>
+      <div class="grid-2">
+        <div>
+          <h3 style="color:var(--primary); margin-bottom:12px;">🚄 外部抵达</h3>
+          <ul style="padding-left:18px; font-size:0.93rem; line-height:1.9;">
+            <li><strong>✈️ 飞机：</strong>飞抵长春龙嘉机场（杭州直飞约3小时），机场高铁站换乘城际列车至吉林站（约30分钟）。</li>
+            <li><strong>🚄 高铁/动车：</strong>直达“吉林站”。杭州出发需中转，全程约10-12小时。</li>
+            <li><strong>🚗 自驾：</strong>吉林市区出发沿G202/G1211向北约45公里，车程约1-1.5小时。路况冬季需防滑链。</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="color:var(--primary); margin-bottom:12px;">🚌 岛内接驳</h3>
+          <ul style="padding-left:18px; font-size:0.93rem; line-height:1.9;">
+            <li><strong>吉林市→雾凇岛：</strong>吉林站前乘专线大巴（冬季旅游旺季开通），约1.5小时/¥25-30。</li>
+            <li><strong>岛上交通：</strong>韩屯与曾通间有村民摆渡船/车，约¥30-40/人。建议包车环岛（¥200-300/车），灵活高效。</li>
+            <li><strong>联游路线：</strong>雾凇岛→吉林市（1h）→松花湖（1h）→长白山北坡（3h车程）。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section class="section" id="tips">
+      <h2>行前注意事项</h2>
+      <div class="grid-2">
+        <div>
+          <h3 style="color:var(--primary); margin-bottom:10px;">🧥 极寒穿衣法则</h3>
+          <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:8px;">零下20℃为常态，必须“洋葱式”叠穿：</p>
+          <ul style="font-size:0.92rem; line-height:1.8;">
+            <li><strong>内层：</strong>速干排汗内衣（切忌纯棉，出汗易失温）。</li>
+            <li><strong>中层：</strong>加厚抓绒衣/轻薄羽绒。</li>
+            <li><strong>外层：</strong>防风防水长款羽绒服或冲锋衣。</li>
+            <li><strong>配件：</strong>触屏保暖手套、护耳雷锋帽、雪地靴（高帮防滑）、厚羊毛袜、口罩/面罩。</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="color:var(--primary); margin-bottom:10px;">📸 摄影与设备</h3>
+          <ul style="font-size:0.92rem; line-height:1.8;">
+            <li><strong>电池保暖：</strong>准备暖宝宝贴在相机/手机背面，备用电池贴身放置。低温掉电极快。</li>
+            <li><strong>防雾处理：</strong>进出室内外前将设备装入密封袋，缓慢回温，防止镜头起雾。</li>
+            <li><strong>拍摄参数：</strong>雾凇反光强，适当+0.7EV曝光补偿；逆光拍摄突出冰晶质感。</li>
+          </ul>
+          <h3 style="color:var(--primary); margin:12px 0 10px;">⚠️ 安全须知</h3>
+          <ul style="font-size:0.92rem; line-height:1.8;">
+            <li>松花江部分区域冰层未完全封冻，<span class="highlight">严禁独自靠近未标记江面或深水区</span>。</li>
+            <li>尊重当地满族/朝鲜族风俗，农家院用餐不浪费，尊重房东作息。</li>
+            <li>雾凇形成条件苛刻（低温+高湿+微风），心态放平，随缘最美。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 预算参考 -->
+    <section class="section" id="budget">
+      <h2>人均预算参考（经济型/2天1晚）</h2>
+      <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">按单人出行测算，多人拼车/拼餐可大幅降低人均成本。本预算严格对应 Level 1 经济级标准。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>明细说明</th>
+            <th>预估费用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>🚗 城际交通</strong></td>
+            <td>杭州往返吉林高铁（二等座/中转）+ 机场/市区往返大巴</td>
+            <td><span class="price-tag">¥900 - ¥1100</span></td>
+          </tr>
+          <tr>
+            <td><strong>🚌 当地交通</strong></td>
+            <td>吉林站至雾凇岛大巴往返 + 岛上拼车/摆渡</td>
+            <td><span class="price-tag">¥120 - ¥180</span></td>
+          </tr>
+          <tr>
+            <td><strong>🏠 住宿</strong></td>
+            <td>岛内经济型农家火炕（1晚，含早）</td>
+            <td><span class="price-tag">¥100 - ¥150</span></td>
+          </tr>
+          <tr>
+            <td><strong>🍲 餐饮</strong></td>
+            <td>东北农家铁锅炖、小吃、热水补给（按1.5天算）</td>
+            <td><span class="price-tag">¥120 - ¥180</span></td>
+          </tr>
+          <tr>
+            <td><strong>🎫 门票/杂费</strong></td>
+            <td>曾通摆渡、保暖贴、摄影耗材等</td>
+            <td><span class="price-tag">¥50 - ¥80</span></td>
+          </tr>
+          <tr style="background:#f0f7f4; font-weight:bold;">
+            <td>💰 总计参考</td>
+            <td>不含购物与弹性消费</td>
+            <td style="color:#c0392b;">¥1290 - ¥1690 /人</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip-box" style="margin-top:15px;">🔑 <strong>省钱Tips：</strong>选择非元旦/春节周末出行，住宿与包车价格可降20%-30%；吉林站附近常有旅游集散中心拼车服务，3-4人分摊最划算；自带高热量零食（巧克力/牛肉干），减少景区内购买溢价。</div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 资深旅游规划师出品 | 攻略更新于2024年 | 数据仅供参考，实际以当地景区公告为准</p>
+    <p style="margin-top:5px; font-size:0.8rem;">祝旅途平安，定格北国绝美瞬间！ ❄️📷</p>
+  </footer>
+</body>
+</html>
+```

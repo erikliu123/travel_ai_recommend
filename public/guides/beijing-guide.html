@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京夏季4日深度游攻略 | 资深旅游规划师出品</title>
+    <style>
+        :root {
+            --primary: #774930;
+            --primary-dark: #5a3623;
+            --primary-light: #a67c5b;
+            --accent: #d4b48a;
+            --bg: #faf8f5;
+            --card-bg: #ffffff;
+            --text-main: #2c2c2c;
+            --text-light: #666666;
+            --border: #e5ddd5;
+            --success: #4a8c68;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 20px 16px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            padding: 50px 20px 40px;
+            text-align: center;
+            border-radius: 0 0 24px 24px;
+            box-shadow: 0 6px 20px rgba(119, 73, 48, 0.25);
+        }
+        header h1 { font-size: 2.4rem; margin: 0 0 8px; font-weight: 700; letter-spacing: 2px; }
+        header p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 20px; }
+        .tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); padding: 5px 14px; border-radius: 20px; font-size: 0.9rem; backdrop-filter: blur(5px); }
+        section { background: var(--card-bg); border-radius: 16px; padding: 28px; margin: 24px 0; box-shadow: 0 4px 15px rgba(119,73,48,0.06); border: 1px solid var(--border); }
+        h2 { color: var(--primary); font-size: 1.6rem; margin: 0 0 20px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); display: flex; align-items: center; gap: 10px; }
+        h2::before { content: ""; width: 6px; height: 26px; background: var(--primary); border-radius: 3px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; background: #fdfbf9; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+        .info-item strong { display: block; color: var(--primary); font-size: 0.95rem; }
+        .info-item span { color: var(--text-light); font-size: 0.9rem; }
+        .timeline { position: relative; padding-left: 24px; }
+        .timeline::before { content: ""; position: absolute; left: 8px; top: 10px; bottom: 20px; width: 2px; background: var(--accent); }
+        .timeline-day { background: #fcf8f3; border-left: 4px solid var(--primary); padding: 18px; border-radius: 8px; margin-bottom: 18px; }
+        .timeline-day h3 { margin: 0 0 10px; color: var(--primary-dark); font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; }
+        .timeline-item { margin-bottom: 12px; }
+        .timeline-label { font-weight: bold; color: var(--primary); font-size: 0.85rem; display: block; margin-bottom: 2px; }
+        .timeline-content { font-size: 0.95rem; color: var(--text-light); margin-left: 4px; }
+        .card { background: #fdfbf9; border: 1px solid var(--border); padding: 16px; border-radius: 10px; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-3px); }
+        .card h3 { margin-top: 0; color: var(--primary); font-size: 1.15rem; }
+        .tag-ticket { display: inline-block; background: var(--success); color: #fff; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; vertical-align: middle; margin-left: 8px; }
+        .tip-box { background: #fff5eb; border-left: 4px solid var(--primary-light); padding: 12px 15px; margin-top: 10px; border-radius: 0 8px 8px 0; font-size: 0.92rem; color: #5c3a26; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: #f4f1ec; color: var(--primary); font-weight: 600; }
+        .pros-cons { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
+        .pc-col { flex: 1; min-width: 250px; }
+        .pc-title { font-weight: bold; color: var(--primary); margin-bottom: 5px; }
+        .pc-list { list-style: none; padding: 0; margin: 0; }
+        .pc-list li { padding: 4px 0 4px 20px; position: relative; font-size: 0.92rem; }
+        .pc-list.pro li::before { content: "✔"; color: var(--success); position: absolute; left: 0; }
+        .pc-list.con li::before { content: "⚠"; color: #b54530; position: absolute; left: 0; }
+        .budget-bar { background: #eee; border-radius: 6px; height: 10px; overflow: hidden; margin-top: 4px; width: 100%; }
+        .budget-fill { height: 100%; background: linear-gradient(90deg, var(--primary-light), var(--primary)); border-radius: 6px; }
+        footer { text-align: center; padding: 30px; color: var(--text-light); font-size: 0.85rem; }
+        @media (max-width: 600px) {
+            header { padding: 35px 15px 30px; }
+            header h1 { font-size: 1.9rem; }
+            section { padding: 20px; margin: 16px 0; }
+            h2 { font-size: 1.35rem; }
+            .grid, .info-grid { grid-template-columns: 1fr; }
+            .timeline { padding-left: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>北京 · 4日深度游攻略</h1>
+    <p>千年帝都，中国政治文化中心。故宫的皇家气派、长城的雄浑壮美、颐和园的秀美园林与胡同里的京味儿文化交织，为您定制夏季专属行程。</p>
+    <div class="tags">
+        <span class="badge">🏛️ 历史古迹</span>
+        <span class="badge">📜 文化之旅</span>
+        <span class="badge">👨‍👩‍👧‍👦 亲子游</span>
+    </div>
+</header>
+
+<div class="container">
+
+    <section id="overview">
+        <h2>城市概览</h2>
+        <div class="info-grid">
+            <div class="info-item"><strong>建议天数</strong><span>4天3晚 / 4天3夜</span></div>
+            <div class="info-item"><strong>最佳季节</strong><span>全年皆宜，夏季绿意盎然/雷雨阵雨需备伞</span></div>
+            <div class="info-item"><strong>预算级别</strong><span>⭐️⭐️⭐️ 较高 (约 ¥4500-¥8000/人)</span></div>
+            <div class="info-item"><strong>核心标签</strong><span>世界遗产密集 / 博物馆免费 / 美食云集</span></div>
+        </div>
+        <div class="pros-cons">
+            <div class="pc-col">
+                <div class="pc-title">✨ 旅行优点</div>
+                <ul class="pc-list pro">
+                    <li>历史文化遗产极为丰富，世界遗产数量全国第一</li>
+                    <li>高铁约5小时/航班密集，交通通达性极佳</li>
+                    <li>美食种类齐全，从市井小吃到宫廷御膳应有尽有</li>
+                    <li>国家级博物馆多免费开放（需实名预约）</li>
+                </ul>
+            </div>
+            <div class="pc-col">
+                <div class="pc-title">⚠️ 注意事项</div>
+                <ul class="pc-list con">
+                    <li>暑期及节假日人流量大，热门景点务必提前7天预约</li>
+                    <li>夏季多阵雨与高温，户外项目需注意防暑降温</li>
+                    <li>核心景区及胡同区域打车易拥堵，地铁为王</li>
+                    <li>门票总费用较高（部分需缆车/园内交通额外支出）</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="itinerary">
+        <h2>🗓️ 4天详细行程安排</h2>
+        <div class="timeline-day">
+            <h3>Day 1：皇城轴线与中轴风貌 <span>故宫-景山-前门</span></h3>
+            <div class="timeline">
+                <div class="timeline-item"><span class="timeline-label">🌞 上午</span><span class="timeline-content">抵达北京，入住酒店休整。前往天安门广场观升旗（可选），游览国家博物馆（需提前预约）。</span></div>
+                <div class="timeline-item"><span class="timeline-label">🌤️ 下午</span><span class="timeline-content">【故宫博物院】沿中轴线深度游览：午门-太和殿-乾清宫-御花园。建议租借语音导览，避开正午暴晒。</span></div>
+                <div class="timeline-item"><span class="timeline-label">🌙 晚上</span><span class="timeline-content">出神武门登【景山公园】万春亭俯瞰紫禁城全景与日落。晚餐步行至前门大街/大栅栏，品尝老字号小吃。</span></div>
+            </div>
+        </div>
+        <div class="timeline-day">
+            <h3>Day 2：雄关漫道与京城夜色 <span>慕田峪长城-奥林匹克</span></h3>
+            <div class="timeline">
+                <div class="timeline-item"><span class="timeline-label">🌞 上午</span><span class="timeline-content">早起出发前往【长城（慕田峪段）】。乘缆车直达，体验“滑道”下山，避开八达岭人流，植被覆盖率极高，夏季清凉。</span></div>
+                <div class="timeline-item"><span class="timeline-label">🌤️ 下午</span><span class="timeline-content">返回市区途中休息，前往奥林匹克森林公园散步，呼吸新鲜空气，感受城市绿肺。</span></div>
+                <div class="timeline-item"><span class="timeline-label">🌙 晚上</span><span class="timeline-content">夜游奥林匹克公园，外观【鸟巢】与【水立方】灯光秀。晚餐可在北辰西路商圈解决。</span></div>
+            </div>
+        </div>
+        <div class="timeline-day">
+            <h3>Day 3：皇家园林与学府底蕴 <span>颐和园-清华北大-胡同</span></h3>
+            <div class="timeline">
+                <div class="timeline-item"><span class="timeline-label">🌞 上午</span><span class="timeline-content">【颐和园】东门入，沿长廊漫步，登佛香阁俯瞰昆明湖，乘游船体验皇家水上风光。</span></div>
+                <div class="timeline-item"><span class="timeline-label">🌤️ 下午</span><span class="timeline-content">外观【清华大学/北京大学】（暑期校园开放预约制，未预约成功可打卡西门）。随后前往五道营胡同或南锣鼓巷，体验老北京慢生活。</span></div>
+                <div class="timeline-item"><span class="timeline-label">🌙 晚上</span><span class="timeline-content">胡同深处品尝创意私房菜或铜锅涮肉，感受京味烟火气。</span></div>
+            </div>
+        </div>
+        <div class="timeline-day">
+            <h3>Day 4：登高揽胜与文化返程 <span>香山-798/返程</span></h3>
+            <div class="timeline">
+                <div class="timeline-item"><span class="timeline-label">🌞 上午</span><span class="timeline-content">【香山公园】北门入，步行至玉华岫或香炉峰。夏季满目苍翠，空气极佳。建议8:00前入园避开高温。</span></div>
+                <div class="timeline-item"><span class="timeline-label">🌤️ 下午</span><span class="timeline-content">前往【798艺术区】（或中国美术馆/首都博物馆），看当代艺术展览，选购文创纪念品。整理行装准备返程。</span></div>
+                <div class="timeline-item"><span class="timeline-label">🌙 晚上</span><span class="timeline-content">根据高铁/航班时间前往枢纽，结束充实的京城之旅。</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="attractions">
+        <h2>🏛️ 核心景点详解</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>故宫博物院 <span class="tag-ticket">¥60/旺季</span></h3>
+                <p><strong>推荐理由：</strong>世界现存规模最大的宫殿建筑群，9999间房屋、180万件文物，中华文明瑰宝。红墙金瓦在四季流转中尽显皇家威仪。</p>
+                <div class="tip-box">💡 <strong>游玩Tips：</strong>实行实名制分时段预约，务必提前7天在“故宫博物院”小程序抢票。建议上午8:30-11:00入园，穿软底鞋；宫内餐厅少，自备轻便干粮。夏季午后多雷阵雨，建议携带折叠雨衣。</div>
+            </div>
+            <div class="card">
+                <h3>长城（慕田峪/八达岭） <span class="tag-ticket">¥40+交通</span></h3>
+                <p><strong>推荐理由：</strong>“不到长城非好汉”。慕田峪段外国游客多、植被茂密、风景秀美，秋季红叶映衬下最为壮观，夏季则绿意葱茏。</p>
+                <div class="tip-box">💡 <strong>游玩Tips：</strong>慕田峪推荐乘缆车上下，节省体力并体验网红“滑道”。夏季紫外线强，务必涂抹高倍防晒+戴帽子。自备登山杖更佳。建议早出晚归避开中午烈日。</div>
+            </div>
+            <div class="card">
+                <h3>颐和园 <span class="tag-ticket">¥30/联票¥60</span></h3>
+                <p><strong>推荐理由：</strong>中国现存最大的皇家园林，昆明湖、万寿山、长廊构成完美山水画卷。夏日荷花盛开，柳荫堤岸极为惬意。</p>
+                <div class="tip-box">💡 <strong>游玩Tips：</strong>园区极大，建议“西堤+长廊+佛香阁+石舫”精华路线。夏季16:00后光线最佳，适合拍“夕阳金光穿洞”。购买联票可进苏州街与佛香阁内部。</div>
+            </div>
+            <div class="card">
+                <h3>香山公园 <span class="tag-ticket">¥10</span></h3>
+                <p><strong>推荐理由：</strong>中国四大赏秋胜地之一，深秋十万株黄栌火红漫山。夏季则是天然氧吧，登山锻炼、访古迹（碧云寺）的绝佳去处。</p>
+                <div class="tip-box">💡 <strong>游玩Tips：</strong>夏季登山需2-3小时，建议携带矿泉水与电解质饮料。穿防滑运动鞋。公园蚊虫较多，务必喷涂驱蚊液。清晨或下午4点后前往体感最舒适。</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="food">
+        <h2>🥢 京味美食推荐</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🦆 北京烤鸭</h3>
+                <p>皮脆肉嫩，蘸甜面酱配葱丝黄瓜，荷叶饼卷食。</p>
+                <p><strong>📍 推荐餐厅：</strong>四季民福（故宫店景观绝佳）、大董（创意高端）、便宜坊（焖炉经典）</p>
+            </div>
+            <div class="card">
+                <h3>🍜 炸酱面 & 卤煮</h3>
+                <p>手工擀制面条拌上干炸酱菜码；卤煮火烧是老北京最地道的市井味道。</p>
+                <p><strong>📍 推荐餐厅：</strong>海碗居（炸酱面标杆）、方砖厂69号炸酱面、门框胡同百年卤煮</p>
+            </div>
+            <div class="card">
+                <h3>🍲 铜锅涮羊肉</h3>
+                <p>清汤锅底配手切鲜羊肉，麻酱蘸料灵魂所在，暖胃不燥。</p>
+                <p><strong>📍 推荐餐厅：</strong>聚宝源、南门涮肉、满恒记</p>
+            </div>
+            <div class="card">
+                <h3>🥮 老北京小吃/茶饮</h3>
+                <p>豆汁儿配焦圈、豌豆黄、驴打滚；搭配吴裕泰花茶或张一元茉莉花茶。</p>
+                <p><strong>📍 推荐餐厅：</strong>护国寺小吃、锦芳小吃、牛街聚宝源外带部、胡同茶寮</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="accommodation">
+        <h2>🛏️ 住宿推荐指南</h2>
+        <table>
+            <thead>
+                <tr><th>档次</th><th>推荐区域</th><th>参考价格</th><th>特点</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>💰 经济型</strong></td><td>鼓楼/南锣鼓巷/青旅聚集区</td><td>¥150 - ¥350/晚</td><td>胡同客栈氛围浓厚，适合背包客与学生，需提前确认隔音与独立卫浴。</td></tr>
+                <tr><td><strong>🏨 舒适型</strong></td><td>2号线/4号线地铁站周边（如宣武门、朝阳门）</td><td>¥400 - ¥700/晚</td><td>连锁品牌（全季/亚朵/橘子），卫生有保障，交通便利，适合家庭与商务。</td></tr>
+                <tr><td><strong>🌟 高端型</strong></td><td>王府井/国贸CBD/三里屯</td><td>¥900 - ¥2500+/晚</td><td>国际五星或奢华设计酒店，服务顶级，视野开阔，适合度假与预算充足者。</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="transport">
+        <h2>🚄 交通全指南</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>✈️ 外部大交通</h3>
+                <p><strong>飞机：</strong>北京首都(PEK)/大兴(PKX)机场。飞行约2小时15分。首都机场距市区近，大兴需乘大兴机场线（约20分钟至草桥）。</p>
+                <p><strong>高铁：</strong>杭州东 ⇄ 北京南，运行约4.5-5.5小时，班次密集。北京南站地铁4/14号线直达，出站即进城，最为推荐。</p>
+            </div>
+            <div class="card">
+                <h3>🚇 市内微交通</h3>
+                <p><strong>地铁：</strong>绝对主力！覆盖90%核心景区。支付宝/微信直接刷“北京地铁乘车码”。</p>
+                <p><strong>公交/网约车：</strong>早晚高峰拥堵严重（尤其二环内），建议非高峰时段打车或使用共享单车（15元月卡极划算）。</p>
+                <p><strong>旅游专线：</strong>部分景点间有“慕巴士”或“旅游集散中心直通车”，省去换乘烦恼。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="budget">
+        <h2>💰 预算参考（4天3晚/单人）</h2>
+        <p style="color:#666; font-size:0.9rem; margin-bottom:15px;">注：按【中等偏高】标准测算（对应预算级别3），实际因人而异。</p>
+        <table>
+            <thead><tr><th>项目</th><th>预估费用</th><th>占比说明</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>🚄 往返交通</td>
+                    <td>¥1000 - ¥2000</td>
+                    <td><div class="budget-bar"><div class="budget-fill" style="width:25%"></div></div></td>
+                </tr>
+                <tr>
+                    <td>🛏️ 住宿(3晚)</td>
+                    <td>¥1200 - ¥3000</td>
+                    <td><div class="budget-bar"><div class="budget-fill" style="width:35%"></div></div></td>
+                </tr>
+                <tr>
+                    <td>🍽️ 餐饮</td>
+                    <td>¥800 - ¥1500</td>
+                    <td><div class="budget-bar"><div class="budget-fill" style="width:25%"></div></div></td>
+                </tr>
+                <tr>
+                    <td>🎫 门票/交通</td>
+                    <td>¥400 - ¥600</td>
+                    <td><div class="budget-bar"><div class="budget-fill" style="width:15%"></div></div></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="tip-box">📊 <strong>总预算参考：约 ¥3400 - ¥7100 / 人</strong>。若含购物/演出/升级酒店，预算需上浮30%。</p>
+    </section>
+
+    <section id="tips">
+        <h2>⚠️ 夏季游玩注意事项</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🌡️ 天气与穿着</h3>
+                <p>北京夏季（6-8月）高温多雨，日间30℃-38℃。必备速干衣裤、防晒冰袖、遮阳帽、墨镜。随身带折叠晴雨伞。</p>
+            </div>
+            <div class="card">
+                <h3>🛡️ 安全与健康</h3>
+                <p>户外暴晒易中暑，随身携带藿香正气水、清凉油、电解质水。景区人流密集，注意保管贵重物品，防偷窃。</p>
+            </div>
+            <div class="card">
+                <h3>📱 预约与票务</h3>
+                <p><strong>所有核心景区均实行“实名制+线上预约”。</strong>故宫/国博/长城等务必提前3-7天在官方渠道预约。无预约勿盲目前往。</p>
+            </div>
+            <div class="card">
+                <h3>🤝 文化礼仪</h3>
+                <p>故宫、长城等属重点文保单位，请勿触摸古建、刻字涂鸦。胡同居民区请保持安静，尊重本地生活习俗。</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>© 2024 资深旅游规划师 | 北京4日深度游攻略<br>数据仅供参考，门票与政策请以官方最新发布为准。祝您旅途平安顺遂！</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>楠溪江夏季旅游攻略 - 山水诗画田园之旅</title>
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --primary-light: #40916c;
+            --primary-dark: #1b4332;
+            --bg: #f5f7f6;
+            --card-bg: #ffffff;
+            --text-main: #2c3e36;
+            --text-sub: #5a6b62;
+            --accent-light: #e8f5e9;
+            --accent-gold: #d4a373;
+            --shadow: 0 6px 16px rgba(45, 106, 79, 0.08);
+            --radius: 12px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px 15px 40px; }
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #fff;
+            padding: 50px 20px 35px;
+            border-radius: 0 0 24px 24px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(27, 67, 50, 0.25);
+        }
+        header h1 { font-size: 2.6rem; font-weight: 800; margin-bottom: 12px; letter-spacing: 1px; }
+        .subtitle { font-size: 1.15rem; opacity: 0.95; max-width: 700px; margin: 0 auto 18px; }
+        .tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .tag {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 28px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease;
+        }
+        h2 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h3 { color: var(--primary); font-size: 1.25rem; margin: 20px 0 10px; font-weight: 600; }
+        h4 { color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px; }
+        p, li { color: var(--text-sub); }
+        ul, ol { padding-left: 20px; margin: 10px 0; }
+        li { margin-bottom: 8px; }
+        
+        /* Grids & Cards */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 15px 0; }
+        .info-box {
+            background: var(--accent-light);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .info-box strong { display: block; color: var(--primary-dark); font-size: 1rem; margin-bottom: 4px; }
+        .info-box span { font-size: 0.85rem; color: var(--text-sub); }
+
+        .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
+        .pro-box, .con-box { padding: 15px; border-radius: 8px; }
+        .pro-box { background: #f0f9f4; border-left: 4px solid #4caf50; }
+        .con-box { background: #fff8e1; border-left: 4px solid #f57c00; }
+        .pro-box h4, .con-box h4 { margin-bottom: 8px; }
+        .pro-box ul, .con-box ul { margin: 0; padding-left: 18px; }
+
+        .timeline { position: relative; padding-left: 25px; margin: 15px 0 5px; border-left: 2px dashed #cbd5d0; }
+        .timeline-item { position: relative; padding-left: 20px; margin-bottom: 20px; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -26px; top: 6px; width: 12px; height: 12px;
+            background: var(--primary); border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .time-badge {
+            display: inline-block; background: var(--primary); color: #fff; padding: 2px 10px;
+            border-radius: 12px; font-size: 0.8rem; font-weight: bold; margin-right: 8px; vertical-align: middle;
+        }
+        .timeline-content h4 { display: inline-block; margin-bottom: 4px; color: var(--primary-dark); }
+
+        .spot-card {
+            border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; margin-bottom: 18px; background: #fafafa;
+        }
+        .img-placeholder {
+            height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 700; font-size: 1.2rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 12px; background-size: cover; background-position: center;
+        }
+        .spot-card .meta { display: flex; gap: 10px; margin: 8px 0; flex-wrap: wrap; }
+        .meta span { background: #edf2f7; color: #4a5568; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; }
+        .tip-inline { background: #e0f2f1; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; margin-top: 10px; border-left: 3px solid var(--primary-light); }
+
+        .food-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; }
+        .food-card { background: #fff; border-radius: 8px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); border-top: 3px solid var(--accent-gold); }
+        
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; background: #fff; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background-color: var(--primary); color: #fff; font-weight: 500; }
+        tr:hover td { background-color: #f8f9fa; }
+
+        .highlight { color: var(--primary); font-weight: 600; }
+        .price-tag { background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; }
+        footer { text-align: center; padding: 30px 15px; color: #7a8c85; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            header { padding: 35px 15px 25px; border-radius: 0 0 16px 16px; }
+            header h1 { font-size: 1.9rem; }
+            section { padding: 18px; }
+            .pro-con { grid-template-columns: 1fr; }
+            .food-grid { grid-template-columns: 1fr; }
+            table { font-size: 0.9rem; }
+            th, td { padding: 10px 8px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>楠溪江 · 夏日避世指南</h1>
+        <p class="subtitle">温州后花园 · 中国山水诗发源地 · 竹筏漂流与明清古村的浙南画卷</p>
+        <div class="tags">
+            <span class="tag">🌿 自然风光</span>
+            <span class="tag">🏡 古村镇</span>
+            <span class="tag">📷 摄影出片</span>
+            <span class="tag">💧 清凉避暑</span>
+            <span class="tag">🎋 田园慢生活</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 城市概览 -->
+        <section id="overview">
+            <h2>📍 城市概览与出行建议</h2>
+            <p>楠溪江以“水秀、岩奇、瀑多、村古、滩林美”闻名，夏季水量充沛，两岸稻田葱郁，是逃离城市喧嚣、体验原生态浙南山水的理想目的地。</p>
+            <div class="info-grid">
+                <div class="info-box"><strong>建议游玩</strong><span>2天1夜（经典环线）</span></div>
+                <div class="info-box"><strong>最佳月份</strong><span>4-6月 / 9-11月（夏季需避暑）</span></div>
+                <div class="info-box"><strong>消费预算</strong><span>经济型（预算级别1）</span></div>
+                <div class="info-box"><strong>交通建议</strong><span>强烈建议自驾/包车</span></div>
+            </div>
+            <div class="pro-con">
+                <div class="pro-box">
+                    <h4>✨ 核心优势</h4>
+                    <ul>
+                        <li>山水田园风光纯粹原始，商业化程度低</li>
+                        <li>竹筏漂流体验独一无二，水质清澈见底</li>
+                        <li>古村落保存完好（苍坡/芙蓉/林坑等），人文底蕴深厚</li>
+                        <li>整体物价亲民，农家乐性价比高</li>
+                    </ul>
+                </div>
+                <div class="con-box">
+                    <h4>⚠️ 注意事项</h4>
+                    <ul>
+                        <li>景点分散，公共交通接驳耗时，需自驾/包车</li>
+                        <li>知名度相对小众，高端配套与夜生活较少</li>
+                        <li>距杭州约4小时车程/高铁，需预留交通时间</li>
+                        <li>夏季多阵雨，需关注天气与水位变化</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2天行程 -->
+        <section id="itinerary">
+            <h2>🗓️ 2天详细行程安排</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div><span class="time-badge">Day 1 上午</span><strong>抵达岩头镇 → 苍坡古村漫步</strong></div>
+                    <div class="timeline-content">
+                        <p>抵达温州南站后转车/自驾至楠溪江岩头镇办理入住。前往<span class="highlight">苍坡古村</span>，探访宋代建村格局，观“笔架山”风水与明清古建筑群，在古巷中感受时光倒流的宁静。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div><span class="time-badge">Day 1 下午</span><strong>楠溪江竹筏漂流 → 狮子岩日落</strong></div>
+                    <div class="timeline-content">
+                        <p>前往漂流码头，乘坐<span class="highlight">竹筏沿楠溪江顺流而下</span>（约1.5小时）。避开正午烈日，两岸青山倒影、滩林水鸟尽收眼底。下筏后至狮子岩草坪休憩，拍摄夏日江畔绝美日落。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div><span class="time-badge">Day 1 晚上</span><strong>溪畔晚餐 → 古村星空/休息</strong></div>
+                    <div class="timeline-content">
+                        <p>品尝地道楠溪江农家菜（麦饼、溪鱼、盐焗鸡）。夜宿岩头镇或古村民宿，夏季夜间气温舒适，适合听虫鸣入睡。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div><span class="time-badge">Day 2 上午</span><strong>石桅岩地质奇观探秘</strong></div>
+                    <div class="timeline-content">
+                        <p>早起前往<span class="highlight">石桅岩景区</span>。清晨雾气未散时，306米高巨型石柱倒映在深潭中最为震撼。沿栈道环水而行，穿越峡谷，感受“浙南天柱”的磅礴气势。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div><span class="time-badge">Day 2 下午</span><strong>龙湾潭徒步探险 → 返程</strong></div>
+                    <div class="timeline-content">
+                        <p>前往上游的<span class="highlight">龙湾潭国家森林公园</span>。这里瀑布成群、潭水清凉，适合轻徒步。在天然氧吧中玩水避暑，午后收拾行装，结束充实的山水之旅返程。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 景点详情 -->
+        <section id="attractions">
+            <h2>🏞️ 核心景点详细介绍</h2>
+            
+            <div class="spot-card">
+                <div class="img-placeholder" style="background: linear-gradient(135deg, #81b29a, #f4f1de); color: #2d6a4f;">🎋 楠溪江竹筏漂流</div>
+                <div class="meta">
+                    <span>📍 狮子岩至渡头段</span><span class="price-tag">门票参考：¥120/人（2人起筏）</span><span>🕒 游玩：1.5-2h</span>
+                </div>
+                <h4>推荐理由</h4>
+                <p>中国唯一以“田园山水”见长的漂流体验。无急流险滩，只有轻舟漫溯的诗意。夏季水清见底，两岸滩林与古村落相映成趣，是摄影师和文艺青年的必体验项目。</p>
+                <div class="tip-inline">💡 游玩Tips：夏季建议穿速干衣物，备防晒帽/防水袋。筏工可能讲解古村风水故事，可适当给小费。避开11:00-14:00暴晒时段。</div>
+            </div>
+
+            <div class="spot-card">
+                <div class="img-placeholder" style="background: linear-gradient(135deg, #588157, #dad7cd);">🏔️ 石桅岩风景区</div>
+                <div class="meta">
+                    <span>📍 鹤盛镇下岙村</span><span class="price-tag">门票参考：¥65/人</span><span>🕒 游玩：3-4h</span>
+                </div>
+                <h4>推荐理由</h4>
+                <p>楠溪江地标景观，相对高差306米的浅红色水成岩孤峰拔地而起，三面环溪。峡谷内潭水碧绿，栈道依山而建，移步换景，极具视觉冲击力。</p>
+                <div class="tip-inline">💡 游玩Tips：景区分陆路和水路，建议先走陆路栈道登高俯瞰全貌，再乘小船出谷。夏季蚊虫多，务必携带驱蚊液。穿防滑运动鞋。</div>
+            </div>
+
+            <div class="spot-card">
+                <div class="img-placeholder" style="background: linear-gradient(135deg, #bc6c25, #dda15e);">🏛️ 苍坡古村 & 芙蓉古村</div>
+                <div class="meta">
+                    <span>📍 岩头镇周边</span><span class="price-tag">门票参考：免费/部分小景点联票¥30</span><span>🕒 游玩：1.5h</span>
+                </div>
+                <h4>推荐理由</h4>
+                <p>楠溪江耕读文化活化石。苍坡村以“文房四宝”布局闻名（笔架山、砚台池、墨街等），芙蓉古村保留完整宋代村落规划。夏日老树荫浓，适合人文扫街与慢拍。</p>
+                <div class="tip-inline">💡 游玩Tips：古村商业化极低，多为原住民生活区。建议尊重当地习俗，不随意进入私人院落。清晨和傍晚光线最适合拍古建筑人文。</div>
+            </div>
+
+            <div class="spot-card">
+                <div class="img-placeholder" style="background: linear-gradient(135deg, #006d77, #83c5be);">🌊 龙湾潭国家森林公园</div>
+                <div class="meta">
+                    <span>📍 鹤盛镇西北侧</span><span class="price-tag">门票参考：¥70/人（含接驳车）</span><span>🕒 游玩：2.5-3h</span>
+                </div>
+                <h4>推荐理由</h4>
+                <p>楠溪江上游的“清凉秘境”。拥有七折瀑、金龟戏水、天门等景观，森林覆盖率96%以上。夏季平均气温比市区低4-5℃，是亲水、溯溪、森林浴的绝佳去处。</p>
+                <div class="tip-inline">💡 游玩Tips：台阶较多，体力一般者建议走主干道。可带水枪或溯溪鞋在浅滩戏水。雨后瀑布水量最大，但注意防滑。景区有小卖部但价格偏高。</div>
+            </div>
+        </section>
+
+        <!-- 美食推荐 -->
+        <section id="food">
+            <h2>🍽️ 舌尖上的楠溪江</h2>
+            <p style="margin-bottom: 15px;">楠溪江菜系属浙南乡土风味，讲究“鲜、野、土”，食材多取自溪流与山林。夏季推荐清凉解暑的溪鱼汤与农家土菜。</p>
+            <div class="food-grid">
+                <div class="food-card">
+                    <h4>🫓 楠溪江麦饼</h4>
+                    <p>外酥内软，传统炭火烤制。推荐咸菜五花肉馅，配一碗绿豆汤，是夏日赶路最佳干粮。</p>
+                </div>
+                <div class="food-card">
+                    <h4>🐟 清蒸溪鱼/盐水溪鱼</h4>
+                    <p>取自楠溪江天然溪石斑、光唇鱼。肉质紧实无泥腥味，简单盐水煮即鲜美无比，夏季必点。</p>
+                </div>
+                <div class="food-card">
+                    <h4>🐔 盐焗走地鸡</h4>
+                    <p>农家散养土鸡，用粗盐古法焗制，皮脆肉嫩。搭配自酿杨梅酒或土烧酒，风味绝佳。</p>
+                </div>
+                <div class="food-card">
+                    <h4>🍲 锦粉饺与岭上羊肉</h4>
+                    <p>锦粉饺（红薯粉皮包肉馅）是当地特色小吃。夏季虽非吃羊肉旺季，但部分老店提供冷切羊肉，清爽不腻。</p>
+                </div>
+            </div>
+            <div class="tip-inline">🍴 <strong>推荐就餐地：</strong>岩头镇“阿忠饭店”（性价比高，本地人常去）、漂流码头“渔家乐”大排档（吃新鲜溪鱼）、苍坡村口“老村长农家乐”。</div>
+        </section>
+
+        <!-- 住宿推荐 -->
+        <section id="accommodation">
+            <h2>🛏️ 住宿推荐（经济/舒适/野奢）</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="20%">档次</th>
+                        <th>推荐区域/类型</th>
+                        <th>参考价格（夏）</th>
+                        <th>特色说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>💰 经济型</strong></td>
+                        <td>岩头镇连锁客栈 / 狮子岩旁青年旅舍</td>
+                        <td>¥120 - ¥250/晚</td>
+                        <td>交通便利，餐饮集中，适合学生党与背包客。设施基础但干净。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🌿 舒适型</strong></td>
+                        <td>古村改造精品民宿 / 江景农家乐（岩头/枫林镇）</td>
+                        <td>¥280 - ¥550/晚</td>
+                        <td>融入古建元素，带独立庭院或阳台。老板常兼导游/司机，服务贴心。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>✨ 高端野奢</strong></td>
+                        <td>芙蓉古村周边 / 石桅岩景区高端度假酒店</td>
+                        <td>¥800 - ¥1500+/晚</td>
+                        <td>依山傍水，设计感强，配备泳池/茶室/私厨。适合家庭或度假放松。</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tip-inline">📌 夏季预订Tip：周末房源紧张，建议提前3-5天通过正规平台预订。经济型民宿多位于镇中心，步行可达餐饮与超市；追求安静可选古村外围。</div>
+        </section>
+
+        <!-- 交通指南 -->
+        <section id="transport">
+            <h2>🚌 交通指南</h2>
+            <h3>📍 如何抵达</h3>
+            <ul>
+                <li><strong>✈️ 飞机：</strong>飞抵<span class="highlight">温州龙湾国际机场</span>。机场有直达大巴或网约车至楠溪江（约1小时车程）。</li>
+                <li><strong>🚄 高铁：</strong>至<span class="highlight">温州南站</span>（约3-4小时）。出站后前往客运中心，乘坐温州至岩头/枫林的大巴（约1.5小时，班次密集）。</li>
+            </ul>
+            <h3>🛵 市内/景区交通</h3>
+            <ul>
+                <li><strong>自驾（首选）：</strong>各景点分散在沿江50公里范围，导航精准且沿途风景极佳。景区间车程多在20-40分钟。</li>
+                <li><strong>包车/拼车：</strong>高铁站或机场可预约当地司机包车（约¥400-500/天含司机），省心高效。</li>
+                <li><strong>公交：</strong>岩头镇有城乡公交串联主要古村，但发车间隔长（约40-60分钟），夏季不推荐作为主力交通。</li>
+            </ul>
+        </section>
+
+        <!-- 注意事项 -->
+        <section id="tips">
+            <h2>📝 夏季出行注意事项</h2>
+            <div class="pro-con">
+                <div class="pro-box" style="background: #f8f9fa; border-left-color: #2196f3;">
+                    <h4>🌦️ 天气与穿着</h4>
+                    <ul>
+                        <li>夏季多午后雷阵雨，备轻便雨衣/晴雨伞，避开暴雨期进山。</li>
+                        <li>紫外线强烈，必备高倍防晒霜、墨镜、宽檐帽。</li>
+                        <li>穿透气速干衣裤，溯溪/玩水建议备拖鞋或防滑溯溪鞋。古村石板路忌穿高跟鞋。</li>
+                    </ul>
+                </div>
+                <div class="con-box" style="background: #f8f9fa; border-left-color: #f44336;">
+                    <h4>⛑️ 安全与健康</h4>
+                    <ul>
+                        <li>漂流/涉水务必穿戴救生衣，严禁酒后下水或独自进入深潭。</li>
+                        <li>峡谷植被茂密，携带驱蚊液/风油精。若遇水蛭，勿硬拔，可用盐或火烤脱落。</li>
+                        <li>部分古村巷道狭窄，注意车辆盲区。山路弯多，自驾控制车速。</li>
+                        <li>尊重原生态：不采摘野生植物，不乱丢垃圾，保护水源地。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 预算参考 -->
+        <section id="budget">
+            <h2>💰 预算参考（人均·2天1夜·经济型）</h2>
+            <p>基于“预算级别1”设定，适合追求高性价比的学生党与背包客。</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>项目</th>
+                        <th>明细估算</th>
+                        <th>参考费用（¥）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>🚗 往返交通</strong></td>
+                        <td>高铁二等座(温州往返) + 景区大巴/拼车分摊</td>
+                        <td>¥250 - ¥350</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🏡 住宿</strong></td>
+                        <td>岩头镇经济型客栈/青旅 (1晚/双人平摊)</td>
+                        <td>¥80 - ¥120</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🍽️ 餐饮</strong></td>
+                        <td>农家乐简餐 + 麦饼小吃 + 水饮 (4餐)</td>
+                        <td>¥150 - ¥200</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🎫 门票/体验</strong></td>
+                        <td>竹筏漂流 + 石桅岩 + 龙湾潭 (古村多免费)</td>
+                        <td>¥230 - ¥280</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🎒 杂项/预备</strong></td>
+                        <td>防晒、驱蚊、应急药品、纪念品</td>
+                        <td>¥50 - ¥80</td>
+                    </tr>
+                    <tr style="font-weight: bold; background: #e8f5e9;">
+                        <td colspan="2"><strong>📊 总计（人均经济型）</strong></td>
+                        <td><strong>¥760 - ¥1,030</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tip-inline">💡 省钱攻略：购买景区联票可省约¥20；学生/老人凭证享半价或免票；住宿避开周末可降30%左右；自带水杯，沿途可接山泉水直饮（已过滤区域）。</div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 楠溪江夏日旅行指南 | 规划师精心整理 | 数据仅供参考，出行前请以景区官方公告为准</p>
+        <p style="margin-top: 5px; font-size: 0.8rem;">愿你在楠溪江的清风流水中，寻得诗与远方。</p>
+    </footer>
+</body>
+</html>

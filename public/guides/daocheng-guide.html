@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>稻城亚丁夏季深度游攻略 | 专业旅行指南</title>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --primary-dark: #1e3a5f;
+            --primary-light: #e8f0fe;
+            --bg: #f8fafc;
+            --text: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 4px 16px rgba(74, 111, 165, 0.1);
+            --gradient-hero: linear-gradient(135deg, #4a6fa5 0%, #2a5298 50%, #1e3a5f 100%);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0;
+        }
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+        a { color: var(--primary); text-decoration: none; }
+        
+        /* Header */
+        .hero {
+            background: var(--gradient-hero);
+            color: var(--white);
+            padding: 60px 0 80px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid rgba(255,255,255,0.2);
+        }
+        .hero::before {
+            content: "";
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 70%);
+        }
+        .hero-content { position: relative; z-index: 2; text-align: center; }
+        .hero h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; }
+        .hero p { font-size: 16px; opacity: 0.95; max-width: 600px; margin: 0 auto 20px; }
+        .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 16px; }
+        .badge {
+            background: rgba(255,255,255,0.2); backdrop-filter: blur(4px);
+            color: var(--white); padding: 6px 14px; border-radius: 20px;
+            font-size: 13px; font-weight: 500; border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Layout & Sections */
+        section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+        section:last-child { border-bottom: none; }
+        .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+        .section-header h2 { font-size: 24px; color: var(--primary-dark); position: relative; padding-left: 16px; }
+        .section-header h2::before {
+            content: ""; position: absolute; left: 0; top: 4px; bottom: 4px; width: 4px; background: var(--primary); border-radius: 2px;
+        }
+        .subtitle { color: var(--text-light); font-size: 14px; }
+
+        /* Cards & Grid */
+        .grid { display: grid; gap: 20px; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+        .card {
+            background: var(--white); border-radius: 12px; padding: 20px;
+            box-shadow: var(--shadow); border: 1px solid var(--border); transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-3px); }
+        .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .card-icon {
+            width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            color: var(--white); font-weight: bold; font-size: 18px;
+        }
+        .bg-blue { background: var(--primary); }
+        .bg-teal { background: #2a9d8f; }
+        .bg-orange { background: #e76f51; }
+        .bg-purple { background: #7209b7; }
+        .card-title { font-size: 18px; font-weight: 700; color: var(--primary-dark); margin: 0; }
+        .card-desc { color: var(--text-light); font-size: 14px; margin-top: 4px; }
+        .card-body { margin-top: 12px; }
+        .card-body ul { list-style: none; padding-left: 0; }
+        .card-body li { padding: 8px 0; border-bottom: 1px dashed var(--border); position: relative; padding-left: 18px; }
+        .card-body li::before { content: "•"; color: var(--primary); position: absolute; left: 0; font-weight: bold; }
+        .card-body li:last-child { border-bottom: none; }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 24px; }
+        .timeline::before {
+            content: ""; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: var(--primary-light);
+        }
+        .timeline-item { position: relative; margin-bottom: 24px; padding: 16px; background: var(--white); border-radius: 10px; border: 1px solid var(--border); }
+        .timeline-item::before {
+            content: ""; position: absolute; left: -24px; top: 20px; width: 14px; height: 14px;
+            background: var(--primary); border: 3px solid var(--white); border-radius: 50%; z-index: 1;
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+        .time-badge {
+            display: inline-block; background: var(--primary-light); color: var(--primary-dark);
+            padding: 3px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 8px;
+        }
+        .timeline-title { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+        .timeline-content { font-size: 14px; color: var(--text-light); }
+        .timeline-tips { background: #fef3e2; padding: 10px; border-radius: 6px; font-size: 13px; margin-top: 10px; border-left: 3px solid #e9a036; }
+
+        /* Info Grid */
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media(max-width: 640px) { .info-grid { grid-template-columns: 1fr; } }
+        .info-box { background: var(--primary-light); padding: 14px; border-radius: 8px; }
+        .info-label { font-weight: 600; color: var(--primary-dark); display: block; margin-bottom: 4px; }
+
+        /* Tables & Lists */
+        table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
+        th { background: #f1f5f9; color: var(--primary-dark); font-weight: 600; }
+        tr:last-child td { border-bottom: none; }
+        .price-tag { font-weight: bold; color: #d9534f; }
+
+        /* Footer */
+        footer { background: var(--primary-dark); color: var(--white); padding: 40px 0 30px; margin-top: 20px; text-align: center; font-size: 14px; }
+        footer p { opacity: 0.8; margin: 8px 0; }
+        .footer-note { font-size: 12px; color: rgba(255,255,255,0.6); max-width: 600px; margin: 16px auto 0; line-height: 1.7; }
+
+        /* Utility */
+        .highlight { background: linear-gradient(120deg, rgba(74,111,165,0.2) 0%, rgba(74,111,165,0.2) 100%); padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+        .img-placeholder {
+            height: 160px; border-radius: 10px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 600; letter-spacing: 2px; background-size: cover; background-position: center;
+        }
+        .bg-grad-1 { background: linear-gradient(135deg, #4a6fa5, #89c4f4); }
+        .bg-grad-2 { background: linear-gradient(135deg, #1e3a5f, #4a6fa5); }
+        .bg-grad-3 { background: linear-gradient(135deg, #2a5298, #72c4d3); }
+        .bg-grad-4 { background: linear-gradient(135deg, #5b7fa3, #9ab5d3); }
+
+        @media(max-width: 768px) {
+            .hero { padding: 40px 0 50px; }
+            section { padding: 30px 0; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .timeline { padding-left: 20px; }
+            th, td { padding: 10px 12px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>稻城亚丁夏季深度游攻略</h1>
+            <p>水蓝色星球上的最后一片净土 · 避开秋季人潮，拥抱夏日高山草甸与澄澈雪山</p>
+            <div class="badges">
+                <span class="badge">🏔️ 建议游玩 2天</span>
+                <span class="badge">🌿 高原风光</span>
+                <span class="badge">📸 摄影出片</span>
+                <span class="badge">🥾 徒步旅行</span>
+                <span class="badge">💰 预算级别：较高</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 城市概述 -->
+        <section id="overview">
+            <div class="section-header">
+                <h2>城市概述</h2>
+                <span class="subtitle">关于这片净土，你需要知道的一切</span>
+            </div>
+            <div class="info-grid" style="margin-bottom: 20px;">
+                <div class="info-box">
+                    <span class="info-label">📍 地理位置</span>
+                    四川省甘孜州稻城县香格里拉镇，地处青藏高原东南缘，平均海拔 3750 米。
+                </div>
+                <div class="info-box">
+                    <span class="info-label">🌤️ 夏季气候特征</span>
+                    6-8月气温约 5℃~20℃，昼夜温差极大。雨水较多但多为阵雨，空气含氧量较秋冬略高，植被最为茂盛。
+                </div>
+                <div class="info-box">
+                    <span class="info-label">✨ 核心亮点</span>
+                    三座神山（仙乃日、央迈勇、夏诺多吉）呈品字形分布，冰川圣湖、原始森林与高山草甸交织，是国家级自然保护区与摄影圣地。
+                </div>
+                <div class="info-box">
+                    <span class="info-label">⚠️ 旅行提示</span>
+                    夏季为雨季，徒步路线泥泞需注意防滑与防虫；海拔高，需预留充足时间适应；景区内需全程步行或乘坐电瓶车。
+                </div>
+            </div>
+        </section>
+
+        <!-- 行程安排 -->
+        <section id="itinerary">
+            <div class="section-header">
+                <h2>2天详细行程安排</h2>
+                <span class="subtitle">科学规划海拔适应路线，兼顾体力与景观</span>
+            </div>
+            <div class="card" style="margin-bottom: 24px; background: #fdfdfd; border: 1px solid var(--border);">
+                <div class="card-header">
+                    <div class="card-icon bg-blue">D1</div>
+                    <div>
+                        <h3 class="card-title">初探亚丁 · 适应海拔</h3>
+                        <span class="card-desc">抵达 → 冲古寺 → 洛绒牛场 → 休整</span>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-badge">上午 08:00 - 12:00</span>
+                        <div class="timeline-title">抵达香格里拉镇 & 购票进沟</div>
+                        <div class="timeline-content">乘景区观光车至扎灌崩，步行 5 分钟至冲古寺。沿途溪流、白桦林与雪山同框，节奏放缓，感受高原初体验。</div>
+                        <div class="timeline-tips">💡 夏季早晨易起雾，10点后光线通透，适合拍神山倒影。建议携带登山杖与轻便雨衣。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-badge">下午 13:30 - 17:30</span>
+                        <div class="timeline-title">洛绒牛场深度游</div>
+                        <div class="timeline-content">乘坐电瓶车（往返 80元）抵达海拔 4150 米的洛绒牛场。沿木栈道漫步，观赏央迈勇与夏诺多吉雪山，夏季野花盛开，溪流呈蓝绿色。</div>
+                        <div class="timeline-tips">💡 牛场风大，务必穿防风外套。可在此购买简餐，但建议自带高热量零食。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-badge">晚上 19:00 - 21:00</span>
+                        <div class="timeline-title">返回镇区休整</div>
+                        <div class="timeline-content">乘观光车返回香格里拉镇。入住酒店，享用热食。避免洗头洗澡，早睡缓解高反。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="background: #fdfdfd; border: 1px solid var(--border);">
+                <div class="card-header">
+                    <div class="card-icon bg-orange">D2</div>
+                    <div>
+                        <h3 class="card-title">冲顶圣湖 · 巅峰挑战</h3>
+                        <span class="card-desc">洛绒牛场 → 牛奶海 → 五色海 → 返程</span>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-badge">上午 07:00 - 09:30</span>
+                        <div class="timeline-title">早起进沟 & 电瓶车出发</div>
+                        <div class="timeline-content">赶第一班观光车入园，避开旅行团。乘电瓶车直达洛绒牛场，开启徒步。此时段气温低，空气稳定，雪山轮廓最清晰。</div>
+                        <div class="timeline-tips">💡 务必 7:30 前抵达电瓶车排队处。穿防滑徒步鞋，夏季泥泞路段多。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-badge">上午 10:00 - 13:30</span>
+                        <div class="timeline-title">牛奶海 & 五色海攀登</div>
+                        <div class="timeline-content">从洛绒牛场徒步 4.5km（单程）至牛奶海（4500m），湖水如蓝宝石镶嵌于岩壁。继续上行 300m 至五色海（4600m），晴日湖水随光线变幻五色。</div>
+                        <div class="timeline-tips">💡 全程为陡坡碎石路，海拔骤升，配速建议 20-30分钟/公里。可骑马单程（约 300元，视景区开放情况），但需量力而行。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-badge">下午 14:00 - 17:30</span>
+                        <div class="timeline-title">原路返回 & 出沟返程</div>
+                        <div class="timeline-content">沿下坡路返回洛绒牛场，乘电瓶车至扎灌崩，再乘观光车出景区。抵达香格里拉镇或稻城县结束行程。</div>
+                        <div class="timeline-tips">💡 下山膝盖压力大，务必佩戴护膝。下午易遇阵雨，注意路面湿滑，切勿追逐打闹。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 景点详情 -->
+        <section id="attractions">
+            <div class="section-header">
+                <h2>必游景点推荐</h2>
+                <span class="subtitle">三山三水，步步皆景</span>
+            </div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="img-placeholder bg-grad-1">三座神山</div>
+                    <h3 class="card-title">三座神山</h3>
+                    <p class="card-desc">仙乃日(6032m)、央迈勇(5958m)、夏诺多吉(5958m) 呈品字排列，藏民心中的观音、文殊、金刚手菩萨。</p>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>推荐理由：</strong> 藏传佛教圣地，夏季冰川融水充沛，雪线以下岩壁纹理分明，极具视觉冲击力。</li>
+                            <li><strong>游玩Tips：</strong> 洛绒牛场可同时观赏三座神山，央迈勇最易出片；勿在神山前大声喧哗或跨越经幡。</li>
+                            <li><strong>门票信息：</strong> 包含在景区大门票内（146元）。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img-placeholder bg-grad-2">牛奶海与五色海</div>
+                    <h3 class="card-title">牛奶海 & 五色海</h3>
+                    <p class="card-desc">海拔4600米的冰川圣湖群，牛奶海如蓝宝石，五色海因湖底藻类与矿物呈现五彩变幻。</p>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>推荐理由：</strong> 徒步终点，高原湖泊的极致代表。夏季湖水丰盈，倒影完美，是摄影发烧友的朝圣地。</li>
+                            <li><strong>游玩Tips：</strong> 晴天上午 10-12 点光线最佳；五色海风大易起浪，建议耐心等待风停抓拍；高反严重者切勿强求登顶。</li>
+                            <li><strong>门票信息：</strong> 免费开放。需自费购买前往洛绒牛场电瓶车（单程50/往返80）。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img-placeholder bg-grad-3">洛绒牛场</div>
+                    <h3 class="card-title">洛绒牛场</h3>
+                    <p class="card-desc">海拔4150米的高山草甸，被雪山环绕，夏季野花遍野，溪流蜿蜒，是观赏神山的最佳平台。</p>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>推荐理由：</strong> 亚丁最平缓的景观区，适合全家老少。6-7月马兰花与绿绒蒿盛开，宛如莫奈油画。</li>
+                            <li><strong>游玩Tips：</strong> 木栈道外勿随意踏入草甸保护区（易陷且破坏生态）；可在此拍摄星空（夏季银河可见度高）。</li>
+                            <li><strong>门票信息：</strong> 包含在景区内。观光车必坐（120元）。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img-placeholder bg-grad-4">冲古寺</div>
+                    <h3 class="card-title">冲古寺</h3>
+                    <p class="card-desc">海拔3880米的古老藏传佛教寺庙，通往洛绒牛场与圣湖的起点，正对仙乃日神山。</p>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>推荐理由：</strong> 宗教文化与自然风光的完美交汇。清晨梵音缭绕，阳光穿透薄雾打在金顶上，极具禅意。</li>
+                            <li><strong>游玩Tips：</strong> 顺时针转经筒或绕寺三圈以示尊重；寺前小溪为仙乃日融水，可拍摄雪山倒影，但勿戏水。</li>
+                            <li><strong>门票信息：</strong> 免费参观。需保持安静，殿内禁止拍照。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 美食推荐 -->
+        <section id="food">
+            <div class="section-header">
+                <h2>特色美食推荐</h2>
+                <span class="subtitle">藏地风味，暖胃驱寒</span>
+            </div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 class="card-title">🍲 牦牛肉火锅</h3>
+                    <p class="card-desc">高原散养牦牛肉，肉质紧实。搭配当地白萝卜、松茸与野生菌慢炖，汤浓肉香，补充体力抗高反首选。</p>
+                    <p class="card-desc"><strong>推荐餐厅：</strong> 香格里拉镇“亚丁天堂牦牛火锅”、“稻城亚丁雪域藏餐坊”</p>
+                    <p class="card-desc"><span class="price-tag">💰 参考价：120-180元/人</span></p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">🥟 酥油茶 & 青稞饼</h3>
+                    <p class="card-desc">藏族传统早餐。酥油茶提神暖身，预防高反；青稞饼麦香浓郁，微甜耐嚼，是徒步前的优质碳水来源。</p>
+                    <p class="card-desc"><strong>推荐地点：</strong> 镇内藏餐馆或冲古寺休息站</p>
+                    <p class="card-desc"><span class="price-tag">💰 参考价：30-50元/份</span></p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">🍄 松茸炖土鸡</h3>
+                    <p class="card-desc">夏季雨季刚过，新鲜松茸上市。与本地土鸡同炖，汤色金黄，菌香扑鼻，营养价值极高。</p>
+                    <p class="card-desc"><strong>推荐餐厅：</strong> “稻城印象主题餐厅”、“亚丁村口农家菜”</p>
+                    <p class="card-desc"><span class="price-tag">💰 参考价：90-140元/人</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 住宿推荐 -->
+        <section id="accommodation">
+            <div class="section-header">
+                <h2>住宿推荐</h2>
+                <span class="subtitle">按预算分级，含供氧与地暖设施说明</span>
+            </div>
+            <table>
+                <tr>
+                    <th style="width: 20%;">档次</th>
+                    <th style="width: 35%;">推荐酒店/客栈</th>
+                    <th style="width: 25%;">核心配置</th>
+                    <th style="width: 20;">夏季参考价/晚</th>
+                </tr>
+                <tr>
+                    <td><span class="badge" style="background:#e2e8f0; color:#475569;">💵 经济型</span></td>
+                    <td><strong>亚丁村青旅 / 稻城县青年驿站</strong><br>位置：稻城县或亚丁村外围</td>
+                    <td>公共卫浴、基础保暖、无独立供氧<br>适合背包客与预算有限者</td>
+                    <td class="price-tag">200 - 350 元</td>
+                </tr>
+                <tr>
+                    <td><span class="badge" style="background:var(--primary-light); color:var(--primary-dark);">🌿 舒适型</span></td>
+                    <td><strong>亚丁智选假日酒店 / 藏乡云居客栈</strong><br>位置：香格里拉镇核心区</td>
+                    <td>独立供氧机/弥散式供氧、地暖/电热毯<br>干湿分离卫浴、24h热水、含早</td>
+                    <td class="price-tag">450 - 750 元</td>
+                </tr>
+                <tr>
+                    <td><span class="badge" style="background:#fef3e2; color:#c2410c;">👑 高端型</span></td>
+                    <td><strong>亚丁华美达酒店 / 洛绒牛场野奢帐篷</strong><br>位置：镇口/景区内指定露营区</td>
+                    <td>全景落地窗观星、独立弥散式供氧<br>智能温控、藏式SPA、专车接送沟口</td>
+                    <td class="price-tag">900 - 1800 元</td>
+                </tr>
+            </table>
+            <p style="margin-top: 16px; font-size: 14px; color: var(--text-light);">📌 <strong>预订提示：</strong> 夏季为旅游旺季，务必提前 15-30 天预订。选择带“供氧”标识的酒店可大幅降低夜间高反概率。香格里拉镇海拔 2900 米，适合过夜适应。</p>
+        </section>
+
+        <!-- 交通指南 -->
+        <section id="transport">
+            <div class="section-header">
+                <h2>交通指南</h2>
+                <span class="subtitle">如何抵达 & 景区内交通网络</span>
+            </div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3 class="card-title">✈️ 如何到达</h3>
+                    <ul>
+                        <li><strong>飞机（首选）：</strong> 直飞<span class="highlight">稻城亚丁机场</span>（海拔 4411m，世界最高民用机场）。成都/重庆/西安等地有航班，飞行约 1.5-2.5 小时。</li>
+                        <li><strong>高铁+大巴：</strong> 乘高铁至<span class="highlight">成都南站/雅安站</span>，转乘长途大巴至稻城县（约 8-10 小时），路况良好但车程长，易疲劳。</li>
+                        <li><strong>包车/自驾：</strong> 成都出发走 G318 + G217 省道，约 2 天车程。夏季雨水多，部分山路易塌方，需经验老司机驾驶。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">🚌 景区内交通</h3>
+                    <ul>
+                        <li><strong>观光车：</strong> 扎灌崩至游客中心往返 120 元/人，必买。车程约 45 分钟，盘山公路晕车者备晕车药。</li>
+                        <li><strong>电瓶车：</strong> 冲古寺至洛绒牛场，单程 50 元/往返 80 元。夏季旺季排队时间长，建议早到。</li>
+                        <li><strong>马帮服务：</strong> 洛绒牛场至牛奶海/五色海路段可选骑马，价格 200-500 元/单程（视天气与运力浮动），但需提前抵达排队。</li>
+                        <li><strong>接驳交通：</strong> 稻城县/香格里拉镇至机场约 1-1.5 小时车程，酒店通常提供付费接送服务。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 注意事项 -->
+        <section id="tips">
+            <div class="section-header">
+                <h2>注意事项与行前准备</h2>
+                <span class="subtitle">安全、环保与健康管理</span>
+            </div>
+            <div class="card" style="background: linear-gradient(135deg, #f8fafc 0%, #e8f0fe 100%);">
+                <div class="grid grid-2">
+                    <div>
+                        <h4 style="color: var(--primary-dark); margin-bottom: 10px;">🛡️ 高原健康</h4>
+                        <ul style="padding-left: 18px; margin-bottom: 16px; font-size: 14px;">
+                            <li>出发前 3-5 天服用红景天，备氧气瓶（镇区购买约 30-60元/瓶，建议备 2-3 瓶）。</li>
+                            <li>首日避免剧烈运动、洗澡、饮酒。头痛/恶心属正常，持续加重需立即下撤至低海拔。</li>
+                            <li>夏季紫外线极强，务必涂抹 SPF50+ 防晒霜、戴墨镜（防雪盲）、穿防晒衣。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-dark); margin-bottom: 10px;">🎒 装备清单</h4>
+                        <ul style="padding-left: 18px; margin-bottom: 16px; font-size: 14px;">
+                            <li><strong>穿衣：</strong> 冲锋衣裤（防风防水）、速干内衣、保暖抓绒层、防滑徒步鞋。</li>
+                            <li><strong>防护：</strong> 一次性雨衣（防夏季阵雨）、登山杖、护膝、魔术头巾。</li>
+                            <li><strong>其他：</strong> 保温杯（高原喝热水缓解不适）、高热量零食（巧克力/牛肉干）、肠胃药、创可贴。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); font-size: 14px; color: #64748b;">
+                    <strong>🌍 环保倡议：</strong> 亚丁属国家级自然保护区。严禁携带无人机（未报备）、严禁丢弃垃圾、严禁采摘高山植物或惊扰野生动物。所有废弃物请带出景区。
+                </div>
+            </div>
+        </section>
+
+        <!-- 预算参考 -->
+        <section id="budget">
+            <div class="section-header">
+                <h2>预算参考（人均/2天）</h2>
+                <span class="subtitle">预算级别：较高（舒适型标准）</span>
+            </div>
+            <table>
+                <tr>
+                    <th>项目</th>
+                    <th>明细说明</th>
+                    <th>预估费用（元）</th>
+                </tr>
+                <tr>
+                    <td>🚗 外部交通</td>
+                    <td>往返机票（成都-稻城亚丁机场）/高铁+大巴中转分摊</td>
+                    <td class="price-tag">1,200 - 2,200</td>
+                </tr>
+                <tr>
+                    <td>🏨 住宿（1晚）</td>
+                    <td>香格里拉镇舒适型带供氧酒店（双人拼住人均）</td>
+                    <td class="price-tag">350 - 600</td>
+                </tr>
+                <tr>
+                    <td>🍽️ 餐饮</td>
+                    <

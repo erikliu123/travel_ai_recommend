@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>庐山夏季旅游攻略 | 资深旅行家定制</title>
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --primary-light: #52b788;
+      --primary-dark: #1b4332;
+      --accent: #d4a373;
+      --bg: #f4f7f5;
+      --text: #2c3e50;
+      --text-light: #5a6b7c;
+      --white: #ffffff;
+      --shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px 16px; }
+    
+    .hero {
+      background: linear-gradient(160deg, var(--primary-dark), var(--primary), var(--primary-light));
+      color: var(--white);
+      padding: 70px 20px 50px;
+      border-radius: 0 0 var(--radius) var(--radius);
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15), transparent 60%);
+      pointer-events: none;
+    }
+    .hero h1 { font-size: 2.6rem; margin-bottom: 12px; letter-spacing: 2px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    .hero .subtitle { font-size: 1.15rem; opacity: 0.92; max-width: 700px; margin: 0 auto 20px; font-weight: 300; }
+    .meta-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 15px; }
+    .meta-item { background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 0.88rem; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(4px); }
+    
+    section { background: var(--white); padding: 28px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 32px; transition: transform 0.2s ease; }
+    section:hover { transform: translateY(-2px); }
+    .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; padding-bottom: 10px; border-bottom: 2px solid #edf2ed; }
+    .section-header h2 { font-size: 1.5rem; color: var(--primary-dark); margin: 0; }
+    .icon-dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 0 3px rgba(45,106,79,0.2); }
+    
+    p, li { color: var(--text); margin-bottom: 10px; }
+    ul { padding-left: 18px; }
+    ul li { margin-bottom: 8px; list-style: none; position: relative; padding-left: 18px; }
+    ul li::before { content: "•"; color: var(--primary-light); font-weight: bold; position: absolute; left: 0; }
+
+    .itinerary-day { margin-bottom: 25px; border: 1px solid #eef2f1; border-radius: 10px; overflow: hidden; }
+    .day-title { background: #e8f5e9; padding: 12px 16px; font-weight: 700; color: var(--primary-dark); display: flex; justify-content: space-between; align-items: center; }
+    .time-block { padding: 16px; border-bottom: 1px solid #eee; }
+    .time-block:last-child { border-bottom: none; }
+    .time-label { color: var(--primary); font-weight: 600; margin-right: 8px; display: inline-block; min-width: 60px; }
+    
+    .spot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .spot-card { background: #fafbfa; border: 1px solid #e6ebe9; padding: 18px; border-radius: 10px; display: flex; flex-direction: column; }
+    .spot-name { color: var(--primary); font-size: 1.15rem; margin-bottom: 8px; }
+    .spot-desc { flex: 1; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-light); }
+    .spot-meta { background: #f0f7f3; padding: 8px 12px; border-radius: 6px; font-size: 0.85rem; color: var(--primary-dark); display: flex; justify-content: space-between; align-items: center; }
+    .tip-highlight { background: #fffdf5; border-left: 3px solid var(--accent); padding: 10px 12px; margin-top: 12px; font-size: 0.9rem; color: #7c6a48; border-radius: 4px; }
+
+    .food-list, .accom-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .list-card { background: linear-gradient(to bottom right, #ffffff, #f9fdfa); padding: 16px; border-radius: 10px; border: 1px solid #e2e8e5; }
+    .list-card h4 { color: var(--primary-dark); margin-bottom: 6px; }
+    .price { color: #c0392b; font-weight: 700; font-size: 0.95rem; }
+
+    .transport-box, .tips-box, .budget-table { width: 100%; }
+    .tips-box { background: #fffbeb; border: 1px solid #fde047; border-radius: 8px; padding: 15px; }
+    .tips-box strong { color: #b45309; }
+    .warning { background: #fef2f2; border-left: 4px solid #ef4444; padding: 12px; border-radius: 6px; margin-top: 10px; }
+    
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.95rem; }
+    th { background: var(--primary); color: var(--white); padding: 12px; text-align: left; }
+    td { padding: 12px; border-bottom: 1px solid #eee; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background: #f8fcf9; }
+    
+    footer { text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 0.9rem; margin-top: 20px; border-top: 1px solid #e0e5e3; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 50px 15px 40px; }
+      .hero h1 { font-size: 2rem; }
+      section { padding: 18px; }
+      .section-header h2 { font-size: 1.3rem; }
+      .spot-grid { grid-template-columns: 1fr; }
+      table, thead, tbody, th, td, tr { display: block; }
+      th { display: none; }
+      td { padding: 10px 14px; position: relative; padding-left: 40%; }
+      td::before { position: absolute; left: 14px; font-weight: bold; color: var(--primary-dark); content: attr(data-label); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header class="hero">
+    <h1>庐山 · 2日清凉避暑之旅</h1>
+    <p class="subtitle">匡庐奇秀甲天下，夏季均温22℃的云端秘境。绿荫如盖，瀑布飞流，民国别墅掩映在葱郁山色中，是逃离酷暑的绝佳选择。</p>
+    <div class="meta-grid">
+      <span class="meta-item">📍 江西九江</span>
+      <span class="meta-item">⏱️ 建议游玩：2天</span>
+      <span class="meta-item">💰 预算级别：适中</span>
+      <span class="meta-item">🏷️ 自然风光｜登山徒步｜摄影出片</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-header">
+      <span class="icon-dot"></span>
+      <h2>城市概述</h2>
+    </div>
+    <p>庐山不仅以“奇秀”闻名于世，更是中国四大避暑胜地之一。夏季的庐山植被覆盖率极高，古木参天，云雾缭绕。山间平均气温仅22℃左右，早晚凉爽宜人。除了壮丽的自然景观，庐山还保留了近千栋风格各异的万国建筑与民国别墅群，人文底蕴深厚。无论是追寻“飞流直下三千尺”的诗意，还是漫步在绿野仙踪般的林荫道，都能让你彻底放松身心。</p>
+    <ul style="margin-top:12px; color: var(--primary-dark); font-weight: 500;">
+      <li><strong>核心优势：</strong>夏日气候清凉、瀑布水量充沛、云海日出概率高、距长三角交通便利</li>
+      <li><strong>注意事项：</strong>夏季周末游客集中、部分步道坡度较陡耗体力、山顶住宿需提前预订、阵雨较多需备雨具</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="icon-dot"></span>
+      <h2>2天详细行程安排</h2>
+    </div>
+    <div class="itinerary-day">
+      <div class="day-title">Day 1：云端初遇 · 人文与日落云海</div>
+      <div class="time-block">
+        <span class="time-label">上午</span> <strong>抵达庐山站/九江站 → 换乘观光车上山 → 入住牯岭镇</strong><br>
+        乘坐景区环保车直达牯岭镇，办理入住。在正街享用午餐，稍作休息适应海拔。
+      </div>
+      <div class="time-block">
+        <span class="time-label">下午</span> <strong>庐山别墅群（美庐、周恩来纪念室、老别墅故事）</strong><br>
+        漫步梧桐掩映的街区，打卡百年别墅。夏日光影斑驳，非常适合胶片风人像摄影。
+      </div>
+      <div class="time-block">
+        <span class="time-label">晚上</span> <strong>牯岭街漫步 → 如琴湖畔散步 → 夜景摄影</strong><br>
+        夜晚的牯岭镇灯火通明却十分宁静，如琴湖倒映星光与路灯，是消夏纳凉的好去处。
+      </div>
+    </div>
+
+    <div class="itinerary-day">
+      <div class="day-title">Day 2：登高望远 · 五峰奇秀与三叠飞瀑</div>
+      <div class="time-block">
+        <span class="time-label">上午</span> <strong>五老峰（I-IV峰环线）</strong><br>
+        清晨空气最佳，沿步道拾级而上。夏季植被繁茂，登顶可俯瞰鄱阳湖平原，视野极佳。
+      </div>
+      <div class="time-block">
+        <span class="time-label">下午</span> <strong>含鄱口（远眺汉阳峰/鄱阳湖） → 三叠泉瀑布</strong><br>
+        午后前往含鄱口，常有山风拂面。随后前往三叠泉，观赏夏季丰水期最为震撼的“一级直下，二级弯曲，三级如龙”。
+      </div>
+      <div class="time-block">
+        <span class="time-label">晚上</span> <strong>乘环保车返回牯岭镇 → 晚餐后返程/次日离山</strong>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="icon-dot"></span>
+      <h2>必游景点详解</h2>
+    </div>
+    <div class="spot-grid">
+      <div class="spot-card">
+        <h3 class="spot-name">🌊 三叠泉瀑布</h3>
+        <p class="spot-desc">庐山最壮观的自然奇观。三级落差共155米，夏季水量丰沛，水雾扑面而来，真正还原“飞流直下三千尺”的震撼。</p>
+        <div class="spot-meta"><span>门票：含在大门票内</span><span>游玩：2.5-3小时</span></div>
+        <div class="tip-highlight">💡 Tips：上下台阶近1500级，极其考验体力。建议下山时乘坐三叠泉缆车（单程约80元），保存膝盖体力。夏季务必穿防滑鞋。</div>
+      </div>
+      <div class="spot-card">
+        <h3 class="spot-name">🌅 含鄱口</h3>
+        <p class="spot-desc">观赏鄱阳湖与日出的制高点。夏季清晨水汽充足，常有翻腾云海，远处湖面如镜，映照朝霞，极为出片。</p>
+        <div class="spot-meta"><span>门票：含在大门票内</span><span>游玩：1-1.5小时</span></div>
+        <div class="tip-highlight">💡 Tips：若想拍日出需凌晨5:00前抵达，带薄外套防风。非日出时段也可欣赏晴空下的开阔山景与云海。</div>
+      </div>
+      <div class="spot-card">
+        <h3 class="spot-name">⛰️ 五老峰</h3>
+        <p class="spot-desc">五座山峰如五位老者并坐。夏季古木参天，林荫遮蔽了大部分阳光，是徒步吸氧与俯瞰鄱阳湖平原的绝佳路线。</p>
+        <div class="spot-meta"><span>门票：含在大门票内</span><span>游玩：3小时</span></div>
+        <div class="tip-highlight">💡 Tips：建议从一峰走到四峰即可，第五峰路途较远且陡峭。沿途有凉亭可休息，夏季注意补水防蚊虫。</div>
+      </div>
+      <div class="spot-card">
+        <h3 class="spot-name">🏛️ 庐山别墅群</h3>
+        <p class="spot-desc">美庐、毛泽东旧居、老别墅故事等民国建筑散落山间。夏日爬山虎与凌霄花爬满红砖墙面，岁月静好。</p>
+        <div class="spot-meta"><span>门票：美庐约45元，外街免费</span><span>游玩：1.5小时</span></div>
+        <div class="tip-highlight">💡 Tips：建议安排在光线柔和的下午。部分别墅内部可购票参观，外部街区免费漫步，适合慢节奏Citywalk。</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="icon-dot"></span>
+      <h2>特色美食推荐</h2>
+    </div>
+    <div class="food-list">
+      <div class="list-card">
+        <h4>🥢 庐山“三石”宴</h4>
+        <p>石鸡（棘胸蛙）、石鱼（溪涧小鱼）、石耳（悬崖菌类）。夏季食用清蒸或炖汤，清热解暑，滋阴润肺。</p>
+        <p class="price">💰 参考价：80-120元/人</p>
+      </div>
+      <div class="list-card">
+        <h4>🍵 庐山云雾茶</h4>
+        <p>中国十大名茶之一。生长于高山云雾中，汤色清绿，香气清高。饭后必点，解腻提神。</p>
+        <p class="price">💰 参考价：30-60元/壶</p>
+      </div>
+      <div class="list-card">
+        <h4>📍 推荐餐厅</h4>
+        <p><strong>老别墅故事餐厅：</strong>环境极佳，民国风情，菜品精致。<br><strong>牯岭正街大排档：</strong>接地气，烟火气足，推荐土豆烧牛腩、炒野菜。<br><strong>望庐说·观景餐厅：</strong>可远眺峡谷，适合傍晚用餐。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="icon-dot"></span>
+      <h2>住宿推荐指南</h2>
+    </div>
+    <div class="accom-list">
+      <div class="list-card">
+        <h4>🛏️ 经济型：家庭客栈/青旅</h4>
+        <p>位置：牯岭正街周边或仰天坪附近。设施基础但干净卫生，适合学生党或背包客。夏季建议确认是否有独立卫浴和空调（部分高海拔客栈无需空调）。</p>
+        <p class="price">💰 150-300元/晚</p>
+      </div>
+      <div class="list-card">
+        <h4>🌿 舒适型：精品民宿/连锁酒店</h4>
+        <p>位置：正街500米内，步行到餐馆超市极便利。多配有地暖、浴缸、观景阳台，服务规范。夏季入住需提前3-5天预订。</p>
+        <p class="price">💰 400-750元/晚</p>
+      </div>
+      <div class="list-card">
+        <h4>🏰 高端型：百年别墅/星级度假</h4>
+        <p>位置：河西路、东谷别墅群核心区。由历史建筑改造，推窗见绿，配套完善。提供管家服务与定制早餐，体验极佳。</p>
+        <p class="price">💰 900-1800元/晚</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="icon-dot"></span>
+      <h2>交通指南</h2>
+    </div>
+    <ul class="info-list">
+      <li><strong>🚄 高铁抵达：</strong>杭州东/上海虹桥等地出发约4.5-5小时，抵达【庐山站】（原九江站附近）或【南昌站】中转。庐山站出站即有直达景区的接驳大巴。</li>
+      <li><strong>✈️ 飞机抵达：</strong>飞抵【南昌昌北机场】，换乘高铁至庐山站/九江站（约1-1.5小时），再转乘景区大巴。</li>
+      <li><strong>🚌 上山交通：</strong>抵达山脚后，需换乘【景区环保观光车】（90元/7日有效）或【索道】（往返约140元，约7分钟直达牯岭镇）。夏季索道排队较长，建议错峰或提前线上购票。</li>
+      <li><strong>🚗 自驾提示：</strong>非核心管制期可自驾上山，但山路弯道多（约15公里盘山路），需老司机驾驶。旺季周末常实行交通管制，建议停车换乘大巴。</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="icon-dot"></span>
+      <h2>夏季出行注意事项</h2>
+    </div>
+    <div class="tips-box">
+      <p><strong>🌡️ 气候与穿搭：</strong>夏季庐山白天均温25-28℃，夜间降至18-20℃。建议“短袖+薄外套/防晒衣”洋葱式穿搭。山顶紫外线强，务必携带墨镜、宽檐帽、高倍防晒霜。</p>
+      <p><strong>🌧️ 天气应对：</strong>庐山夏季多阵雨，云雾变幻极快。随身携带轻便雨衣或折叠伞，比雨伞更实用（登山腾出双手）。雨后初晴最易出现云海，耐心守候常有惊喜。</p>
+      <p><strong>🥾 徒步安全：</strong>三叠泉、五老峰台阶陡峭湿滑。务必穿专业防滑徒步鞋或运动鞋。切勿在雷雨天气靠近水源或站在高地。随身携带电解质水、小零食补充体力。</p>
+      <p class="warning">⚠️ <strong>特别提醒：</strong>部分野景点未开发，严禁翻越护栏或偏离指示牌。保护环境，垃圾随身带走。夏季蚊虫较多，建议备驱蚊喷雾或清凉油。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="icon-dot"></span>
+      <h2>预算参考（人均/2天1夜）</h2>
+    </div>
+    <p style="margin-bottom:12px;">以下为【适中】级别单人花费估算，实际价格随淡旺季及出行方式浮动。</p>
+    <div class="budget-table">
+      <table>
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>明细说明</th>
+            <th>预估费用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-label="项目">大交通</td><td data-label="明细说明">高铁/动车往返（视出发地）</td><td data-label="预估费用">400-800元</td></tr>
+          <tr><td data-label="项目">景区内交通</td><td data-label="明细说明">观光车7日票+索道/接驳车</td><td data-label="预估费用">150-250元</td></tr>
+          <tr><td data-label="项目">门票</td><td data-label="明细说明">庐山大门票（旺季160元）+美庐等小景点</td><td data-label="预估费用">160-220元</td></tr>
+          <tr><td data-label="项目">住宿</td><td data-label="明细说明">舒适型民宿/酒店（1晚/标间分摊）</td><td data-label="预估费用">200-400元</td></tr>
+          <tr><td data-label="项目">餐饮</td><td data-label="明细说明">正餐+小吃+饮品（4正1早）</td><td data-label="预估费用">250-350元</td></tr>
+          <tr style="background:#e8f5e9; font-weight:bold;"><td data-label="项目">总计参考</td><td data-label="明细说明">经济型可压缩至 1000元内，高端型约 2500元+</td><td data-label="预估费用">1200-1800元</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 资深旅行规划师出品 | 数据仅供参考，实际以景区当日公告为准</p>
+    <p style="margin-top:8px; font-size: 0.8rem; opacity: 0.8;">祝您拥有一段清凉、惬意、充满惊喜的庐山夏日之旅 🌲⛰️</p>
+  </footer>
+</div>
+
+</body>
+</html>

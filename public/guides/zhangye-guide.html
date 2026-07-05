@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张掖夏日旅行攻略 | 丝路重镇·丹霞名城</title>
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --primary-dark: #1b4332;
+            --primary-light: #52b788;
+            --primary-bg: #e8f5e9;
+            --accent: #d4a373;
+            --text: #2c3e50;
+            --text-light: #5f6c7b;
+            --bg: #f5f7fa;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 4px 20px rgba(45, 106, 79, 0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 60px 0 80px; text-align: center; position: relative; overflow: hidden; }
+        header::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 40px; background: var(--bg); clip-path: polygon(0 50%, 100% 0%, 100% 100%, 0 100%); }
+        header h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px; }
+        header .subtitle { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto 25px; }
+        .tag-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .badge { background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3); }
+
+        /* Sections */
+        section { background: var(--card-bg); margin: 40px 0; border-radius: 16px; box-shadow: var(--shadow); padding: 35px; position: relative; }
+        h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; }
+        h2::before { content: ''; width: 6px; height: 28px; background: var(--accent); border-radius: 4px; }
+        h3 { font-size: 1.2rem; color: var(--text); margin: 18px 0 10px; }
+        p { color: var(--text-light); margin-bottom: 15px; }
+        ul { margin-left: 20px; color: var(--text-light); }
+        li { margin-bottom: 8px; }
+
+        /* Overview Grid */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 25px; background: var(--primary-bg); padding: 20px; border-radius: 12px; }
+        .info-item { text-align: center; }
+        .info-label { font-size: 0.85rem; color: var(--text-light); display: block; }
+        .info-value { font-weight: 700; font-size: 1.1rem; color: var(--primary); }
+        .pros-cons { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
+        .pro, .con { flex: 1; min-width: 250px; padding: 15px; border-radius: 8px; font-size: 0.9rem; }
+        .pro { background: #d4f8e0; border-left: 4px solid #38b000; color: #2b5435; }
+        .con { background: #ffe3e5; border-left: 4px solid #e11d48; color: #7a1b29; }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 30px; border-left: 3px dashed var(--border); }
+        .timeline-day { position: relative; margin-bottom: 35px; }
+        .timeline-day::before { content: ''; position: absolute; left: -38px; top: 5px; width: 16px; height: 16px; background: var(--accent); border: 3px solid #fff; border-radius: 50%; box-shadow: 0 0 0 2px var(--primary); }
+        .timeline-item { background: #fafafa; padding: 20px; border-radius: 10px; margin-bottom: 15px; border: 1px solid var(--border); }
+        .timeline-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .time-tag { background: var(--primary-bg); color: var(--primary); font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; }
+        .timeline-content h4 { color: var(--primary-dark); margin-bottom: 5px; }
+
+        /* Attractions */
+        .attraction-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .attr-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+        .attr-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .attr-img { height: 180px; width: 100%; }
+        .danxia-grad { background: linear-gradient(135deg, #c0392b 0%, #e67e22 40%, #f1c40f 70%, #ecf0f1 100%); }
+        .mati-grad { background: linear-gradient(135deg, #8e44ad 0%, #3498db 50%, #2ecc71 100%); }
+        .canyon-grad { background: linear-gradient(135deg, #d35400 0%, #e67e22 40%, #7f8c8d 80%, #3498db 100%); }
+        .dafo-grad { background: linear-gradient(135deg, #f39c12 0%, #d35400 40%, #7f8c8d 80%, #2c3e50 100%); }
+        .attr-body { padding: 20px; }
+        .attr-title { font-weight: 700; font-size: 1.15rem; margin-bottom: 8px; color: var(--text); }
+        .attr-meta { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: 12px; background: #f8f9fa; padding: 6px 10px; border-radius: 6px; }
+        .tips-box { background: #f0f7f4; border: 1px dashed var(--primary-light); padding: 12px; border-radius: 8px; font-size: 0.9rem; }
+        .tips-box strong { color: var(--primary-dark); }
+
+        /* Tables & Lists */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 14px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--primary-bg); color: var(--primary); font-weight: 600; }
+        .food-list, .hotel-list, .transport-grid, .budget-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .food-item, .hotel-card, .transport-item { background: #fafafa; padding: 20px; border-radius: 10px; border: 1px solid var(--border); }
+        .price-highlight { color: var(--accent); font-weight: 700; font-size: 1.2rem; }
+        .note { background: #fff8e1; border-left: 4px solid #ffc107; padding: 12px; margin: 15px 0; font-size: 0.9rem; color: #5c4100; border-radius: 4px; }
+
+        /* Footer */
+        footer { text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 20px; background: var(--card-bg); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            section { padding: 20px; margin: 20px 0; }
+            .attraction-grid { grid-template-columns: 1fr; }
+            .timeline { padding-left: 20px; }
+            .timeline-day::before { left: -28px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>张掖·夏日丝路丹霞之旅</h1>
+        <div class="subtitle">避暑胜地 | 色彩王国 | 千年西夏遗风</div>
+        <div class="tag-container">
+            <span class="badge">🌲 自然风光</span>
+            <span class="badge">📷 摄影出片</span>
+            <span class="badge">🏛️ 历史古迹</span>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- 城市概述 -->
+    <section id="overview">
+        <h2>城市概述</h2>
+        <p>张掖，古称甘州，是古丝绸之路上的重镇与西北交通枢纽。这里拥有中国最美的丹霞地貌，集石窟艺术、祁连山雪水、裕固族风情于一体。虽然秋季色彩最为浓烈，但夏季（6-8月）气温舒适、雨水较少、植被葱郁，且游客相对避开高峰，是深度体验西北壮阔与人文底蕴的理想时段。</p>
+        <div class="info-grid">
+            <div class="info-item"><span class="info-label">建议游玩</span><span class="info-value">2天1夜</span></div>
+            <div class="info-item"><span class="info-label">最佳季节</span><span class="info-value">6-10月（夏避暑/秋赏色）</span></div>
+            <div class="info-item"><span class="info-label">预算级别</span><span class="info-value">¥¥ 适中（Level 2）</span></div>
+            <div class="info-item"><span class="info-label">适宜人群</span><span class="info-value">摄影/自驾/亲子/文化</span></div>
+        </div>
+        <div class="pros-cons">
+            <div class="pro">✅ 丹霞色彩斑斓、夏季气候干燥宜人、西北环线重要节点、人文与自然完美融合</div>
+            <div class="con">❌ 距东部城市远、景区分散需包车、紫外线极强、餐饮选择相对集中</div>
+        </div>
+    </section>
+
+    <!-- 行程安排 -->
+    <section id="itinerary">
+        <h2>📅 2天详细行程规划</h2>
+        <div class="timeline">
+            <div class="timeline-day">
+                <h3>Day 1：古刹佛音与丹霞日落</h3>
+                <div class="timeline-item">
+                    <div class="timeline-header"><span class="time-tag">上午</span></div>
+                    <div class="timeline-content">
+                        <h4>大佛寺 · 寻访西夏瑰宝</h4>
+                        <p>抵达张掖市区，前往始建于西夏的大佛寺。参观亚洲最大的室内泥塑卧佛（长34.5米），感受千年古刹的庄严与宁静，了解西夏佛教文化与建筑艺术。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header"><span class="time-tag">下午 14:30</span></div>
+                    <div class="timeline-content">
+                        <h4>驱车前往张掖丹霞国家地质公园</h4>
+                        <p>市区乘车约45公里（车程约1小时）。办理入住或寄存行李后，购票进入景区。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header"><span class="time-tag">傍晚 17:30</span></div>
+                    <div class="timeline-content">
+                        <h4>丹霞落日大片</h4>
+                        <p>乘坐景交车按4-2-5-3顺序游览。重点在4号观景台“七彩仙缘”等待日落，夕阳照射下岩层呈现最饱和的红橙色调，摄影黄金期。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header"><span class="time-tag">晚上 20:30</span></div>
+                    <div class="timeline-content">
+                        <h4>返回市区 · 甘州巷子夜市</h4>
+                        <p>返回甘州区，漫步网红小吃街，品尝搓鱼子、炒拨拉、甜醅子等特色小吃，感受西北烟火气。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-day">
+                <h3>Day 2：悬崖石窟与大地裂痕</h3>
+                <div class="timeline-item">
+                    <div class="timeline-header"><span class="time-tag">上午 08:30</span></div>
+                    <div class="timeline-content">
+                        <h4>马蹄寺石窟</h4>
+                        <p>乘车约60公里前往马蹄寺。攀登陡峭的“三十三天石窟”（垂直高度约40米），俯瞰祁连山草原风光，体验裕固族民俗。建议早去避开正午暴晒。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header"><span class="time-tag">下午 13:30</span></div>
+                    <div class="timeline-content">
+                        <h4>平山湖大峡谷</h4>
+                        <p>转战距市区约60公里的平山湖。被誉为“比肩科罗拉多”的红层峡谷，徒步穿越峡谷底部，感受亿年风蚀的鬼斧神工。地形起伏较大，需穿防滑鞋。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header"><span class="time-tag">晚上 18:00</span></div>
+                    <div class="timeline-content">
+                        <h4>行程圆满结束</h4>
+                        <p>根据返程高铁或航班时间，安排送站。结束充实的西北夏日之旅。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 景点详解 -->
+    <section id="attractions">
+        <h2>📍 核心景点详解</h2>
+        <div class="attraction-grid">
+            <div class="attr-card">
+                <div class="attr-img danxia-grad"></div>
+                <div class="attr-body">
+                    <div class="attr-title">1. 张掖丹霞国家地质公园</div>
+                    <div class="attr-meta">
+                        <span>🎫 门票+观光车: 约 ¥75</span>
+                        <span>⏱️ 游玩: 3-4小时</span>
+                    </div>
+                    <p>中国最美丹霞之一，由红、黄、橙、绿等砂岩层理交错形成。夏季雨后初晴色彩尤为鲜艳。</p>
+                    <div class="tips-box"><strong>💡 Tips:</strong> 务必购买观光车票（景区极大）。4号台日落最出片；1/2/5号台地貌形态各异。夏季紫外线强，务必携带遮阳帽与偏光墨镜。</div>
+                </div>
+            </div>
+            <div class="attr-card">
+                <div class="attr-img mati-grad"></div>
+                <div class="attr-body">
+                    <div class="attr-title">2. 马蹄寺石窟群</div>
+                    <div class="attr-meta">
+                        <span>🎫 门票+石窟: 约 ¥40</span>
+                        <span>⏱️ 游玩: 2-2.5小时</span>
+                    </div>
+                    <p>集石窟艺术、祁连山草甸风光与裕固族风情于一体。三十三天石窟开凿于悬崖之上，内部通道狭窄，极具挑战性。</p>
+                    <div class="tips-box"><strong>💡 Tips:</strong> 攀爬石窟需手脚并用，建议穿包脚运动鞋。寺区内尊重佛教礼仪，勿大声喧哗。可搭配租穿裕固族服饰拍照。</div>
+                </div>
+            </div>
+            <div class="attr-card">
+                <div class="attr-img canyon-grad"></div>
+                <div class="attr-body">
+                    <div class="attr-title">3. 平山湖大峡谷</div>
+                    <div class="attr-meta">
+                        <span>🎫 门票+车: 约 ¥85</span>
+                        <span>⏱️ 游玩: 2-3小时</span>
+                    </div>
+                    <p>原始红层峡谷，形态粗犷壮阔，比肩科罗拉多。夏季干燥气候下岩壁色彩饱和度极高，适合硬核风光摄影。</p>
+                    <div class="tips-box"><strong>💡 Tips:</strong> 峡谷内需徒步下探与攀爬台阶，体力消耗中等。带足饮用水与高热量零食。避开大风暴雨天气前往。</div>
+                </div>
+            </div>
+            <div class="attr-card">
+                <div class="attr-img dafo-grad"></div>
+                <div class="attr-body">
+                    <div class="attr-title">4. 大佛寺</div>
+                    <div class="attr-meta">
+                        <span>🎫 门票: 约 ¥40</span>
+                        <span>⏱️ 游玩: 1-1.5小时</span>
+                    </div>
+                    <p>西夏皇家寺院遗存，内有亚洲最大室内木胎泥塑卧佛。馆藏珍贵佛经、舍利与明代壁画，历史文化价值极高。</p>
+                    <div class="tips-box"><strong>💡 Tips:</strong> 殿内光线较暗，建议携带小型手电（若允许）或手机补光。禁止使用闪光灯拍照。请预留时间细读碑刻铭文。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section id="food">
+        <h2>🍜 必吃特色美食</h2>
+        <p>张掖饮食以西北面食与清真牛羊肉为主，夏季推荐尝试解暑与暖胃兼备的经典搭配。</p>
+        <div class="food-list">
+            <div class="food-item">
+                <h3>🍽️ 张掖搓鱼子 & 炮仗面</h3>
+                <p>手工搓制如小鱼状的面条，搭配羊肉臊子或酸菜，口感筋道。炮仗面形似小炮仗，汤浓味鲜。</p>
+                <div style="margin-top:10px; font-weight:600;">📍 推荐: 孙记炒炮、甘州市场老字号</div>
+            </div>
+            <div class="food-item">
+                <h3>🥩 甘州羊肉 & 炒拨拉</h3>
+                <p>祁连山黑山羊，肉质鲜嫩无膻。炒拨拉（爆炒羊内脏+羊肚）配洋葱辣椒，夜市必点硬核美食。</p>
+                <div style="margin-top:10px; font-weight:600;">📍 推荐: 甘州巷子夜市、马子禄烧烤</div>
+            </div>
+            <div class="food-item">
+                <h3>🥛 牛肉小饭 & 甜醅子</h3>
+                <p>将面团切成米粒大小煮制，配清汤牛肉。甜醅子由青稞发酵，酸甜解暑，夏日清凉首选。</p>
+                <div style="margin-top:10px; font-weight:600;">📍 推荐: 甘州府城小吃街、街边老字号</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 住宿推荐 -->
+    <section id="accommodation">
+        <h2>🏨 住宿推荐（适中预算）</h2>
+        <div class="hotel-list">
+            <div class="hotel-card">
+                <div style="background:#e8f5e9; padding:5px 10px; border-radius:6px; display:inline-block; font-weight:bold; color:#2d6a4f; margin-bottom:10px;">💚 舒适型 (推荐)</div>
+                <h3>市区精品酒店 / 丹霞周边客栈</h3>
+                <p>均价：<span class="price-highlight">¥300 - ¥450/晚</span></p>
+                <ul style="margin:0 0 10px 20px;">
+                    <li>近甘州市场或高铁站，交通便利</li>
+                    <li>含双早，独立卫浴，空调/加湿器齐备</li>
+                    <li>适合家庭及追求品质的游客</li>
+                </ul>
+            </div>
+            <div class="hotel-card">
+                <div style="background:#f1f5f9; padding:5px 10px; border-radius:6px; display:inline-block; font-weight:bold; color:#475569; margin-bottom:10px;">🔹 经济型</div>
+                <h3>连锁快捷酒店 / 青年旅舍</h3>
+                <p>均价：<span class="price-highlight">¥120 - ¥220/晚</span></p>
+                <ul style="margin:0 0 10px 20px;">
+                    <li>市区核心商圈，步行可达夜市</li>
+                    <li>基础卫生达标，公共空间舒适</li>
+                    <li>适合学生党及独行背包客</li>
+                </ul>
+            </div>
+        </div>
+        <div class="note">⚠️ 暑期为西北旅游小旺季，建议提前15天以上预订。若计划看日出/日落，可考虑住丹霞景区入口附近的民宿（略贵但省时）。</div>
+    </section>
+
+    <!-- 交通指南 -->
+    <section id="transport">
+        <h2>🚌 交通指南</h2>
+        <div class="transport-grid">
+            <div class="transport-item">
+                <h3>🛫 如何到达张掖</h3>
+                <p><strong>✈️ 飞机:</strong> 飞抵兰州中川机场，转机场大巴或城际铁路至兰州西站，再换乘高铁至张掖西站。全程约 <strong>7-8小时</strong>。</p>
+                <p><strong>🚄 高铁/动车:</strong> 兰州乘高铁直达张掖西站，仅需约 <strong>3小时</strong>，班次密集，性价比最高。</p>
+            </div>
+            <div class="transport-item">
+                <h3>🚗 市内/周边交通</h3>
+                <p>各核心景点间距较远（30-70公里），公交极不便利。强烈建议：</p>
+                <ul>
+                    <li><strong>包车/拼车:</strong> 市区出发包车约 <strong>¥400-550/天</strong>，含司机油费，省心且可灵活调整路线。</li>
+                    <li><strong>租车自驾:</strong> 张掖高铁站附近有多家租车点，夏季路况良好，停车方便。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section id="tips">
+        <h2>⛺ 旅行注意事项</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:25%">类别</th>
+                    <th>详细建议</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>☀️ 气候与防晒</strong></td>
+                    <td>夏季白天25-32℃，夜间降至15-18℃，昼夜温差大。紫外线极强，务必涂抹高倍防晒霜（SPF50+），备墨镜、宽檐帽、冰袖。</td>
+                </tr>
+                <tr>
+                    <td><strong>👟 穿着装备</strong></td>
+                    <td>建议“洋葱式”穿衣：短袖+防晒外套+薄冲锋衣。徒步景区必须穿防滑耐磨的运动鞋或登山鞋。女性避免穿短裙进入宗教场所。</td>
+                </tr>
+                <tr>
+                    <td><strong>💧 饮食与健康</strong></td>
+                    <td>气候干燥，每日饮水量建议达2.5L以上。备肠胃药（防饮食水土不服）、润唇膏、保湿面膜、创可贴。部分人可能有轻微口干/流鼻血属正常现象。</td>
+                </tr>
+                <tr>
+                    <td><strong>🙏 安全与习俗</strong></td>
+                    <td>石窟攀爬注意安全，严禁翻越护栏。尊重裕固族及回族风俗，不在清真餐厅饮酒或带外食。丹霞土质脆弱，切勿踩踏未开放区域。</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 预算参考 -->
+    <section id="budget">
+        <h2>💰 2天1夜预算参考（适中级别）</h2>
+        <div class="budget-box">
+            <div class="hotel-card">
+                <h3>🎫 门票及景交</h3>
+                <p style="font-size:1.4rem; color:#d35400; font-weight:700; margin:10px 0;">约 ¥300/人</p>
+                <p>含四大核心景区门票、观光车/索道基础费用。学生/老人可享优惠。</p>
+            </div>
+            <div class="hotel-card">
+                <h3>🏨 住宿（1晚双人拼）</h3>
+                <p style="font-size:1.4rem; color:#d35400; font-weight:700; margin:10px 0;">约 ¥200-250/人</p>
+                <p>以舒适型酒店双人房分摊计算（¥400-500/间）。</p>
+            </div>
+            <div class="hotel-card">
+                <h3>🍽️ 餐饮（2天）</h3>
+                <p style="font-size:1.4rem; color:#d35400; font-weight:700; margin:10px 0;">约 ¥200/人</p>
+                <p>日均三餐+夜市小吃/饮料，西北面食量大实惠。</p>
+            </div>
+            <div class="hotel-card">
+                <h3>🚌 当地交通（包车拼车）</h3>
+                <p style="font-size:1.4rem; color:#d35400; font-weight:700; margin:10px 0;">约 ¥400-500/人</p>
+                <p>2人拼车分摊，含接送站及跨景点油费过路费。</p>
+            </div>
+        </div>
+        <div class="note" style="margin-top:25px;">
+            📊 <strong>人均总计估算：约 ¥1100 - ¥1250</strong>（不含往返大交通）。实际花费会根据餐饮档次、是否自驾、是否选择高端住宿有所浮动，建议预留15%备用金。
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2024 张掖夏日旅行攻略 | 数据更新于当前旅游季 | 出行前请核实最新景区开放状态</p>
+    <p style="margin-top:5px; font-size:0.8rem;">愿您在西北的辽阔中，遇见最美的夏日丹霞。</p>
+</footer>
+
+</body>
+</html>

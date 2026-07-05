@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>皇后镇（新西兰）夏季深度游攻略 | 3日全境探险</title>
+<style>
+:root {
+  --primary: #2d6a4f;
+  --primary-light: #52b788;
+  --primary-dark: #1b4332;
+  --accent: #d8f3dc;
+  --bg: #f8faf9;
+  --text: #2b2d42;
+  --text-light: #555b6e;
+  --card-bg: #ffffff;
+  --border: #e0e0e0;
+  --shadow: 0 4px 16px rgba(45, 106, 79, 0.1);
+  --radius: 12px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+}
+a { color: var(--primary); text-decoration: none; transition: 0.3s; }
+a:hover { color: var(--primary-light); }
+
+/* Header & Hero */
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 40%, var(--primary-light) 100%);
+  color: #fff;
+  padding: 80px 20px 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: var(--bg);
+  transform: skewY(-2deg);
+}
+.hero h1 { font-size: 2.8rem; margin-bottom: 15px; letter-spacing: 1px; }
+.hero .sub { font-size: 1.2rem; opacity: 0.9; margin-bottom: 25px; }
+.badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.badge {
+  background: rgba(255,255,255,0.2);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(4px);
+}
+
+/* Container & Sections */
+.container { max-width: 1000px; margin: -50px auto 40px; padding: 0 20px; position: relative; z-index: 10; }
+section { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); padding: 40px; margin-bottom: 30px; }
+h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+h3 { color: var(--primary-dark); margin: 20px 0 10px; font-size: 1.3rem; }
+p { margin-bottom: 15px; color: var(--text-light); }
+
+/* Overview Grid */
+.overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.info-card { background: var(--bg); padding: 20px; border-radius: var(--radius); border-left: 4px solid var(--primary); }
+.info-card h4 { color: var(--primary-dark); margin-bottom: 8px; }
+.pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
+.pro, .con { padding: 15px; border-radius: 8px; }
+.pro { background: #d1fae5; border-left: 3px solid #059669; }
+.con { background: #fee2e2; border-left: 3px solid #dc2626; }
+.pro ul, .con ul { margin-left: 18px; }
+.pro li, .con li { font-size: 0.95rem; margin-bottom: 4px; }
+
+/* Itinerary Timeline */
+.timeline-day { margin-bottom: 30px; position: relative; padding-left: 30px; }
+.timeline-day::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 5px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.day-header {
+  background: var(--primary);
+  color: #fff;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+.timeline-item { position: relative; margin-bottom: 15px; padding: 10px; background: var(--bg); border-radius: 8px; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 3px var(--primary);
+}
+.time-tag { font-weight: bold; color: var(--primary); margin-right: 8px; font-size: 0.9rem; }
+
+/* Cards Grid */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: 0.3s; background: #fff; }
+.card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--primary-light); }
+.card-img-placeholder {
+  height: 120px;
+  background: linear-gradient(135deg, var(--accent), var(--primary-light));
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-dark);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.card h4 { margin-bottom: 8px; color: var(--primary-dark); }
+.card ul { margin-left: 18px; font-size: 0.9rem; color: var(--text-light); }
+.card .tip { background: #fffbeb; border-left: 3px solid #f59e0b; padding: 8px; margin-top: 10px; border-radius: 4px; font-size: 0.85rem; }
+
+/* Budget Table */
+.budget-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.budget-table th, .budget-table td { padding: 12px; border: 1px solid var(--border); text-align: left; }
+.budget-table th { background: var(--primary); color: #fff; font-weight: 500; }
+.budget-table tr:nth-child(even) { background: var(--bg); }
+.note { font-size: 0.85rem; color: #6b7280; margin-top: 10px; font-style: italic; }
+
+/* Transport & Tips */
+.transport-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+.transport-list li { background: var(--bg); padding: 15px; border-radius: 8px; display: flex; align-items: start; gap: 10px; }
+.transport-icon { font-size: 1.5rem; background: var(--accent); padding: 8px; border-radius: 50%; }
+.tip-box { background: #e0f2fe; border: 1px solid #bae6fd; padding: 20px; border-radius: var(--radius); }
+.tip-box ul { margin-left: 20px; margin-top: 10px; }
+
+/* Footer */
+footer { text-align: center; padding: 30px 20px; color: #6b7280; font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 40px; background: #fff; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero { padding: 60px 20px 80px; }
+  .hero h1 { font-size: 2rem; }
+  section { padding: 25px 20px; }
+  .pros-cons, .overview-grid, .card-grid, .transport-list { grid-template-columns: 1fr; }
+  .timeline-day { padding-left: 20px; }
+  .timeline-day::before { left: 5px; }
+  .timeline-item::before { left: -15px; }
+  .budget-table { font-size: 0.85rem; }
+  th, td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container" style="margin:0;">
+    <h1>皇后镇夏季深度游攻略</h1>
+    <p class="sub">新西兰南岛的冒险之都 · 湖光山色与极限心跳的完美碰撞</p>
+    <div class="badges">
+      <span class="badge">🌲 自然风光</span>
+      <span class="badge">🪂 极限运动</span>
+      <span class="badge">🚗 自驾旅行</span>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 城市概述 -->
+  <section id="overview">
+    <h2>📍 城市概览</h2>
+    <div class="overview-grid">
+      <div>
+        <p>皇后镇坐落于新西兰南岛，被壮丽的南阿尔卑斯山脉与碧蓝的瓦卡蒂普湖环绕。这里不仅是全球公认的“世界冒险之都”，更是夏季避暑、秋季观景、冬季滑雪的全年胜地。12月至次年2月的南半球夏季，日照长达15小时，湖面如镜，气候温和（12-22℃），是体验水上项目、自驾环湖与高空跳伞的黄金窗口。</p>
+        <p><strong>建议游玩天数：</strong>3天2晚（深度体验）</p>
+        <p><strong>最佳季节：</strong>12月-次年2月（夏季）</p>
+        <p><strong>消费水平：</strong>较高（预算等级 3）</p>
+      </div>
+      <div class="info-card">
+        <h4>🌟 旅行优缺点速览</h4>
+        <div class="pros-cons">
+          <div class="pro">
+            <strong>✅ 优势</strong>
+            <ul>
+              <li>极限运动项目全球最全</li>
+              <li>空气质量极佳，视野开阔</li>
+              <li>自然景观保存完好</li>
+              <li>旅游设施成熟，安全系数高</li>
+            </ul>
+          </div>
+          <div class="con">
+            <strong>❌ 注意</strong>
+            <ul>
+              <li>国际机票价格昂贵</li>
+              <li>景点分散，强烈建议租车自驾</li>
+              <li>餐饮与住宿消费水平偏高</li>
+              <li>旺季需提前1-2个月预订项目</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行程安排 -->
+  <section id="itinerary">
+    <h2>🗓️ 3日详细行程（夏季版）</h2>
+    <div class="timeline">
+      <div class="timeline-day">
+        <span class="day-header">Day 1：初抵湖畔 · 慢享湖光</span>
+        <div class="timeline-item"><span class="time-tag">上午</span> 抵达皇后镇机场，提车办理入住。适应南半球日照时差，调整状态。</div>
+        <div class="timeline-item"><span class="time-tag">下午</span> 漫步皇后镇花园与码头，远眺卓越山脉。搭乘 <strong>TSS厄恩斯劳号复古蒸汽船</strong> 巡游瓦卡蒂普湖，登岸参观高山农场与牧羊犬表演。</div>
+        <div class="timeline-item"><span class="time-tag">晚上</span> 湖畔餐厅享用烤羊排。饭后沿湖散步，拍摄星空与湖面倒影（夏季日落约21:00，夜景出片率极高）。</div>
+      </div>
+      <div class="timeline-day">
+        <span class="day-header">Day 2：极限挑战 · 峡谷狂飙</span>
+        <div class="timeline-item"><span class="time-tag">上午</span> 前往 <strong>卡瓦劳桥</strong> 完成43米经典蹦极。完成后在河畔咖啡馆休息，购买纪念T恤与证书。</div>
+        <div class="timeline-item"><span class="time-tag">下午</span> 体验 <strong>沙特欧瓦河喷射快艇 (Shotover Jet)</strong>，感受360度甩尾的肾上腺素飙升。傍晚乘坐 <strong>皇后镇天空缆车 (Skyline Gondola)</strong> 登顶鲍勃峰，俯瞰全景并享用日落自助晚餐。</div>
+        <div class="timeline-item"><span class="time-tag">晚上</span> 返回市区，体验皇后镇特色酒吧文化（如Cow Pizza & The Bunker），放松肌肉。</div>
+      </div>
+      <div class="timeline-day">
+        <span class="day-header">Day 3：峡湾奇观 · 满载而归</span>
+        <div class="timeline-item"><span class="time-tag">全天</span> 参加 <strong>米尔福德峡湾一日游</strong>（大巴+游船或小型飞机）。单程车程约4小时，沿途穿越热带雨林与镜湖。午后登船巡游，观赏千米瀑布、海豹栖息地，若运气佳可见海豚跃出水面。</div>
+        <div class="timeline-item"><span class="time-tag">傍晚</span> 返回皇后镇，前往 Arrowtown（箭镇）淘金遗址街区选购麦卢卡蜂蜜、羊毛制品。整理行李，前往机场或准备次日返程。</div>
+        <div class="timeline-item"><span class="time-tag">晚上</span> 根据航班时间返程或入住机场酒店。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详解 -->
+  <section id="attractions">
+    <h2>🏔️ 核心景点推荐</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(120deg, #a5f3fc, #38bdf8);">🌊 瓦卡蒂普湖</div>
+        <h4>瓦卡蒂普湖 (Lake Wakatipu)</h4>
+        <ul>
+          <li><strong>推荐理由：</strong>新西兰第三大湖，呈倒“S”形。湖水含矿物质呈现宝石蓝，是皇后镇所有水上活动的起点。</li>
+          <li><strong>门票信息：</strong>免费开放。蒸汽船约 NZD $110/人。</li>
+        </ul>
+        <div class="tip">💡 Tips：清晨或日落时分风浪最小，最适合摄影。夏季可租皮划艇在湖湾静水区划行。</div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(120deg, #fde68a, #f59e0b);">🏔️ 卓越山</div>
+        <h4>卓越山 (The Remarkables)</h4>
+        <ul>
+          <li><strong>推荐理由：</strong>虽为滑雪胜地，但夏季缆车照常运行。登顶后可360度俯瞰南阿尔卑斯山脊线与湖泊，徒步路线成熟。</li>
+          <li><strong>门票信息：</strong>夏季缆车票 NZD $45-55/人。</li>
+        </ul>
+        <div class="tip">💡 Tips：山顶紫外线极强且风大，夏季也需携带防风外套。建议上午10点前上山避开午后山风。</div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(120deg, #86efac, #22c55e);">🛥️ 米尔福德峡湾</div>
+        <h4>米尔福德峡湾 (Milford Sound)</h4>
+        <ul>
+          <li><strong>推荐理由：</strong>世界第八大奇迹，冰川切割形成的峡湾。夏季瀑布水量最大，两侧悬崖高达千米，雨林覆盖。</li>
+          <li><strong>门票信息：</strong>一日游含接送+游船 NZD $280-450/人（视交通方式）。</li>
+        </ul>
+        <div class="tip">💡 Tips：全程车程较长（约8-10小时往返），建议选早班团。穿舒适徒步鞋，船上备雨衣防瀑布水雾。</div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(120deg, #c084fc, #a855f7);">🪂 卡瓦劳蹦极</div>
+        <h4>卡瓦劳桥蹦极 (Kawarau Bridge)</h4>
+        <ul>
+          <li><strong>推荐理由：</strong>全球首个商业化蹦极台。43米落差飞跃湍急的卡瓦劳河，保留原始木质跳台，仪式感极强。</li>
+          <li><strong>门票信息：</strong>单跳 NZD $215/人（含视频/照片包需另加 NZD $60）。</li>
+        </ul>
+        <div class="tip">💡 Tips：无需极限运动基础，听从教练指导即可。穿贴身运动服，摘除首饰与眼镜。恐高者可尝试“半跳”体验。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section id="food">
+    <h2>🍽️ 美食与餐厅指南</h2>
+    <p>新西兰夏季是海鲜丰收季，皇后镇餐饮融合毛利传统与欧洲风味。由于物价较高，建议午间选择简餐，晚间安排特色正餐。</p>
+    <div class="card-grid">
+      <div class="card">
+        <h4>🍔 当地必尝特色</h4>
+        <ul>
+          <li><strong>Fergburger 巨型汉堡：</strong> 皇后镇地标美食，肉饼厚实、配料爆满。推荐：The Ferg、Big Al's。</li>
+          <li><strong>新西兰羊排与鹿肉：</strong> 草饲放养，肉质鲜嫩。搭配烤根茎蔬菜与红酒汁是经典吃法。</li>
+          <li><strong>布拉夫生蚝 (Bluff Oysters)：</strong> 南岛特产，肥美多汁。夏季为产季尾声，建议点生食或黄油香煎。</li>
+          <li><strong>精酿啤酒与长相思(Sauvignon Blanc)：</strong> 附近马尔堡产区的白葡萄酒清爽解腻，适合配海鲜。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>📍 推荐餐厅</h4>
+        <ul>
+          <li><strong>Fergburger (休闲)：</strong> 人均 NZD $20-30。常年排队，但出餐快，可边买边逛。</li>
+          <li><strong>The Cow (舒适)：</strong> 人均 NZD $35-50。本地人超爱的披萨店，手工意面同样惊艳。</li>
+          <li><strong>Rātā (高端)：</strong> 人均 NZD $80-120。主厨 Josh Emett 主理，融合毛利食材的现代料理，需提前预约。</li>
+          <li><strong>On The Pier (景观)：</strong> 人均 NZD $70-90。直面湖泊，日落时分用餐体验极佳。</li>
+        </ul>
+        <div class="tip">💡 Tips：热门餐厅夏季务必提前1-3天预约。新西兰餐厅不强制给小费，但优质服务可留5%作为感谢。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section id="accommodation">
+    <h2>🛏️ 住宿选择指南</h2>
+    <p>夏季为皇后镇绝对旺季，酒店价格较冬季上浮约30%。建议优先选择含厨房的公寓式酒店（节省早午餐费用）或湖景酒店。</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(120deg, #bfdbfe, #60a5fa);">🏕️ 经济型 (NZD $120-$200)</div>
+        <h4>YHA Queenstown / 背包客旅馆</h4>
+        <ul>
+          <li><strong>特点：</strong> 位置多位于镇边缘，步行可达中心区。提供自助厨房、洗衣房与拼房服务。</li>
+          <li><strong>适合：</strong> 独行侠、学生党、预算有限且重视实用性的旅客。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(120deg, #bbf7d0, #4ade80);">🌿 舒适型 (NZD $250-$450)</div>
+        <h4>Novotel Queenstown Lakeside / 湖景公寓</h4>
+        <ul>
+          <li><strong>特点：</strong> 步行3分钟至码头，部分房间直面卓越山。设施完善，含早餐与健身房。</li>
+          <li><strong>适合：</strong> 情侣、家庭出游，追求性价比与便利性的中产旅客。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(120deg, #fbcfe8, #f472b6);">💎 奢华型 (NZD $600-$1200+)</div>
+        <h4>Matakauri Lodge / 私人湖畔别墅</h4>
+        <ul>
+          <li><strong>特点：</strong> 位于瓦卡蒂普湖畔高地，每间客房配独立观景阳台。含管家服务、SPA与米其林级别早餐。</li>
+          <li><strong>适合：</strong> 蜜月、纪念日、追求极致私密与自然融合的旅客。</li>
+        </ul>
+        <div class="tip">💡 Tips：夏季湖景房极其抢手，建议提前2个月锁定房源。部分公寓要求最短入住2晚。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 交通指南 -->
+  <section id="transport">
+    <h2>🚌 交通全攻略</h2>
+    <ul class="transport-list">
+      <li>
+        <span class="transport-icon">✈️</span>
+        <div><strong>国际航班：</strong>无直飞中国航线。主流路线为：杭州/上海/广州 → 奥克兰 (AKL) → 皇后镇 (ZQN)。转机预留3小时以上。总航程约12-15小时。</div>
+      </li>
+      <li>
+        <span class="transport-icon">🚗</span>
+        <div><strong>本地自驾（首选）：</strong> 机场取还车最便利。夏季路况佳，但新西兰为右舵左行，务必熟悉交规。推荐租紧凑型SUV或轿车，日均 NZD $80-$150。</div>
+      </li>
+      <li>
+        <span class="transport-icon">🚌</span>
+        <div><strong>公共交通：</strong> 市区内可步行。长途前往峡湾或滑雪场可搭乘 InterCity / Connect 巴士。提前官网购票享早鸟价。</div>
+      </li>
+      <li>
+        <span class="transport-icon">🛥️</span>
+        <div><strong>水上交通：</strong> 蒸汽船、游船均含往返接送或码头集中登船，按预订凭证准时集合即可。</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 预算参考 -->
+  <section id="budget">
+    <h2>💰 费用预算参考 (1人/3天)</h2>
+    <table class="budget-table">
+      <thead>
+        <tr><th>项目</th><th>经济型</th><th>舒适型 (推荐)</th><th>奢华型</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>国际往返机票</td><td>¥7,500 - ¥9,000</td><td>¥9,000 - ¥12,000</td><td>¥13,000+</td></tr>
+        <tr><td>租车/油费/停车</td><td>¥800 / 拼车</td><td>¥1,500 (含保险)</td><td>¥2,500 (高端SUV)</td></tr>
+        <tr><td>住宿 (2晚)</td><td>¥1,000 (青旅)</td><td>¥2,500 - ¥3,500</td><td>¥5,000 - ¥8,000</td></tr>
+        <tr><td>餐饮 (3天)</td><td>¥1,000</td><td>¥1,800 - ¥2,200</td><td>¥3,500+</td></tr>
+        <tr><td>门票/活动</td><td>¥2,000 (基础)</td><td>¥3,000 (含2项极限)</td><td>¥5,000+ (跳伞/包船)</td></tr>
+        <tr style="font-weight:bold;"><td>💡 预估总花费</td><td>¥12,300 - ¥15,300</td><td>¥18,000 - ¥22,000</td><td>¥26,500+</td></tr>
+      </tbody>
+    </table>
+    <p class="note">* 费用按2024-2025年夏季汇率(1 NZD ≈ 4.3 RMB)估算。不含个人购物及突发开销。极限运动套餐（蹦极+快艇+缆车）组合预订可享8-9折。</p>
+  </section>
+
+  <!-- 注意事项 -->
+  <section id="tips">
+    <h2>⚠️ 行前必看 Tips</h2>
+    <div class="card-grid">
+      <div class="card tip-box">
+        <h4>🌡️ 气候与穿着</h4>
+        <ul>
+          <li>夏季日均 12-22℃，但山区温差极大。洋葱式穿搭（速干衣+抓绒+防风防水冲锋衣）是标配。</li>
+          <li>南半球臭氧层较薄，紫外线等级常超 9+。务必携带 SPF50+ 防晒霜、墨镜与宽檐帽。</li>
+          <li>湖泊与峡湾水汽重，建议备一件轻便雨衣或防水裤。</li>
+        </ul>
+      </div>
+      <div class="card tip-box">
+        <h4>🔒 安全与规则</h4>
+        <ul>
+          <li>极限运动均有国际安全认证，但务必签署免责声明。如有心脏病、高血压或孕期，严禁参与蹦极/跳伞。</li>
+          <li>新西兰酒驾零容忍，血液酒精浓度限值极低（50mg/100ml）。建议 designated driver 或打车。</li>
+          <li>徒步请遵循 DOC（自然保护局）标识，勿越界。野生动物（如海鸥、沙袋鼠）不可投喂。</li>
+        </ul>
+      </div>
+      <div class="card tip-box">
+        <h4>📝 实用贴士</h4>
+        <ul>
+          <li>货币：新西兰元 (NZD)。大部分商户支持 Visa/Mastercard 及支付宝/微信，备少量现金加油/停车。</li>
+          <li>网络：购买本地 Vodafone 或 Spark 流量卡，机场有售。部分山路信号弱，提前下载离线地图。</li>
+          <li>插座：I型（三孔斜角）。电压 230V，与国标兼容，无需转换器，带多孔排插更实用。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 皇后镇深度游攻略 | 资深旅游规划师定制</p>
+  <p>本攻略仅供参考，机票、住宿及活动价格随季节与政策浮动，出行前请务必通过官网二次确认。</p>
+  <p style="margin-top:8px;">祝您在南阿尔卑斯的星空下，收获一生难忘的冒险记忆 🇳🇿✨</p>
+</footer>
+
+</body>
+</html>

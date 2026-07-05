@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>南京夏季深度游攻略 | 六朝古都的文化漫步</title>
+<style>
+:root {
+  --primary: #774930;
+  --primary-dark: #5c3822;
+  --primary-light: #a68465;
+  --accent: #e8c498;
+  --bg: #faf8f5;
+  --card-bg: #ffffff;
+  --text-main: #2c2c2c;
+  --text-sub: #6b6b6b;
+  --border: #e8e2db;
+  --shadow: 0 6px 16px rgba(119, 73, 48, 0.06);
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.75; font-size: 15px; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 20px 40px; }
+header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+  color: #fff;
+  padding: 70px 20px 60px;
+  text-align: center;
+  border-radius: 0 0 24px 24px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: ''; position: absolute; top: -30%; left: -10%; width: 120%; height: 80%;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 12px; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+.subtitle { font-size: 1.15rem; opacity: 0.95; max-width: 700px; margin: 0 auto 18px; }
+.tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+.tag { background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); padding: 6px 14px; border-radius: 20px; font-size: 0.88rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.35); }
+section { margin-bottom: 45px; scroll-margin-top: 20px; }
+h2 { font-size: 1.9rem; color: var(--primary); margin-bottom: 24px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); display: inline-block; position: relative; }
+h2::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 40%; height: 3px; background: var(--primary); }
+h3 { font-size: 1.35rem; color: var(--primary-dark); margin: 20px 0 12px; display: flex; align-items: center; gap: 10px; }
+.card { background: var(--card-bg); padding: 24px 26px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(119, 73, 48, 0.12); }
+.badge { display: inline-flex; align-items: center; padding: 4px 10px; background: #fdf3eb; color: var(--primary); border-radius: 6px; font-size: 0.82rem; font-weight: 600; margin: 0 6px 6px 0; border: 1px solid var(--accent); }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
+.timeline { position: relative; padding: 10px 0 0 34px; margin-left: 8px; border-left: 2px dashed var(--primary-light); }
+.timeline::before { content: ''; position: absolute; left: -6px; top: 0; bottom: 0; width: 2px; background: var(--primary-light); }
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-item::after { content: ''; position: absolute; left: -38px; top: 6px; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; border: 3px solid var(--accent); box-shadow: 0 0 0 4px rgba(119,73,48,0.12); }
+.tl-time { font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; font-size: 1.05rem; }
+.tl-time span { background: var(--bg); padding: 2px 8px; border-radius: 5px; font-size: 0.8rem; color: var(--primary); border: 1px solid var(--accent); margin-right: 6px; }
+.tips-box { background: #fff8f3; border-left: 5px solid var(--accent); padding: 16px 20px; margin-top: 14px; font-size: 0.92rem; color: #5a432a; border-radius: 0 8px 8px 0; }
+.tips-box strong { color: var(--primary-dark); }
+table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 12px; background: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); }
+th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #eee; }
+th { background: linear-gradient(to right, var(--primary-dark), var(--primary)); color: #fff; font-weight: 600; font-size: 0.95rem; }
+td { font-size: 0.95rem; }
+tr:last-child td { border-bottom: none; }
+.price-tag { font-weight: 700; color: var(--primary); background: #fdf3eb; padding: 2px 8px; border-radius: 6px; display: inline-block; }
+.note-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
+.note-item { background: var(--card-bg); padding: 16px; border-radius: 10px; border: 1px dashed var(--primary-light); display: flex; flex-direction: column; gap: 8px; }
+.note-item strong { color: var(--primary); }
+footer { background: linear-gradient(135deg, var(--primary-dark), #3d2315); color: #f5efe9; text-align: center; padding: 45px 20px; margin-top: 60px; border-radius: 20px 20px 0 0; }
+footer p { opacity: 0.85; font-size: 0.9rem; margin-top: 10px; }
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; letter-spacing: 1px; }
+  h2 { font-size: 1.6rem; }
+  .container { padding: 0 15px 30px; }
+  header { padding: 50px 15px 45px; }
+  .timeline { padding-left: 24px; margin-left: 0; border-left-width: 1.5px; }
+  .tl-item::after { left: -30px; top: 5px; width: 10px; height: 10px; border-width: 2px; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .card { padding: 18px 20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>南京夏季深度游攻略</h1>
+    <p class="subtitle">六朝古都，十朝都会。梧桐成荫的夏日，穿梭于历史遗迹与秦淮夜色之间，感受金陵的厚重与清凉。</p>
+    <div class="tags">
+      <span class="tag">🏛️ 历史古迹</span>
+      <span class="tag">📜 文化之旅</span>
+      <span class="tag">🚶 城市漫步</span>
+      <span class="tag">☀️ 夏季特调</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+<section id="overview">
+  <h2>城市概览</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3>📍 基础信息</h3>
+      <p><strong>所属省份：</strong>江苏省<br>
+      <strong>建议游玩：</strong>2天1晚（精华打卡）<br>
+      <strong>预算级别：</strong><span class="badge">适中</span><br>
+      <strong>最佳时节：</strong>全年皆宜，但夏季建议“早出晚归、避开正午”。春季梅花/樱花、秋季红叶、春节期间秦淮灯会各有千秋。</p>
+      <p style="margin-top:12px; color:#5a432a; font-style:italic;">“六朝金粉地，金陵帝王州”。南京是一座将沧桑历史与现代烟火完美融合的城市。夏季虽热，但绿树成荫的陵园路、傍晚微凉的秦淮河、以及丰富的室内展馆，让夏日金陵同样值得一游。</p>
+    </div>
+    <div class="card">
+      <h3>💡 核心优劣势</h3>
+      <ul style="padding-left: 18px; color: var(--text-sub);">
+        <li><strong>✅ 优势：</strong>高铁1.5小时即达长三角核心圈；免费景点极多（中山陵、秦淮河畔、部分博物馆）；饮食文化底蕴深厚，鸭血粉丝汤、盐水鸭、小吃丰富；地铁网络发达。</li>
+        <li><strong>⚠️ 劣势：</strong>夏季位列“四大火炉”，7-8月高温高湿；部分核心景区需大量步行；花期/节假日人流量大；栖霞山最佳观赏期为深秋，夏季游览以古刹与林荫避暑为主。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="itinerary">
+  <h2>📅 2天详细行程安排（夏季版）</h2>
+  <p style="margin-bottom: 20px; color: var(--text-sub);">本行程专为夏季优化，采用“清晨户外+正午室内/阴凉处+傍晚/夜间漫步”的节奏，最大限度避开高温时段。</p>
+  
+  <div class="card">
+    <h3>Day 1：钟山风雨 · 秦淮夜泊</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time"><span>上午 07:30-11:00</span> 中山陵景区</div>
+        <p>尽早抵达紫金山南麓。乘坐观光车或步行进入，重点游览<strong>中山陵</strong>。392级花岗岩台阶气势恢宏，登顶可俯瞰钟山苍翠。夏季建议8点前开始爬台阶，体感舒适且避开人流高峰。随后可漫步<strong>音乐台</strong>（喂鸽子）或<strong>美龄宫</strong>（民国风情，室内空调充足）。</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time"><span>中午 12:00-14:00</span> 午餐 & 避暑休息</div>
+        <p>返回新街口或大行宫商圈用餐，品尝正宗南京菜（推荐南京大牌档/绿柳居）。随后可在酒店休息，或前往<strong>南京博物院/六朝博物馆</strong>（需提前预约，冷气充足，文化底蕴极深）。</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time"><span>傍晚 17:30-21:30</span> 鸡鸣寺 & 夫子庙秦淮河风光带</div>
+        <p>17:30前往<strong>鸡鸣寺</strong>（南朝四百八十寺之首），登药师佛塔远眺玄武湖，傍晚光线柔和，适合拍照。随后沿明城墙步行至解放门，乘地铁3号线直达<strong>夫子庙-秦淮河</strong>。傍晚漫步文德桥，体验“桨声灯影里的秦淮河”，夜游船票建议提前网上预订。晚餐可步行至夫子庙步行街品尝秦淮八绝小吃。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <h3>Day 2：栖霞禅韵 · 城垣漫步</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time"><span>上午 07:00-10:30</span> 栖霞山 & 栖霞寺</div>
+        <p>夏季游览栖霞山务必“赶早”。清晨7点抵达，山间林木茂密、气温较市区低2-3℃。重点参观<strong>栖霞寺</strong>（千年古刹）与<strong>千佛岩石刻</strong>（南朝佛教艺术瑰宝）。若体力允许可沿林荫步道缓行至山顶，避开暴晒路段。</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time"><span>中午 12:00-15:30</span> 老门东历史文化街区</div>
+        <p>返回市区，前往<strong>老门东</strong>。这里保留了明清江南民居格局，青砖黛瓦，小巷幽深。正午可在街区的特色茶馆（如德云社旁评话茶馆或独立咖啡馆）小憩。夏季老门东夜间更热闹，但午后相对清静，适合深度感受市井文化。</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time"><span>傍晚 16:30-19:30</span> 中华门城堡 & 返程准备</div>
+        <p>步行或短途交通至<strong>中华门瓮城</strong>（世界最大保存最完好的瓮城之一）。傍晚登城墙，夕阳下的古城墙与护城河极具史诗感。随后前往附近餐厅享用晚餐（推荐金宏兴鸭子店买半只盐水鸭/烤鸭带走），结束金陵之旅。</p>
+      </div>
+    </div>
+    <div class="tips-box">
+      <strong>💡 夏季行程优化Tips：</strong> 严格遵循“早晚动、中午静”原则。所有需步行的户外景点（中山陵、栖霞山、城墙）尽量安排在气温30℃以下时段。随身携带小风扇、防晒袖套及藿香正气水。
+    </div>
+  </div>
+</section>
+
+<section id="attractions">
+  <h2>🏛️ 核心景点深度指南</h2>
+  <div class="grid-2">
+    <div class="card">
+      <span class="badge">📍 必游</span> <span class="badge">🆓 免费</span>
+      <h3>中山陵</h3>
+      <p><strong>推荐理由：</strong>中国近代建筑史上的巅峰之作，中西合璧的建筑群依山而建，庄严肃穆。陵墓前392级台阶象征当时3.92亿中国同胞，登顶祭堂视野极佳。</p>
+      <p style="margin-top:10px;"><strong>门票/预约：</strong><span class="price-tag">免费</span>（需提前在“钟山风景区”公众号实名预约，每日限流）。<br>
+      <strong>游玩Tips：</strong>台阶陡峭，夏季建议带登山杖或护膝。陵园路两侧梧桐遮天，是南京最美林荫道之一。景区内观光车票10元，建议购买以节省体力。</p>
+    </div>
+    <div class="card">
+      <span class="badge">📍 古刹</span> <span class="badge">🌸 春樱/夏荫</span>
+      <h3>鸡鸣寺</h3>
+      <p><strong>推荐理由：</strong>“南朝四百八十寺”之首，香火极旺。药师佛塔为地标，登塔可俯瞰玄武湖与明城墙。三月樱花大道闻名全国，夏季古木参天，黄墙黛瓦极具禅意。</p>
+      <p style="margin-top:10px;"><strong>门票：</strong><span class="price-tag">10元</span>（含三支清香）。<br>
+      <strong>游玩Tips：</strong>寺内素斋馆的素面口碑极佳，建议午餐时段体验。从鸡鸣寺出口可直接步行至明城墙（台城段），买票登城即可将玄武湖全景尽收眼底。</p>
+    </div>
+    <div class="card">
+      <span class="badge">📍 夜游</span> <span class="badge">🏮 繁华</span>
+      <h3>夫子庙秦淮河风光带</h3>
+      <p><strong>推荐理由：</strong>南京的文化名片。夫子庙学宫、乌衣巷、江南贡院（古代科举最高学府）串联起半部金陵史。夜游秦淮是体验“十里珠帘”的最佳方式。</p>
+      <p style="margin-top:10px;"><strong>门票：</strong>街区免费；江南贡院/王导谢安纪念馆联票约<span class="price-tag">50元</span>；画舫游船<span class="price-tag">100元/人</span>。<br>
+      <strong>游玩Tips：</strong>商业化较重，主街小吃建议“浅尝”，真正地道美食藏在周边支巷（如东牌楼、文枢桥）。游船务必买“内秦淮线”，避开嘈杂的外秦淮。</p>
+    </div>
+    <div class="card">
+      <span class="badge">📍 人文/自然</span> <span class="badge">🍂 秋枫最佳</span>
+      <h3>栖霞山</h3>
+      <p><strong>推荐理由：</strong>中国四大赏枫胜地之一。秋季层林尽染，但夏季满山苍翠，负氧离子极高。栖霞寺、舍利塔、千佛岩（南朝石窟瑰宝）历史价值极高，是静心避暑佳选。</p>
+      <p style="margin-top:10px;"><strong>门票：</strong>旺季<span class="price-tag">80元</span>，淡季<span class="price-tag">50元</span>。<br>
+      <strong>游玩Tips：</strong>夏季游客较少，体验清幽。建议从正门进入，先访古寺，再沿主登山步道上行。千佛岩石窟需注意保护，禁止触摸。带足驱蚊液与防晒喷雾。</p>
+    </div>
+  </div>
+</section>
+
+<section id="food">
+  <h2>🍜 金陵风味指南</h2>
+  <p style="color:var(--text-sub); margin-bottom:15px;">南京菜属金陵菜系，讲究原汁原味、咸淡适中。“无鸭不成宴”，夏季推荐搭配清爽汤品与凉菜。</p>
+  <div class="grid-2">
+    <div class="card">
+      <h3>🥢 必尝特色</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li style="margin-bottom: 8px;"><strong>🦆 盐水鸭/烤鸭：</strong>南京招牌。盐水鸭皮白肉嫩，咸香入味；烤鸭重浇头（老卤），汁浓味醇。</li>
+        <li style="margin-bottom: 8px;"><strong>🍜 鸭血粉丝汤：</strong>汤底醇厚，配料含鸭肠、鸭肝、鸭血，搭配锅巴绝佳。夏季可选微辣开胃。</li>
+        <li style="margin-bottom: 8px;"><strong>🍘 金陵小吃（秦淮八绝）：</strong>赤豆酒酿小圆子、牛肉锅贴、梅花糕、桂花糖芋苗。偏甜口，解暑生津。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🏆 推荐餐厅/觅食地</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li style="margin-bottom: 8px;"><strong>📍 南京大牌档（新街口/夫子庙店）：</strong>一站式体验所有金陵小吃，氛围感拉满，适合首刷。人均<span class="price-tag">80-100元</span>。</li>
+        <li style="margin-bottom: 8px;"><strong>📍 金宏兴鸭子店（明瓦廊）：</strong>本地人排队神店，主打烤鸭和盐水鸭，可切半只外带走或堂食。人均<span class="price-tag">40元</span>。</li>
+        <li style="margin-bottom: 8px;"><strong>📍 老门东/科巷：</strong>避开主街的商业化，科巷有许阿姨糕团、陶记辣油馄饨等市井美味；老门东适合傍晚慢逛寻味。</li>
+      </ul>
+      <div class="tips-box" style="margin-top:12px;"><strong>⚠️ 避坑提示：</strong>夫子庙主街小吃摊价格偏高且多为连锁，建议步行10分钟至周边居民区或老字号门店就餐，性价比与口味提升显著。</div>
+    </div>
+  </div>
+</section>
+
+<section id="accommodation">
+  <h2>🏨 住宿推荐（按预算分级）</h2>
+  <p style="color:var(--text-sub); margin-bottom:15px;">夏季南京酒店价格较平日微涨，建议提前1-2周预订。推荐以地铁1、2、3号线交汇的<strong>新街口、大行宫、夫子庙</strong>商圈为主，交通便利。</p>
+  <div class="grid-3">
+    <div class="card">
+      <h3>💰 经济型（200-350元/晚）</h3>
+      <p><strong>推荐区域：</strong>夫子庙外围、三山街、西安门<br>
+      <strong>参考：</strong>汉庭/全季/如家精选、特色青年旅舍（如国际青年旅舍）<br>
+      <strong>优点：</strong>紧邻地铁，步行可达秦淮河夜景区，周边早餐选择多，性价比高。</p>
+    </div>
+    <div class="card">
+      <h3>🛏️ 舒适型（400-700元/晚）</h3>
+      <p><strong>推荐区域：</strong>新街口商圈、大行宫（1912街区）<br>
+      <strong>参考：</strong>亚朵S、桔子水晶、南京金陵饭店旁连锁酒店<br>
+      <strong>优点：</strong>位于市中心，餐饮购物极其便利，地铁1/2/3号线全覆盖，房间隔音与床品较好。</p>
+    </div>
+    <div class="card">
+      <h3>✨ 高端型（800元+/晚）</h3>
+      <p><strong>推荐区域：</strong>紫金山景区、颐和路公馆区<br>
+      <strong>参考：</strong>南京紫金山庄、颐和公馆、金陵饭店<br>
+      <strong>优点：</strong>环境清幽，部分含山景/湖景。颐和路民国建筑群内住宿极具历史沉浸感，服务与餐饮水准高，适合避暑度假。</p>
+    </div>
+  </div>
+</section>
+
+<section id="transport">
+  <h2>🚆 交通指南</h2>
+  <div class="card">
+    <h3>🛫 如何抵达</h3>
+    <table>
+      <thead>
+        <tr><th>方式</th><th>枢纽/车站</th><th>耗时/说明</th><th>接驳市内交通</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>✈️ 飞机</strong></td><td>南京禄口国际机场</td><td>长三角核心机场</td><td>地铁S1号线直达南京南站（约35分钟，票价7元）</td></tr>
+        <tr><td><strong>🚅 高铁/动车</strong></td><td>南京南站 / 南京站</td><td>杭州东约1.5h，上海约1-2h</td><td>南枢纽换乘1/3/5/6/S1号线；南京站靠近玄武湖，1/3号线直达</td></tr>
+        <tr><td><strong>🚌 市内交通</strong></td><td>公交/地铁/共享单车</td><td>地铁覆盖主要景区</td><td>支付宝搜索“南京地铁电子卡”扫码进站；共享单车适合短途接驳</td></tr>
+      </tbody>
+    </table>
+    <div class="tips-box">
+      <strong>🚌 游玩交通Tips：</strong> 夏季户外活动多，建议购买“南京公共交通周卡”或直接刷码。中山陵景区周末及节假日实行交通管制，私家车禁止入内，务必乘坐地铁2号线至<code>下马坊</code>或<code>苜蓿园</code>站，换乘景区接驳车。
+    </div>
+  </div>
+</section>
+
+<section id="budget">
+  <h2>💴 预算参考（单人/2天1晚）</h2>
+  <p style="color:var(--text-sub); margin-bottom:15px;">基于“适中”预算级别估算，实际花费视出行方式与个人消费习惯浮动。</p>
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>项目</th><th>经济/适中方案</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>往返交通</strong></td><td>¥150 - ¥350</td><td>高铁二等座/短途机票+市内交通卡</td></tr>
+        <tr><td><strong>住宿费用</strong></td><td>¥250 - ¥500</td><td>1晚舒适型酒店标间（双人平摊约¥125-250/人）</td></tr>
+        <tr><td><strong>餐饮美食</strong></td><td>¥200 - ¥350</td><td>4正餐+小吃饮品（日均约¥100-175）</td></tr>
+        <tr><td><strong>门票/体验</strong></td><td>¥80 - ¥150</td><td>中山陵/鸡鸣寺免费；栖霞山+游船+明城墙等联票</td></tr>
+        <tr style="background: #fdf3eb; font-weight: 600;">
+          <td>💰 人均预估总计</td>
+          <td colspan="2">¥680 - ¥1350（不含往返大交通浮动，纯游玩落地预算）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="tips">
+  <h2>📌 夏季出行注意事项</h2>
+  <div class="note-grid">
+    <div class="note-item">
+      <strong>☀️ 防暑降温</strong>
+      <p>南京7-8月均温35℃+，紫外线极强。务必携带防晒霜、遮阳帽、太阳镜。随身携带电解质水，避免正午长时间暴晒。备藿香正气水/风油精。</p>
+    </div>
+    <div class="note-item">
+      <strong>👟 舒适鞋服</strong>
+      <p>日均步数轻松破2万+（中山陵392级台阶、城墙石板路）。务必穿缓震好的运动鞋/健步鞋。服装以速干、宽松、透气棉麻为主，带一件薄外套应对室内冷气。</p>
+    </div>
+    <div class="note-item">
+      <strong>🎫 预约机制</strong>
+      <p>中山陵、南京博物院、六朝博物馆等核心场馆实行<strong>实名免费预约制</strong>，节假日需提前3-7天抢票。现场不售票，未预约者无法入园。</p>
+    </div>
+    <div class="note-item">
+      <strong>🦟 防蚊防雨</strong>
+      <p>紫金山、栖霞山植被茂密，夏季蚊虫较多，长裤+驱蚊液必备。夏季午后多雷阵雨，随身折叠伞既能遮阳又能挡雨（阵雨通常持续时间短）。</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2024 资深旅游规划师出品 | 南京夏季深度游攻略</p>
+    <p>行程仅供参考，景点开放时间、门票政策及交通信息可能随季节调整，请以官方最新公告为准。<br>祝您在金陵的夏日旅途中，邂逅梧桐清风与千年文脉。</p>
+  </div>
+</footer>
+
+</body>
+</html>

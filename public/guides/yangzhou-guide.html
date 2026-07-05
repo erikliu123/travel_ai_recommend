@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>扬州夏季旅游攻略 | 诗意江南·慢享时光</title>
+<style>
+  :root {
+    --primary: #2d6a4f;
+    --primary-light: #52b788;
+    --primary-dark: #1b4332;
+    --accent: #d9ed92;
+    --bg: #f4f7f5;
+    --card-bg: #ffffff;
+    --text-main: #2c3e50;
+    --text-light: #5f6c7b;
+    --border: #d8f3dc;
+    --shadow: 0 4px 16px rgba(45, 106, 79, 0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.7; }
+  .container { max-width: 960px; margin: 0 auto; padding: 24px 20px; }
+  
+  /* Header */
+  header { background: linear-gradient(140deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 48px 20px 36px; text-align: center; border-radius: 0 0 24px 24px; margin-bottom: 28px; box-shadow: 0 8px 24px rgba(27, 67, 50, 0.2); }
+  header h1 { font-size: 2.4rem; margin-bottom: 8px; letter-spacing: 1px; }
+  header .sub { font-size: 1rem; opacity: 0.85; max-width: 600px; margin: 0 auto; }
+  .tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .tag { background: rgba(255,255,255,0.15); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.3); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; }
+  
+  /* Sections & Cards */
+  section { margin-bottom: 32px; }
+  .section-title { font-size: 1.5rem; color: var(--primary-dark); display: flex; align-items: center; gap: 10px; margin-bottom: 18px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-light); }
+  .section-title::before { content: ""; display: inline-block; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 0 3px var(--primary-light); }
+  .card { background: var(--card-bg); border-radius: 12px; padding: 20px; margin-bottom: 18px; box-shadow: var(--shadow); border-left: 4px solid var(--primary); }
+  .card h3 { color: var(--primary); margin-top: 0; font-size: 1.15rem; display: flex; align-items: center; gap: 6px; }
+  
+  /* Itinerary Timeline */
+  .day-header { background: var(--primary-light); color: #fff; padding: 8px 14px; border-radius: 8px; font-weight: bold; display: inline-block; margin-bottom: 12px; }
+  .timeline { list-style: none; position: relative; padding-left: 24px; border-left: 2px dashed var(--primary-light); margin-left: 8px; }
+  .timeline li { position: relative; margin-bottom: 16px; padding-bottom: 8px; }
+  .timeline li:last-child { border-bottom: none; }
+  .timeline li::before { content: ""; position: absolute; left: -30px; top: 8px; width: 14px; height: 14px; background: #fff; border: 3px solid var(--primary); border-radius: 50%; }
+  .timeline .time { color: var(--primary-dark); font-weight: bold; font-size: 0.95rem; min-width: 60px; display: inline-block; }
+  .timeline .activity { margin-top: 4px; font-weight: 500; }
+  .timeline .desc { color: var(--text-light); font-size: 0.92rem; margin-top: 2px; }
+  
+  /* Spot Grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .spot { background: linear-gradient(160deg, #ffffff 0%, #f8fcf9 100%); border: 1px solid var(--border); padding: 16px; border-radius: 12px; transition: transform 0.2s; }
+  .spot:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(45,106,79,0.1); }
+  .spot h4 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 6px; }
+  .spot-meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 0.85rem; color: var(--text-light); margin-top: 8px; }
+  .meta-item { background: #f0f7f4; padding: 3px 8px; border-radius: 6px; }
+  
+  /* Tables */
+  .table-wrap { overflow-x: auto; background: #fff; border-radius: 10px; box-shadow: var(--shadow); }
+  table { width: 100%; border-collapse: collapse; min-width: 500px; }
+  th { background: var(--primary); color: #fff; padding: 12px; text-align: left; font-weight: 500; }
+  td { padding: 11px 12px; border-bottom: 1px solid #edf2f7; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #f8fafb; }
+  
+  /* Tips & Alerts */
+  .tip-box { background: #eefcf3; border-left: 4px solid var(--primary); padding: 16px; border-radius: 8px; margin-top: 12px; }
+  .tip-box.heat { background: #fff8e1; border-left-color: #f59e0b; }
+  .tip-box p { margin-bottom: 6px; }
+  .tip-box p:last-child { margin-bottom: 0; }
+  .highlight { color: var(--primary-dark); font-weight: bold; }
+  
+  /* Footer */
+  footer { text-align: center; padding: 30px 10px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid #e2e8f0; margin-top: 20px; }
+  
+  @media (max-width: 640px) {
+    header h1 { font-size: 1.9rem; padding: 36px 16px 24px; }
+    .grid { grid-template-columns: 1fr; }
+    .timeline { padding-left: 18px; margin-left: 4px; }
+    .timeline li::before { left: -25px; }
+    th, td { font-size: 0.9rem; padding: 10px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>扬州 · 夏日漫游记</h1>
+  <p class="sub">“两堤花柳全依水，一路楼台直到山”</p>
+  <div class="tags">
+    <span class="tag">🌿 江南水乡</span>
+    <span class="tag">🍜 美食之旅</span>
+    <span class="tag">⛩️ 园林古韵</span>
+    <span class="tag">🍵 早茶文化</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="overview">
+    <h2 class="section-title">城市概览</h2>
+    <div class="card">
+      <p><strong>📍 地理位置</strong>：江苏省中部，长江北岸，古运河穿城而过。</p>
+      <p><strong>📜 城市简介</strong>：“烟花三月下扬州”，春日柔美，夏日葱茏。瘦西湖的荷风、个园的修竹、东关街的青砖黛瓦，共同勾勒出江南最温婉的画卷。城市尺度精巧，节奏舒缓，是适合“慢下来”旅行的诗意目的地。</p>
+      <p><strong>⏱ 建议游玩天数</strong>：2天（核心精华） / 3天（含博物馆与深度体验）</p>
+      <p><strong>🌤 季节提示（夏季特辑）</strong>：7-8月为扬州雨季与盛夏，气温常在28-35℃，但绿意最浓、荷花盛开。建议“早出晚归、午间避暑”，体验清晨早茶与夜游古运河的独特风情。</p>
+    </div>
+  </section>
+
+  <section id="itinerary">
+    <h2 class="section-title">2天详细行程安排</h2>
+    
+    <div class="day-header">Day 1：湖园水色·古街寻味</div>
+    <div class="card">
+      <ul class="timeline">
+        <li>
+          <span class="time">07:30</span> <div class="activity">【晨间体验】沉浸式扬州早茶</div>
+          <div class="desc">前往趣园或冶春茶社。避开排队高峰，品尝大煮干丝、翡翠烧麦、三丁包。夏季可点一碗清爽的阳春面配虾籽酱油。</div>
+        </li>
+        <li>
+          <span class="time">09:30</span> <div class="activity">【核心景点】漫步瘦西湖</div>
+          <div class="desc">沿长堤春柳向北，经徐园、小金山、五亭桥、二十四桥。夏日荷花初绽，建议租赁园林电瓶车或乘摇橹船（阴凉时段体验极佳）。</div>
+        </li>
+        <li>
+          <span class="time">12:30</span> <div class="activity">【午休避峰】返回酒店/商场</div>
+          <div class="desc">夏季正午暴晒，建议回住宿处休整，或前往东关街附近咖啡馆/茶室避暑。</div>
+        </li>
+        <li>
+          <span class="time">14:30</span> <div class="activity">【园林雅境】探秘个园</div>
+          <div class="desc">中国四大名园之一。重点观赏“四季假山”，竹海幽深，廊道交错，夏季游园自带物理降温效果。</div>
+        </li>
+        <li>
+          <span class="time">16:30</span> <div class="activity">【夜游东关】东关街历史文化街区</div>
+          <div class="desc">青石板路、老字号林立。推荐谢馥春选购香粉、粗茶淡饭品尝藕粉圆。傍晚华灯初上，古韵与市井烟火交融。</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="day-header">Day 2：禅音登高·运河夜话</div>
+    <div class="card">
+      <ul class="timeline">
+        <li>
+          <span class="time">08:30</span> <div class="activity">【千年古刹】登临大明寺</div>
+          <div class="desc">登栖灵塔俯瞰瘦西湖与扬州城全景。参观平山堂，感受欧阳修“远山来与此堂平”的旷达。寺内树荫浓密，清晨凉爽。</div>
+        </li>
+        <li>
+          <span class="time">11:30</span> <div class="activity">【非遗手作】扬州搓背馆/漆器体验</div>
+          <div class="desc">体验“扬州三把刀”之沐浴文化（推荐室内环境佳的非遗搓背馆），或参观扬州工艺美术馆选购漆器、玉器作为伴手礼。</div>
+        </li>
+        <li>
+          <span class="time">14:30</span> <div class="activity">【室内博览】中国大运河博物馆（需预约）</div>
+          <div class="desc">夏季绝佳避暑地。全沉浸式数字展厅、复原古街、1:1大运河船模。建议提前3天在小程序实名预约。</div>
+        </li>
+        <li>
+          <span class="time">18:00</span> <div class="activity">【水上扬州】古运河夜游</div>
+          <div class="desc">从南门遗址码头登船，途经东关古渡、吴道台府、何园夜景。微风拂水，灯光勾勒两岸飞檐，是扬州夏夜的最优解。</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="spots">
+    <h2 class="section-title">核心景点精讲</h2>
+    <div class="grid">
+      <div class="spot">
+        <h4>🌊 瘦西湖</h4>
+        <p>“园林之盛，甲于天下”。狭长湖面串联30余处名园胜景，五亭桥是中国古桥梁建筑的典范。</p>
+        <div class="spot-meta">
+          <span class="meta-item">🎫 门票：¥100</span>
+          <span class="meta-item">⏱ 游玩：3-4h</span>
+          <span class="meta-item">💡 夏季Tips：建议清晨或傍晚入园，避开11:00-15:00；租汉服/古装拍照极出片。</span>
+        </div>
+      </div>
+      <div class="spot">
+        <h4>🎋 个园</h4>
+        <p>以“竹”和“四季假山”冠绝江南。春山淡冶、夏山苍翠、秋山明净、冬山如雪，一步一景。</p>
+        <div class="spot-meta">
+          <span class="meta-item">🎫 门票：¥45</span>
+          <span class="meta-item">⏱ 游玩：1.5-2h</span>
+          <span class="meta-item">💡 夏季Tips：园内廊道多、遮阴好；注意地面青石板雨后略滑。</span>
+        </div>
+      </div>
+      <div class="spot">
+        <h4>🏮 东关街</h4>
+        <p>扬州古城缩影，东起古运河，西至国庆路。明清建筑群保存完整，老字号与网红店共存。</p>
+        <div class="spot-meta">
+          <span class="meta-item">🎫 门票：免费</span>
+          <span class="meta-item">⏱ 游玩：2-3h</span>
+          <span class="meta-item">💡 夏季Tips：小吃街较拥挤，注意财物；推荐“藕粉圆、扬州老鹅”。</span>
+        </div>
+      </div>
+      <div class="spot">
+        <h4>🛕 大明寺</h4>
+        <p>鉴真东渡起点，欧阳修曾任扬州太守并建平山堂。栖灵塔可登高望远，俯瞰全城水系。</p>
+        <div class="spot-meta">
+          <span class="meta-item">🎫 门票：¥45</span>
+          <span class="meta-item">⏱ 游玩：1.5h</span>
+          <span class="meta-item">💡 夏季Tips：登塔需额外购票但视野极佳；寺内有素斋，清淡养生。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="food">
+    <h2 class="section-title">舌尖上的扬州（美食推荐）</h2>
+    <div class="card">
+      <p><strong>🥢 必吃特色</strong>：扬州炒饭（正宗讲究“金裹银”）、文思豆腐（刀工极致）、狮子头（清炖/红烧）、大煮干丝（早茶灵魂）、三头宴（拆烩鲢鱼头、蟹粉狮子头、扒烧整猪头）。</p>
+      <div class="grid" style="margin-top:15px;">
+        <div style="padding:12px; background:#f9fafb; border-radius:8px;">
+          <strong>🏮 趣园茶社（瘦西湖店）</strong><br>
+          <span style="color:var(--text-light); font-size:0.9rem;">黑珍珠餐厅，环境临水，点心精致。需早去排队或线上预约。</span>
+        </div>
+        <div style="padding:12px; background:#f9fafb; border-radius:8px;">
+          <strong>🥢 冶春茶社（丰乐上街店）</strong><br>
+          <span style="color:var(--text-light); font-size:0.9rem;">百年老字号，临水茶座极具江南风味。推荐蟹黄汤包、千层油糕。</span>
+        </div>
+        <div style="padding:12px; background:#f9fafb; border-radius:8px;">
+          <strong>🌿 粗茶淡饭（东关街店）</strong><br>
+          <span style="color:var(--text-light); font-size:0.9rem;">主打淮扬家常菜。夏季必点“桂花藕粉圆”、“扬州酱菜”。</span>
+        </div>
+        <div style="padding:12px; background:#f9fafb; border-radius:8px;">
+          <strong>🍛 蒋家桥饺面店（四望亭店）</strong><br>
+          <span style="color:var(--text-light); font-size:0.9rem;">市井平价代表，虾籽饺面、锅贴是本地人日常早餐首选，性价比高。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stay">
+    <h2 class="section-title">住宿指南</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>档次</th>
+            <th>推荐区域</th>
+            <th>参考价位（夏）</th>
+            <th>特色与Tips</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>🌿 舒适/精品</strong><br><span style="font-size:0.85rem; color:#666;">（推荐）</span></td>
+            <td>东关街/皮市街周边、文昌阁商圈</td>
+            <td>¥300 - ¥600/晚</td>
+            <td>步行可达景区，民宿多带庭院，餐饮便利。适合首次到访，兼顾体验与交通。</td>
+          </tr>
+          <tr>
+            <td><strong>🏡 经济/快捷</strong></td>
+            <td>瘦西湖南门附近、火车站商圈</td>
+            <td>¥150 - ¥300/晚</td>
+            <td>连锁酒店为主，干净卫生。夏季空调足，性价比高，建议选地铁口/公交站旁。</td>
+          </tr>
+          <tr>
+            <td><strong>🌟 高端/度假</strong></td>
+            <td>瘦西湖风景区内、虹桥坊街区</td>
+            <td>¥800 - ¥2000+/晚</td>
+            <td>扬州迎宾馆（国宾级）、瘦西湖温泉度假村。私家园林环境，含早茶券，体验极佳。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="transport">
+    <h2 class="section-title">交通指南</h2>
+    <div class="card">
+      <p><strong>🚄 如何到达</strong></p>
+      <ul style="padding-left: 18px; margin-top: 8px;">
+        <li><strong>高铁</strong>：首选<span class="highlight">杭州东 → 扬州东</span>（约2.5-3小时）。扬州东站有公交/打车直达市区（约40分钟）。</li>
+        <li><strong>飞机</strong>：扬州泰州机场（YTY）距市区约30km；或飞往南京禄口机场，转乘城际高铁至扬州东（约1.5h+1h接驳）。</li>
+        <li><strong>自驾</strong>：京沪/沪陕高速直达，景区周边有停车场，但旺季/周末老城区易拥堵。</li>
+      </ul>
+      <p style="margin-top: 12px;"><strong>🚌 市内出行</strong></p>
+      <ul style="padding-left: 18px; margin-top: 8px;">
+        <li><strong>公交/旅游专线</strong>：覆盖主要景点，票价2元。旅游旺季开通“瘦西湖-东关街”接驳专线。</li>
+        <li><strong>共享电单车</strong>：扬州地势平坦，短途接驳神器（东关街、个园间1.5km极适合骑行）。</li>
+        <li><strong>网约车/出租车</strong>：市区内跨区约¥15-25，非高峰时段响应快。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="tips">
+    <h2 class="section-title">夏季出行注意事项</h2>
+    <div class="card">
+      <div class="tip-box heat">
+        <p><strong>☀️ 防暑降温</strong>：夏季扬州湿度大，体感闷热。务必携带便携小风扇、防晒帽、高倍防晒霜。每日备足2L饮用水。</p>
+        <p><strong>🌧 雨季应对</strong>：7-8月为梅雨及台风雨季，阵雨频繁。随身带轻便折叠伞/雨衣，部分青石板路雨天湿滑，建议穿防滑平底鞋。</p>
+        <p><strong>🦟 防蚊驱虫</strong>：瘦西湖、个园植被茂密，水汽重，蚊虫较多。务必携带驱蚊液，穿浅色长袖衣物更佳。</p>
+        <p><strong>⏰ 错峰游览</strong>：热门早茶店（趣园、冶春）7:30前排队较短；景区尽量选择“上午开园”或“16:00后”时段，避开正午暴晒。</p>
+      </div>
+      <p style="margin-top: 12px; font-size: 0.9rem; color: #666;">💡 <strong>预约提示</strong>：所有4A/5A景区均需提前在“瘦西湖景区”或“游扬州”小程序实名预约。大运河博物馆需提前3天抢号。</p>
+    </div>
+  </section>
+
+  <section id="budget">
+    <h2 class="section-title">预算参考（适中级别 / 2天1夜）</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>消费类别</th>
+            <th>明细说明</th>
+            <th>预估费用（人均）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>🚄 城际交通</strong></td>
+            <td>高铁二等座（往返）</td>
+            <td>¥300 - ¥400</td>
+          </tr>
+          <tr>
+            <td><strong>🏨 住宿</strong></td>
+            <td>舒适型酒店/精品民宿（1晚/人摊）</td>
+            <td>¥200 - ¥350</td>
+          </tr>
+          <tr>
+            <td><strong>🍜 餐饮</strong></td>
+            <td>2顿正餐+1次早茶+小吃饮品</td>
+            <td>¥200 - ¥300</td>
+          </tr>
+          <tr>
+            <td><strong>🎫 门票/体验</strong></td>
+            <td>瘦西湖¥100+个园¥45+大明寺¥45+古运河夜游¥80</td>
+            <td>¥270</td>
+          </tr>
+          <tr>
+            <td><strong>🚌 市内交通</strong></td>
+            <td>公交+共享单车+短途打车</td>
+            <td>¥50 - ¥80</td>
+          </tr>
+          <tr style="background: #eefcf3; font-weight: bold; color: var(--primary-dark);">
+            <td>💰 <strong>总计参考</strong></td>
+            <td>经济型（住快捷/少打车）：约 ¥800</td>
+            <td>💵 ¥1020 - ¥1400</td>
+          </tr>
+          <tr style="background: #f8f9fa;">
+            <td></td>
+            <td>舒适型（住精品/吃正餐/夜游船）：约 ¥1150</td>
+            <td>（可根据个人消费弹性调整）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="tip-box" style="margin-bottom: 30px; background: #e0f2fe; border-left-color: #3b82f6;">
+    <p style="margin:0; text-align:center;"><strong>📝 规划师寄语</strong>：扬州的美不在“赶”，而在“停”。留一个清晨给早茶的烟火，留一个傍晚给运河的晚风，这座城市的诗意自然会缓缓流淌进心里。祝您旅途愉快！</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 扬州夏日漫游指南 | 数据更新至2024年 | 价格与开放时间以景区当日公告为准</p>
+  <p style="margin-top: 5px; opacity: 0.8;">本攻略仅供旅行参考，建议出行前核对最新防疫、交通及天气信息。</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北海道夏季深度游攻略 | 4日花海与山海之旅</title>
+<style>
+  :root {
+    --primary: #2d6a4f;
+    --primary-dark: #1b4332;
+    --primary-light: #52796f;
+    --accent: #b7e4c7;
+    --bg-body: #f4f7f5;
+    --bg-card: #ffffff;
+    --bg-section-alt: #f1faee;
+    --text-main: #1c221f;
+    --text-sub: #4a5d54;
+    --shadow: 0 6px 16px rgba(45, 106, 79, 0.08);
+    --radius: 14px;
+    --transition: all 0.3s ease;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+    margin: 0; padding: 0; background: var(--bg-body); color: var(--text-main); line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1050px; margin: 0 auto; padding: 0 20px; }
+  header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+    color: #fff; padding: 70px 0 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  header::after {
+    content: ''; position: absolute; bottom: -50px; left: 0; right: 0; height: 100px;
+    background: var(--bg-body); border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  h1 { margin: 0; font-size: 2.6rem; font-weight: 800; letter-spacing: 3px; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+  header p { margin: 15px 0 0; font-size: 1.15rem; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto; }
+  section { background: var(--bg-card); padding: 35px; margin: 35px 0; border-radius: var(--radius); box-shadow: var(--shadow); transition: var(--transition); }
+  h2 {
+    color: var(--primary); border-bottom: 4px solid var(--accent); padding-bottom: 10px; margin-top: 0;
+    display: inline-block; font-size: 1.6rem; font-weight: 700; margin-bottom: 25px;
+  }
+  h3 { color: var(--primary-dark); margin-top: 20px; font-size: 1.2rem; }
+  .badge { display: inline-block; padding: 6px 14px; background: var(--accent); color: var(--primary-dark); border-radius: 20px; font-size: 0.85rem; margin: 0 6px 8px 0; font-weight: 600; }
+  .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin: 20px 0; }
+  .meta-card { background: var(--bg-section-alt); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #e0ebe4; }
+  .meta-card .label { color: var(--text-sub); font-size: 0.85rem; }
+  .meta-card .value { color: var(--primary-dark); font-weight: 700; font-size: 1.05rem; margin-top: 4px; }
+  .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+  .pro, .con { padding: 15px; border-radius: 10px; }
+  .pro { background: #e8f5e9; border-left: 4px solid #4caf50; }
+  .con { background: #ffebee; border-left: 4px solid #f44336; }
+  .timeline { position: relative; padding-left: 25px; margin-top: 15px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 5px; bottom: 5px; width: 3px; background: linear-gradient(to bottom, var(--primary), var(--accent)); border-radius: 2px; }
+  .timeline-day { margin-bottom: 40px; }
+  .timeline-item { position: relative; margin-bottom: 20px; padding: 18px; background: var(--bg-section-alt); border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .timeline-item::before { content: ''; position: absolute; left: -22px; top: 24px; width: 14px; height: 14px; background: var(--primary); border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+  .time-label { display: inline-block; font-weight: 800; color: var(--primary); font-size: 0.95rem; margin-right: 8px; background: rgba(255,255,255,0.7); padding: 3px 8px; border-radius: 6px; }
+  .spot-card { background: var(--bg-card); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid #e8efe9; transition: var(--transition); }
+  .spot-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(45,106,79,0.12); }
+  .spot-title { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 10px; }
+  .spot-title h3 { margin: 0; color: var(--primary); font-size: 1.3rem; }
+  .tag-info { font-size: 0.85rem; color: #666; background: #f5f7f5; padding: 4px 10px; border-radius: 6px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 768px) {
+    .grid-2, .grid-3, .pro-con { grid-template-columns: 1fr; }
+    h1 { font-size: 1.8rem; }
+    header { padding: 50px 0 40px; }
+    section { padding: 25px 18px; margin: 20px 0; }
+  }
+  table.budget { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  table.budget th { background: var(--primary); color: #fff; padding: 14px; text-align: left; font-weight: 600; }
+  table.budget td { padding: 14px; border-bottom: 1px solid #eee; color: var(--text-sub); }
+  table.budget tr:last-child td { border-bottom: none; }
+  table.budget tr:hover { background: #fafcfb; }
+  .note-box { background: linear-gradient(135deg, #e8f5e9, #f1faee); padding: 20px; border-radius: 10px; margin-top: 10px; border-left: 5px solid var(--primary); }
+  ul { padding-left: 20px; margin: 10px 0; }
+  li { margin-bottom: 6px; color: var(--text-sub); }
+  .footer { text-align: center; padding: 40px 0 60px; color: #88998f; font-size: 0.9rem; border-top: 1px solid #e0ebe4; margin-top: 20px; }
+  .price-highlight { font-weight: 800; color: var(--primary); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>北海道夏季深度游</h1>
+    <p>4天精华行程 | 紫色花海 × 绝美海岸 × 顶级粉雪故乡的清凉夏日</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 城市概述 -->
+  <section id="overview">
+    <h2>🗺️ 城市概述</h2>
+    <p style="font-size: 1.05rem; color: #4a5d54; margin-bottom: 15px;">日本最北端的岛屿，以壮丽的自然风光和世界级雪场闻名。冬季粉雪天堂、夏季花海连绵、秋季红叶满山，四季皆宜。本次攻略聚焦7-8月盛夏，带您避开酷暑，拥抱20℃的清凉微风与漫山遍野的薰衣草。</p>
+    <div class="tag-box">
+      <span class="badge">🌸 夏日花海</span>
+      <span class="badge">🌿 自然风光</span>
+      <span class="badge">🏂 滑雪胜地(冬)</span>
+      <span class="badge">🏖️ 避暑度假</span>
+      <span class="badge">🍣 海鲜美食</span>
+    </div>
+    <div class="meta-grid">
+      <div class="meta-card"><div class="label">建议游玩天数</div><div class="value">4天</div></div>
+      <div class="meta-card"><div class="label">最佳月份</div><div class="value">7月-8月 (花海季)</div></div>
+      <div class="meta-card"><div class="label">预算级别</div><div class="value">★★★ 较高</div></div>
+      <div class="meta-card"><div class="label">交通抵达</div><div class="value">杭州直飞新千岁</div></div>
+    </div>
+    <div class="pro-con">
+      <div class="pro"><strong>✅ 核心优势</strong><br>• 夏季气候干爽宜人，平均气温18-25℃<br>• 富良野/美瑛花田进入盛花期，视觉震撼<br>• 北海道海鲜、乳制品、成吉思汗烤肉冠绝日本</div>
+      <div class="con"><strong>⚠️ 注意事项</strong><br>• 花季住宿/租车需提前2-3个月预订<br>• 景点分散，跨市交通耗时较长<br>• 整体消费较高，英语普及率在非市区一般</div>
+    </div>
+  </section>
+
+  <!-- 4天行程安排 -->
+  <section id="itinerary">
+    <h2>📅 4天详细行程规划</h2>
+    <div class="timeline">
+      <div class="timeline-day">
+        <h3>Day 1：抵达札幌 · 浪漫运河初探</h3>
+        <div class="timeline-item"><span class="time-label">上午</span> 杭州萧山直飞新千岁机场（约3.5h），办理入境后乘坐JR千岁线快速列车前往札幌（约40min）。入住酒店，办理行李寄存。</div>
+        <div class="timeline-item"><span class="time-label">下午</span> 乘坐JR前往小樽。漫步<strong>小樽运河</strong>，参观北一硝子馆与小樽八音盒堂。在LeTAO本店品尝双层芝士蛋糕与下午茶。</div>
+        <div class="timeline-item"><span class="time-label">晚上</span> 观赏运河沿岸煤气灯点亮（蓝调时刻约19:00-20:30），返回札幌或留宿小樽。</div>
+      </div>
+      <div class="timeline-day">
+        <h3>Day 2：深入富良野 · 紫色花田与丘陵漫步</h3>
+        <div class="timeline-item"><span class="time-label">上午</span> 从札幌搭乘特急“富良野薰衣草特急”或自驾前往富田农场。清晨避开人流，在“紫之屋”与“传统薰衣草花田”拍摄绝美大片。</div>
+        <div class="timeline-item"><span class="time-label">下午</span> 前往美瑛/富良野拼布之路，租用电动车或自行车穿梭于起伏的丘陵、七彩花田与白桦林间。品尝现烤薰衣草冰淇淋与富良野芝士工坊甜点。</div>
+        <div class="timeline-item"><span class="time-label">晚上</span> 入住富良野/美瑛地区的森林木屋或温泉旅馆。体验当地农场烧烤与清酒品鉴。</div>
+      </div>
+      <div class="timeline-day">
+        <h3>Day 3：转战二世谷 · 高山草甸与函馆百万夜景</h3>
+        <div class="timeline-item"><span class="time-label">上午</span> 前往<strong>二世谷（Niseko）</strong>。夏季雪场转型为生态度假区，乘坐安努普利缆车登顶，参与高山徒步或森林滑草，呼吸纯净负氧离子。</div>
+        <div class="timeline-item"><span class="time-label">下午</span> 驱车或搭乘高速巴士向南前往函馆。沿途可欣赏日本海海岸线，抵达后前往金森红砖仓库区购物休憩。</div>
+        <div class="timeline-item"><span class="time-label">晚上</span> 登<strong>函馆山</strong>。推荐傍晚17:30前搭乘缆车，可同时俯瞰津轻海峡的落日余晖与城市灯火渐亮的“魔幻时刻”。夜宿函馆站周边。</div>
+      </div>
+      <div class="timeline-day">
+        <h3>Day 4：朝市鲜味 · 满载而归</h3>
+        <div class="timeline-item"><span class="time-label">上午</span> 探访<strong>函馆朝市</strong>，现点“乌贼钓钓船”或享用顶级海胆/鲑鱼卵丼。随后搭乘JR新函馆北斗站换乘新干线（或巴士+飞机）返回新千岁机场方向。</div>
+        <div class="timeline-item"><span class="time-label">下午</span> 抵达新千岁机场。机场内设有“北海道拉面道场”、“Royce巧克力工厂店”、“哆啦A梦空中缆车”等。尽情采购白色恋人、薯条三兄弟等伴手礼。</div>
+        <div class="timeline-item"><span class="time-label">晚上</span> 搭乘航班返回国内，结束清凉治愈的夏日北海道之旅。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详解 -->
+  <section id="attractions">
+    <h2>📍 核心景点详解</h2>
+    
+    <div class="spot-card">
+      <div class="spot-title"><h3>1. 富良野花海 (Furano Flower Fields)</h3><span class="tag-info">🌸 夏季限定盛花期</span></div>
+      <p><strong>推荐理由：</strong>夏季的富良野是北海道的调色盘。富田农场等地的薰衣草、向日葵、波斯菊竞相绽放，紫色花海与远处的十胜岳连峰相映成趣，是夏季最具代表性的绝景。</p>
+      <p><strong>游玩Tips：</strong>最佳观赏期为7月中下旬；农场面积大，建议租借脚踏车或使用免费接驳车；清晨8-10点光线最柔和且游客最少，极易出片。</p>
+      <p><strong>门票信息：</strong>富田农场免费入园（部分温室/体验工坊收费约500-1000日元）。</p>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-title"><h3>2. 二世谷度假区 (Niseko Resort)</h3><span class="tag-info">🌿 夏季生态避暑</span></div>
+      <p><strong>推荐理由：</strong>虽以“年均15米粉雪”闻名世界，但夏季的二世谷是绝佳的绿色氧吧。高山湿地、安努普利火山徒步路线凉爽宜人，配套完善的度假村提供骑马、ATV越野、高尔夫等丰富活动。</p>
+      <p><strong>游玩Tips：</strong>夏季紫外线极强且多蚊虫，务必携带SPF50+防晒霜与驱蚊液；部分缆车夏季限定时段开放，建议提前官网查询时刻表；适合追求慢节奏度假的游客。</p>
+      <p><strong>门票信息：</strong>免费进入度假区；夏季登山缆车往返票约 3,000 日元/人。</p>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-title"><h3>3. 函馆夜景 (Hakodate Night View)</h3><span class="tag-info">🌃 世界三大夜景</span></div>
+      <p><strong>推荐理由：</strong>函馆山山顶海拔334米，独特的双湾地形让城市灯火呈扇形展开。津轻海峡的深蓝与市区暖色霓虹交织，被誉为“百万美元的夜景”，浪漫至极。</p>
+      <p><strong>游玩Tips：</strong>缆车在日落前后1小时排队最长，可考虑徒步登山道（约45分钟）或错峰搭乘；山顶观景台温差大，即使夏季也需备薄外套。</p>
+      <p><strong>门票信息：</strong>免费开放；函馆山缆车往返票 成人 1,700 日元/人，小学生 800 日元/人。</p>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-title"><h3>4. 小樽运河 (Otaru Canal)</h3><span class="tag-info">🏛️ 历史风情地标</span></div>
+      <p><strong>推荐理由：</strong>建于明治时期的货运运河，如今两岸的石造仓库已改建为玻璃工艺店、甜品铺与餐厅。复古煤气灯与粼粼水波交相辉映，充满明治-大正时期的怀旧浪漫。</p>
+      <p><strong>游玩Tips：</strong>最佳游览时间为傍晚19:00-20:00；可乘坐观光船（约25分钟）深度体验；运河尽头连接三角市场，适合顺路购买新鲜海产。</p>
+      <p><strong>门票信息：</strong>运河街区免费开放；运河游船约 1,500 日元/人。</p>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section id="food">
+    <h2>🍽️ 北海道美食图鉴</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>🦀 螃蟹与海鲜丼</h3>
+        <p>夏季是毛蟹、鳕场蟹（松叶蟹）的活跃期。函馆朝市、札幌二条市场可品尝现开海胆、鲑鱼子、甜虾盖饭。鲜甜程度冠绝全日本。</p>
+      </div>
+      <div class="card">
+        <h3>🥩 成吉思汗烤肉 (Genghis Khan)</h3>
+        <p>北海道代表性羊肉锅料理。使用特制凸顶铁锅，将嫩羊肉与豆芽、洋葱在边缘煎烤，蘸取秘制酱汁，肉质毫无膻味。</p>
+      </div>
+      <div class="card">
+        <h3>🍜 札幌汤咖喱 & 味噌拉面</h3>
+        <p>汤咖喱浓郁辛香，可自选辣度；拉面一树、すみれ等老字号以猪骨味噌浓汤与粗卷面闻名，是驱寒与补充体力的最佳选择。</p>
+      </div>
+    </div>
+    <p style="margin-top:15px; color:#52796f; font-size:0.95rem;"><strong>💡 预算参考：</strong>海鲜丼人均 2,500-4,500 日元｜烤肉/汤咖喱人均 2,000-3,500 日元｜拉面人均 900-1,500 日元。高级怀石或Omakase需提前预约，预算约 15,000+ 日元。</p>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section id="accommodation">
+    <h2>🛏️ 住宿选择指南（夏季旺季需提前预订）</h2>
+    <div class="grid-3">
+      <div class="card" style="border-left: 5px solid #81b29a;">
+        <h3>💰 经济型 (5,000-9,000 JPY/晚)</h3>
+        <p><strong>类型：</strong>胶囊旅馆、商务连锁（Toyoko Inn, APA, Dormy Inn）</p>
+        <p><strong>区域：</strong>札幌站/薄野周边、函馆站步行10分钟内</p>
+        <p><strong>特点：</strong>干净高效，部分附大浴场与免费早餐，交通极其便利。</p>
+      </div>
+      <div class="card" style="border-left: 5px solid #457b9d;">
+        <h3>🌿 舒适型 (15,000-25,000 JPY/晚)</h3>
+        <p><strong>类型：</strong>精品设计酒店、传统日式旅馆（带早晚餐）</p>
+        <p><strong>区域：</strong>小樽运河畔、富良野/美瑛民宿、二世谷中庭区</p>
+        <p><strong>特点：</strong>服务细致，多含天然温泉，能深度体验当地慢生活与农耕文化。</p>
+      </div>
+      <div class="card" style="border-left: 5px solid #2d6a4f;">
+        <h3>✨ 高端型 (35,000+ JPY/晚)</h3>
+        <p><strong>类型：</strong>奢华度假村（Hoshino, Niseko Annupuri Resort, 函馆La Vista）</p>
+        <p><strong>区域：</strong>二世谷山顶、洞爷湖/定山溪温泉乡</p>
+        <p><strong>特点：</strong>私汤客房、米其林级料理、管家服务、绝佳景观。预算充裕首选。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 交通指南 -->
+  <section id="transport">
+    <h2>🚆 交通出行指南</h2>
+    <ul>
+      <li><strong>✈️ 国际抵达：</strong>杭州萧山国际机场直飞新千岁机场（CTS），航程约3.5小时。机场地下直通JR千岁线，可快速换乘至札幌站。</li>
+      <li><strong>🚄 跨市移动：</strong>北海道幅员辽阔，夏季富良野花季推荐购买<strong>“JR北海道铁路周游券”</strong>（灵活版或指定版）。新千岁→札幌（快速约38min/1,150日元），札幌→小樽（快速约33min/850日元），札幌→富良野（特急约2.5h，需换乘/预约）。</li>
+      <li><strong>🚗 区域游玩（强烈推荐）：</strong>富良野/美瑛花海区及二世谷周边，公交班次极少。<strong>租车自驾是最优解</strong>。持有中国驾照+日文翻译件（或国际驾照）即可在日本合法租车。夏季路况佳，沿途风景极美。</li>
+      <li><strong>🚌 函馆段：</strong>函馆站至函馆山缆车有免费穿梭巴士（“函馆Liner”），班次密集，持周游券或酒店前台可领乘车券。</li>
+    </ul>
+  </section>
+
+  <!-- 注意事项 -->
+  <section id="tips">
+    <h2>📝 行前必备注意事项</h2>
+    <div class="grid-2">
+      <div class="note-box">
+        <h3>🌤️ 天气与穿着</h3>
+        <p>北海道夏季早晚温差大（15℃~26℃）。建议“洋葱式穿搭”：短袖/衬衫+薄外套/防风衣。山区（富良野、二世谷）紫外线极强，务必准备墨镜、宽檐帽与SPF50防晒霜。</p>
+      </div>
+      <div class="note-box">
+        <h3>💳 支付与通讯</h3>
+        <p>虽然大城市普及电子支付，但乡村、花田接驳车、部分老牌餐馆仍<strong>只收现金</strong>。建议随身携带 3-5万日元现钞。提前购买“Suica/Kitaca”交通IC卡。提前开通国际漫游或购买日本数据SIM卡。</p>
+      </div>
+      <div class="note-box">
+        <h3>🌸 花季特别提示</h3>
+        <p>7-8月为北海道旅游绝对旺季。酒店、特色列车（薰衣草特急）、热门租车必须<strong>提前2-3个月锁定</strong>。花田周边洗手间排队较长，建议规划好补给点。</p>
+      </div>
+      <div class="note-box">
+        <h3>🛡️ 安全与礼仪</h3>
+        <p>北海道治安良好，但仍需看管好随身行李。温泉入浴前需洗净身体，禁止穿泳衣入池。山区徒步请走指定步道，注意熊出没警示牌，避免单独深入未开发林区。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 预算参考 -->
+  <section id="budget">
+    <h2>💰 预算参考（单人/4天3晚，较高预算级别）</h2>
+    <table class="budget">
+      <thead>
+        <tr><th>项目</th><th>预估费用 (人民币)</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>✈️ 往返机票</td><td class="price-highlight">¥4,500 - ¥6,500</td><td>杭州直飞札幌（经济舱，淡旺季浮动大）</td></tr>
+        <tr><td>🚆 境内交通</td><td class="price-highlight">¥1,200 - ¥1,800</td><td>JR Pass周游券、巴士、租车分摊（2人拼车约¥800/人）</td></tr>
+        <tr><td>🛏️ 住宿费用</td><td class="price-highlight">¥3,500 - ¥5,500</td><td>3晚舒适/高端型酒店（均价¥1000-1800/晚）</td></tr>
+        <tr><td>🍽️ 餐饮消费</td><td class="price-highlight">¥2,000 - ¥3,000</td><td>含海鲜、烤肉、甜品、咖啡（日均¥600-900）</td></tr>
+        <tr><td>🎫 门票/体验</td><td class="price-highlight">¥600 - ¥1,000</td><td>缆车、游船、手工体验、纪念品预留</td></tr>
+        <tr><td><strong>🔥 总计预估</strong></td><td class="price-highlight"><strong>¥11,800 - ¥17,800</strong></td><td>属较高消费水平，可根据酒店/餐饮档次灵活调节</td></tr>
+      </tbody>
+    </table>
+    <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #666;">* 注：以上为夏季旺季参考价，实际花费会受汇率、提前预订时间、同行人数影响。建议预留15%-20%的应急备用金。</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2024 北海道夏季深度游攻略 | 祝您旅途平安，收获满城花香与治愈时光 🌿✨</p>
+    <p style="font-size: 0.8rem; margin-top: 5px; color: #9aa5a0;">攻略更新于 2024年 | 交通/票价可能随季节调整，出行前请以官方最新发布为准。</p>
+  </div>
+</footer>
+
+</body>
+</html>

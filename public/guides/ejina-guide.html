@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>长白山夏季深度游攻略 | 2日清凉避暑之旅</title>
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --primary-light: #52b788;
+      --primary-dark: #1b4332;
+      --accent: #d4a373;
+      --bg: #f8faf9;
+      --card-bg: #ffffff;
+      --text-main: #2c3e50;
+      --text-sub: #5a6a7a;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.7; color: var(--text-main); background-color: var(--bg); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+    a { color: var(--primary); text-decoration: none; }
+    h1, h2, h3 { font-weight: 700; }
+    img, svg { display: block; }
+
+    /* Hero Section */
+    .hero { background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%); color: #fff; padding: 60px 0 40px; text-align: center; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15) 0%, transparent 60%); pointer-events: none; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 8px; letter-spacing: 1px; }
+    .hero p.subtitle { font-size: 1.15rem; opacity: 0.95; margin-bottom: 20px; }
+    .hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px; }
+    .hero-badge { background: rgba(255,255,255,0.2); backdrop-filter: blur(6px); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.3); }
+    .quick-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; max-width: 800px; margin: 25px auto 0; }
+    .info-pill { background: #fff; color: var(--text-main); padding: 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); text-align: center; font-size: 0.9rem; }
+    .info-pill strong { display: block; color: var(--primary); font-size: 1.1rem; }
+
+    /* Sections */
+    section { padding: 40px 0; }
+    h2.section-title { font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 24px; padding-left: 14px; border-left: 5px solid var(--accent); position: relative; }
+    h2.section-title::before { content: ''; position: absolute; bottom: -8px; left: 14px; width: 40px; height: 3px; background: var(--accent); border-radius: 2px; }
+    h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .icon-box { width: 28px; height: 28px; background: var(--primary); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 0.8rem; flex-shrink: 0; }
+
+    .card { background: var(--card-bg); border-radius: 12px; padding: 22px; box-shadow: 0 3px 15px rgba(45,106,79,0.08); margin-bottom: 18px; border: 1px solid var(--border); }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+
+    /* Tags & Pros/Cons */
+    .tag-group { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+    .tag { background: #e8f5e9; color: var(--primary-dark); padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; }
+    .pro-con { display: flex; gap: 12px; margin-top: 15px; flex-wrap: wrap; }
+    .pro-con .item { flex: 1; min-width: 280px; background: #fff; padding: 12px; border-radius: 8px; }
+    .pro-con h4 { font-size: 0.95rem; margin-bottom: 6px; }
+    .pro-con h4.green { color: var(--primary); }
+    .pro-con h4.orange { color: var(--accent); }
+    .pro-con ul { padding-left: 18px; font-size: 0.9rem; color: var(--text-sub); }
+
+    /* Timeline */
+    .timeline-day { margin-bottom: 30px; }
+    .day-header { background: linear-gradient(90deg, var(--primary), var(--primary-light)); color: #fff; padding: 10px 18px; border-radius: 8px 8px 0 0; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+    .timeline-wrap { border: 1px solid var(--border); border-top: none; background: #fff; padding: 20px; border-radius: 0 0 12px 12px; position: relative; }
+    .tl-item { position: relative; padding-left: 24px; margin-bottom: 18px; border-left: 2px solid #e2e8f0; padding-top: 4px; }
+    .tl-item:last-child { border-left: 2px solid transparent; margin-bottom: 0; }
+    .tl-item::before { content: ''; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; }
+    .tl-time { font-weight: 700; color: var(--primary); font-size: 0.95rem; margin-bottom: 4px; }
+    .tl-content h4 { margin-bottom: 4px; font-size: 1.05rem; }
+    .tl-content p { font-size: 0.9rem; color: var(--text-sub); line-height: 1.5; }
+
+    /* Spots */
+    .spot-header { display: flex; align-items: center; gap: 15px; margin-bottom: 14px; }
+    .spot-icon { width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(135deg, var(--primary-light), var(--primary-dark)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.6rem; box-shadow: 0 4px 10px rgba(45,106,79,0.2); }
+    .spot-meta { flex: 1; }
+    .spot-meta h3 { margin: 0; font-size: 1.2rem; }
+    .spot-meta .price { color: var(--text-sub); font-size: 0.85rem; }
+    .highlight { background: #f0fdf4; padding: 8px 12px; border-radius: 6px; margin: 10px 0; font-size: 0.95rem; border-left: 3px solid var(--primary-light); }
+    .tip-box { background: #fff8e1; border: 1px solid #ffe0b2; padding: 12px; margin-top: 12px; border-radius: 8px; font-size: 0.9rem; color: #8d6e63; display: flex; gap: 8px; }
+    .tip-box::before { content: '💡'; }
+
+    /* Food & Accom */
+    .food-grid, .acc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .food-card, .acc-card { background: #fff; padding: 16px; border-radius: 10px; border: 1px solid var(--border); }
+    .food-card h4, .acc-card h4 { color: var(--primary-dark); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+    .price-tag { background: #e9ecef; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: var(--text-sub); font-weight: normal; }
+    .food-card ul, .acc-card ul { list-style: none; padding: 0; }
+    .food-card li, .acc-card li { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 6px; padding-bottom: 6px; border-bottom: 1px dashed #eee; }
+
+    /* Table */
+    .budget-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem; }
+    .budget-table th { background: #f8fafc; color: var(--text-sub); padding: 12px; text-align: left; border-bottom: 2px solid var(--border); font-weight: 500; }
+    .budget-table td { padding: 12px; border-bottom: 1px solid var(--border); }
+    .budget-total { text-align: right; padding: 16px; font-size: 1.2rem; color: var(--primary-dark); font-weight: bold; background: #f8fafc; border-radius: 0 0 8px 8px; }
+
+    /* Transport & Tips */
+    .trans-grid { display: flex; flex-wrap: wrap; gap: 15px; }
+    .trans-box { flex: 1 1 250px; background: #fff; padding: 18px; border-radius: 10px; border: 1px solid var(--border); }
+    .trans-box h4 { margin-bottom: 10px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+    .tip-list { list-style: none; padding: 0; }
+    .tip-list li { margin-bottom: 10px; padding-left: 20px; position: relative; color: var(--text-sub); font-size: 0.95rem; }
+    .tip-list li::before { content: '✔'; position: absolute; left: 0; color: var(--primary); }
+
+    /* Footer */
+    footer { background: var(--primary-dark); color: #a7d7c5; padding: 30px 20px; text-align: center; font-size: 0.9rem; line-height: 1.6; }
+    footer strong { color: #fff; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      h2.section-title { font-size: 1.5rem; }
+      .grid-2, .grid-3, .food-grid, .acc-grid, .pro-con { grid-template-columns: 1fr; }
+      .quick-info { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Hero -->
+  <header class="hero">
+    <div class="container">
+      <h1>长白山夏季避暑攻略</h1>
+      <p class="subtitle">21℃的盛夏秘境 · 东北第一山清凉之旅</p>
+      <div class="hero-badges">
+        <span class="hero-badge">🌲 自然风光</span>
+        <span class="hero-badge">🥾 登山徒步</span>
+        <span class="hero-badge">♨️ 温泉康养</span>
+        <span class="hero-badge">💧 火山天池</span>
+      </div>
+      <div class="quick-info">
+        <div class="info-pill"><strong>2天</strong>建议游玩</div>
+        <div class="info-pill"><strong>6-8月</strong>最佳避暑季</div>
+        <div class="info-pill"><strong>预算 Level 2</strong>适中舒适</div>
+        <div class="info-pill"><strong>吉林延边</strong>中朝边境</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 城市概述 -->
+    <section id="overview">
+      <h2 class="section-title">📍 目的地概述</h2>
+      <div class="card">
+        <p>长白山是东北第一山，以其神秘的火山地貌与壮美的天池闻名。夏季（6-8月）是长白山的绝佳旅行窗口：气温维持在18-24℃，平均开池率高达85%以上，高山苔原带野花盛开，地下森林绿意盎然。这里不仅是中国十大名山之一，更是不可多得的天然避暑氧吧与地热温泉圣地。</p>
+        <div class="pro-con">
+          <div class="item">
+            <h4 class="green">✨ 核心优势</h4>
+            <ul>
+              <li>夏季天池开率极高，云雾缭绕如仙境</li>
+              <li>均温21℃，完美避开酷暑，负氧离子爆表</li>
+              <li>火山地质+原始森林+冰温泉，景观层次丰富</li>
+              <li>配套成熟的度假区与朝鲜族民俗体验</li>
+            </ul>
+          </div>
+          <div class="item">
+            <h4 class="orange">⚠️ 行前注意</h4>
+            <ul>
+              <li>山顶天气多变，需预留天气等待时间</li>
+              <li>夏季属旅游旺季，住宿与车票需提前15天预订</li>
+              <li>紫外线极强，昼夜温差达10℃以上</li>
+              <li>部分区域为生态保护区，需遵守无痕山林原则</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2天行程 -->
+    <section id="itinerary">
+      <h2 class="section-title">📅 2日详细行程安排</h2>
+      
+      <div class="timeline-day">
+        <div class="day-header">🗓️ Day 1：北坡经典探秘 · 天池与地心森林</div>
+        <div class="timeline-wrap">
+          <div class="tl-item">
+            <div class="tl-time">07:00 - 08:30</div>
+            <div class="tl-content">
+              <h4>🚗 集合出发 · 景区换乘</h4>
+              <p>从二道白河镇乘车至长白山北景区山门（车程约20min）。统一换乘景区环保大巴进入保护区，沿途可欣赏针阔混交林过渡带景观。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">09:30 - 11:30</div>
+            <div class="tl-content">
+              <h4>🏔️ 登顶天池 · 俯瞰火山口湖</h4>
+              <p>在倒站口换乘越野车（需另购票）直奔海拔2189米的观景台。清晨能见度最佳，碧蓝湖水被群峰环抱，夏季常伴有彩虹与流云。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">12:00 - 13:30</div>
+            <div class="tl-content">
+              <h4>🍽️ 景区内简餐 · 休息补给</h4>
+              <p>前往蓝景休息区用餐。建议自备高能量零食（巧克力、坚果），景区内餐饮选择有限且价格偏高。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">14:00 - 16:30</div>
+            <div class="tl-content">
+              <h4>🌊 长白瀑布 · 聚龙温泉群 · 地下森林</h4>
+              <p>沿木栈道下行，观68米高长白瀑布飞泻；打卡聚龙温泉群（可品尝温泉煮鸡蛋）；午后深入地下森林，徒步1.5小时感受原始火山口生态。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">18:30 - 21:00</div>
+            <div class="tl-content">
+              <h4>♨️ 返回二道白河 · 温泉康养</h4>
+              <p>乘车返回小镇，入住酒店后体验天然火山温泉。晚餐品尝正宗朝鲜族烤肉或铁锅炖，洗去一日疲惫。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-day">
+        <div class="day-header">🗓️ Day 2：万达度假区休闲 · 生态与民俗</div>
+        <div class="timeline-wrap">
+          <div class="tl-item">
+            <div class="tl-time">08:30 - 10:30</div>
+            <div class="tl-content">
+              <h4>🚴 睡到自然醒 · 前往万达度假区</h4>
+              <p>享用早餐后包车或乘穿梭巴士前往长白山国际度假区（车程约35min）。夏季滑雪场全面转型为山地运动公园。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">11:00 - 14:00</div>
+            <div class="tl-content">
+              <h4>🎡 高山观光 · 山地项目体验</h4>
+              <p>乘坐缆车上山俯瞰松花江源头林海，体验山地滑道（旱地雪圈）、高空自行车或森林徒步。夏季植被茂盛，是天然氧吧打卡地。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">14:30 - 16:30</div>
+            <div class="tl-content">
+              <h4>🏞️ 环湖漫步 · 汉拿山文化体验</h4>
+              <p>前往度假区内的天然湖泊（汉拿山公园），环湖散步、观候鸟。参观长白山自然博物馆或体验朝鲜族打糕制作，感受边境风情。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">17:00 - 结束</div>
+            <div class="tl-content">
+              <h4>🎒 购买特产 · 返程</h4>
+              <p>在特产店选购人参、林蛙油、蓝莓干等伴手礼。根据航班/高铁时间前往机场或车站，结束清凉之旅。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 景点详情 -->
+    <section id="spots">
+      <h2 class="section-title">📸 核心景点详解</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="spot-header">
+            <div class="spot-icon">🗻</div>
+            <div class="spot-meta">
+              <h3>长白山天池</h3>
+              <span class="price">🎫 北坡门票+大巴：105元/人 | 🚙 登顶越野车：85元/人</span>
+            </div>
+          </div>
+          <div class="highlight"><strong>🏆 推荐理由：</strong>中朝界湖，世界海拔最高的火山口湖。夏季湖水呈深邃的翡翠蓝，开池率高，云雾缭绕时极具神秘感。</div>
+          <p><strong>游玩Tips：</strong>① 务必关注景区官网或“长白山”小程序的实时天气与开放公告；② 早7点第一批上山避开人流；③ 山顶风大，需备防风外套与帽子；④ 无人机限飞，严禁跨越警戒线。</p>
+        </div>
+
+        <div class="card">
+          <div class="spot-header">
+            <div class="spot-icon">💧</div>
+            <div class="spot-meta">
+              <h3>长白瀑布 & 温泉群</h3>
+              <span class="price">🎫 含在景区通票内 | 💰 温泉煮蛋：10元/5个</span>
+            </div>
+          </div>
+          <div class="highlight"><strong>🏆 推荐理由：</strong>天池水流从68米悬崖倾泻，轰鸣如雷。下方的聚龙温泉群终年沸涌，硫磺味与雪松香交织，可亲身体验“火山煮鸡蛋”。</div>
+          <p><strong>游玩Tips：</strong>① 前往瀑布需步行约300级台阶，雨后石阶较滑需防滑鞋；② 温泉群区域温度高达80℃+，请勿随意触碰水体；③ 拍照避开正午强光，清晨逆光拍摄水雾效果最佳。</p>
+        </div>
+
+        <div class="card">
+          <div class="spot-header">
+            <div class="spot-icon">🌲</div>
+            <div class="spot-meta">
+              <h3>地下森林（谷底森林）</h3>
+              <span class="price">🎫 含在景区通票内 | 🚶 单程：1.5km / 约40分钟</span>
+            </div>
+          </div>
+          <div class="highlight"><strong>🏆 推荐理由：</strong>火山喷发后塌陷形成的原始森林谷底。负氧离子浓度达8000个/cm³，夏季林冠遮天蔽日，是绝佳的轻徒步与洗肺圣地。</div>
+          <p><strong>游玩Tips：</strong>① 木栈道部分为单行线，请留意指示牌；② 林间信号弱，建议结伴而行；③ 沿途有溪流与苔藓，注意防蚊虫与保持安静（常遇野生松鼠与鸟类）。</p>
+        </div>
+
+        <div class="card">
+          <div class="spot-header">
+            <div class="spot-icon">🏂</div>
+            <div class="spot-meta">
+              <h3>长白山万达国际度假区</h3>
+              <span class="price">🎫 夏季乐园套票：约198元/人（含缆车+山地车/滑道）</span>
+            </div>
+          </div>
+          <div class="highlight"><strong>🏆 推荐理由：</strong>国内顶级雪场夏季变身“高山避暑公园”。拥有成熟的住宿、餐饮、娱乐配套，适合家庭亲子与休闲度假。</div>
+          <p><strong>游玩Tips：</strong>① 夏季高山紫外线极强，缆车需做好防晒；② 山地项目建议穿长裤防草割伤；③ 度假区内餐饮选择多但溢价较高，可部分外带零食；④ 可提前在官方APP预订项目避免排队。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section id="food">
+      <h2 class="section-title">🍜 必尝美食与餐厅</h2>
+      <div class="food-grid">
+        <div class="food-card">
+          <h4>🍲 东北铁锅炖 <span class="price-tag">人均 65-90元</span></h4>
+          <ul>
+            <li>特色：铁锅炖大鹅/江团鱼、贴饼子、宽粉</li>
+            <li>推荐：<strong>雪乡铁锅炖</strong>（二道白河老店，份量足）</li>
+            <li>Tips：提前电话预约大锅，等待约20分钟</li>
+          </ul>
+        </div>
+        <div class="food-card">
+          <h4>🥣 朝鲜族冷面 <span class="price-tag">人均 25-40元</span></h4>
+          <ul>
+            <li>特色：现压荞麦面、冰爽牛肉清汤、苹果片、辣白菜</li>
+            <li>推荐：<strong>百年石锅饭店</strong>（正宗延边风味）</li>
+            <li>Tips：汤底偏酸凉，肠胃敏感者建议搭配锅包肉</li>
+          </ul>
+        </div>
+        <div class="food-card">
+          <h4>🌿 长白山珍宴 <span class="price-tag">人均 120-180元</span></h4>
+          <ul>
+            <li>特色：猴头菇、松茸、蕨菜、刺五加、林蛙（人工养殖）</li>
+            <li>推荐：<strong>长白山自然食府</strong>（环境雅致，食材新鲜）</li>
+            <li>Tips：菌类营养丰富，建议点单询问是否可调节咸淡</li>
+          </ul>
+        </div>
+        <div class="food-card">
+          <h4>🥞 街头小吃 & 特产 <span class="price-tag">人均 10-30元</span></h4>
+          <ul>
+            <li>特色：烤冷面、明太鱼干、烤苞米、蓝莓汁</li>
+            <li>推荐：<strong>白河镇夜市/长白山大市场</strong></li>
+            <li>Tips：购买干货认准“无硫熏”“原产地”标签，谨防高价人参陷阱</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 住宿推荐 -->
+    <section id="accommodation">
+      <h2 class="section-title">🛏️ 住宿梯度推荐</h2>
+      <div class="acc-grid">
+        <div class="acc-card">
+          <h4>🟢 经济实惠型 <span class="price-tag">150-350元/晚</span></h4>
+          <ul>
+            <li>推荐：二道白河镇快捷连锁、青年旅舍</li>
+            <li>优势：靠近镇区餐饮街，步行可达公交站</li>
+            <li>注意：旺季（7-8月）需提前1周预订，隔音一般</li>
+          </ul>
+        </div>
+        <div class="acc-card">
+          <h4>🟡 舒适度假型 <span class="price-tag">500-850元/晚</span></h4>
+          <ul>
+            <li>推荐：长白山温泉酒店（如蓝景、天沐）</li>
+            <li>优势：含天然火山温泉入户/公区，免费摆渡车至山门</li>
+            <li>注意：提前确认温泉开放时段，部分房型含双早</li>
+          </ul>
+        </div>
+        <div class="acc-card">
+          <h4>🔴 高端奢华型 <span class="price-tag">1200-2500元/晚</span></h4>
+          <ul>
+            <li>推荐：万达威斯汀/喜来登、长白山柏悦</li>
+            <li>优势：私属度假区内，管家服务，景观极佳，配套齐全</li>
+            <li>注意：位置相对独立，进出景区需预约穿梭车</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 交通指南 -->
+    <section id="transport">
+      <h2 class="section-title">🚌 交通完全指南</h2>
+      <div class="trans-grid">
+        <div class="trans-box">
+          <h4>✈️ 飞机抵达</h4>
+          <p>直飞<strong>长白山机场</strong>（NBS），距二道白河镇约30公里。主要城市约2.5-3.5小时。机场有大巴至北景区集散中心（约50元/人），也可拼车/打车（约60-80元）。</p>
+        </div>
+        <div class="trans-box">
+          <h4>🚄 高铁抵达</h4>
+          <p>乘高铁至<strong>长白山站</strong>或<strong>敦化站</strong>（需北京/沈阳/长春中转）。长白山站出站即有旅游专线巴士直达景区（票价约12元，车程40分钟）。</p>
+        </div>
+        <div class="trans-box">
+          <h4>🏞️ 景区内部</h4>
+          <p>北/西坡实行环保车+越野车/大巴联营制。门票含大巴，登天池需另购85元越野车。景区内站点间换乘免费。建议购买官方小程序电子票。</p>
+        </div>
+        <div class="trans-box">
+          <h4>🚕 镇内通勤</h4>
+          <p>二道白河镇面积紧凑，公交1/2路可达主要酒店与集散中心。夜间打车便利，但旺季建议通过网约车APP提前预约，避免路边议价。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 预算参考 -->
+    <section id="budget">
+      <h2 class="section-title">💰 2日预算参考（单人/适中级）</h2>
+      <div class="card">
+        <p>以下为夏季（6-8月）非节假日、舒适型旅行的大致花费估算。实际价格随市场波动，建议预留15%浮动空间。</p>
+        <table class="budget-table">
+          <tr>
+            <th>项目</th>
+            <th>明细说明</th>
+            <th>预估费用（元）</th>
+          </tr>
+          <tr>
+            <td>大交通</td>
+            <td>往返机票/高铁（视出发地浮动）</td>
+            <td>1000 - 2500</td>
+          </tr>
+          <tr>
+            <td>住宿</td>
+            <td>1晚温泉/舒适酒店（按双人拼房折算）</td>
+            <td>300 - 500</td>
+          </tr>
+          <tr>
+            <td>餐饮</td>
+            <td>3正餐+2早餐（含特色餐+小吃）</td>
+            <td>250 - 350</td>
+          </tr>
+          <tr>
+            <td>门票/索道</td>
+            <td>北坡套票(190)+万达乐园(198)+景区内其他</td>
+            <td>400 - 500</td>
+          </tr>
+          <tr>
+            <td>当地交通</td>
+            <td>机场/高铁往返+镇内打车/拼车</td>
+            <td>150 - 250</td>
+          </tr>
+          <tr>
+            <td>备用/杂费</td>
+            <td>雨衣/防晒/零食/纪念品</td>
+            <td>150 - 200</td>
+          </tr>
+        </table>
+        <div class="budget-total">总计预估：约 2250 - 4300 元/人</div>
+      </div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section id="tips">
+      <h2 class="section-title">🛡️ 夏季出行注意事项</h2>
+      <div class="card">
+        <ul class="tip-list">
+          <li><strong>穿衣法则：</strong>山顶与山下温差大。采用“洋葱式穿衣法”（排汗T恤+抓绒/薄冲锋衣+防风外套）。务必携带雨具，夏季多阵雨。</li>
+          <li><strong>防晒防虫：</strong>高海拔紫外线强烈，SPF50+防晒霜、墨镜、遮阳帽必备。地下森林与度假区草丛多蜱虫与蚊虫，建议喷涂避蚊胺，穿长裤塞入袜子。</li>
+          <li><strong>票务预约：</strong>长白山景区严格执行限流与实名制，务必提前3-7天在“长白山”微信公众号预约购票。旺季现场基本无余票。</li>
+          <li><strong>安全规范：</strong>严禁进入未开发区域、严禁采摘野生植物/药材、严禁投喂野生动物。火山地质区岩石易碎，行走栈道请勿倚靠护栏外侧。</li>
+          <li><strong>健康提示：</strong>海拔2100m+可能有轻微缺氧感，避免剧烈跑跳。冠心病、严重

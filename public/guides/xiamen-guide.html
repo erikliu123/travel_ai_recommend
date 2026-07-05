@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>厦门夏季深度游攻略 | 3天2夜专业指南</title>
+    <style>
+        :root {
+            --primary: #0077b6;
+            --primary-dark: #023e8a;
+            --primary-light: #caf0f8;
+            --accent: #00b4d8;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-main: #212529;
+            --text-sec: #555;
+            --shadow: 0 6px 20px rgba(0, 50, 100, 0.08);
+            --radius: 12px;
+            --spacing: 24px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(180deg, #e3f2fd 0%, var(--bg-body) 100%);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 60px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--accent) 100%);
+            color: white;
+            padding: 60px 0 50px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 0 0 30px 30px;
+        }
+        header h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; }
+        header p.sub { opacity: 0.95; font-size: 1.15rem; max-width: 600px; margin: 0 auto 20px; }
+        .tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .badge {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+        
+        /* Layout & Sections */
+        main { display: grid; gap: 30px; }
+        section {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: var(--spacing);
+            box-shadow: var(--shadow);
+            border: 1px solid #eef2f6;
+        }
+        h2 {
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h3 { color: var(--primary); font-size: 1.25rem; margin: 20px 0 10px; }
+        p { margin-bottom: 12px; color: var(--text-sec); }
+
+        /* Overview Grid */
+        .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .info-box {
+            background: linear-gradient(to bottom right, #f8fbff, #ffffff);
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+        .info-box .label { font-size: 0.9rem; color: #888; display: block; margin-bottom: 4px; }
+        .info-box .value { font-weight: 700; color: var(--text-main); }
+        
+        /* Timeline / Itinerary */
+        .day-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .day-btn {
+            flex: 1; padding: 12px; background: #eef4f8; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; color: var(--primary-dark); transition: all 0.2s;
+        }
+        .day-btn:hover, .day-btn.active { background: var(--primary); color: white; }
+        .timeline { position: relative; padding-left: 24px; border-left: 3px dashed var(--primary-light); margin-top: 20px; }
+        .t-item { position: relative; padding-bottom: 24px; }
+        .t-item::before { content: ''; position: absolute; left: -29px; top: 6px; width: 14px; height: 14px; background: var(--white); border: 3px solid var(--primary); border-radius: 50%; }
+        .t-time { display: inline-block; background: var(--primary-light); color: var(--primary-dark); padding: 3px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-bottom: 6px; }
+        .t-content { background: #fafbff; padding: 15px; border-radius: 8px; }
+        .t-content strong { color: var(--primary-dark); }
+
+        /* Attraction Cards */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .spot-card {
+            border: 1px solid #e0e7ef; border-radius: var(--radius); overflow: hidden; transition: transform 0.2s;
+            background: linear-gradient(160deg, #ffffff 60%, #e6f7ff 100%);
+        }
+        .spot-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .spot-header { background: var(--primary); color: white; padding: 12px 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .spot-body { padding: 18px; }
+        .spot-tip { background: #fff8e1; border-left: 4px solid #ffc107; padding: 10px; margin-top: 10px; font-size: 0.9rem; border-radius: 0 6px 6px 0; color: #664d03; }
+        
+        /* Tables */
+        .data-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem; }
+        .data-table th, .data-table td { padding: 12px; text-align: left; border-bottom: 1px solid #e9ecef; }
+        .data-table th { background: var(--primary-light); color: var(--primary-dark); font-weight: 600; }
+        .data-table tr:hover td { background: #f8fafc; }
+        
+        /* Boxes */
+        .box { padding: 15px; border-radius: 8px; margin-top: 10px; }
+        .box.tip { background: linear-gradient(to right, #e3f2fd, #ffffff); border: 1px solid #bbdefb; color: #0d47a1; }
+        .box.warn { background: linear-gradient(to right, #fde8e8, #ffffff); border: 1px solid #f87171; color: #991b1b; }
+        
+        /* Budget */
+        .budget-summary { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; }
+        .b-card { flex: 1; min-width: 120px; text-align: center; padding: 15px; background: white; border-radius: 10px; border: 1px solid #e5e7eb; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+        .b-amount { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+        .b-label { font-size: 0.85rem; color: #666; margin-top: 4px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { padding: 40px 20px 30px; border-radius: 0 0 20px 20px; }
+            header h1 { font-size: 1.9rem; }
+            section { padding: 16px; }
+            .grid-2, .overview-grid { grid-template-columns: 1fr; }
+            .data-table { display: block; overflow-x: auto; white-space: nowrap; }
+        }
+        @media print { body { background: #fff; } header { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>🌊 厦门夏季深度游攻略</h1>
+        <p class="sub">海上花园 · 文艺漫步 · 环岛追风｜3天2夜经典路线</p>
+        <div class="tags">
+            <span class="badge">🏖️ 海边度假</span>
+            <span class="badge">🎨 文艺青年</span>
+            <span class="badge">🚶 城市漫步</span>
+            <span class="badge">🌤️ 预算适中(Level 2)</span>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- 城市概述 -->
+    <section id="overview">
+        <h2>📍 城市概览</h2>
+        <p>厦门，一座“城在海上，海在城中”的花园都市。鼓浪屿的万国建筑、南普陀的晨钟暮鼓、环岛路的椰林海风，交织出闽南独有的浪漫与悠闲。夏季虽炎热，但海风与夜市的烟火气让这里依然迷人。</p>
+        <div class="overview-grid">
+            <div class="info-box">
+                <span class="label">📅 建议游玩天数</span>
+                <span class="value">3天（2-3晚最佳）</span>
+            </div>
+            <div class="info-box">
+                <span class="label">🌟 最佳旅游月份</span>
+                <span class="value">3-5月 / 10-12月（夏季需防台风与高温）</span>
+            </div>
+            <div class="info-box">
+                <span class="label">💰 预算级别</span>
+                <span class="value">Level 2｜人均约 1500-2200元</span>
+            </div>
+            <div class="info-box">
+                <span class="label">✅ 旅行优点</span>
+                <span class="value">氛围浪漫清新、海鲜美食丰富、景点集中适合Citywalk、高校人文浓厚</span>
+            </div>
+            <div class="info-box">
+                <span class="label">⚠️ 注意事项</span>
+                <span class="value">鼓浪屿船票需提前7天抢票、暑期高温多雨需防晒、部分场馆/大学需实名预约</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3天详细行程 -->
+    <section id="itinerary">
+        <h2>🗓️ 3天详细行程安排</h2>
+        <p style="font-size:0.9rem;color:#666;">夏季出行建议采用“早出晚归、午间避热”的节奏，合理搭配室内外活动。</p>
+        
+        <div class="timeline">
+            <div class="t-item">
+                <span class="t-time">DAY 1</span>
+                <div class="t-content">
+                    <strong>🌿 上午：鼓浪屿登岛漫游</strong><br>
+                    提前抵达邮轮中心厦鼓码头，乘轮渡前往三丘田码头。步行至龙头路小吃街开启早餐，随后漫步领事馆路、天主堂周边老街区，感受“万国建筑博物馆”的静谧。<br>
+                    <strong>🌇 下午：日光岩俯瞰 & 菽庄听涛</strong><br>
+                    避开正午暴晒，14:30后游览日光岩（全岛制高点）与菽庄花园。16:30在港仔后沙滩踏浪，等待海边日落，傍晚乘船返回本岛。<br>
+                    <strong>🌙 晚上：中山路步行街 & 局口拌面</strong><br>
+                    返回后前往中山路骑楼夜景，品尝地道闽南夜宵，体验老城烟火。
+                </div>
+            </div>
+            <div class="t-item">
+                <span class="t-time">DAY 2</span>
+                <div class="t-content">
+                    <strong>📿 上午：南普陀禅意 & 五老峰观景</strong><br>
+                    08:30入园避开人流。参拜大雄宝殿、大悲殿，随后可攀登五老峰（约1-1.5小时），俯瞰厦大与海景。下山品尝南普陀素饼。<br>
+                    <strong>🎓 下午：厦门大学 & 白城沙滩</strong><br>
+                    需提前3天在“厦门大学访客预约”小程序实名预约。漫步芙蓉湖、芙蓉隧道涂鸦街，出南门即为白城沙滩。夏季炎热，建议16:00后沿木栈道散步。<br>
+                    <strong>🍻 晚上：曾厝垵夜市 & 沙坡尾避风坞</strong><br>
+                    曾厝垵打卡各式文艺小店与海鲜大排档，随后步行至沙坡尾，看旧避风坞与双子塔夜景交相辉映。
+                </div>
+            </div>
+            <div class="t-item">
+                <span class="t-time">DAY 3</span>
+                <div class="t-content">
+                    <strong>🚴 上午：环岛路骑行 & 椰风寨</strong><br>
+                    租共享单车或自行车，沿环岛路从白城骑行至黄厝海滩。途中经过“一国两制”标语牌。在椰风寨或黄厝享受清晨无人的纯净海岸线。<br>
+                    <strong>🦀 下午：八市寻味 & 钟鼓索道</strong><br>
+                    前往第八海鲜市场（八市），感受最地道的市井气息，购买现开芒果、满煎糕。随后乘坐钟鼓索道（需预约），在空中俯瞰山海全景。<br>
+                    <strong>🚄 晚上：整理行装 & 返程</strong><br>
+                    根据高铁/航班时间，前往厦门北站或高崎机场，结束海滨之旅。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 景点详细介绍 -->
+    <section id="spots">
+        <h2>🏞️ 核心景点详解</h2>
+        <div class="grid-2">
+            <div class="spot-card">
+                <div class="spot-header">🏝️ 鼓浪屿 <span style="font-weight:normal;font-size:0.9em;">世界文化遗产</span></div>
+                <div class="spot-body">
+                    <p><strong>推荐理由：</strong>“钢琴之岛”无车马喧嚣，中西合璧的建筑群与文艺氛围是拍照圣地。日光岩、菽庄花园是必到打卡点。</p>
+                    <div class="spot-tip">💡 游玩Tips：夏季务必穿防滑平底鞋（石板路多）；岛上商业区物价偏高，建议自带矿泉水与防晒用品；迷路时可向穿制服的巡防队求助。</div>
+                    <p><strong>门票：</strong>船票35元/人（游客往返），核心景点联票90元（含日光岩50+菽庄30+风琴馆20等，按需购买）。</p>
+                </div>
+            </div>
+            <div class="spot-card">
+                <div class="spot-header">📿 南普陀寺 <span style="font-weight:normal;font-size:0.9em;">闽南佛教古刹</span></div>
+                <div class="spot-body">
+                    <p><strong>推荐理由：</strong>香火旺盛且免费开放，建筑依山而建气势恢宏。后山五老峰视野极佳，可避开正午酷热。</p>
+                    <div class="spot-tip">💡 游玩Tips：入寺需着装得体（不穿短裙短裤拖鞋）；寺内免费赠香；素斋馆位于寺内右侧，11:00-13:30供应，人均约15元，非常实惠。</div>
+                    <p><strong>门票：</strong>免费（需关注公众号实名预约）。</p>
+                </div>
+            </div>
+            <div class="spot-card">
+                <div class="spot-header">🎓 厦门大学 <span style="font-weight:normal;font-size:0.9em;">中国最美校园</span></div>
+                <div class="spot-body">
+                    <p><strong>推荐理由：</strong>嘉庚建筑风格独树一帜，芙蓉隧道涂鸦墙青春洋溢，芙蓉湖倒映着现代建筑与自然风光。</p>
+                    <div class="spot-tip">💡 游玩Tips：必须提前3天在“厦门大学访客预约”抢号，暑期名额秒空；校内禁止共享单车入内；芙蓉湖周边蚊虫多，备好驱蚊液。</div>
+                    <p><strong>门票：</strong>免费（严格实名预约制，名额有限）。</p>
+                </div>
+            </div>
+            <div class="spot-card">
+                <div class="spot-header">🚴 环岛路 <span style="font-weight:normal;font-size:0.9em;">最美马拉松赛道</span></div>
+                <div class="spot-body">
+                    <p><strong>推荐理由：</strong>全长43公里的黄金海岸线，集沙滩、木栈道、椰林、草坪于一体。骑行或散步皆可感受“面朝大海”的惬意。</p>
+                    <div class="spot-tip">💡 游玩Tips：夏季骑行建议07:00-10:00或17:30-20:00；白城至黄厝段人少景美；租车约20-40元/小时（注意检查刹车与轮胎）。</div>
+                    <p><strong>门票：</strong>免费开放。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section id="food">
+        <h2>🍜 闽南风物·美食指南</h2>
+        <div class="grid-2">
+            <div>
+                <h3>🦞 必尝特色菜品</h3>
+                <table class="data-table">
+                    <thead><tr><th>菜品</th><th>风味特点</th><th>人均参考</th></tr></thead>
+                    <tbody>
+                        <tr><td>沙茶面</td><td>浓郁花生芝麻汤底，配海鲜/瘦肉/豆腐</td><td>25-40元</td></tr>
+                        <tr><td>海蛎煎</td><td>地瓜粉裹海蛎煎蛋，外酥内嫩，配甜辣酱</td><td>35-50元</td></tr>
+                        <tr><td>土笋冻</td><td>星虫熬制胶质凝冻，配蒜蓉酱油芥末</td><td>15-30元</td></tr>
+                        <tr><td>姜母鸭</td><td>老姜麻油慢炖，肉质紧实驱寒暖胃</td><td>120元/半只</td></tr>
+                        <tr><td>花生汤+油条</td><td>绵密清甜，经典闽南早餐标配</td><td>8-15元</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h3>🏆 口碑餐厅推荐</h3>
+                <div class="box tip">
+                    <strong>📍 乌糖沙茶面（大同路）</strong><br>只卖上午，去晚售罄。汤头浓郁不糊嘴，配料自选。<br>
+                    <strong>📍 莲欢海蛎煎（局口街巷内）</strong><br>30年老店，海蛎新鲜肥美，地瓜粉比例恰到好处。<br>
+                    <strong>📍 黄则和花生汤（中山路总店）</strong><br>百年老字号，花生入口即化，搭配韭菜盒子绝佳。<br>
+                    <strong>📍 八市海鲜加工</strong><br>建议“买鲜+代加工”模式，推荐阿杰五香与手撕鸡。注意货比三家、问清代工费。<br>
+                    <strong>📍 临家闽南菜（曾厝垵/环岛路店）</strong><br>环境雅致，土笋冻、同安封肉、白灼鱿鱼品质稳定。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 住宿推荐 -->
+    <section id="stay">
+        <h2>🏨 住宿推荐（按预算划分）</h2>
+        <p>夏季为旅游小旺季，建议提前1-2周预订。中山路/思明南路交通便利；环岛路/曾厝垵适合度假氛围；鼓浪屿民宿需确认行李搬运服务。</p>
+        <table class="data-table">
+            <thead>
+                <tr><th>档次</th><th>推荐区域</th><th>参考价格/晚</th><th>特点说明</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:4px;font-size:0.8rem;">💰 经济型</span></td>
+                    <td>中山路、火车站、文灶周边</td>
+                    <td>150-280元</td>
+                    <td>连锁快捷/老牌民宿，交通极便利，近地铁BRT，餐饮丰富，性价比高。</td>
+                </tr>
+                <tr>
+                    <td><span style="background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:4px;font-size:0.8rem;">🛋️ 舒适型</span></td>
+                    <td>曾厝垵、沙坡尾、思明南路中段</td>
+                    <td>300-550元</td>
+                    <td>设计感民宿/精品酒店，步行可达海边，文艺氛围浓，配套齐全（空调/投影/除湿）。</td>
+                </tr>
+                <tr>
+                    <td><span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:4px;font-size:0.8rem;">🌟 高端/海景</span></td>
+                    <td>环岛路一线海景、鼓浪屿核心区</td>
+                    <td>800-1800+元</td>
+                    <td>五星级/奢华设计酒店，私享沙滩/无边泳池，管家服务，部分含双早及下午茶。</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 交通指南 -->
+    <section id="transport">
+        <h2>🚄 交通指南</h2>
+        <div class="grid-2">
+            <div class="info-box">
+                <span class="label">✈️ 到达交通</span>
+                <p><strong>飞机：</strong>厦门高崎机场（距市区近）。打车至中山路/曾厝垵约30-40分钟，约50-80元。</p>
+                <p><strong>高铁/动车：</strong>主要停靠厦门北站。地铁1号线直达岛内（体验《千与千寻》同款海上段），约45分钟；高铁约4-5小时（以杭州东至厦门北为例）。</p>
+            </div>
+            <div class="info-box">
+                <span class="label">🚌 市内出行</span>
+                <p><strong>地铁+BRT：</strong>地铁1、2、3号线覆盖主要商圈与景点；BRT快速公交性价比高，避开地面拥堵。</p>
+                <p><strong>公交/打车：</strong>支付宝/微信搜“厦门公交”乘车码。滴滴/网约车响应快，夏季午间建议优先选择。</p>
+                <p><strong>鼓浪屿轮渡：</strong>游客统一在<strong>邮轮中心厦鼓码头</strong>登船。暑期务必提前7天在“厦门轮渡”小程序购票。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section id="tips">
+        <h2>⚠️ 夏季出行注意事项</h2>
+        <div class="box warn">
+            <strong>🔥 防暑防晒：</strong>厦门夏季（6-9月）气温常达32-36℃，紫外线极强。必备高倍数防晒霜、太阳镜、遮阳帽、晴雨伞。尽量避开11:30-15:30进行户外活动。
+        </div>
+        <div class="box tip">
+            <strong>🌧️ 台风与阵雨：</strong>7-9月为台风季，多午后雷阵雨。关注“厦门天气”预警，遇台风航班/高铁可能停运，行程需保持弹性。备轻便雨衣与防水袋。
+        </div>
+        <div class="grid-2" style="margin-top:15px;">
+            <div class="box" style="background:#f0f9ff;border:1px solid #bae6fd;">
+                <strong>🐜 防蚊虫：</strong>鼓浪屿、植物园、五老峰植被茂密，蚊虫活跃。建议携带含避蚊胺(DEET)驱蚊液或清凉油，避免穿短袖短裤进草丛。
+            </div>
+            <div class="box" style="background:#f5f3ff;border:1px solid #c4b5fd;">
+                <strong>🎫 预约须知：</strong>厦大、南普陀、园林植物园、钟鼓索道均需提前实名预约/购票。部分场馆周一闭馆，请合理规划顺序。
+            </div>
+        </div>
+    </section>
+
+    <!-- 预算参考 -->
+    <section id="budget">
+        <h2>💰 预算参考（3天2夜/单人·适中消费）</h2>
+        <div class="budget-summary">
+            <div class="b-card">
+                <div class="b-amount">¥150</div>
+                <div class="b-label">🚌 市内交通</div>
+            </div>
+            <div class="b-card">
+                <div class="b-amount">¥700</div>
+                <div class="b-label">🏨 住宿(2晚)</div>
+            </div>
+            <div class="b-card">
+                <div class="b-amount">¥450</div>
+                <div class="b-label">🍜 餐饮美食</div>
+            </div>
+            <div class="b-card">
+                <div class="b-amount">¥200</div>
+                <div class="b-label">🎫 门票体验</div>
+            </div>
+        </div>
+        <p style="text-align:center;font-weight:bold;color:#023e8a;margin-top:10px;">💡 预估总计：约 1500 - 1800元/人（不含往返大交通）</p>
+        <table class="data-table" style="margin-top:15px;">
+            <thead><tr><th>项目</th><th>明细说明</th><th>弹性空间</th></tr></thead>
+            <tbody>
+                <tr><td>住宿</td><td>舒适型民宿/连锁酒店均价 350/晚 × 2晚</td><td>青旅可降至200，海景五星需1500+</td></tr>
+                <tr><td>餐饮</td><td>早餐15 + 午餐40 + 晚餐60 + 小吃饮品25 × 3天</td><td>八市自购海鲜加工可节省30%</td></tr>
+                <tr><td>门票</td><td>鼓浪屿船票35 + 核心景点联票(部分)90 + 索道100 + 杂费</td><td>南普陀/厦大/环岛路均免费</td></tr>
+                <tr><td>市内</td><td>地铁/公交100 + 租车/打车50</td><td>全程骑行可降至50元以内</td></tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer style="text-align:center;padding:30px 20px;color:#666;font-size:0.85rem;border-top:1px solid #e5e7eb;margin-top:40px;background:#fff;">
+    <p>© 2024 厦门夏季旅行指南 | 路线基于实景体验优化，价格与政策可能随季节浮动，请以官方最新发布为准。</p>
+    <p>祝您在鹭岛遇见山海浪漫，旅途平安愉快 🌴☕</p>
+</footer>
+
+</body>
+</html>

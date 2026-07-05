@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>千岛湖夏季深度游攻略（2天1夜）</title>
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --primary-dark: #1b4332;
+      --primary-light: #52b788;
+      --bg-light: #f0fdf4;
+      --bg-main: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-sec: #64748b;
+      --accent-orange: #e67e22;
+      --accent-red: #e74c3c;
+      --shadow-sm: 0 2px 6px rgba(0,0,0,0.05);
+      --shadow-md: 0 6px 16px rgba(0,0,0,0.08);
+      --radius: 14px;
+      --transition: all 0.3s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.75;
+      color: var(--text-main);
+      background: var(--bg-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header / Hero */
+    .hero {
+      position: relative;
+      padding: 80px 20px 60px;
+      text-align: center;
+      background: linear-gradient(160deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50px; left: -50px; width: 300px; height: 300px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -100px; right: -80px; width: 400px; height: 400px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 12px; letter-spacing: 2px; position: relative; z-index: 2; }
+    .hero p.subtitle { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 20px; position: relative; z-index: 2; }
+    .tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; position: relative; z-index: 2; }
+    .tag { background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; backdrop-filter: blur(4px); }
+
+    /* Container & Sections */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    section { margin: 40px 0; }
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title::before { content: "🌿"; }
+    .section-desc { color: var(--text-sec); margin-bottom: 25px; font-size: 1rem; }
+    .divider { height: 2px; background: linear-gradient(90deg, var(--primary), transparent 80%); margin: 30px 0; opacity: 0.3; }
+
+    /* Cards */
+    .card { background: var(--card-bg); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-sm); margin-bottom: 20px; transition: var(--transition); border: 1px solid #eef2f7; }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+    /* Overview Grid */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
+    .info-item { background: var(--bg-light); padding: 16px; border-radius: 12px; border-left: 4px solid var(--primary-light); }
+    .info-item h4 { color: var(--primary); margin-bottom: 6px; font-size: 0.95rem; }
+    .info-item p { font-size: 0.9rem; color: var(--text-sec); }
+
+    /* Pros & Cons */
+    .pc-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+    .pc-box { padding: 18px; border-radius: 12px; font-size: 0.95rem; }
+    .pc-box.pro { background: #e6f4ea; color: #166534; border: 1px dashed #166534; }
+    .pc-box.con { background: #fef2f2; color: #991b1b; border: 1px dashed #991b1b; }
+    .pc-box strong { display: block; margin-bottom: 8px; font-size: 1rem; }
+    .pc-box ul { list-style: none; }
+    .pc-box ul li { margin-bottom: 4px; }
+    .pc-box ul li::before { content: "•"; margin-right: 6px; }
+
+    /* Timeline Itinerary */
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before { content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 3px; background: var(--primary-light); border-radius: 4px; }
+    .timeline-day { margin-bottom: 30px; position: relative; }
+    .timeline-day h3 { background: var(--primary); color: #fff; padding: 6px 16px; border-radius: 20px; display: inline-block; font-size: 0.95rem; margin-bottom: 15px; margin-left: -10px; }
+    .timeline-item { position: relative; margin-bottom: 20px; background: var(--card-bg); padding: 18px; border-radius: 12px; box-shadow: var(--shadow-sm); }
+    .timeline-item::before { content: ""; position: absolute; left: -29px; top: 15px; width: 14px; height: 14px; background: #fff; border: 3px solid var(--primary); border-radius: 50%; }
+    .time-badge { font-weight: bold; color: var(--primary); margin-bottom: 6px; display: inline-block; background: var(--accent); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; }
+    .timeline-item h4 { font-size: 1.1rem; margin-bottom: 8px; }
+
+    /* Attraction Cards */
+    .attr-card { display: flex; flex-direction: column; }
+    .attr-card h3 { color: var(--primary-dark); font-size: 1.25rem; margin-bottom: 8px; border-bottom: 2px solid var(--bg-light); padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .price-tag { background: var(--accent-orange); color: #fff; padding: 4px 10px; border-radius: 16px; font-size: 0.8rem; font-weight: bold; }
+    .reason-box { background: #f8fafc; padding: 12px; border-radius: 8px; margin: 10px 0; border-left: 3px solid var(--primary); font-style: italic; }
+    .tips-list { padding-left: 18px; margin: 10px 0 0; }
+    .tips-list li { margin-bottom: 6px; font-size: 0.9rem; }
+
+    /* Food & Hotel */
+    .food-item, .hotel-item { padding: 16px; border-bottom: 1px dashed #e2e8f0; }
+    .food-item:last-child, .hotel-item:last-child { border-bottom: none; }
+    .level-badge { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; color: #fff; margin-right: 6px; }
+    .level-eco { background: #6b7280; }
+    .level-comf { background: var(--primary-light); }
+    .level-lux { background: var(--accent-red); }
+
+    /* Transport */
+    .trans-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .trans-box h4 { margin-bottom: 8px; color: var(--primary); display: flex; align-items: center; gap: 6px; }
+
+    /* Tips & Budget */
+    .tip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+    .tip-card { background: linear-gradient(135deg, #fff 0%, var(--bg-light) 100%); padding: 18px; border-radius: 12px; border: 1px solid #d1e0d8; }
+    .tip-card h4 { color: var(--primary-dark); margin-bottom: 10px; }
+    .budget-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.95rem; }
+    .budget-table th, .budget-table td { padding: 12px 15px; border-bottom: 1px solid #e2e8f0; text-align: left; }
+    .budget-table th { background: var(--bg-light); color: var(--primary-dark); font-weight: 600; }
+    .budget-total { text-align: right; margin-top: 15px; font-size: 1.1rem; font-weight: bold; color: var(--primary-dark); background: var(--bg-light); padding: 12px; border-radius: 8px; }
+
+    /* Footer */
+    footer { background: var(--primary-dark); color: rgba(255,255,255,0.8); text-align: center; padding: 30px 20px; margin-top: 50px; font-size: 0.9rem; }
+    footer p { margin-bottom: 8px; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .pc-container { grid-template-columns: 1fr; }
+      .trans-grid { grid-template-columns: 1fr; }
+      .timeline { padding-left: 20px; }
+      .timeline::before { left: 5px; }
+      .timeline-item::before { left: -19px; width: 12px; height: 12px; }
+      .timeline-day h3 { font-size: 0.9rem; }
+      .section-title { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>千岛湖夏季深度游攻略</h1>
+    <p class="subtitle">天下第一秀水 · 1078座翠绿岛屿 · 2天1夜经典自驾/骑行路线</p>
+    <div class="tags">
+      <span class="tag">🍃 自然风光</span>
+      <span class="tag">👨‍👩‍👧‍👦 亲子游</span>
+      <span class="tag">🚗 自驾旅行</span>
+      <span class="tag">📅 建议天数：2天</span>
+      <span class="tag">💰 预算级别：适中</span>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <section class="overview">
+      <h2 class="section-title">城市概述</h2>
+      <p class="section-desc">千岛湖位于浙江省杭州市淳安县，是新安江水电站筑坝蓄水形成的人工湖。湖水澄澈见底，岛屿星罗棋布，夏季气候凉爽宜人，是江浙沪周边避暑、休闲、水上运动的绝佳目的地。</p>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <h4>📍 地理位置</h4>
+          <p>浙江省杭州市淳安县千岛湖镇</p>
+        </div>
+        <div class="info-item">
+          <h4>🌤️ 最佳月份</h4>
+          <p>4月-10月（夏季水上项目全开，绿道风景最佳）</p>
+        </div>
+        <div class="info-item">
+          <h4>💰 预算参考</h4>
+          <p>级别 2（适中），约 1000-1500 元/人（2天1夜）</p>
+        </div>
+        <div class="info-item">
+          <h4>🚗 交通提示</h4>
+          <p>杭州自驾约2.5h / 大巴约3h / 飞机至杭州后转车</p>
+        </div>
+      </div>
+
+      <div class="pc-container">
+        <div class="pc-box pro">
+          <strong>✨ 核心优点</strong>
+          <ul>
+            <li>湖水清澈度达国家一级标准，能见度极高</li>
+            <li>环湖绿道系统完善，骑行体验国内顶级</li>
+            <li>千岛湖有机鱼头汤为必尝国民级美食</li>
+            <li>距杭州仅2小时车程，周末游完美适配</li>
+          </ul>
+        </div>
+        <div class="pc-box con">
+          <strong>⚠️ 注意事项</strong>
+          <ul>
+            <li>官方游船船票+门票综合费用较高</li>
+            <li>暑期及节假日住宿价格上浮明显（建议提前预订）</li>
+            <li>景区跨度大，无自驾/包车需依赖接驳公交</li>
+            <li>夏季紫外线强，户外活动务必做好防晒</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="itinerary">
+      <h2 class="section-title">📅 2天详细行程安排</h2>
+      <div class="timeline">
+        <div class="timeline-day">
+          <h3>DAY 1：经典全景游 + 湖畔骑行</h3>
+          <div class="timeline-item">
+            <span class="time-badge">上午 08:30 - 13:00</span>
+            <h4>抵达千岛湖 → 中心湖区登船</h4>
+            <p>清晨抵达千岛湖镇，办理入住后直奔中心湖区旅游码头。乘游船依次登岛（通常含梅峰岛、渔乐岛、龙山岛）。重点游览<strong>梅峰岛</strong>，乘坐缆车或徒步登顶，俯瞰“天下为公”的千岛全景。</p>
+          </div>
+          <div class="timeline-item">
+            <span class="time-badge">下午 14:00 - 18:00</span>
+            <h4>千岛湖大桥段骑行</h4>
+            <p>午餐后在码头附近租赁自行车或电动车。沿千岛湖绿道（千岛湖大桥-梦姑塘段）骑行约15公里。此段路面平整、树荫较多，沿途设有多个观景台，适合拍照与亲水。</p>
+          </div>
+          <div class="timeline-item">
+            <span class="time-badge">晚上 18:30 - 21:00</span>
+            <h4>骑龙巷觅食 + 音乐广场夜景</h4>
+            <p>前往“千岛湖版小重庆”骑龙巷，品尝地道小吃。随后步行至音乐喷泉广场（视当日开放情况），欣赏湖面灯光秀与城市夜景。饭后回酒店休息。</p>
+          </div>
+        </div>
+
+        <div class="timeline-day">
+          <h3>DAY 2：幽静探秘 + 森林洗肺</h3>
+          <div class="timeline-item">
+            <span class="time-badge">上午 08:00 - 12:30</span>
+            <h4>东南湖区登船（黄山尖）</h4>
+            <p>避开中心湖区人潮，选择东南湖区码头登船。登<strong>黄山尖</strong>，此处是千岛湖最佳摄影点之一，可看到90余个小岛天然排列成“天下为公”四字。随后可顺游桂花岛（赏猴趣）或密山。</p>
+          </div>
+          <div class="timeline-item">
+            <span class="time-badge">下午 14:00 - 16:30</span>
+            <h4>森林氧吧徒步</h4>
+            <p>午餐后前往千岛湖森林氧吧。这里是真正的天然空调房，负氧离子浓度极高。沿木栈道缓步上行，途径瀑布、溪涧与古树群，徒步约1.5-2小时，彻底放松身心。</p>
+          </div>
+          <div class="timeline-item">
+            <span class="time-badge">下午 17:00</span>
+            <h4>采购特产，愉快返程</h4>
+            <p>在淳安特产街购买山核桃、茶油、笋干等伴手礼。整理行装，根据交通方式返程。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="attractions">
+      <h2 class="section-title">🏞️ 核心景点详解</h2>
+      <div class="card-grid">
+        <div class="card attr-card">
+          <h3>中心湖区 <span class="price-tag">船票+门票约 195元</span></h3>
+          <div class="reason-box">推荐理由：千岛湖最成熟、最经典的游览线路，配套设施完善，“不上梅峰观群岛，不识千岛真面目”。</div>
+          <ul class="tips-list">
+            <li>游船班次固定，建议提前在官方公众号“千岛湖旅游”购票，选最早班次（7:30）可避开中午暴晒与排队。</li>
+            <li>梅峰岛可乘缆车（往返约50元）节省体力，步行上山约25分钟。</li>
+            <li>夏季登船请备好晕船药、遮阳伞与冰袖。</li>
+          </ul>
+        </div>
+
+        <div class="card attr-card">
+          <h3>东南湖区 <span class="price-tag">船票+门票约 145元</span></h3>
+          <div class="reason-box">推荐理由：游客较少，环境清幽。黄山尖视角极佳，是摄影爱好者和喜欢慢节奏游客的首选。</div>
+          <ul class="tips-list">
+            <li>游船路线固定（黄山尖+桂花岛+天池岛），游览时间比中心湖长约1小时。</li>
+            <li>桂花岛有野生猕猴，切勿挑逗或手持塑料袋喂食。</li>
+            <li>若时间紧凑，可与中心湖区二选一；亲子家庭推荐此区互动性更强。</li>
+          </ul>
+        </div>
+
+        <div class="card attr-card">
+          <h3>千岛湖绿道 <span class="price-tag">免费开放</span></h3>
+          <div class="reason-box">推荐理由：全长约150公里，被誉为“最美骑行线”。串联湖景、湿地与乡村，骑行体验极佳。</div>
+          <ul class="tips-list">
+            <li>热门租车点在千岛湖广场、秀水广场，山地车约40元/天，电动车约120元/天。</li>
+            <li>夏季骑行建议选傍晚（16:00后），避开正午高温。</li>
+            <li>沿途设有饮水点、淋浴间与驿站，无需携带大量物资。</li>
+          </ul>
+        </div>
+
+        <div class="card attr-card">
+          <h3>森林氧吧 <span class="price-tag">门票约 60元</span></h3>
+          <div class="reason-box">推荐理由：森林覆盖率93%，夏季均温比镇区低3-5℃，溪流瀑布纵横，是天然避暑洗肺圣地。</div>
+          <ul class="tips-list">
+            <li>步道以木质台阶为主，请穿防滑运动鞋。</li>
+            <li>林间湿度大、蚊虫多，务必携带驱蚊液。</li>
+            <li>体力较弱者可走环线下线（约40分钟），全程走完需1.5-2小时。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="food">
+      <h2 class="section-title">🐟 必尝美食推荐</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="food-item">
+            <h3 style="color:var(--primary-dark);">千岛湖有机鱼头汤</h3>
+            <p>选用湖水养殖的胖头鱼，先煎后炖，汤色奶白，鲜美无腥味。推荐“一鱼两吃”（鱼头炖汤，鱼片爆炒）。</p>
+          </div>
+          <div class="food-item">
+            <h3 style="color:var(--primary-dark);">淳安土猪肉煲 / 野娇娇</h3>
+            <p>野娇娇为当地特色葛粉/蕨根粉制品，口感软糯Q弹；土猪肉油脂香浓，搭配农家笋干绝佳。</p>
+          </div>
+          <div class="food-item">
+            <h3 style="color:var(--primary-dark);">🍽️ 推荐餐厅</h3>
+            <p>• <strong>好东来（千岛湖店）</strong>：本地老字号，鱼头正宗，环境舒适，需排队<br>
+               • <strong>骑龙巷美食街</strong>：小吃集中地（梅干菜酥饼、淳安米羹）<br>
+               • <strong>临岐镇农家乐</strong>：地道山乡风味，适合自驾前往，性价比高</p>
+          </div>
+          <p style="margin-top:10px; font-size:0.85rem; color:var(--text-sec);">💡 Tips：暑期旺季热门餐厅务必提前电话订座；点鱼头前问清时价（通常按斤计）。</p>
+        </div>
+        <div class="card" style="background: linear-gradient(135deg, #e6f4ea 0%, #d1fae5 100%);">
+          <h3 style="margin-bottom:15px; color:var(--primary-dark);">🍃 夏季特色饮品</h3>
+          <ul style="padding-left: 20px; line-height: 2;">
+            <li>淳安白茶：清热降火，冷泡茶风味极佳</li>
+            <li>青溪杨梅酒：当季特产，酸甜微醺，伴手礼首选</li>
+            <li>千岛湖直饮水：水质甘甜，景区多处设有免费取水点</li>
+          </ul>
+          <div style="margin-top: 20px; padding: 12px; background: rgba(255,255,255,0.7); border-radius: 8px;">
+            <strong>⛔ 避坑指南</strong><br>
+            景区门口兜售的“野生鱼”多为水库养殖冒充，建议至正规饭店就餐；购买干货请认准SC认证与明码标价。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="accommodation">
+      <h2 class="section-title">🛏️ 住宿推荐（适中预算）</h2>
+      <p class="section-desc">千岛湖住宿按湖景分为“临湖一线”与“镇区二线”。夏季周末溢价约30%-50%，建议提前10天预订。</p>
+      <div class="card-grid">
+        <div class="card hotel-item">
+          <span class="level-badge level-comf">舒适推荐</span>
+          <h4 style="margin: 8px 0; font-size:1.1rem;">千岛湖镇湖景精品酒店/民宿</h4>
+          <p>💰 参考价：400-700元/晚</p>
+          <p>📍 位置：秀水广场/千岛湖广场周边</p>
+          <p>✨ 特点：步行至码头/美食街10分钟内，多配全景落地窗或独立阳台。性价比高，交通便利，适合家庭与年轻情侣。</p>
+        </div>
+        <div class="card hotel-item">
+          <span class="level-badge level-lux">高端体验</span>
+          <h4 style="margin: 8px 0; font-size:1.1rem;">品牌度假酒店（如洲际/绿城喜来登/安岚）</h4>
+          <p>💰 参考价：900-1800元+/晚</p>
+          <p>📍 位置：羡山半岛/中心湖深处</p>
+          <p>✨ 特点：私家湖岸线、无边泳池、亲子乐园与水上项目。适合追求私密性、带娃度假或预算充足的游客。需提前1个月预订。</p>
+        </div>
+        <div class="card hotel-item">
+          <span class="level-badge level-eco">经济实用</span>
+          <h4 style="margin: 8px 0; font-size:1.1rem;">连锁快捷酒店/青旅</h4>
+          <p>💰 参考价：200-350元/晚</p>
+          <p>📍 位置：千岛湖镇外围/客运中心附近</p>
+          <p>✨ 特点：设施标准化，干净卫生。离湖景稍远，但公交便利，骑行/公交可达码头，适合学生党与背包客。</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="transport">
+      <h2 class="section-title">🚌 交通指南</h2>
+      <div class="card-grid">
+        <div class="card trans-box">
+          <h4>🛫 如何到达</h4>
+          <p><strong>✈️ 飞机：</strong> 飞抵杭州萧山国际机场，乘坐机场大巴至千岛湖客运中心（约2.5小时），或租车自驾前往。</p>
+          <p><strong>🚄 高铁/动车：</strong> 暂无直达千岛湖站高铁。建议乘至“杭州东站”或“建德站”，出站后换乘直达大巴（约2.5-3小时）或租车。</p>
+          <p><strong>🚌 大巴：</strong> 杭州汽车西站/九堡客运中心每日多班直达千岛湖客运中心，车程约3小时，票价约70-90元。</p>
+          <p><strong>🚗 自驾：</strong> 杭州市区出发经杭新景高速，约2.5-3小时直达千岛湖镇，沿途风景优美，推荐。</p>
+        </div>
+        <div class="card trans-box">
+          <h4>🗺️ 岛内交通</h4>
+          <p><strong>🚌 环湖公交：</strong> 001/002/003路等覆盖主要码头与镇区，单程2-5元，支持支付宝/微信乘车码。</p>
+          <p><strong>🚲 骑行/租车：</strong> 绿道沿途设有共享单车停放点，也可在旅游集散中心租专业山地车或电动车。</p>
+          <p><strong>🚕 网约车/打车：</strong> 滴滴/高德在镇区响应快，起步价约8元。至偏远景区（如森林氧吧）建议提前约车或包车。</p>
+          <p>💡 <em>提示：景区间距离较远，非自驾游客建议购买“景区直通车”套票或选择一日游拼团服务。</em></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="tips">
+      <h2 class="section-title">⚠️ 夏季出行注意事项</h2>
+      <div class="tip-grid">
+        <div class="tip-card">
+          <h4>☀️ 天气与防晒</h4>
+          <p>7-8月千岛湖气温常达32-36℃，午后多雷阵雨。请携带晴雨伞、高倍防晒霜（SPF50+）、墨镜、防晒帽。水面紫外线反射强，水面活动务必补涂。</p>
+        </div>
+        <div class="tip-card">
+          <h4>👕 穿着建议</h4>
+          <p>速干衣裤、防滑运动鞋/溯溪鞋最佳。下水游泳或玩皮划艇建议自带泳衣，景区周边售卖价格偏高。备一件薄外套应对空调房与夜间温差。</p>
+        </div>
+        <div class="tip-card">
+          <h4>🛡️ 安全提示</h4>
+          <p>参与水上项目（摩托艇、尾波冲浪、漂流）必须穿戴合格救生衣，服从教练指导。勿在非指定水域野泳，湖底暗流与水温变化大。防蚊防蜱虫。</p>
+        </div>
+        <div class="tip-card">
+          <h4>🌿 环保与礼仪</h4>
+          <p>千岛湖为一级水源保护区，严禁向湖中丢弃垃圾或使用刺激性化学品（如某些防晒霜）。骑行请靠右行驶，尊重当地村民生活习惯。</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="budget">
+      <h2 class="section-title">💰 预算参考（2天1夜/人）</h2>
+      <p class="section-desc">以下为“适中（预算级别2）”标准估算，实际花费视个人消费习惯与出行人数浮动。</p>
+      <table class="budget-table">
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>经济/基础花费</th>
+            <th>适中/推荐标准</th>
+            <th>说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🚌 外部交通（往返）</td>
+            <td>100-150 元</td>
+            <td>150-300 元</td>
+            <td>大巴/高铁二等座/拼车（杭州出发）</td>
+          </tr>
+          <tr>
+            <td>🛏️ 住宿（1晚）</td>
+            <td>200 元</td>
+            <td>350-500 元</td>
+            <td>双人房分摊后价格（暑期周末上浮）</td>
+          </tr>
+          <tr>
+            <td>🍽️ 餐饮（3正1早）</td>
+            <td>120 元</td>
+            <td>250-350 元</td>
+            <td>含特色鱼头汤、小吃、饮品</td>
+          </tr>
+          <tr>
+            <td>🎫 门票/船票</td>
+            <td>150 元</td>
+            <td>200-300 元</td>
+            <td>单湖区游船+缆车+氧吧门票</td>
+          </tr>
+          <tr>
+            <td>🚲 岛上交通/杂费</td>
+            <td>50 元</td>
+            <td>80-150 元</td>
+            <td>租车/公交/打车/防晒用品/纪念品</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="budget-total">
+        💵 单人总计预估：约 870 - 1,600 元（2人同行住宿分摊后更划算）
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>🌊 千岛湖夏季旅游攻略 | 数据更新于 2024年 | 门票与价格仅供参考，请以景区官方实时公布为准</p>
+    <p>祝您在千岛湖度过一段清凉、惬意、难忘的夏日旅程！</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>凤凰古城夏季深度游攻略 | 2天1晚定制指南</title>
+<style>
+:root {
+  --primary: #2d6a4f;
+  --primary-light: #40916c;
+  --primary-dark: #1b4332;
+  --accent: #b7e4c7;
+  --bg: #f4f7f5;
+  --text: #2c3e50;
+  --text-light: #5a6b7c;
+  --white: #ffffff;
+  --shadow: 0 4px 16px rgba(45, 106, 79, 0.08);
+  --radius: 12px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: var(--white);
+  padding: 40px 20px 60px;
+  text-align: center;
+  border-radius: 0 0 40px 40px;
+  position: relative;
+  overflow: hidden;
+}
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 60px;
+  background: linear-gradient(to top, var(--bg), transparent);
+}
+header h1 { font-size: 2.2rem; margin-bottom: 12px; font-weight: 700; letter-spacing: 1px; }
+header p { font-size: 1rem; opacity: 0.9; max-width: 700px; margin: 0 auto 16px; }
+.meta-grid {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px;
+}
+.meta-item {
+  background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem;
+}
+.tag { background: #fff; color: var(--primary); padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin: 4px; border: 1px solid var(--accent); }
+.section { margin: 35px 0; }
+.section-title {
+  font-size: 1.6rem; color: var(--primary-dark); border-left: 5px solid var(--primary);
+  padding-left: 12px; margin-bottom: 20px; font-weight: 700; display: flex; align-items: center;
+}
+.section-title::after { content: '✦'; margin-left: 10px; font-size: 0.8em; color: var(--primary-light); }
+.card {
+  background: var(--white); border-radius: var(--radius); padding: 22px;
+  box-shadow: var(--shadow); margin-bottom: 20px; transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-2px); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.timeline { position: relative; padding-left: 20px; border-left: 3px solid var(--accent); margin-left: 10px; }
+.timeline-item { position: relative; margin-bottom: 24px; padding-left: 15px; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -24px; top: 6px; width: 14px; height: 14px;
+  background: var(--primary); border-radius: 50%; border: 3px solid var(--accent);
+}
+.time-label { font-weight: 700; color: var(--primary); font-size: 0.95rem; margin-bottom: 4px; }
+.desc { color: var(--text-light); font-size: 0.92rem; }
+.attraction-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+.badge { padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+.badge-free { background: #d8f3dc; color: #1b4332; }
+.badge-ticket { background: #fff3bf; color: #5c3d00; }
+.tips-box {
+  background: #f8f9fa; border-left: 4px solid var(--primary); padding: 12px 16px; border-radius: 0 8px 8px 0;
+  margin-top: 10px; font-size: 0.9rem;
+}
+.price-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.price-table th, .price-table td { padding: 12px; text-align: left; border-bottom: 1px solid #e9ecef; }
+.price-table th { background: var(--primary-light); color: white; font-weight: 600; }
+.price-table tr:nth-child(even) { background: #f8fcfa; }
+.food-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+.food-item { background: linear-gradient(90deg, #ffffff, #f1f7f4); padding: 15px; border-radius: 10px; border: 1px dashed var(--accent); }
+.warning { color: #c92a2a; font-weight: 500; }
+.accom-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.accom-card { border-top: 4px solid var(--primary-light); }
+.btn { display: inline-block; padding: 10px 20px; background: var(--primary); color: white; border-radius: 8px; text-decoration: none; font-weight: 500; margin-top: 15px; }
+footer { text-align: center; padding: 30px 20px; color: var(--text-light); font-size: 0.85rem; margin-top: 40px; border-top: 1px solid #e0e0e0; }
+@media (max-width: 768px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  header h1 { font-size: 1.8rem; }
+  .section-title { font-size: 1.4rem; }
+  .container { padding: 15px; }
+}
+.placeholder-visual { height: 8px; width: 100%; border-radius: 4px; margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>🌿 凤凰古城夏季旅游攻略</h1>
+    <p>沈从文笔下的边城，沱江两岸的吊脚楼与青石板街交织成水墨画卷。2天1晚深度体验，感受最纯粹的湘西夏日风情。</p>
+    <div class="meta-grid">
+      <span class="meta-item">⏱️ 建议游玩：2天</span>
+      <span class="meta-item">📅 夏季最佳：6-8月（江风清凉/夜景璀璨）</span>
+      <span class="meta-item">💰 预算级别：经济型（¥800-1200/人）</span>
+    </div>
+    <div style="margin-top:12px;">
+      <span class="tag">🏮 古城古镇</span>
+      <span class="tag">👗 民族风情</span>
+      <span class="tag">📷 摄影出片</span>
+      <span class="tag">🌧️ 避暑亲水</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- 行程概览 -->
+  <section class="section">
+    <h2 class="section-title">🗺️ 2天核心行程规划</h2>
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-label">Day 1：抵达古城 · 文化漫步 · 夜游沱江</div>
+          <p class="desc"><strong>上午：</strong> 抵达凤凰，办理入住。避开正午烈日，沿南华门进入古城核心区，漫步东正街，感受明清古建的肌理。</p>
+          <p class="desc"><strong>下午：</strong> 参观【沈从文故居】与【熊希龄故居】（联票包含）。在跳岩旁找一家临江茶座，品湘西土茶，看江水流淌，拍摄夏日绿植与吊脚楼的倒影。</p>
+          <p class="desc"><strong>晚上：</strong> 19:30 古城亮灯。沿沱江步道步行至虹桥，欣赏两岸万家灯火与吊脚楼轮廓。推荐体验【沱江夜游船】或找一家清吧听民谣。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="time-label">Day 2：晨雾泛舟 · 苗寨探秘 · 满载而归</div>
+          <p class="desc"><strong>清晨 (06:30-08:30)：</strong> 夏日早起最佳。前往东门城楼外乘坐【沱江晨泛】。此时游客最少，江面晨雾缭绕，是出片的黄金窗口。</p>
+          <p class="desc"><strong>上午-下午：</strong> 乘车前往【山江苗寨】或【老家寨】（车程约30分钟）。体验苗族拦门酒、观看原生态苗歌对唱、亲手体验扎染或银饰锻造。</p>
+          <p class="desc"><strong>下午 (16:00后)：</strong> 返回古城购买伴手礼（姜糖、腊肉、苗绣），结束湘西之旅。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详解 -->
+  <section class="section">
+    <h2 class="section-title">📸 必打卡景点详解</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="attraction-header">
+          <h3>1. 沱江泛舟</h3>
+          <span class="badge badge-ticket">门票参考：¥60-80</span>
+        </div>
+        <p class="desc">乘坐乌篷船沿沱江顺流而下，两岸是层层叠叠的吊脚楼与垂柳。夏季江水较丰沛，绿意更浓，船工偶尔会唱起湘西小调。</p>
+        <div class="tips-box">
+          <strong>💡 夏季游玩Tips：</strong> 避开11:00-15:00暴晒时段；选择清晨或傍晚江风最舒适；上船注意安全，穿平底鞋。
+        </div>
+      </div>
+      <div class="card">
+        <div class="attraction-header">
+          <h3>2. 凤凰古城核心区</h3>
+          <span class="badge badge-free">免费开放</span>
+        </div>
+        <p class="desc">中国最美小城之一，青石板老街、沱江跳岩、古城墙、万寿宫交织。商业化虽存，但拐入背街（如金坪巷、老菜街）仍能寻得宁静烟火气。</p>
+        <div class="tips-box">
+          <strong>💡 游玩Tips：</strong> 建议穿汉服或新中式服装，在跳岩与城楼处极出片；注意防滑，夏季雨后石板路较滑。
+        </div>
+      </div>
+      <div class="card">
+        <div class="attraction-header">
+          <h3>3. 山江/老家寨苗寨</h3>
+          <span class="badge badge-ticket">门票参考：¥90-120（含体验）</span>
+        </div>
+        <p class="desc">体验原生态苗族文化的最佳去处。可参与拦门酒、长桌宴、苗舞互动，了解苗族服饰与银饰工艺。老家寨更原始，适合深度人文摄影。</p>
+        <div class="tips-box">
+          <strong>💡 游玩Tips：</strong> 尊重习俗，未经允许勿随意拍摄老人与祭祀场所；长桌宴夏季易招蚊虫，备好驱蚊液。
+        </div>
+      </div>
+      <div class="card">
+        <div class="attraction-header">
+          <h3>4. 沈从文故居</h3>
+          <span class="badge badge-ticket">含九景联票 ¥148</span>
+        </div>
+        <p class="desc">文学爱好者的朝圣地。了解《边城》背后的湘西风土，庭院内古井、青砖、木窗保留了民国时期的宁静与文雅。</p>
+        <div class="tips-box">
+          <strong>💡 游玩Tips：</strong> 联票有效期48小时，合理规划顺序；故居面积不大，建议请导游或使用语音导览，深度了解沈从文生平。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section class="section">
+    <h2 class="section-title">🍜 舌尖上的湘西</h2>
+    <div class="food-grid">
+      <div class="food-item">
+        <h3>🦆 血粑鸭 & 苗家酸汤鱼</h3>
+        <p class="desc">凤凰两大招牌。血粑鸭鸭血与糯米蒸制后炸酥，外焦里糯；酸汤鱼采用野生木姜子与红酸汤熬制，夏季开胃解腻。推荐店铺：<em>俊子饭店、老街食铺</em>（人均约¥60-80）。</p>
+      </div>
+      <div class="food-item">
+        <h3>🌶️ 腊肉炒蕨菜 & 桐叶粑粑</h3>
+        <p class="desc">湘西农家土腊肉烟熏味浓，搭配夏日时令野菜蕨菜，咸香下饭。桐叶粑粑用新鲜桐叶包裹糯米与豆沙蒸熟，清香软糯，街边小摊现做最佳。推荐区域：<em>虹桥附近夜市、北门城楼小吃街</em>（人均约¥30-50）。</p>
+      </div>
+    </div>
+    <p class="desc" style="margin-top:10px; color:var(--text-light);">⚠️ 夏季注意：湘西菜偏辣偏咸，肠胃敏感者点餐时备注“微辣/少油”。多喝本地凉茶或绿豆汤防暑降温。</p>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section class="section">
+    <h2 class="section-title">🛏️ 住宿指南</h2>
+    <div class="accom-grid">
+      <div class="card accom-card">
+        <h3>🎒 经济型：古城背街客栈/青旅</h3>
+        <p class="desc">位置多在南华门内侧或金坪巷周边，步行至江边约3-5分钟。避开临街噪音，性价比高。</p>
+        <p style="margin-top:8px;"><strong>💰 参考价：</strong> ¥80-150/晚（夏季平季）<br><strong>📌 推荐：</strong> 凤凰栖迟客栈、老营青旅<br><em>✅ 优势：预算友好、氛围年轻、老板常提供避坑攻略</em></p>
+      </div>
+      <div class="card accom-card">
+        <h3>🌿 舒适型：临江吊脚楼民宿</h3>
+        <p class="desc">推窗即见沱江，保留传统木结构但内部现代化改造，带独立卫浴与空调，夏季必备。</p>
+        <p style="margin-top:8px;"><strong>💰 参考价：</strong> ¥220-400/晚<br><strong>📌 推荐：</strong> 沱江人家客栈、素履之往江景房<br><em>✅ 优势：出片率极高、早晚江风凉爽、含早餐</em></p>
+      </div>
+      <div class="card accom-card">
+        <h3>🏡 高端型：精品度假酒店</h3>
+        <p class="desc">位于古城边缘或周边生态保护区，私密性好，提供管家服务、茶室、定制旅拍。</p>
+        <p style="margin-top:8px;"><strong>💰 参考价：</strong> ¥550-900/晚<br><strong>📌 推荐：</strong> 凤凰素心雅集、山江苗苑度假村<br><em>✅ 优势：远离喧嚣、隔音极佳、配套完善</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 交通指南 -->
+  <section class="section">
+    <h2 class="section-title">🚆 交通全攻略</h2>
+    <div class="card">
+      <h4 style="color:var(--primary); margin-bottom:8px;">🛫 抵达交通（杭州出发）</h4>
+      <ul style="padding-left: 20px; color: var(--text-light);">
+        <li><strong>飞机：</strong> 杭州萧山 → 铜仁凤凰机场（约2.5h）。抵达后打车/机场大巴至凤凰古城（约1.5h，¥50-80）。</li>
+        <li><strong>高铁（推荐）：</strong> 杭州东 → 怀化南/铜仁南/吉首东（约7-9h），站内换乘旅游专线大巴直达凤凰古城（约1h，¥40-60）。<br><span class="desc">*注：已开通“凤凰古城站”直达高铁，部分车次可直达，请购票时查询最新时刻。*</span></li>
+      </ul>
+      <h4 style="color:var(--primary); margin: 15px 0 8px;">🚌 市内及周边交通</h4>
+      <p class="desc">古城内完全步行，禁止机动车通行。前往苗寨可在<strong>凤凰汽车北站</strong>或<strong>虹桥客运站</strong>乘坐乡村班车（约¥15-25/人，车程30分钟），亦可拼正规网约车（约¥80-100往返）。</p>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section class="section">
+    <h2 class="section-title">⚠️ 夏季出行注意事项</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="color:#c92a2a; margin-bottom:10px;">🌦️ 天气与装备</h4>
+        <p class="desc">夏季湘西闷热潮湿，午后多阵雨。必带：<strong>轻便雨衣/晴雨伞、高倍防晒霜、驱蚊液、速干衣物、防滑平底鞋</strong>。昼夜温差较小，备一件薄外套应对夜间江风与室内空调。</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--primary); margin-bottom:10px;">🛡️ 安全与避坑</h4>
+        <p class="desc">① 沱江夏季水位上涨，切勿在无护栏的跳岩边缘或亲水平台涉水，注意防滑。<br>② 古城拉客住宿/拍照/租车现象普遍，建议提前线上预订正规商家。<br>③ 部分“野导”推销低价苗寨一日游含强制购物，请选择正规旅行社或自由行。</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:20px;">
+      <h4>📊 优劣势客观提示</h4>
+      <p class="desc"><strong>✅ 优点：</strong> 吊脚楼与江景独特，夏季植被茂盛绿意盎然；苗族文化原真性强；消费水平亲民；光影层次丰富极适合摄影。<br><strong>❌ 注意：</strong> 距华东交通需中转；主街商业化较重，建议探索背街小巷；部分核心景点需联票；夏季体感较闷热，需合理安排行程节奏。</p>
+    </div>
+  </section>
+
+  <!-- 预算参考 -->
+  <section class="section">
+    <h2 class="section-title">💰 经济型预算参考（2天1晚/人）</h2>
+    <div class="card" style="overflow-x:auto;">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>明细说明</th>
+            <th>预估费用 (¥)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>🚄 大交通</td><td>杭州往返高铁二等座或机票经济舱（淡季折扣）</td><td>¥600 - 900</td></tr>
+          <tr><td>🏨 住宿</td><td>经济型客栈/青旅 1晚（含早）</td><td>¥80 - 120</td></tr>
+          <tr><td>🍽️ 餐饮</td><td>3正1早（含特色小吃+简餐）</td><td>¥150 - 200</td></tr>
+          <tr><td>🎫 门票/体验</td><td>沱江游船(¥80) + 苗寨联票(¥100) + 古城免费</td><td>¥180</td></tr>
+          <tr><td>🚌 当地交通</td><td>机场/高铁站接送、苗寨班车</td><td>¥80 - 100</td></tr>
+          <tr style="background:#e6f5ee; font-weight:bold;"><td>💡 合计参考</td><td>经济紧凑型游玩（不含购物/旅拍）</td><td>¥1,090 - 1,500</td></tr>
+        </tbody>
+      </table>
+      <p class="desc" style="margin-top:12px; color:var(--text-light);">*预算基于2人分摊与夏季平季价格估算，实际支出视出行方式与个人消费习惯浮动。*</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <p>本攻略由资深旅游规划师基于实地调研与最新政策整理 | 数据更新至2024年夏季</p>
+    <p>出行前请通过官方渠道核实景区开放时间及天气状况 | 祝您拥有一场诗意湘西之旅 🌿🛶</p>
+  </div>
+</footer>
+
+</body>
+</html>

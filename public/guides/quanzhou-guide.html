@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>泉州2天1夜深度游攻略 | 闽南年味与簪花围之旅</title>
+  <style>
+    :root {
+      --primary: #774930;
+      --primary-light: #a67c52;
+      --primary-pale: #f5eee6;
+      --text: #2c2c2c;
+      --text-secondary: #666;
+      --bg: #faf9f7;
+      --white: #ffffff;
+      --shadow: 0 4px 16px rgba(119, 73, 48, 0.08);
+      --shadow-hover: 0 8px 24px rgba(119, 73, 48, 0.12);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--primary); text-decoration: none; transition: 0.2s; }
+    a:hover { color: var(--primary-light); }
+    
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    section { margin: 48px 0; }
+    h1, h2, h3 { color: var(--primary); font-weight: 700; line-height: 1.3; }
+    h1 { font-size: 2.5rem; margin-bottom: 12px; }
+    h2 { font-size: 1.75rem; margin-bottom: 20px; position: relative; padding-bottom: 12px; border-bottom: 3px solid var(--primary-pale); }
+    h2::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; width: 60px; height: 3px; background: var(--primary);
+    }
+    h3 { font-size: 1.25rem; margin: 16px 0 8px; }
+    p { margin-bottom: 12px; color: var(--text-secondary); }
+    .tag { display: inline-block; padding: 5px 12px; border-radius: 20px; background: var(--primary-pale); color: var(--primary); font-size: 0.85rem; font-weight: 500; margin: 4px 4px 4px 0; }
+    .btn { display: inline-block; padding: 10px 20px; background: var(--primary); color: var(--white); border-radius: 8px; font-weight: 500; cursor: pointer; border: none; }
+    .btn:hover { background: var(--primary-light); color: var(--white); }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), #5a3422);
+      color: var(--white);
+      padding: 60px 20px;
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .hero h1 { color: var(--white); font-size: 2.8rem; }
+    .hero p { color: rgba(255,255,255,0.9); font-size: 1.1rem; max-width: 700px; margin: 16px auto 0; }
+    .hero-meta { margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .hero-badge { background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 8px; backdrop-filter: blur(5px); font-size: 0.9rem; }
+
+    /* Cards */
+    .card { background: var(--white); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); margin-bottom: 24px; transition: transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+
+    /* Overview Grid */
+    .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px; }
+    .info-box { background: var(--primary-pale); padding: 16px; border-radius: 10px; text-align: center; border: 1px solid rgba(119,73,48,0.1); }
+    .info-box strong { display: block; color: var(--primary); margin-bottom: 4px; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 30px; margin-top: 20px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 2px; background: var(--primary-light); }
+    .timeline-item { position: relative; margin-bottom: 24px; padding: 16px; background: #faf7f4; border-radius: 10px; border-left: 4px solid var(--primary); }
+    .timeline-item::after {
+      content: ''; position: absolute; left: -26px; top: 20px; width: 14px; height: 14px; background: var(--white); border: 3px solid var(--primary); border-radius: 50%;
+    }
+    .timeline-time { font-weight: 700; color: var(--primary); font-size: 0.95rem; display: block; margin-bottom: 4px; }
+    .timeline-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 6px; color: var(--text); }
+
+    /* Attractions */
+    .attraction-card { position: relative; overflow: hidden; border: 1px solid #eee; }
+    .img-placeholder { height: 160px; background: linear-gradient(45deg, #e3d5ca, #f5e6e8); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--primary); margin: -24px -24px 16px -24px; border-radius: 12px 12px 0 0; }
+    .tips-box { background: #fff9f0; padding: 10px 14px; border-radius: 8px; margin-top: 12px; font-size: 0.9rem; border-left: 3px solid var(--primary-light); color: #8c5a2b; }
+    .ticket-info { font-weight: 600; color: var(--primary); margin-top: 8px; font-size: 0.9rem; }
+
+    /* Food & Accommodation */
+    .food-item, .hotel-item { display: flex; gap: 16px; align-items: start; padding: 12px; background: #fdfbfa; border-radius: 10px; margin-bottom: 12px; }
+    .food-icon, .hotel-icon { width: 60px; height: 60px; background: var(--primary-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+    .price-tag { color: #d9534f; font-weight: 700; font-size: 0.9rem; }
+
+    /* Budget Table */
+    .budget-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    .budget-table th, .budget-table td { padding: 12px 16px; border-bottom: 1px solid #eee; text-align: left; }
+    .budget-table th { background: var(--primary-pale); color: var(--primary); font-weight: 600; }
+    .budget-table tr:last-child td { border-bottom: none; font-weight: 700; color: var(--primary); }
+
+    /* Transport & Tips */
+    .tip-list { padding-left: 0; list-style: none; }
+    .tip-list li { position: relative; padding-left: 24px; margin-bottom: 12px; color: var(--text-secondary); }
+    .tip-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+    .transport-mode { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+    .mode-badge { background: var(--primary-pale); color: var(--primary); padding: 6px 12px; border-radius: 6px; font-weight: 500; font-size: 0.9rem; }
+
+    /* Footer */
+    footer { background: #f0ebe6; padding: 32px 20px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 60px; border-top: 2px solid var(--primary-pale); }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; } h2 { font-size: 1.5rem; }
+      .hero { padding: 40px 20px; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .timeline { padding-left: 24px; }
+      .timeline-item::after { left: -20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <h1>泉州 2天1夜 深度游攻略</h1>
+      <p>半城烟火半城仙，漫步闽南古韵。关帝祈福、开元听禅、西街寻味、蟳埔簪花，沉浸式体验最具年味的世遗之城。</p>
+      <div class="hero-meta">
+        <span class="hero-badge">📍 福建·泉州</span>
+        <span class="hero-badge">⏱️ 建议2天1夜</span>
+        <span class="hero-badge">🌟 预算等级：经济型 (Level 1)</span>
+        <span class="hero-badge">📅 最佳月份：春节/1-2月</span>
+      </div>
+      <div style="margin-top: 20px;">
+        <span class="tag">历史古迹</span><span class="tag">美食之旅</span><span class="tag">文化之旅</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- 城市概述 -->
+    <section id="overview">
+      <h2>城市概述</h2>
+      <p class="card">泉州，海上丝绸之路的起点，闽南文化的根脉所在。这里没有过度商业化的喧嚣，只有市井烟火与千年古刹的完美交融。春节期间，关帝庙的香火、踩街巡游的锣鼓、南音的婉转悠长，让这座城市焕发独一无二的闽南年味。冬日气候温暖舒适，非常适合慢节奏的文化漫步与古早味美食探索。</p>
+      <div class="overview-grid">
+        <div class="info-box"><strong>🌡️ 气候特点</strong>冬季温暖 (8℃-16℃)<br>少严寒，偶有阴雨</div>
+        <div class="info-box"><strong>👍 核心优势</strong>年味氛围浓厚<br>簪花围出片率高<br>小吃密集平价</div>
+        <div class="info-box"><strong>⚠️ 注意事项</strong>春节人流极大<br>景点略分散需合理动线<br>簪花体验需提前排队预约</div>
+      </div>
+    </section>
+
+    <!-- 2天行程安排 -->
+    <section id="itinerary">
+      <h2>2天详细行程安排</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>🗓️ Day 1：祈福寻古 · 感受老城脉搏</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-time">🌞 上午 09:00 - 12:00</span>
+              <span class="timeline-title">关帝庙 → 清净寺 (外部参观)</span>
+              早起前往通淮关岳庙，体验掷筊、求签等传统仪式。感受闽南最纯粹的信仰氛围，随后步行至清净寺感受伊斯兰与闽南文化的交融。
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-time">🌤️ 下午 13:30 - 17:00</span>
+              <span class="timeline-title">开元寺 → 东西塔</span>
+              享用午餐后步行至开元寺，参拜福建最大佛教寺院。仰望宋代石构双塔（镇国塔、仁寿塔），偶遇新春诵经法会，古榕树下静享片刻禅意。
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-time">🌙 晚上 18:00 - 21:00</span>
+              <span class="timeline-title">西街夜游 → 钟楼 → 南音表演</span>
+              华灯初上时漫步西街，打卡网红天台。品尝地道小吃，若逢节日可遇踩街巡游。饭后在天后宫或茶馆聆听一场原汁原味的南音，为第一天画上圆满句号。
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>🗓️ Day 2：海风簪花 · 体验蟳埔风情</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-time">🌞 上午 08:30 - 12:30</span>
+              <span class="timeline-title">蟳埔村簪花围体验 → 蚵壳厝</span>
+              避开中午人流，清晨前往蟳埔村。换上传统服饰，体验非遗“簪花围”，在千年蚵壳厝前拍摄闽南渔家风情。漫步海边栈道，感受渔村宁静。
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-time">🌤️ 下午 14:00 - 17:00</span>
+              <span class="timeline-title">中山路 → 府文庙 → 自由Citywalk</span>
+              返回市区，穿梭于中山路骑楼建筑群。参观泉州府文庙，感受“海滨邹鲁”的文教底蕴。随后随意钻进深巷老厝，寻找独立咖啡馆或手作小店。
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-time">🌙 晚上 18:00 - 返程</span>
+              <span class="timeline-title">海鲜排档/特色姜母鸭 → 结束行程</span>
+              晚餐品尝正宗闽南姜母鸭或本地海鲜大餐，购买伴手礼（源和堂蜜饯、林记正泉茂绿豆饼），根据车次/航班时间前往高铁站/机场返程。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 景点详情 -->
+    <section id="attractions">
+      <h2>核心景点详解</h2>
+      <div class="grid-4">
+        <div class="card attraction-card">
+          <div class="img-placeholder" style="background: linear-gradient(135deg, #e8d5c8, #f4e3d3);">🏮</div>
+          <h3>通淮关岳庙</h3>
+          <p><strong>推荐理由：</strong>泉州香火最旺的庙宇，春节祈福首选。殿宇金碧辉煌，关帝巡境、掷杯卜卦仪式感拉满，年味极浓。</p>
+          <div class="tips-box">💡 游玩Tips：初一十五及春节人潮汹涌，建议早上8点前抵达或避开正午高峰。入庙请衣着得体，殿内禁止明火拍照。</div>
+          <div class="ticket-info">🎫 门票：免费（香火随喜）</div>
+        </div>
+        <div class="card attraction-card">
+          <div class="img-placeholder" style="background: linear-gradient(135deg, #d4e6f1, #f0f7fa);">🏯</div>
+          <h3>开元寺</h3>
+          <p><strong>推荐理由：</strong>福建规模最大的佛教寺院，东西双塔为泉州地标。红墙古榕、宋代石塔与明代大雄宝殿交相辉映。</p>
+          <div class="tips-box">💡 游玩Tips：关注寺内春节花灯展与法会日程。桑莲法界古榕树是绝佳打卡点，建议请专业讲解或使用导览小程序。</div>
+          <div class="ticket-info">🎫 门票：免费（需实名预约）</div>
+        </div>
+        <div class="card attraction-card">
+          <div class="img-placeholder" style="background: linear-gradient(135deg, #fef9e7, #fdebd0);">🏮</div>
+          <h3>西街</h3>
+          <p><strong>推荐理由：</strong>千年古街，泉州烟火气核心区。保留了大量唐宋街巷格局，踩街巡游、南音表演、古早味小吃集中在此。</p>
+          <div class="tips-box">💡 游玩Tips：主街商业密集，建议拐入裴巷、三朝巷等支路感受原生态老泉州生活。寻找“西街游客中心”顶楼拍摄东西塔同框。</div>
+          <div class="ticket-info">🎫 门票：免费（开放式街区）</div>
+        </div>
+        <div class="card attraction-card">
+          <div class="img-placeholder" style="background: linear-gradient(135deg, #fadbd8, #f8c9c5);">🌸</div>
+          <h3>蟳埔村</h3>
+          <p><strong>推荐理由：</strong>体验国家级非遗“簪花围”的热门地。头戴鲜花编成的花环，身着大裾衫，在独特的蚵壳厝群中拍摄，出片率极高。</p>
+          <div class="tips-box">💡 游玩Tips：春节需排队2-4小时，务必提前网上预约或赶在早7:00-9:00前往。选择口碑老店（含服饰+妆造），避免隐形消费。</div>
+          <div class="ticket-info">🎫 门票：村落免费（簪花体验约120-200元/人）</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section id="food">
+      <h2>不可错过的闽南古早味</h2>
+      <div class="card">
+        <div class="food-item">
+          <div class="food-icon">🍜</div>
+          <div>
+            <strong style="color:var(--primary); font-size:1.1rem;">面线糊 & 侯阿婆肉粽</strong>
+            <p>泉州早餐灵魂。糊而不烂，加入大肠、虾仁、醋肉提鲜。搭配碱香浓郁的肉粽，是本地人一天的开启方式。</p>
+            <span class="price-tag">📍 推荐：水门国仔面线糊（涂门街总店） | 💰 人均 15-25元</span>
+          </div>
+        </div>
+        <div class="food-item">
+          <div class="food-icon">🍗</div>
+          <div>
+            <strong style="color:var(--primary); font-size:1.1rem;">斯丹姜母鸭</strong>
+            <p>砂锅慢煸，老姜与麻油的焦香渗入鸭肉，冬季驱寒滋补首选。肉质紧实不柴，汤汁拌饭一绝。</p>
+            <span class="price-tag">📍 推荐：斯丹姜母鸭（涂门街/涂山街） | 💰 人均 60-80元</span>
+          </div>
+        </div>
+        <div class="food-item">
+          <div class="food-icon">🐚</div>
+          <div>
+            <strong style="color:var(--primary); font-size:1.1rem;">土笋冻 & 海蛎煎</strong>
+            <p>土笋冻晶莹剔透，搭配芥末酱油蒜泥爽脆弹牙；海蛎煎外酥里嫩，鸡蛋与地瓜粉包裹着鲜甜海蛎，闽南沙茶酱是点睛之笔。</p>
+            <span class="price-tag">📍 推荐：秉正石花膏总店 / 东兴牛肉店旁小吃摊 | 💰 人均 15-30元</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 住宿推荐 -->
+    <section id="accommodation">
+      <h2>住宿推荐</h2>
+      <div class="card">
+        <div class="food-item">
+          <div class="hotel-icon">💤</div>
+          <div>
+            <strong style="color:var(--primary);">💰 经济型（青旅/老城客栈）</strong>
+            <p>适合学生党/背包客。多位于西街周边或中山路支巷，由闽南红砖古厝改造，保留天井与木质结构。</p>
+            <p>🏠 参考：泉州老城青年旅舍 / 隐·古厝民宿<br><span class="price-tag">💵 价格区间：100-200元/晚</span></p>
+          </div>
+        </div>
+        <div class="food-item">
+          <div class="hotel-icon">🛏️</div>
+          <div>
+            <strong style="color:var(--primary);">🌿 舒适型（精品设计酒店）</strong>
+            <p>位置绝佳，步行至开元寺/关帝庙约10分钟。设施完善，隔音较好，提供闽南特色早餐与茶艺体验。</p>
+            <p>🏠 参考：泉州酒店 / 悦华酒店 / 巷子里设计师民宿<br><span class="price-tag">💵 价格区间：280-450元/晚</span></p>
+          </div>
+        </div>
+        <div class="food-item">
+          <div class="hotel-icon">✨</div>
+          <div>
+            <strong style="color:var(--primary);">👑 高端型（星级/度假品牌）</strong>
+            <p>服务顶级，部分拥有江景或古城全景露台。春节套餐常含南音表演与特色年宴，适合家庭/情侣。</p>
+            <p>🏠 参考：泉州泰禾洲际酒店 / 晋江温德姆<br><span class="price-tag">💵 价格区间：600-1200+元/晚</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 交通指南 -->
+    <section id="transport">
+      <h2>交通指南</h2>
+      <div class="card">
+        <h3>🚉 如何抵达泉州</h3>
+        <div class="transport-mode">
+          <span class="mode-badge">✈️ 飞机</span> 泉州晋江国际机场，距市区约20分钟车程，航线覆盖国内主要枢纽。杭州/上海飞约1.5小时。
+          <span class="mode-badge">🚄 高铁</span> 泉州站（丰泽区）或晋江站。杭州东站至泉州站约4-5小时，班次密集，推荐首选高铁。
+        </div>
+        <p style="margin-top:10px;"><strong>💡 换乘提示：</strong>泉州站出站可乘K1/K2路公交直达老城区，或打车约30元。晋江机场乘机场大巴或网约车至西街约40-50元。</p>
+
+        <h3 style="margin-top:20px;">🚌 市内交通推荐</h3>
+        <ul class="tip-list">
+          <li><strong>“小白”电瓶公交车：</strong> 泉州特色，招手即停，覆盖古城核心区（2元/人，微信可扫码）。</li>
+          <li><strong>共享单车/电动车：</strong> 老城区巷弄狭窄，骑行穿梭最灵活便捷。蟳埔村距市区约6公里，可打车或乘公交K301路。</li>
+          <li><strong>步行：</strong> 关帝庙-清净寺-开元寺-西街均在1.5公里半径内，Citywalk是最佳打开方式。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 预算参考 -->
+    <section id="budget">
+      <h2>2天预算参考（人均/经济型）</h2>
+      <div class="card">
+        <p>基于2天1夜、1人出行标准，以公共交通与经济型住宿为基准估算（不含出发地往返大交通）。</p>
+        <table class="budget-table">
+          <thead>
+            <tr><th>项目</th><th>说明</th><th>预估费用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>🏨 住宿</td><td>经济型客栈/青旅 1晚</td><td>¥150 - ¥200</td></tr>
+            <tr><td>🍜 餐饮</td><td>早餐/午餐/晚餐/小吃饮品 2天</td><td>¥180 - ¥220</td></tr>
+            <tr><td>🌸 体验/门票</td><td>簪花围妆造+服饰租赁（核心项）</td><td>¥120 - ¥180</td></tr>
+            <tr><td>🚌 市内交通</td><td>公交/“小白”/短途打车/共享单车</td><td>¥30 - ¥50</td></tr>
+            <tr><td>🛍️ 伴手礼/杂项</td><td>特产购买/饮用水/应急等</td><td>¥50 - ¥80</td></tr>
+            <tr><td colspan="2"><strong>💰 总计（人均）</strong></td><td><strong>¥530 - ¥730</strong></td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px; font-size:0.9rem; color:#888;">* 注：若含杭州往返高铁（约¥450-550），全程总预算约 ¥1000-1250/人，完全符合经济型出行标准。</p>
+      </div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section id="tips">
+      <h2>出行注意事项</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>🌤️ 天气与穿着</h3>
+          <p>泉州冬季均温在8-16℃，体感湿冷。建议“洋葱式”穿搭：内搭保暖+针织毛衣/卫衣，外备防风外套或轻薄羽绒服。务必携带折叠伞，应对春季偶发降雨。</p>
+        </div>
+        <div class="card">
+          <h3>👟 鞋履建议</h3>
+          <p>古城青石板路多、台阶碎，日均步数易超2万步。强烈建议穿已磨合的防滑运动鞋或软底徒步鞋，避免穿高跟鞋或新鞋。</p>
+        </div>
+        <div class="card">
+          <h3>🙏 礼仪与安全</h3>
+          <p>进入寺庙请勿大声喧哗、踩踏门槛。春节人流密集，贵重物品贴身保管。簪花体验选择明码标价的正规店铺，避免街头拉客陷阱。</p>
+        </div>
+        <div class="card">
+          <h3>📱 实用准备</h3>
+          <p>提前在微信公众号“泉州古城”或“开元寺”预约门票/香火。下载离线地图（部分深巷信号弱）。携带肠胃药（海鲜/凉菜较多），备好充电宝（拍照耗电快）。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p style="color:var(--primary); font-weight:600;">半城烟火半城仙，此生一定要来一次泉州。</p>
+        <p>本攻略基于实地调研与春节出行特征编制 | 信息更新于2024年 | 建议出行前核实景区最新公告</p>
+        <p style="margin-top:10px; font-size:0.8rem;">© 泉州深度游攻略 | 设计：专业旅行规划师 AI 辅助生成</p>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

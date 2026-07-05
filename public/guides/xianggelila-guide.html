@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>夏日香格里拉·2天深度游攻略</title>
+  <style>
+    :root {
+      --primary: #4a6fa5;
+      --primary-dark: #365585;
+      --bg-light: #f5f8fa;
+      --card-bg: #ffffff;
+      --text-main: #2d3748;
+      --text-sub: #718096;
+      --accent: #e67e22;
+      --success: #27ae60;
+      --danger: #e53e3e;
+      --radius: 12px;
+      --shadow: 0 4px 15px rgba(74, 111, 165, 0.08);
+      --shadow-hover: 0 8px 25px rgba(74, 111, 165, 0.15);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.75; color: var(--text-main); background-color: var(--bg-light); -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1050px; margin: 0 auto; padding: 0 20px; }
+    
+    .hero {
+      background: linear-gradient(135deg, var(--primary), #1e3a5f);
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+      border-radius: 0 0 30px 30px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -20%; right: -10%; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 12px; letter-spacing: 2px; }
+    .hero p.subtitle { font-size: 1.1rem; opacity: 0.9; max-width: 750px; margin: 0 auto 20px; }
+    .badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .badge { background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; backdrop-filter: blur(4px); font-weight: 500; }
+    
+    .section { margin-bottom: 45px; }
+    .section-title { font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 22px; padding-left: 15px; border-left: 5px solid var(--accent); display: flex; align-items: center; }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: #cbd5e0; margin-left: 12px; opacity: 0.6; }
+    
+    .card { background: var(--card-bg); padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 20px; }
+    .info-item { text-align: center; border-bottom: 3px solid var(--primary); padding: 15px; }
+    .info-item h4 { font-size: 0.95rem; color: var(--text-sub); margin-bottom: 5px; }
+    .info-item p { font-weight: 600; color: var(--primary-dark); font-size: 1.05rem; }
+    
+    .pro-con-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+    .pc-box { padding: 20px; border-radius: var(--radius); }
+    .pc-box.pro { background: #f0fff4; border-top: 4px solid var(--success); }
+    .pc-box.con { background: #fff5f5; border-top: 4px solid var(--danger); }
+    .pc-box h4 { margin-bottom: 8px; font-size: 1.05rem; }
+    .pc-box ul { padding-left: 20px; font-size: 0.95rem; }
+    .pc-box li { margin-bottom: 4px; }
+    
+    .timeline { position: relative; margin-top: 25px; }
+    .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 3px; background: #e2e8f0; border-radius: 2px; }
+    .day-item { position: relative; padding-left: 50px; margin-bottom: 35px; }
+    .day-dot { position: absolute; left: 11px; top: 20px; width: 22px; height: 22px; background: var(--primary); border: 4px solid var(--card-bg); border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.15); z-index: 2; }
+    .day-label { font-size: 1.2rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+    .time-row { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #e2e8f0; }
+    .time-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .time-tag { min-width: 65px; background: var(--primary); color: white; text-align: center; font-size: 0.85rem; font-weight: 600; padding: 5px 0; border-radius: 6px; }
+    .time-content h5 { font-size: 1.05rem; color: var(--text-main); margin-bottom: 4px; }
+    .time-content p { color: var(--text-sub); font-size: 0.95rem; margin: 0; }
+    
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .spot-card { overflow: hidden; }
+    .spot-header { height: 100px; background: linear-gradient(135deg, #88b0c8, var(--primary)); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; font-weight: 700; letter-spacing: 2px; }
+    .spot-body { padding: 20px; }
+    .spot-meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+    .spot-tag { background: #ebf8ff; color: var(--primary); font-size: 0.8rem; padding: 3px 8px; border-radius: 4px; }
+    .ticket-info { background: #fffbeb; color: #b7791f; padding: 10px; border-radius: 8px; font-size: 0.9rem; border-left: 4px solid #f6ad55; margin-top: 12px; }
+    
+    .food-list, .acc-list { list-style: none; }
+    .food-item, .acc-item { display: flex; align-items: center; gap: 15px; padding: 12px 0; border-bottom: 1px solid #edf2f7; }
+    .food-item:last-child, .acc-item:last-child { border-bottom: none; }
+    .item-icon { width: 40px; height: 40px; background: linear-gradient(135deg, #edf2f7, #e2e8f0); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .item-detail h5 { font-size: 1rem; margin-bottom: 3px; }
+    .item-detail p { font-size: 0.9rem; color: var(--text-sub); margin: 0; }
+    .price { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-left: auto; }
+    
+    table.budget { width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    table.budget th { background: var(--primary-dark); color: white; padding: 14px 20px; text-align: left; }
+    table.budget td { padding: 12px 20px; border-bottom: 1px solid #e2e8f0; }
+    table.budget tr:last-child td { border-bottom: none; background: #f7fafc; font-weight: 600; }
+    table.budget tr:nth-child(even) td { background: #f8fafc; }
+    
+    .tips-box { background: linear-gradient(to right, #ebf8ff, #f0fff4); padding: 25px; border-radius: var(--radius); border-left: 5px solid var(--primary); margin-top: 15px; }
+    .tip-group { margin-bottom: 15px; }
+    .tip-group:last-child { margin-bottom: 0; }
+    .tip-group h4 { font-size: 1rem; color: var(--primary-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .tip-list { list-style: none; padding-left: 25px; }
+    .tip-list li { position: relative; margin-bottom: 6px; font-size: 0.95rem; color: var(--text-main); }
+    .tip-list li::before { content: '•'; position: absolute; left: -15px; color: var(--accent); font-weight: bold; }
+    
+    footer { text-align: center; padding: 40px 20px; color: var(--text-sub); font-size: 0.9rem; border-top: 2px solid #e2e8f0; margin-top: 50px; background: white; }
+    .tag-line { margin-bottom: 10px; color: var(--primary); font-weight: 500; }
+    
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .pro-con-wrap { grid-template-columns: 1fr; }
+      .timeline::before { left: 15px; }
+      .day-item { padding-left: 40px; }
+      .day-dot { left: 6px; }
+      .time-row { flex-direction: column; gap: 8px; }
+      .time-tag { width: 100%; }
+      table.budget { font-size: 0.9rem; }
+      .container { padding: 0 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="container">
+      <h1>夏日香格里拉·寻梦之旅</h1>
+      <p class="subtitle">心中的日月，海拔3300米的世外桃源。离天堂最近的地方，用2天时间感受高原的纯净与信仰的力量。</p>
+      <div class="badges">
+        <span class="badge">🌄 高原风光</span>
+        <span class="badge">🏔️ 民族风情</span>
+        <span class="badge">🥾 徒步旅行</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    
+    <section class="section">
+      <div class="card">
+        <h2 class="section-title">🏙️ 城市概览</h2>
+        <p style="margin-bottom: 20px; font-size: 1.05rem;">香格里拉（迪庆藏族自治州首府），藏语意为“心中的日月”。这里拥有松赞林寺的庄严、普达措国家公园的纯净和梅里雪山的日照金山。5-6月高山杜鹃盛开，9-10月秋色漫山，是避开酷暑、拥抱清凉的绝佳目的地。</p>
+        
+        <div class="info-grid">
+          <div class="info-item"><h4>建议游玩</h4><p>2天1夜 / 3天2夜</p></div>
+          <div class="info-item"><h4>最佳月份</h4><p>5-6月、9-10月</p></div>
+          <div class="info-item"><h4>预算级别</h4><p>🟢 适中 (Lv.2)</p></div>
+          <div class="info-item"><h4>平均海拔</h4><p>3300米</p></div>
+        </div>
+
+        <div class="pro-con-wrap">
+          <div class="pc-box pro">
+            <h4>✨ 核心优点</h4>
+            <ul>
+              <li>高原风光壮美纯净，草甸湖泊如宝石镶嵌</li>
+              <li>藏族文化与纳西文化交融，原汁原味</li>
+              <li>日照金山震撼人心，摄影出片率极高</li>
+              <li>旅游开发成熟但保留原始生态，体验独特</li>
+            </ul>
+          </div>
+          <div class="pc-box con">
+            <h4>⚠️ 需要注意</h4>
+            <ul>
+              <li>海拔3300米，初到需严防高反，避免剧烈运动</li>
+              <li>无直达高铁，需经丽江中转或飞迪庆机场</li>
+              <li>高原紫外线极强，物理+化学防晒缺一不可</li>
+              <li>部分民宿设施较旧，旺季需提前预订</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">🗺️ 2天详细行程安排</h2>
+      <div class="timeline">
+        <div class="day-item">
+          <div class="day-dot"></div>
+          <div class="day-label">📅 Day 1：信仰与古城的初遇</div>
+          <div class="time-row">
+            <div class="time-tag">上午</div>
+            <div class="time-content">
+              <h5>抵达香格里拉 & 适应海拔</h5>
+              <p>从丽江乘大巴或自驾抵达。入住独克宗古城或古城周边民宿。建议首日下午在古城内慢走适应，避免跑跳，多喝温水。午餐品尝当地酥油茶、青稞饼暖胃。</p>
+            </div>
+          </div>
+          <div class="time-row">
+            <div class="time-tag">下午</div>
+            <div class="time-content">
+              <h5>噶丹·松赞林寺（小布达拉宫）</h5>
+              <p>参观云南最大藏传佛教寺院。跟随讲解了解藏传佛教文化，拍摄金顶红墙与蓝天白云。注意绕行寺院需顺时针，殿内禁拍。</p>
+            </div>
+          </div>
+          <div class="time-row">
+            <div class="time-tag">晚上</div>
+            <div class="time-content">
+              <h5>独克宗古城夜游 & 转经祈福</h5>
+              <p>漫步石板街，打卡月光广场。合力转动世界最大的重达60吨巨型转经筒为家人祈福。晚餐享用正宗藏式土火锅，感受古城酒吧街的民谣氛围。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-item">
+          <div class="day-dot"></div>
+          <div class="day-label">📅 Day 2：神山圣湖与高原秘境</div>
+          <div class="time-row">
+            <div class="time-tag">上午</div>
+            <div class="time-content">
+              <h5>梅里雪山观景 & 飞来寺/雾浓顶</h5>
+              <p>清晨包车或报团前往飞来寺方向（距市区约4h，建议跟纯玩一日团或提前一晚住德钦）。若天气晴好，可远眺卡瓦格博峰。夏季云海概率高，若见日照金山为一生幸事。</p>
+            </div>
+          </div>
+          <div class="time-row">
+            <div class="time-tag">下午</div>
+            <div class="time-content">
+              <h5>普达措国家公园（碧塔海 & 属都湖）</h5>
+              <p>返回市区途中前往中国首个国家公园。乘坐环保车穿梭于原始森林，徒步属都湖栈道（约2-3km）。夏季草甸野花遍野，黑颈鹤与松鼠出没，空气纯净度极高。</p>
+            </div>
+          </div>
+          <div class="time-row">
+            <div class="time-tag">晚上</div>
+            <div class="time-content">
+              <h5>纳帕海环湖或休整返程</h5>
+              <p>若时间充裕，傍晚驱车纳帕海依拉草原环湖（夏季为丰水期，草原半湖半景）。晚餐后收拾行装，准备次日离开或继续深度探索。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">📍 核心景点详解</h2>
+      <div class="grid-2">
+        <article class="card spot-card">
+          <div class="spot-header">松赞林寺</div>
+          <div class="spot-body">
+            <div class="spot-meta">
+              <span class="spot-tag">藏传佛教</span>
+              <span class="spot-tag">人文古建</span>
+              <span class="spot-tag">摄影圣地</span>
+            </div>
+            <p>被誉为“小布达拉宫”，依山而建，300多年历史。主殿宏伟，壁画精美。清晨薄雾笼罩或午后阳光斜射时最出片。周边拉姆央措湖可拍寺院倒影。</p>
+            <div class="ticket-info">🎫 <strong>门票：</strong>约90元（含景区车/讲解） | 开放 08:30-17:30 | 💡<em>Tips：请着装得体，勿大声喧哗，绕行转经筒需顺时针。</em></div>
+          </div>
+        </article>
+
+        <article class="card spot-card">
+          <div class="spot-header">普达措国家公园</div>
+          <div class="spot-body">
+            <div class="spot-meta">
+              <span class="spot-tag">世界自然遗产</span>
+              <span class="spot-tag">高原湖泊</span>
+              <span class="spot-tag">轻徒步</span>
+            </div>
+            <p>海拔约3500米，包含碧塔海、属都湖两大高山湖泊及原始森林。属都湖栈道平缓，适合所有体力水平。夏季杜鹃与格桑花盛开，是离天空最近的绿色秘境。</p>
+            <div class="ticket-info">🎫 <strong>门票：</strong>138元（门票+环保车） | 开放 08:30-16:30 | 💡<em>Tips：全程步行约6-8km，建议穿防滑徒步鞋，带防风外套，勿随意投喂野生动物。</em></div>
+          </div>
+        </article>
+
+        <article class="card spot-card">
+          <div class="spot-header">独克宗古城</div>
+          <div class="spot-body">
+            <div class="spot-meta">
+              <span class="spot-tag">茶马古道</span>
+              <span class="spot-tag">藏族民居</span>
+              <span class="spot-tag">夜景打卡</span>
+            </div>
+            <p>保存最完好的藏民居群，依山势而建。古城中心的龟山公园有大金塔和转经筒。夜晚石板路映着灯笼，极具烟火气。可购买唐卡、藏香、牦牛肉干。</p>
+            <div class="ticket-info">🎫 <strong>门票：</strong>免费（部分院落/博物馆单收） | 全天开放 | 💡<em>Tips：避开2014年火灾重建区商业化过度路段，深入背街小巷体验原生态。</em></div>
+          </div>
+        </article>
+
+        <article class="card spot-card">
+          <div class="spot-header">梅里雪山</div>
+          <div class="spot-body">
+            <div class="spot-meta">
+              <span class="spot-tag">日照金山</span>
+              <span class="spot-tag">藏区神山</span>
+              <span class="spot-tag">极致风光</span>
+            </div>
+            <p>海拔6740米的卡瓦格博峰为云南最高峰。夏季雨水多，云海几率大。虽不能攀登（受法律保护且尊重信仰），但远观已足够震撼。是无数旅行者的朝圣终点。</p>
+            <div class="ticket-info">🎫 <strong>门票：</strong>观景台约60元 | 需包车/拼车前往 | 💡<em>Tips：看日照金山需早起，海拔高更冷。夏季天气多变，请放平心态，遇晴概率约30-40%。</em></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">🍜 藏地风味 & 餐厅推荐</h2>
+      <div class="grid-2">
+        <div class="card">
+          <ul class="food-list">
+            <li class="food-item"><div class="item-icon">🥘</div><div class="item-detail"><h5>牦牛肉火锅</h5><p>高原牦牛肉质紧实，搭配野生菌，汤鲜味美。</p></div><span class="price">💰 ~120/锅</span></li>
+            <li class="food-item"><div class="item-icon">🥣</div><div class="item-detail"><h5>酥油茶 & 青稞饼</h5><p>藏民日常饮品，咸香解乏。青稞饼外酥里糯。</p></div><span class="price">💰 ~20/套</span></li>
+            <li class="food-item"><div class="item-icon">🍖</div><div class="item-detail"><h5>藏香猪/尼西土锅鸡</h5><p>本地散养小猪/走地鸡，炭火慢烤或土锅炖煮。</p></div><span class="price">💰 ~150/份</span></li>
+            <li class="food-item"><div class="item-icon">🧈</div><div class="item-detail"><h5>酸奶 & 奶渣</h5><p>高原自制酸奶浓稠微酸，可撒白糖或蜂蜜。</p></div><span class="price">💰 ~15/碗</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom:12px; color:var(--primary-dark);">📍 推荐餐厅</h4>
+          <ul class="food-list">
+            <li class="food-item"><div class="item-icon">🏪</div><div class="item-detail"><h5>酥油灯藏餐吧</h5><p>古城内人气老店，氛围好，牦牛肉披萨和酸奶口碑极佳。</p></div></li>
+            <li class="food-item"><div class="item-icon">🏪</div><div class="item-detail"><h5>静吧藏餐</h5><p>环境清幽，菜品正宗。推荐藏式烤肉、松茸炖鸡。</p></div></li>
+            <li class="food-item"><div class="item-icon">🏪</div><div class="item-detail"><h5>古城街头小吃</h5><p>烤牦牛串、炸土豆、凉粉。适合边走边吃体验市井。</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">🛌 住宿推荐指南</h2>
+      <div class="card">
+        <ul class="acc-list">
+          <li class="acc-item">
+            <div class="item-icon">💡</div>
+            <div class="item-detail"><h5>经济型（客栈/青旅）</h5><p>古城内及周边藏式家庭客栈，独立卫浴，含早餐。如：独克宗青旅、扎西德勒客栈。</p></div>
+            <span class="price">¥150 - ¥300/晚</span>
+          </li>
+          <li class="acc-item">
+            <div class="item-icon">⭐</div>
+            <div class="item-detail"><h5>舒适型（精品民宿/酒店）</h5><p>供氧地暖、藏式装修风格、景观阳台。如：松赞林卡周边民宿、古城观景精品酒店。</p></div>
+            <span class="price">¥350 - ¥650/晚</span>
+          </li>
+          <li class="acc-item">
+            <div class="item-icon">👑</div>
+            <div class="item-detail"><h5>高端型（野奢/度假酒店）</h5><p>松赞系列酒店（林卡/绿谷）、香格里拉大酒店。管家服务、藏文化体验、顶级硬件。</p></div>
+            <span class="price">¥1200 - ¥2800+/晚</span>
+          </li>
+        </ul>
+        <div class="tips-box" style="margin-top: 15px;">
+          <strong>📌 预订建议：</strong>夏季为旺季，务必提前1-2周预订。高海拔地区建议首选提供<em>弥散式供氧</em>或<em>地暖</em>的住宿，显著提升睡眠质量与防高反体验。
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">🚗 交通全攻略</h2>
+      <div class="table-wrap">
+        <table class="budget">
+          <thead>
+            <tr>
+              <th>方式</th>
+              <th>路线/说明</th>
+              <th>耗时</th>
+              <th>参考费用</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>✈️ 飞机到达</td>
+              <td>各地飞迪庆香格里拉机场（部分需经昆明中转）</td>
+              <td>视出发地</td>
+              <td>¥600-¥1500+</td>
+            </tr>
+            <tr>
+              <td>🚌 长途大巴</td>
+              <td>昆明西部客运站乘夜班大巴直达；或丽江客运站转乘</td>
+              <td>昆明~8h / 丽江~4h</td>
+              <td>¥150-¥280</td>
+            </tr>
+            <tr>
+              <td>🚄 高铁中转</td>
+              <td>暂无直达香格里拉高铁，需动车至丽江（约2h）再转大巴</td>
+              <td>全程约6-7h</td>
+              <td>¥200-¥350</td>
+            </tr>
+            <tr>
+              <td>🚙 市内/景区</td>
+              <td>市区公交/打车便捷；普达措/梅里需包车（4-6人拼车最划算）</td>
+              <td>视目的地</td>
+              <td>市区¥15-30/次<br>包车¥500-1200/天</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">🎒 行前注意事项</h2>
+      <div class="tips-box">
+        <div class="tip-group">
+          <h4>🫁 高原反应预防</h4>
+          <ul class="tip-list">
+            <li>抵达首日勿洗澡洗头，避免着凉引发感冒加重高反。</li>
+            <li>保持慢节奏行走，多喝水，少饮酒。可备布洛芬、葡萄糖口服液。</li>
+            <li>如出现严重头痛、呕吐、呼吸困难，立即下撤至低海拔地区就医。</li>
+          </ul>
+        </div>
+        <div class="tip-group">
+          <h4>☀️ 穿着与防晒</h4>
+          <ul class="tip-list">
+            <li>紫外线指数极高，必须备SPF50+防晒霜、墨镜、宽檐帽。</li>
+            <li>昼夜温差大（5℃-20℃波动），采用“洋葱式穿搭”：速干打底+抓绒/薄羽绒+防风冲锋衣。</li>
+            <li>必备防滑舒适徒步鞋，景区多为栈道与土路。</li>
+          </ul>
+        </div>
+        <div class="tip-group">
+          <h4>🙏 文化与礼仪</h4>
+          <ul class="tip-list">
+            <li>进入寺庙脱帽摘墨镜，不踩门槛，殿内禁拍佛像。</li>
+            <li>转经筒、玛尼堆绕行务必顺时针。</li>
+            <li>勿用手指直指佛像或僧人，可用手掌示意。尊重当地天葬习俗，不议论、不打听。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">💰 预算参考（2人/适中档 Lv.2）</h2>
+      <div class="table-wrap">
+        <table class="budget">
+          <thead>
+            <tr><th>项目</th><th>明细说明</th><th>人均估算</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>🚌 大交通</td><td>丽江往返大巴 + 机场接驳（不含抵达丽江机票）</td><td>¥250 - ¥400</td></tr>
+            <tr><td>🏨 住宿费</td><td>1晚舒适型精品民宿（供氧/含早）</td><td>¥200 - ¥350</td></tr>
+            <tr><td>🍜 餐饮</td><td>特色藏餐+简餐+饮用水（3正1早）</td><td>¥200 - ¥300</td></tr>
+            <tr><td>🎫 门票/体验</td><td>松赞林寺90+普达措138+古城免费</td><td>¥230</td></tr>
+            <tr><td>🚙 当地交通</td><td>普达措环保车/拼车或半日包车分摊</td><td>¥150 - ¥300</td></tr>
+            <tr><td>📦 杂项/备用</td><td>氧气瓶、药品、防晒、纪念品</td><td>¥100 - ¥200</td></tr>
+            <tr><td>🔥 合计参考</td><td>不含往返丽江机票/高铁，纯当地花费</td><td><strong>¥1130 - ¥1850 /人</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:15px; font-size:0.9rem; color:var(--text-sub);">*注：旺季（7-8月国庆/春节）价格上浮20%-50%。梅里雪山若安排独立一日包车，需额外增加 ¥400-600/人预算。</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="tag-line">🏔️ 愿你在香格里拉找到内心的宁静</div>
+    <p>© 2024 香格里拉旅行指南 | 数据基于实地调研与最新政策整理，出行前请核实最新开放信息。</p>
+    <p style="margin-top:5px; font-size:0.85rem;">高原旅行安全第一，量力而行。祝您旅途愉快！</p>
+  </footer>
+
+</body>
+</html>

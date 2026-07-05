@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>漠河夏季旅游攻略 | 寻北与极昼的20℃秘境</title>
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --primary-light: #40916c;
+      --primary-dark: #1b4332;
+      --accent-bg: #d8f3dc;
+      --bg: #f4f7f5;
+      --text: #2b2d42;
+      --text-muted: #5f6f81;
+      --white: #ffffff;
+      --shadow: 0 6px 16px rgba(0,0,0,0.06);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 50px 0; border-bottom: 1px dashed #e0e4e8; }
+    section:last-of-type { border-bottom: none; }
+    h1, h2, h3, h4 { color: var(--primary-dark); font-weight: 600; line-height: 1.3; }
+    .section-title { text-align: center; margin-bottom: 40px; font-size: 26px; position: relative; padding-bottom: 12px; }
+    .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--primary); border-radius: 2px; }
+    p { margin-bottom: 16px; }
+    
+    /* Hero */
+    .hero { background: linear-gradient(140deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); padding: 70px 20px; text-align: center; border-radius: 0 0 20px 20px; margin-bottom: 40px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -20%; left: -20%; width: 140%; height: 140%; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); pointer-events: none; }
+    .hero h1 { font-size: clamp(28px, 5vw, 40px); color: var(--white); margin-bottom: 12px; }
+    .hero-sub { font-size: 16px; opacity: 0.9; max-width: 720px; margin: 0 auto 20px; }
+    .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 20px; }
+    .meta-item { background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 14px; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; gap: 6px; }
+    
+    /* Badges */
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0 20px; }
+    .tag { background: var(--accent-bg); color: var(--primary-dark); padding: 4px 12px; border-radius: 16px; font-size: 13px; font-weight: 500; }
+    
+    /* Cards */
+    .card { background: var(--white); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); margin-bottom: 24px; border-left: 4px solid var(--primary); }
+    .grid { display: grid; gap: 20px; }
+    @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+    
+    /* Timeline */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px; width: 3px; background: var(--primary-light); border-radius: 2px; }
+    .tl-day { font-size: 18px; color: var(--primary); font-weight: bold; margin: 20px 0 10px; display: flex; align-items: center; gap: 8px; }
+    .tl-item { position: relative; margin-bottom: 22px; background: var(--white); padding: 16px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .tl-item::before { content: ''; position: absolute; left: -24px; top: 20px; width: 12px; height: 12px; background: var(--white); border: 3px solid var(--primary); border-radius: 50%; z-index: 1; }
+    .tl-time { font-weight: 600; color: var(--primary); font-size: 14px; margin-bottom: 6px; }
+    
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; background: var(--white); border-radius: 8px; overflow: hidden; }
+    th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #eef0f3; font-size: 14px; }
+    th { background: #e9ecef; color: var(--primary-dark); font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+    
+    /* Utils */
+    .highlight { color: var(--primary); font-weight: 500; }
+    .note { background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px; border-radius: 0 8px 8px 0; margin: 15px 0; font-size: 14px; color: #664d03; }
+    .footer { background: var(--primary-dark); color: rgba(255,255,255,0.7); text-align: center; padding: 30px 20px; margin-top: 40px; font-size: 13px; }
+    
+    @media (max-width: 700px) {
+      section { padding: 35px 0; }
+      .hero { padding: 50px 16px; border-radius: 0; }
+      .card { padding: 18px; }
+      table, thead, tbody, th, td, tr { display: block; }
+      th { display: none; }
+      td { padding: 10px; text-align: right; border-bottom: 1px solid #eee; }
+      td::before { content: attr(data-label); float: left; font-weight: 600; color: var(--primary-dark); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="container">
+      <h1>漠河夏季旅游攻略</h1>
+      <p class="hero-sub">中国最北端的清凉秘境，拥抱20℃的极昼奇景与无垠林海。避开人潮，在北纬53°的夏风中寻找真正的“北极”。</p>
+      <div class="hero-meta">
+        <span class="meta-item">📅 建议游玩：2天1夜</span>
+        <span class="meta-item">💰 预算级别：较高 (Lv.3)</span>
+        <span class="meta-item">🌿 最佳季节：6-8月</span>
+        <span class="meta-item">🚗 推荐交通：包车/自驾</span>
+      </div>
+      <div class="hero-tags">
+        <span class="tag">冰雪世界（冬景名片）</span>
+        <span class="tag">极光观测</span>
+        <span class="tag">自驾旅行</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section id="overview">
+      <h2 class="section-title">城市概述</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>📍 目的地简介</h3>
+          <p>漠河位于黑龙江省最北部，是中国纬度最高的城市。虽然冬季以冰雪奇观闻名，但<span class="highlight">6月至8月</span>是漠河独特的避暑黄金期。此时平均气温仅15℃-25℃，白桦林郁郁葱葱，黑龙江水色如翡翠，夏至前后更会出现“白夜”（极昼）现象。在这里，“找北”不仅是地理打卡，更是一场远离喧嚣的森林疗愈之旅。</p>
+          <div class="note">注：本攻略专为夏季定制。极光多发于高纬度冬半年（9月-次年3月），夏季因白夜现象观测几率极低，但可体验24小时天光与清凉气候。</div>
+        </div>
+        <div class="card">
+          <h3>⚖️ 优缺点速览</h3>
+          <ul>
+            <li><strong>优点：</strong> 全国最北端独特定位、夏季气候极其舒适（天然空调）、极昼体验、游客密度低于旺季、原生态森林与界江风光。</li>
+            <li><strong>缺点：</strong> 交通周转耗时、偏远地区住宿与餐饮溢价较高、夏季蚊虫较多、极光夏季不可见、部分土路自驾需越野经验。</li>
+          </ul>
+          <h3 style="margin-top:15px;">🏷️ 核心标签</h3>
+          <div class="tags">
+            <span class="tag">中国最北</span>
+            <span class="tag">避暑胜地</span>
+            <span class="tag">极昼奇观</span>
+            <span class="tag">大兴安岭</span>
+            <span class="tag">中俄界江</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="itinerary">
+      <h2 class="section-title">2天详细行程安排</h2>
+      <div class="timeline">
+        <div class="tl-day">📅 第一天：寻北打卡与原始村落</div>
+        <div class="tl-item">
+          <div class="tl-time">上午 (08:30 - 12:00)</div>
+          <strong>抵达漠河 → 北极村景区</strong><br>
+          乘坐早班机或前一晚夜班火车抵达漠河站。专车接机/站，直奔<span class="highlight">北极村</span>。办理入住后，沿界江步道漫步，打卡最北邮局、最北哨所、神州北极石碑。夏季植被茂盛，拍照建议穿着浅色系服装。
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">下午 (13:30 - 17:30)</div>
+          <strong>北极沙洲 → 北红村穿越</strong><br>
+          游览北极沙洲，感受“金鸡之冠”的雄浑。午后驱车前往<span class="highlight">北红村</span>（车程约1.5小时）。这里是真正的“最北无人区”边缘村落，保留着木刻楞房与菜园。体验农家生活，品尝江鱼，感受零商业化的宁静。
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">晚上 (19:00 - 22:00+)</div>
+          <strong>界江垂钓 → 极夜/白夜体验</strong><br>
+          北红村傍晚气温降至18℃左右，极为舒适。夏季20:00后天色仅微暗，22:00后仍见天光（夏至期间全天不黑）。可在黑龙江边静坐，享受24小时日照的奇幻感，早睡储备体力。
+        </div>
+
+        <div class="tl-day" style="margin-top:20px;">📅 第二天：江湾壮阔与林海漫步</div>
+        <div class="tl-item">
+          <div class="tl-time">上午 (07:30 - 12:00)</div>
+          <strong>龙江第一湾 → 乌苏里浅滩</strong><br>
+          早起前往<span class="highlight">龙江第一湾</span>。徒步998级台阶登顶观景台，俯瞰Ω形江湾。夏季江水碧绿，两岸青山倒映，是摄影绝佳时刻。随后前往乌苏里浅滩（中国实际最北点，经纬度53°33′N），立碑合影。
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">下午 (13:00 - 16:30)</div>
+          <strong>漠河国家地质公园/白桦林 → 返回县城</strong><br>
+          驱车返回途中深入<span class="highlight">白桦林</span>景区。夏季白桦林绿意盎然，林间木栈道蜿蜒，负氧离子极高，适合轻徒步与森林浴。拍摄光影斑驳的树干与野花。返回漠河县城休整。
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">晚上 (17:00 - 返程/自由安排)</div>
+          <strong>松苑公园 → 晚餐采购特产 → 送站/离境</strong><br>
+          游览县城内的松苑原始森林公园，了解“5·6火灾”历史与重生森林。随后在商业街采购蓝莓干、鹿茸片等伴手礼。根据航班/车次时间送站，结束极北之旅。
+        </div>
+      </div>
+    </section>
+
+    <section id="attractions">
+      <h2 class="section-title">核心景点深度指南</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>📍 北极村</h3>
+          <p><strong>推荐理由：</strong> 漠河旅游的名片，国家级5A景区。集中了中国最北的邮局、广场、人家、哨所等打卡点，基础设施完善，餐饮住宿选择多。</p>
+          <p><strong>游玩Tips：</strong> 建议上午入园避开午后人流。可租借自行车环村骑行。购买“最北”主题明信片从邮局寄出，极具纪念意义。</p>
+          <p><strong>门票信息：</strong> <span class="highlight">¥68/人</span>（夏季常包含景区观光车，建议提前在官方小程序预约）</p>
+        </div>
+        <div class="card">
+          <h3>📍 龙江第一湾</h3>
+          <p><strong>推荐理由：</strong> 黑龙江在漠河境内形成的Ω型大回湾，气势磅礴。观景台视野极佳，夏季水丰草绿，色彩层次极为丰富。</p>
+          <p><strong>游玩Tips：</strong> 台阶较多（约1500级上下），建议穿防滑运动鞋。夏季日照强，观景台无遮挡，务必携带防晒帽与墨镜。最佳拍摄时间为上午8-10点。</p>
+          <p><strong>门票信息：</strong> <span class="highlight">¥40/人 + 观光车¥30/人</span>（必须乘车上山）</p>
+        </div>
+        <div class="card">
+          <h3>📍 北红村</h3>
+          <p><strong>推荐理由：</strong> 比北极村更靠北（地理坐标53°30′N），未经过度商业开发。保留纯正的东北边疆村落风貌，木刻楞房屋错落，适合沉浸式体验“最北原生态”。</p>
+          <p><strong>游玩Tips：</strong> 村内无大型超市，请提前备好饮用水与零食。住宿以农家院为主，条件相对基础，但氛围温馨。夏季傍晚蚊虫多，需备驱蚊液。</p>
+          <p><strong>门票信息：</strong> <span class="highlight">免费开放</span></p>
+        </div>
+        <div class="card">
+          <h3>📍 白桦林</h3>
+          <p><strong>推荐理由：</strong> 大兴安岭特有的树种景观。夏季白桦林枝叶繁茂，阳光透过树冠洒下光柱，林下野果与菌类繁多，是绝佳的森林疗愈与微距摄影地。</p>
+          <p><strong>游玩Tips：</strong> 沿林间栈道慢行，勿随意折枝。可携带微距镜头拍摄树皮纹理与苔藓。夏季多阵雨，建议备轻便雨衣。</p>
+          <p><strong>门票信息：</strong> 多数区域为<span class="highlight">免费开放</span>（部分私人围栏林区可能收取¥10-20管理费）</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="food">
+      <h2 class="section-title">美食推荐</h2>
+      <div class="card">
+        <p>漠河餐饮受东北菜、林区特色与俄罗斯边境饮食影响，夏季以清爽、滋补、野味为主。</p>
+        <div class="grid-2">
+          <div>
+            <h4>🍽️ 必尝特色菜品</h4>
+            <ul style="padding-left:20px; margin-top:10px;">
+              <li><strong>江鱼炖豆腐：</strong> 黑龙江冷水鱼，肉质紧实鲜美，夏季开胃首选。</li>
+              <li><strong>林区山野菜/刺嫩芽：</strong> 6-7月当季野菜，清炒或蘸酱，清爽解腻。</li>
+              <li><strong>蓝莓果酱/蓝莓酒：</strong> 大兴安岭特产蓝莓，酸甜解暑，助眠。</li>
+              <li><strong>鹿肉干锅/烤串：</strong> 林区特色，蛋白质丰富，肉质紧实。</li>
+              <li><strong>大拉皮/冷面：</strong> 东北夏季经典主食，酸辣爽口，消暑佳品。</li>
+            </ul>
+          </div>
+          <div>
+            <h4>🍴 推荐餐厅</h4>
+            <ul style="padding-left:20px; margin-top:10px;">
+              <li><strong>北极人家餐厅（北极村）：</strong> 环境温馨，主打地道东北农家菜，江鱼一绝。</li>
+              <li><strong>北红村农家院（北红村）：</strong> 柴火灶炖菜，食材自种自采，原汁原味。</li>
+              <li><strong>漠河老街饺子馆（县城）：</strong> 本地人常去，手工水饺配酸菜汤，性价比高。</li>
+              <li><strong>林间木屋餐厅（龙江湾附近）：</strong> 景观餐厅，适合观景用餐，推荐野生菌菇汤。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note">夏季餐饮需注意：部分林区野菜需确认来源安全；北红村等偏远地区餐厅营业时间较短，建议提前电话确认。</div>
+      </div>
+    </section>
+
+    <section id="accommodation">
+      <h2 class="section-title">住宿推荐</h2>
+      <div class="grid-3">
+        <div class="card" style="border-left-color: #e0e1dd;">
+          <h4>🏕️ 经济型 (¥150-250/晚)</h4>
+          <p>多为县城青旅或北极村家庭客栈。干净基础，适合背包客与预算有限者。</p>
+          <p><strong>推荐：</strong> 漠河青年旅舍、北极村“最北人家”客栈</p>
+          <p style="font-size:13px; color:var(--text-muted);">特点：位置便利，共享卫浴，含早餐，需提前预订。</p>
+        </div>
+        <div class="card">
+          <h4>🏨 舒适型 (¥300-600/晚)</h4>
+          <p>县城商务酒店或北红村精品民宿。独立卫浴、暖气（夏季夜间备用）、Wi-Fi、景观窗。</p>
+          <p><strong>推荐：</strong> 漠河国际酒店、北红村“极光木屋”民宿</p>
+          <p style="font-size:13px; color:var(--text-muted);">特点：性价比高，服务规范，适合家庭与情侣。</p>
+        </div>
+        <div class="card" style="border-left-color: #d4a373;">
+          <h4>🏰 高端型 (¥800-1500+/晚)</h4>
+          <p>生态度假村或临江独栋木屋。配备地暖（防倒春寒）、独立庭院、私汤或观星台。</p>
+          <p><strong>推荐：</strong> 北极村星界度假酒店、龙江湾森林生态庄园</p>
+          <p style="font-size:13px; color:var(--text-muted);">特点：景观绝佳，体验奢华，含接送与定制行程。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="transport">
+      <h2 class="section-title">交通指南</h2>
+      <div class="card">
+        <div class="grid-2">
+          <div>
+            <h4>✈️ 如何抵达</h4>
+            <ul style="padding-left:20px; margin-top:8px;">
+              <li><strong>飞机：</strong> 直飞漠河古莲机场航班极少，通常需先飞<strong>哈尔滨太平机场</strong>（约4h），再转乘火车/汽车至漠河。</li>
+              <li><strong>火车：</strong> 哈尔滨站/东站乘坐K7039或K7041次列车，夕发朝至，约<span class="highlight">17-18小时</span>。硬卧性价比高，可体验“雪国列车”的北国风情。</li>
+              <li><strong>自驾/长途：</strong> 从哈尔滨出发沿G12/G331行驶，全程约1000km+，路况良好但夏季偶有修路，建议备足油料与物资。</li>
+            </ul>
+          </div>
+          <div>
+            <h4>🚙 市内与景区交通</h4>
+            <ul style="padding-left:20px; margin-top:8px;">
+              <li><strong>包车（强烈推荐）：</strong> 漠河景点分散，无密集公交。夏季包车（SUV）约<span class="highlight">¥800-1200/天</span>（含司机+油费），3-4人拼车更划算。</li>
+              <li><strong>自驾：</strong> 县城至各景区多为铺装路，但前往北红村部分路段为砂石路，建议底盘较高的车辆。导航信号在林区偶有中断，建议提前下载离线地图。</li>
+              <li><strong>客运班车：</strong> 漠河客运站有至北极村/北红村班车，班次少（每日2-3班），灵活度差，仅适合时间充裕的背包客。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tips">
+      <h2 class="section-title">注意事项</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h4>🌤️ 天气与穿着</h4>
+          <p>夏季漠河气温约<span class="highlight">15℃-26℃</span>，昼夜温差大（夜间可降至10℃以下）。紫外线强烈，林区多阵雨。</p>
+          <ul style="padding-left:20px; margin-top:8px;">
+            <li><strong>穿搭：</strong> 洋葱式穿衣法。长袖T恤+薄抓绒/冲锋衣+防风外套。长裤防蚊虫。</li>
+            <li><strong>配件：</strong> 墨镜、高倍防晒霜、遮阳帽、舒适徒步鞋。</li>
+            <li><strong>防蚊：</strong> 林区蚊虫极多，必备DEET驱蚊液、风油精、止痒膏。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>🛡️ 安全与实用建议</h4>
+          <ul style="padding-left:20px; margin-top:8px;">
+            <li>界江（黑龙江）水流湍急，严禁私自下水游泳或靠近冰裂期未化的江面。</li>
+            <li>手机信号在北极村内稳定，深入北红村及林区可能断联，建议携带充电宝与纸质地图。</li>
+            <li>尊重当地鄂伦春族与边防习俗，不拍摄军事管理区与界碑背面，遵守“不越界”规定。</li>
+            <li>夏季为旅游小旺季，包车与住宿需提前2-3周预订，临时加价现象常见。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="budget">
+      <h2 class="section-title">预算参考（2天1夜/人）</h2>
+      <div class="card">
+        <p>本预算基于<span class="highlight">较高舒适度</span>（Lv.3）配置，以2人成行为基准估算。实际费用随出行方式与季节波动。</p>
+        <table>
+          <thead>
+            <tr><th>项目</th><th>费用估算</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr><td data-label="交通">往返大交通</td><td>¥2500 - 4500</td><td>含哈尔滨往返机票/火车票+中转费用</td></tr>
+            <tr><td data-label="当地交通">包车/拼车</td><td>¥600 - 1000</td><td>2天行程分摊，含司机食宿补贴</td></tr>
+            <tr><td data-label="住宿">住宿费（1晚）</td><td>¥250 - 800</td><td>按中高档双人房分摊计算</td></tr>
+            <tr><td data-label="餐饮">餐饮费（3正1早）</td><td>¥350 - 600</td><td>含特色餐与简餐</td></tr>
+            <tr><td data-label="门票">景区门票+观光车</td><td>¥120 - 180</td><td>北极村+龙江湾+乌苏里浅滩</td></tr>
+            <tr><td data-label="其他">杂费/伴手礼/保险</td><td>¥200 - 300</td><td>建议购买户外旅游险</td></tr>
+            <tr style="font-weight:600; background:#f8f9fa;"><td data-label="总计">单人总预算</td><td colspan="2" style="color:var(--primary-dark); font-size:16px;">约 ¥4000 - ¥7380</td></tr>
+          </tbody>
+        </table>
+        <div class="note">💡 预算优化建议：若选择火车夕发朝至可节省1晚酒店费用；选择4人拼车可大幅降低交通均摊；避开7月中旬极昼高峰期住宿价格可下降20%-30%。</div>
+      </div>
+    </section>
+  </div>
+
+  <div class="footer">
+    <p>本攻略更新于 2024年夏 | 内容仅供参考，实际行程请以当地景区公告与实时天气为准</p>
+    <p>© 资深旅游规划师团队 · 用心丈量每一寸山河</p>
+  </div>
+
+</body>
+</html>

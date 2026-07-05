@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西双版纳夏季深度旅游攻略</title>
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --primary-light: #52b788;
+            --primary-dark: #1b4332;
+            --accent: #f4a261;
+            --bg: #f0f4f1;
+            --card-bg: #ffffff;
+            --text: #1c1f26;
+            --text-light: #556b62;
+            --shadow: 0 6px 16px rgba(45, 106, 79, 0.12);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; }
+        .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+        
+        /* Header */
+        header { background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--primary-light)); color: #fff; padding: 50px 20px 30px; border-radius: 0 0 24px 24px; text-align: center; position: relative; overflow: hidden; }
+        header::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 40%); pointer-events: none; }
+        h1 { font-size: 2.2rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
+        .subtitle { font-size: 1rem; opacity: 0.9; margin-bottom: 15px; font-weight: 300; }
+        .tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+        .tag { background: rgba(255,255,255,0.2); padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.3); }
+        
+        /* Info Cards */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 25px; }
+        .info-card { background: rgba(255,255,255,0.15); padding: 15px; border-radius: 12px; text-align: center; backdrop-filter: blur(6px); }
+        .info-card .label { font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 5px; }
+        .info-card .value { font-size: 1.1rem; font-weight: 600; }
+
+        /* Sections */
+        section { background: var(--card-bg); margin: 25px 0; padding: 28px; border-radius: 18px; box-shadow: var(--shadow); }
+        h2 { color: var(--primary); font-size: 1.5rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; display: flex; align-items: center; gap: 10px; }
+        h2::before { content: ''; display: inline-block; width: 8px; height: 24px; background: var(--primary); border-radius: 4px; }
+        
+        /* Timeline */
+        .timeline { position: relative; padding-left: 25px; margin-top: 15px; }
+        .timeline::before { content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 3px; background: #e0e0e0; border-radius: 2px; }
+        .day-block { margin-bottom: 25px; position: relative; }
+        .day-block::before { content: ''; position: absolute; left: -22px; top: 6px; width: 14px; height: 14px; background: var(--primary); border: 3px solid #fff; border-radius: 50%; box-shadow: 0 0 0 2px var(--primary-light); }
+        .day-title { font-weight: 700; font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 10px; }
+        .time-slot { background: #f8f9fa; padding: 12px 15px; border-radius: 10px; margin-bottom: 12px; border-left: 4px solid var(--primary-light); }
+        .time-label { font-weight: 600; color: var(--text-light); font-size: 0.9rem; margin-bottom: 4px; display: flex; justify-content: space-between; }
+        .highlight { color: var(--accent); font-weight: bold; }
+
+        /* Attractions */
+        .attraction-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .attraction-card { border: 1px solid #eee; padding: 18px; border-radius: 14px; background: linear-gradient(145deg, #fff, #fcfcfc); transition: transform 0.2s; }
+        .attraction-card:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.08); }
+        .attr-name { font-size: 1.2rem; font-weight: bold; color: var(--primary); margin-bottom: 8px; }
+        .attr-desc { color: var(--text-light); margin-bottom: 12px; font-size: 0.95rem; }
+        .meta-row { display: flex; flex-wrap: wrap; gap: 15px; font-size: 0.85rem; margin-bottom: 10px; }
+        .meta-item { display: flex; align-items: center; gap: 6px; }
+        .tip-box { background: #fff9db; padding: 10px; border-radius: 8px; border-left: 3px solid var(--accent); font-size: 0.9rem; color: #7a5c00; margin-top: 8px; }
+        
+        /* Lists */
+        ul.clean-list { list-style: none; padding: 0; }
+        ul.clean-list li { padding: 10px 0; border-bottom: 1px dashed #e0e0e0; display: flex; align-items: flex-start; gap: 10px; }
+        ul.clean-list li:last-child { border-bottom: none; }
+        .list-icon { color: var(--primary); font-weight: bold; min-width: 24px; }
+
+        /* Budget Table */
+        .budget-table { width: 100%; border-collapse: collapse; margin-top: 15px; border-radius: 10px; overflow: hidden; }
+        .budget-table th, .budget-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #eee; }
+        .budget-table th { background: var(--primary); color: #fff; font-weight: 500; }
+        .budget-table tr:last-child td { border-bottom: none; font-weight: 600; background: #f8f9fa; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 30px 20px; color: var(--text-light); font-size: 0.85rem; }
+        .footer-line { width: 50px; height: 3px; background: var(--primary-light); margin: 0 auto 10px; border-radius: 2px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.7rem; }
+            section { padding: 20px; margin: 18px 0; }
+            .info-grid { grid-template-columns: 1fr 1fr; }
+            .meta-row { flex-direction: column; gap: 6px; }
+            .budget-table { font-size: 0.9rem; }
+        }
+        @media (max-width: 480px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .time-slot { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>西双版纳夏季深度游攻略</h1>
+    <div class="subtitle">热带雨林的绿色秘境，遇见傣家风情与自然野趣</div>
+    <div class="tags">
+        <span class="tag">🌿 热带雨林</span>
+        <span class="tag">🛕 民族风情</span>
+        <span class="tag">👨‍👩‍👧‍👦 亲子游</span>
+    </div>
+    <div class="info-grid">
+        <div class="info-card"><span class="label">建议游玩天数</span><span class="value">3天</span></div>
+        <div class="info-card"><span class="label">最佳旅游月份</span><span class="value">11月-次年4月</span></div>
+        <div class="info-card"><span class="label">预算级别</span><span class="value">★★☆☆☆ (适中)</span></div>
+        <div class="info-card"><span class="label">夏季旅行提示</span><span class="value">避暑亲水，绿意最浓</span></div>
+    </div>
+</header>
+
+<main class="container">
+
+    <section id="itinerary">
+        <h2>📅 3天详细行程安排</h2>
+        <p style="color: var(--text-light); margin-bottom: 15px;">夏季版纳日照强、降水多，行程遵循“早出午休晚游”原则，避开高温时段，体验雨林生态与傣族夜生活。</p>
+        <div class="timeline">
+            <div class="day-block">
+                <div class="day-title">Day 1：抵达版纳 · 沉浸傣家水文化</div>
+                <div class="time-slot">
+                    <div class="time-label"><span>🕘 上午</span><span>交通与安顿</span></div>
+                    <div>抵达景洪市，办理酒店入住。休整适应气候，补充水分。</div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label"><span>🕐 下午</span><span>📍 傣族园（泼水狂欢）</span></div>
+                    <div>体验原汁原味的傣族生活，五座连片村寨保存完好。参与每日15:30的<span class="highlight">泼水广场狂欢</span>，感受“湿身”快乐，参观大佛寺与干栏式竹楼建筑。</div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label"><span>🌙 晚上</span><span>🍜 告庄西双景 & 星光夜市</span></div>
+                    <div>漫步大金塔，打卡东南亚风情街景。夜逛星光夜市，品尝傣味烧烤、老挝冰咖啡，拍摄傣族服饰旅拍（提前预约避坑）。</div>
+                </div>
+            </div>
+            <div class="day-block">
+                <div class="day-title">Day 2：雨林探秘 · 野象奇遇记</div>
+                <div class="time-slot">
+                    <div class="time-label"><span>🕖 上午（早出发）</span><span>📍 野象谷（亚洲象观测）</span></div>
+                    <div>乘景区接驳车进入，步行雨林栈道。重点乘坐<span class="highlight">高空观光索道</span>，俯瞰原始林冠，寻找野象足迹。夏季清晨象群活跃度最高。</div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label"><span>🕑 下午</span><span>📍 中科院热带植物园（西区/王莲池）</span></div>
+                    <div>乘车前往勐仑镇。重点游览西区：奇花异卉园、王莲池、棕榈园。夏季是王莲承重实验和夜游观萤火虫的绝佳期（需预约夜游票）。</div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label"><span>🌙 晚上</span><span>🍷 曼听公园 & 总佛寺（免费夜场/自费篝火）</span></div>
+                    <div>白天为历史悠久的傣王御花园，夜间可观看“澜沧江·湄公河之夜”篝火晚会，体验地道民俗表演与自助餐。</div>
+                </div>
+            </div>
+            <div class="day-block">
+                <div class="day-title">Day 3：空中走廊 · 告别雨林王国</div>
+                <div class="time-slot">
+                    <div class="time-label"><span>🕗 上午</span><span>📍 望天树景区（树冠漫步）</span></div>
+                    <div>驱车前往勐腊县（约2.5h）。体验<span class="highlight">36米高空树冠走廊</span>，穿越中国最高热带雨林群落。乘南腊河快艇进出，感受原始生态震撼。</div>
+                </div>
+                <div class="time-slot">
+                    <div class="time-label"><span>🕒 下午</span><span>🛍️ 市区休整 & 返程</span></div>
+                    <div>返回景洪市区，采购普洱茶、傣锦、小粒咖啡等伴手礼。根据航班/动车时间前往交通枢纽，结束旅程。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="attractions">
+        <h2>🌿 景点深度解析</h2>
+        <div class="attraction-grid">
+            <div class="attraction-card">
+                <div class="attr-name">1. 中科院西双版纳热带植物园</div>
+                <div class="attr-desc">中国面积最大、收集物种最丰富的热带植物园，占地1100公顷。拥有13000多种热带植物，是科普与摄影的绝佳之地。</div>
+                <div class="meta-row">
+                    <div class="meta-item">🎫 门票：约 ¥80（西区）/ ¥120（东西区联票）</div>
+                    <div class="meta-item">⏱️ 游玩：半天-1天</div>
+                </div>
+                <div class="tip-box">💡 游玩Tips：园区极大，强烈建议购买电瓶车票（¥50）。夏季王莲池叶片承重测试非常受欢迎，下午3点后光线最适合拍人像。若体力有限，仅游览西区即可覆盖精华。</div>
+            </div>
+            <div class="attraction-card">
+                <div class="attr-name">2. 野象谷</div>
+                <div class="attr-desc">中国唯一可以安全观测野生亚洲象的生态景区。热带雨林保护区内设有野象食源地，观测几率较高。</div>
+                <div class="meta-row">
+                    <div class="meta-item">🎫 门票：约 ¥110（含观光车）/ 索道另付 ¥70</div>
+                    <div class="meta-item">⏱️ 游玩：4-5小时</div>
+                </div>
+                <div class="tip-box">💡 游玩Tips：夏季多阵雨，备好雨衣而非雨伞以便活动。高空索道是必体验项目，单向与双向票价不同，建议购买单程上/步下行或单程下，节省体力且视野极佳。野象出没看运气，保持安静勿大声喧哗。</div>
+            </div>
+            <div class="attraction-card">
+                <div class="attr-name">3. 傣族园</div>
+                <div class="attr-desc">由曼将、曼春满、曼乍、曼嘎、曼岗五个自然村寨组成。保存完好的傣家竹楼、佛塔与佛寺，是体验泼水文化最集中的场所。</div>
+                <div class="meta-row">
+                    <div class="meta-item">🎫 门票：约 ¥50</div>
+                    <div class="meta-item">⏱️ 游玩：3-4小时</div>
+                </div>
+                <div class="tip-box">💡 游玩Tips：园内泼水活动需穿速干衣物或现场购买防水装备（水盆/雨衣）。建议自备手机防水袋。村寨内可购买正宗傣味小吃，价格比市区夜市更亲民。</div>
+            </div>
+            <div class="attraction-card">
+                <div class="attr-name">4. 望天树景区</div>
+                <div class="attr-desc">中国热带雨林的标志性景区，拥有亚洲罕见的最高热带雨林乔木群落。36米长的空中树冠走廊是核心体验。</div>
+                <div class="meta-row">
+                    <div class="meta-item">🎫 门票+空中走廊+游船套票：约 ¥160</div>
+                    <div class="meta-item">⏱️ 游玩：3-4小时</div>
+                </div>
+                <div class="tip-box">💡 游玩Tips：位置较远，建议包车或参加当地一日游团。树冠走廊离地36米，有一定晃动感，恐高者量力而行。夏季蚊虫较多，务必穿着长裤并喷涂强效驱蚊液。</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="food">
+        <h2>🥘 舌尖上的版纳</h2>
+        <ul class="clean-list">
+            <li><span class="list-icon">🍖</span><div><strong>香茅草烤鱼</strong><br><span style="color:var(--text-light);font-size:0.9rem;">傣家招牌菜，用本地香茅草包裹罗非鱼炭烤，鱼肉鲜嫩带柠檬清香。</span></div></li>
+            <li><span class="list-icon">🍚</span><div><strong>菠萝饭 & 紫米粑粑</strong><br><span style="color:var(--text-light);font-size:0.9rem;">酸甜软糯，紫米包裹椰蓉与红糖，是完美的热带甜品主食。</span></div></li>
+            <li><span class="list-icon">🔥</span><div><strong>傣味烧烤/烤五花肉</strong><br><span style="color:var(--text-light);font-size:0.9rem;">蘸水灵魂！推荐搭配“喃咪”（酸辣酱）和生菜包肉，夜市必吃。</span></div></li>
+            <li><span class="list-icon">🍹</span><div><strong>老挝冰咖啡 & 泡鲁达</strong><br><span style="color:var(--text-light);font-size:0.9rem;">夏季解暑神器。泡鲁达内含西米、椰丝、干面包片，清凉甜蜜。</span></div></li>
+        </ul>
+        <h3 style="margin-top:15px;color:var(--primary);font-size:1.1rem;">📍 推荐餐厅/觅食地</h3>
+        <div class="info-grid" style="margin-top:10px;grid-template-columns:1fr 1fr;">
+            <div class="info-card" style="background:#f8f9fa;color:var(--text);text-align:left;">
+                <div style="font-weight:600;color:var(--primary);margin-bottom:5px;">🏡 傣家小院 / 曼飞龙烤鸡</div>
+                <div style="font-size:0.9rem;color:var(--text-light);">本地口碑老店，环境地道，烤鸡和柠檬鬼鸡必点，人均¥60-80。</div>
+            </div>
+            <div class="info-card" style="background:#f8f9fa;color:var(--text);text-align:left;">
+                <div style="font-weight:600;color:var(--primary);margin-bottom:5px;">🌃 告庄星光夜市/六国水上市场</div>
+                <div style="font-size:0.9rem;color:var(--text-light);">摊位密集，建议多比价再购买。体验氛围极佳，适合边走边吃。</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="accommodation">
+        <h2>🏨 住宿指南</h2>
+        <div class="attraction-grid">
+            <div class="attraction-card">
+                <div class="attr-name">🌙 舒适型（推荐）</div>
+                <div class="attr-desc"><strong>告庄西双景周边度假酒店/民宿</strong></div>
+                <div class="meta-row"><div class="meta-item">💰 预算：¥300-600/晚</div><div class="meta-item">📍 优势：离夜市近，配套成熟，夜景绝美</div></div>
+                <div class="tip-box">📌 夏季为平季，价格比春节/泼水节回落40%，性价比高。选择带独立空调和除湿功能的房型更舒适。</div>
+            </div>
+            <div class="attraction-card">
+                <div class="attr-name">🛋️ 经济型</div>
+                <div class="attr-desc"><strong>景洪市区连锁快捷酒店（泼水广场/版纳大桥附近）</strong></div>
+                <div class="meta-row"><div class="meta-item">💰 预算：¥150-250/晚</div><div class="meta-item">📍 优势：交通便利，本地生活气息浓，餐饮便宜</div></div>
+                <div class="tip-box">📌 适合预算有限、注重交通效率的旅客。避开临街低楼层，防蚊虫与隔音更好。</div>
+            </div>
+            <div class="attraction-card">
+                <div class="attr-name">🌟 高端型</div>
+                <div class="attr-desc"><strong>万达洲际/融创/安纳塔拉度假酒店</strong></div>
+                <div class="meta-row"><div class="meta-item">💰 预算：¥1000-2500+/晚</div><div class="meta-item">📍 优势：私家园林，雨林/江景视野，服务顶级</div></div>
+                <div class="tip-box">📌 适合家庭亲子或蜜月度假。通常包含接机、下午茶或水上活动，建议通过官方渠道提前预订享优惠。</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="transport">
+        <h2>🚗 交通全攻略</h2>
+        <h3 style="color:var(--primary);margin-bottom:10px;">🛫 如何到达版纳</h3>
+        <ul class="clean-list">
+            <li><span class="list-icon">✈️</span><div><strong>飞机直达/中转</strong><br><span style="color:var(--text-light);font-size:0.9rem;">景洪嘎洒国际机场距市区约10公里。全国多地有直飞，夏季机票价格适中。若无直飞，可飞昆明长水机场转动车（推荐）。</span></div></li>
+            <li><span class="list-icon">🚄</span><div><strong>高铁/动车（最推荐中转方案）</strong><br><span style="color:var(--text-light);font-size:0.9rem;">昆明站/昆明南站 → 西双版纳站。车程约3.5小时，票价¥150-210。班次密集，准点率高，沿途风景优美。</span></div></li>
+        </ul>
+        <h3 style="color:var(--primary);margin-top:20px;margin-bottom:10px;">🚌 市内交通</h3>
+        <ul class="clean-list">
+            <li><span class="list-icon">📱</span><div><strong>网约车/出租车</strong>：市区内景点打车方便，起步价低。跨区前往植物园、望天树建议提前预约包车或拼车（单程约100-200元）。</div></li>
+            <li><span class="list-icon">🛵</span><div><strong>电动车租赁</strong>：告庄/市区短途代步神器（¥50-80/天）。夏季暴晒多雨，务必佩戴头盔、备好防晒衣与雨衣，注意遵守交规。</div></li>
+            <li><span class="list-icon">🚌</span><div><strong>旅游专线</strong>：版纳客运站有发往勐仑（植物园）、勐腊（望天树）的班车，经济但耗时较长，需提前查好时刻表。</div></li>
+        </ul>
+    </section>
+
+    <section id="tips">
+        <h2>⚠️ 夏季出行注意事项</h2>
+        <div class="info-grid" style="grid-template-columns:1fr 1fr;gap:15px;">
+            <div class="info-card" style="background:#fff;border:1px solid #e0e0e0;text-align:left;">
+                <div style="font-weight:600;color:var(--primary);margin-bottom:5px;">☀️ 天气与穿着</div>
+                <div style="font-size:0.9rem;color:var(--text-light);">夏季（6-8月）平均气温25-32℃，闷热多阵雨（阵雨来得快去得快）。建议穿透气速干衣物，备薄外套防室内冷气。必备：高倍防晒霜、墨镜、遮阳帽。</div>
+            </div>
+            <div class="info-card" style="background:#fff;border:1px solid #e0e0e0;text-align:left;">
+                <div style="font-weight:600;color:var(--primary);margin-bottom:5px;">🦟 防蚊与健康</div>
+                <div style="font-size:0.9rem;color:var(--text-light);">雨林蚊虫极多，务必携带含DEET（避蚊胺）成分的驱蚊液。备肠胃药、创可贴。适量食用热带水果，避免冰饮混食引发腹泻。</div>
+            </div>
+            <div class="info-card" style="background:#fff;border:1px solid #e0e0e0;text-align:left;">
+                <div style="font-weight:600;color:var(--primary);margin-bottom:5px;">🙏 民族礼仪</div>
+                <div style="font-size:0.9rem;color:var(--text-light);">参观佛寺请脱鞋、着过膝服装，勿摸小和尚头部。泼水节活动为祝福性质，请勿使用高压水枪攻击老人、孕妇及工作人员。</div>
+            </div>
+            <div class="info-card" style="background:#fff;border:1px solid #e0e0e0;text-align:left;">
+                <div style="font-weight:600;color:var(--primary);margin-bottom:5px;">📸 防坑指南</div>
+                <div style="font-size:0.9rem;color:var(--text-light);">部分景区存在“过度开发”商业化现象，购物请理性比价。旅拍套餐提前确认隐形消费（精修、服装分区等）。野生亚洲象不可投喂，安全第一。</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="budget">
+        <h2>💰 预算参考（人均/3天2晚）</h2>
+        <p style="color:var(--text-light);margin-bottom:10px;">以下预算基于中等消费水平（预算级别：适中）估算，实际价格随淡旺季浮动。</p>
+        <table class="budget-table">
+            <thead>
+                <tr>
+                    <th width="25%">项目</th>
+                    <th width="45%">明细说明</th>
+                    <th width="30%">预估费用 (¥)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>🚄 大交通</td>
+                    <td>往返机票/动车（按出发地浮动）</td>
+                    <td>¥1,500 - ¥2,500</td>
+                </tr>
+                <tr>
+                    <td>🏨 住宿</td>
+                    <td>2晚舒适型酒店（双人分摊）</td>
+                    <td>¥300 - ¥600</td>
+                </tr>
+                <tr>
+                    <td>🚌 市内交通</td>
+                    <td>打车/包车/景区接驳/动车中转</td>
+                    <td>¥300 - ¥500</td>
+                </tr>
+                <tr>
+                    <td>🎫 门票娱乐</td>
+                    <td>植物园+野象谷索道+傣族园+望天树+其他</td>
+                    <td>¥400 - ¥550</td>
+                </tr>
+                <tr>
+                    <td>🍽️ 餐饮</td>
+                    <td>每日正餐+小吃饮品（¥150/天）</td>
+                    <td>¥400 - ¥500</td>
+                </tr>
+                <tr>
+                    <td>🛍️ 其他/备用</td>
+                    <td>购物、伴手礼、应急药品等</td>
+                    <td>¥200 - ¥400</td>
+                </tr>
+                <tr>
+                    <td>💵 总计参考</td>
+                    <td><strong>3天2晚舒适游人均预算</strong></td>
+                    <td style="color:var(--primary);font-size:1.1rem;">¥3,100 - ¥5,050</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-line"></div>
+    <p>本攻略数据仅供参考，景区门票、交通及餐饮价格可能随政策与季节调整，出行前请以官方实时信息为准。</p>
+    <p style="margin-top:8px;">🌿 祝您在西双版纳度过一段清凉治愈的热带之旅！</p>
+</footer>
+
+</body>
+</html>

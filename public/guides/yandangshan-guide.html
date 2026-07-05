@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雁荡山夏季2日游全攻略 | 资深规划师定制</title>
+<style>
+  :root {
+    --primary: #2d6a4f;
+    --primary-dark: #1b4332;
+    --primary-light: #40916c;
+    --accent: #d8f3dc;
+    --bg: #f7faf8;
+    --text: #212529;
+    --text-muted: #495057;
+    --white: #ffffff;
+    --shadow: 0 4px 16px rgba(45,106,79,0.12);
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); }
+  .wrapper { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+  
+  /* Hero */
+  .hero { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%); color: var(--white); padding: 50px 20px 30px; text-align: center; border-radius: 0 0 32px 32px; margin-bottom: 35px; }
+  .hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); margin-bottom: 8px; font-weight: 800; letter-spacing: 1px; }
+  .hero p { font-size: 1rem; opacity: 0.92; margin-bottom: 18px; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+  .badge { background: rgba(255,255,255,0.25); padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; backdrop-filter: blur(4px); font-weight: 500; }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-top: 20px; }
+  .stat-box { background: rgba(255,255,255,0.15); padding: 10px; border-radius: 10px; }
+  .stat-box strong { display: block; font-size: 1.3rem; margin-bottom: 2px; }
+  .stat-box span { font-size: 0.8rem; opacity: 0.85; }
+
+  /* Layout & Components */
+  section { margin-bottom: 45px; }
+  h2 { font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 18px; padding-left: 14px; border-left: 5px solid var(--primary); display: flex; align-items: center; gap: 8px; }
+  .card { background: var(--white); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); margin-bottom: 18px; }
+  .highlight { color: var(--primary); font-weight: 600; }
+  ul { padding-left: 18px; margin-bottom: 10px; }
+  li { margin-bottom: 6px; color: var(--text-muted); }
+  
+  /* Timeline */
+  .timeline { position: relative; padding-left: 24px; border-left: 3px dashed var(--primary-light); margin-top: 15px; }
+  .timeline-item { position: relative; margin-bottom: 22px; padding-bottom: 10px; }
+  .timeline-item::after { content: ''; position: absolute; left: -30px; top: 6px; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 0 4px var(--accent); }
+  .time-tag { display: inline-block; background: var(--primary); color: var(--white); padding: 2px 10px; border-radius: 12px; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+  .timeline-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; color: var(--primary-dark); }
+  
+  /* Attractions */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .spot-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s; }
+  .spot-visual { height: 110px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.3); position: relative; }
+  .spot-visual::before { content: ''; position: absolute; inset: 0; background: linear-gradient(45deg, rgba(45,106,79,0.9), rgba(82,183,136,0.8)); z-index: 1; }
+  .spot-visual span { z-index: 2; padding: 0 20px; }
+  .spot-body { padding: 18px; }
+  .spot-meta { display: flex; justify-content: space-between; background: var(--accent); padding: 6px 10px; border-radius: 8px; font-size: 0.8rem; color: var(--primary-dark); margin-bottom: 12px; }
+  .tip-list { list-style: none; padding-left: 0; margin: 0; }
+  .tip-list li { position: relative; padding-left: 18px; margin-bottom: 5px; font-size: 0.9rem; }
+  .tip-list li::before { content: '✦'; position: absolute; left: 0; color: var(--primary-light); }
+  
+  /* Tables & Lists */
+  .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 12px; }
+  table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 10px; overflow: hidden; min-width: 600px; }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #e9ecef; }
+  th { background: var(--primary); color: white; font-weight: 500; }
+  .price { font-family: ui-monospace, monospace; font-weight: 600; color: var(--primary); }
+  
+  /* Alerts */
+  .alert { padding: 12px 16px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #ffc107; background: #fff8e1; }
+  .alert.info { border-left-color: var(--primary); background: var(--accent); }
+  .alert strong { display: block; margin-bottom: 4px; color: #333; }
+  
+  /* Footer */
+  footer { background: var(--primary-dark); color: rgba(255,255,255,0.8); text-align: center; padding: 35px 20px; border-radius: 16px 16px 0 0; margin-top: 50px; font-size: 0.9rem; }
+  footer p { margin-bottom: 8px; }
+  
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.9rem; }
+    .grid-2 { grid-template-columns: 1fr; }
+    section { margin-bottom: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <header class="hero">
+    <h1>雁荡山 · 夏日避暑寻瀑之旅</h1>
+    <p>“东南第一山”，世界地质公园。于飞瀑流泉间聆听夏日蝉鸣，在奇幻夜景中寻觅山海古意。</p>
+    <div class="tags">
+      <span class="badge">自然风光</span>
+      <span class="badge">登山徒步</span>
+      <span class="badge">摄影出片</span>
+      <span class="badge">亲子友好</span>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-box"><strong>2天</strong><span>建议游玩</span></div>
+      <div class="stat-box"><strong>4-6 / 9-11月</strong><span>黄金时段</span></div>
+      <div class="stat-box"><strong>预算 Level 1</strong><span>经济实惠</span></div>
+      <div class="stat-box"><strong>高铁 2.5h</strong><span>杭州东直达</span></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>📖 城市概述</h2>
+    <div class="card">
+      <p><span class="highlight">雁荡山</span>坐落于浙江省温州市乐清市境内，以奇峰、怪石、飞瀑、古洞著称，与黄山、庐山齐名。其核心魅力在于“日景耐看、夜景销魂”。夏季虽非最传统旺季，却是瀑布水量最丰沛、山林最清凉的时节。虽知名度略逊于黄山，但“全国独有”的灵峰夜景和悬挂百米的方洞栈道，绝对值得专程前往。</p>
+      <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 12px;">
+        <span class="badge" style="background:#e8f5e9; color:#2e7d32;">✅ 优点：夜景全国唯一、地质奇观、瀑布群水量充沛、高铁直达便利</span>
+        <span class="badge" style="background:#fce4ec; color:#c62828;">⚠️ 提醒：景区呈“品”字形分布需换乘、灵峰夜景需留宿、方洞栈道略耗体力</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🗺️ 2天详细行程安排</h2>
+    <div class="card">
+      <p style="margin-bottom:15px;">本路线专为夏季设计，避开正午暴晒，充分利用清晨凉爽与夜间奇幻体验。</p>
+      <h3 style="color:var(--primary-dark); margin-top:10px;">Day 1：初探奇峰，邂逅绝美夜色</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="time-tag">上午</span>
+          <div class="timeline-title">抵达雁荡站 → 前往响岭头集散区</div>
+          <p>乘坐高铁至【雁荡山站】，出站后乘坐免费公交或打车（约15分钟）至响岭头民宿街/游客中心。办理入住，寄存行李。</p>
+        </div>
+        <div class="timeline-item">
+          <span class="time-tag">下午 14:00-17:00</span>
+          <div class="timeline-title">🏞️ 方洞（悬崖栈道体验）</div>
+          <p>午后气温较高，方洞海拔相对较高且栈道位于背阴处，较为凉爽。攀登索道或步行上山，体验百米悬崖上的透明/石砌栈道，俯瞰灵岩全景。</p>
+        </div>
+        <div class="timeline-item">
+          <span class="time-tag">晚上 19:30-21:30</span>
+          <div class="timeline-title">🌙 灵峰夜景（核心重头戏）</div>
+          <p>夏日入夜较晚。无需门票（部分区域需购联票或凭导游讲解）。跟随当地讲解员或语音导览，在手电/微光下欣赏“夫妻峰”、“双笋峰”、“牧童骑牛”等移步换景的剪影奇观。</p>
+        </div>
+      </div>
+
+      <h3 style="color:var(--primary-dark); margin-top:25px;">Day 2：寻访飞瀑，清凉夏日徒步</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="time-tag">上午 08:00-11:30</span>
+          <div class="timeline-title">💦 大龙湫（中国十大名瀑）</div>
+          <p>清晨前往水量最丰的大龙湫。沿溪谷木栈道徒步，负氧离子极高，体感清凉。观赏197米落差单级瀑布直泻深潭，感受“欲写龙湫难下笔”的震撼。</p>
+        </div>
+        <div class="timeline-item">
+          <span class="time-tag">下午 13:30-16:00</span>
+          <div class="timeline-title">🌿 三折瀑（瀑布群探秘）</div>
+          <p>餐后稍作休整，前往三折瀑。上、中、下三折各具特色，中折瀑最为壮观，水帘洞可穿行而过。全程约2.5小时，林荫茂密，适合夏季轻徒步。</p>
+        </div>
+        <div class="timeline-item">
+          <span class="time-tag">晚上 17:00后</span>
+          <div class="timeline-title">🚄 品尝海鲜农家菜 → 返程</div>
+          <p>在响岭头享用清江三鲜、麦饼等特色晚餐，搭乘景交车返回高铁站，结束行程。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📷 核心景点详细解析</h2>
+    <div class="grid-2">
+      <div class="spot-card">
+        <div class="spot-visual" style="background: linear-gradient(135deg, #1b4332, #2d6a4f);"><span>灵峰夜景</span></div>
+        <div class="spot-body">
+          <p style="font-size:0.95rem; margin-bottom:8px;">雁荡山灵魂所在。白天平平无奇的合掌峰、金鸡峰，入夜后在自然光影与讲解引导中，化作栩栩如生的立体剪影。</p>
+          <div class="spot-meta"><span>🎫 门票：日景联票含/夜景免费听讲解需预约</span><span>⏱️ 1.5-2h</span></div>
+          <ul class="tip-list">
+            <li>夏季天黑约19:00，建议19:40进场最佳。</li>
+            <li>务必请正规讲解或租语音导览（15元），否则易看“石头”。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-visual" style="background: linear-gradient(135deg, #40916c, #52b788);"><span>大龙湫瀑布</span></div>
+        <div class="spot-body">
+          <p style="font-size:0.95rem; margin-bottom:8px;">单级落差197米的中国最高瀑布之一。夏季水量充沛，水雾弥漫，彩虹频现，是摄影与避暑的绝佳地。</p>
+          <div class="spot-meta"><span>🎫 门票：50元/人</span><span>⏱️ 2h</span></div>
+          <ul class="tip-list">
+            <li>观瀑台易湿身，建议带防水外套或手机防水袋。</li>
+            <li>木栈道平缓，老少皆宜，但台阶略多注意防滑。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-visual" style="background: linear-gradient(135deg, #264653, #2a9d8f);"><span>方洞悬崖栈道</span></div>
+        <div class="spot-body">
+          <p style="font-size:0.95rem; margin-bottom:8px;">开凿于海拔百余米的峭壁之上，全程约1公里，一侧绝壁一侧深谷，惊险刺激且视野极佳。</p>
+          <div class="spot-meta"><span>🎫 门票：40元/人（景交车另计）</span><span>⏱️ 2-2.5h</span></div>
+          <ul class="tip-list">
+            <li>恐高者慎行，建议穿防滑运动鞋。</li>
+            <li>建议索道上、步行下，节省体力游览其他点。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-visual" style="background: linear-gradient(135deg, #5f0f40, #9a031e);"><span>三折瀑</span></div>
+        <div class="spot-body">
+          <p style="font-size:0.95rem; margin-bottom:8px;">火山地质运动形成的罕见三叠瀑群，总落差约300米。下折亲水、中折壮观、上折幽静。</p>
+          <div class="spot-meta"><span>🎫 门票：40元/人</span><span>⏱️ 2.5h</span></div>
+          <ul class="tip-list">
+            <li>中折瀑水帘洞内可穿行，备一次性雨衣。</li>
+            <li>夏季蚊虫多，务必喷涂驱蚊液。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🍜 美食与餐厅推荐</h2>
+    <div class="card">
+      <p>雁荡山美食以“山珍+瓯越海鲜”融合为主，夏季推荐清淡鲜美的菜品。响岭头村周边餐饮集中，明码标价，性价比高。</p>
+      <div style="margin-top: 15px;">
+        <div class="item-row">
+          <div><strong>清江三鲜面/炒粉干</strong><br><span style="color:#666; font-size:0.9rem;">当地必吃。以黄鱼、虾姑、蛏子等现煮，汤鲜味美，解暑开胃。</span></div>
+          <span class="price-tag">35-45元</span>
+        </div>
+        <div class="item-row">
+          <div><strong>雁荡山麦饼</strong><br><span style="color:#666; font-size:0.9rem;">梅干菜肉或咸蛋黄肉馅，现烤酥脆。徒步必备干粮，饱腹感强。</span></div>
+          <span class="price-tag">10-15元/个</span>
+        </div>
+        <div class="item-row">
+          <div><strong>林坑土鸡煲 & 炒野菜</strong><br><span style="color:#666; font-size:0.9rem;">散养土鸡搭配苦菊、水芹等山野时蔬，清淡降燥。</span></div>
+          <span class="price-tag">88-120元/份</span>
+        </div>
+        <div class="item-row">
+          <div><strong>📍 推荐餐厅</strong><br><span style="color:#666; font-size:0.9rem;">老雁荡土菜馆（响岭头村口）、楠溪麦饼老店（近游客中心）、灵峰农家大院</span></div>
+          <span class="price-tag">人均50-70</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🏡 住宿推荐（响岭头集散区）</h2>
+    <div class="card">
+      <p>雁荡山景区呈分散布局，<strong>强烈建议住在响岭头村/步行街</strong>，此处为景交车枢纽，餐饮便利，去各景点均在15-20分钟车程内。</p>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th style="width:18%;">档次</th>
+            <th style="width:32%;">代表类型</th>
+            <th>夏季参考价格</th>
+            <th style="width:30%;">特点与Tips</th>
+          </tr>
+          <tr>
+            <td>🌿 经济型</td>
+            <td>村民自营客栈/青旅</td>
+            <td class="price">120-220元/晚</td>
+            <td>干净卫生，老板熟悉本地路线，多含简餐。适合学生/背包客。</td>
+          </tr>
+          <tr>
+            <td>☁️ 舒适型</td>
+            <td>精品民宿/连锁酒店</td>
+            <td class="price">280-450元/晚</td>
+            <td>设施完善，部分带观景露台。预订时确认含双早及免费停车。</td>
+          </tr>
+          <tr>
+            <td>🏔️ 高端型</td>
+            <td>半山度假院落/星级</td>
+            <td class="price">550-900元/晚</td>
+            <td>环境清幽，直面山景，服务细致。夏季需提前7天预订。</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🚌 交通指南</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:var(--primary);">🚄 如何到达</h3>
+        <ul>
+          <li><strong>高铁首选：</strong>杭州东站 → <strong>雁荡山站</strong>，约2.5-3小时，每日车次密集。出站即有公交接驳。</li>
+          <li><strong>飞机方案：</strong>飞抵温州龙湾机场 → 乘坐高铁/大巴至雁荡山，总耗时约2.5-3.5小时。</li>
+          <li><strong>自驾：</strong>G15沈海高速“雁荡山”出口下，导航至“响岭头游客中心”，全程路况良好。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--primary);">🚡 景区内部交通</h3>
+        <ul>
+          <li><strong>景交车（必坐）：</strong>各景点间无直达公交，需在游客中心购买环保车票（40元/2天有效），站点覆盖灵峰、大龙湫、方洞等。</li>
+          <li><strong>出租车/网约车：</strong>响岭头周边打车方便，起步价低。跨景区打车约20-40元。</li>
+          <li><strong>索道：</strong>方洞、三折瀑可选缆车，建议单程，保留体力。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>💰 预算参考（人均/经济级 2天1晚）</h2>
+    <div class="card">
+      <div class="table-container">
+        <table>
+          <tr><th>项目</th><th>明细估算</th><th>小计</th></tr>
+          <tr><td>🚆 大交通</td><td>杭州东往返雁荡山高铁二等座</td><td class="price">280 元</td></tr>
+          <tr><td>🚌 当地交通</td><td>景交车2日票+往返接驳打车</td><td class="price">60 元</td></tr>
+          <tr><td>🏨 住宿</td><td>经济型客栈/民宿1晚（双人分摊）</td><td class="price">150 元</td></tr>
+          <tr><td>🍽️ 餐饮</td><td>2正餐+2简餐+麦饼/水</td><td class="price">140 元</td></tr>
+          <tr><td>🎫 门票/体验</td><td>大龙湫50+方洞40+三折瀑40+讲解</td><td class="price">140 元</td></tr>
+          <tr style="background:#e8f5e9; font-weight:bold;"><td>💡 合计</td><td>含弹性备用金</td><td class="price" style="font-size:1.1rem;">约 750 - 850 元</td></tr>
+        </table>
+      </div>
+      <p style="margin-top:10px; font-size:0.85rem; color:#666;">注：旺季（五一/十一）价格上浮约30%。学生、60岁以上老人凭有效证件可享门票半价或免票。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>⚠️ 夏季游玩注意事项</h2>
+    <div class="alert info">
+      <strong>🌧️ 天气与装备</strong>
+      浙江夏季多雷阵雨，山区天气变化快。务必携带轻便雨衣、防水鞋套及防滑徒步鞋。备一把晴雨两用伞，遮阳防雨两不误。
+    </div>
+    <div class="alert">
+      <strong>🦟 防蚊与防中暑</strong>
+      瀑布及林荫区蚊虫活跃，建议携带含避蚊胺(DEET)成分的驱蚊喷雾。午后气温高，徒步需避开12:00-14:30，每小时补水500ml+电解质。
+    </div>
+    <div class="alert info">
+      <strong>🛡️ 安全与体力</strong>
+      方洞栈道无防护栏路段较多，雨天湿滑请减速慢行。大龙湫、三折瀑台阶陡峭，膝盖不适者可只玩下折瀑+大龙湫。切勿下野溪游泳，水流暗礁危险。
+    </div>
+    <div class="alert">
+      <strong>📱 信号与支付</strong>
+      核心景区5G覆盖良好，但三折瀑上段偶有信号盲区。建议提前下载离线地图。景区内餐饮均支持微信/支付宝，无需大量现金。
+    </div>
+  </section>
+
+  <footer>
+    <p>🌲 攻略更新日期：2024年夏季 · 价格与政策以景区当日公示为准</p>
+    <p>祝您在雁荡山度过一段清凉、奇幻、难忘的旅程！如需定制家庭/深度摄影路线，可随时咨询。</p>
+    <p style="margin-top: 15px; opacity: 0.7;">© 2024 资深旅游规划师出品 | 安全出行，文明旅游</p>
+  </footer>
+</div>
+
+</body>
+</html>

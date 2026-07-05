@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哈尔滨夏季旅游攻略 | 专业旅行指南</title>
+    <style>
+        :root {
+            --primary: #774930;
+            --primary-dark: #5a3623;
+            --primary-light: #a86f4e;
+            --bg-main: #f8f4f0;
+            --bg-card: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --border-light: #e8ddd3;
+            --accent-gold: #d4b89a;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif; background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; }
+        .container { max-width: 960px; margin: 0 auto; padding: 0 16px 40px; }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--primary-light));
+            color: #fff;
+            padding: 40px 20px 30px;
+            text-align: center;
+            border-radius: 0 0 24px 24px;
+            margin-bottom: 24px;
+        }
+        header h1 { font-size: 2rem; margin-bottom: 8px; letter-spacing: 1px; }
+        header .subtitle { font-size: 1rem; opacity: 0.9; margin-bottom: 16px; font-weight: 300; }
+        .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+        .tag { background: rgba(255,255,255,0.18); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.3); }
+        
+        .section { background: var(--bg-card); border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: 0 6px 20px rgba(119,73,48,0.08); border: 1px solid var(--border-light); }
+        .section-title { color: var(--primary); font-size: 1.35rem; font-weight: 700; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border-light); display: flex; align-items: center; }
+        .section-title::before { content: ''; width: 6px; height: 22px; background: var(--primary); margin-right: 10px; border-radius: 4px; }
+        
+        .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; background: #fdf9f5; padding: 16px; border-radius: 10px; border: 1px dashed var(--accent-gold); }
+        .meta-item { display: flex; flex-direction: column; }
+        .meta-label { font-size: 0.75rem; color: var(--text-sub); text-transform: uppercase; letter-spacing: 1px; }
+        .meta-val { font-size: 1rem; font-weight: 600; color: var(--primary); }
+        
+        .day-plan { margin-bottom: 20px; }
+        .day-header { background: linear-gradient(90deg, var(--bg-main), transparent); padding: 10px 14px; border-radius: 8px; margin-bottom: 12px; border-left: 4px solid var(--primary); font-weight: 700; color: var(--primary); }
+        .timeline { position: relative; padding-left: 20px; }
+        .timeline::before { content: ''; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--border-light); }
+        .timeline-item { position: relative; margin-bottom: 18px; padding-left: 16px; }
+        .timeline-item::before { content: ''; position: absolute; left: -18px; top: 6px; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
+        .time { font-size: 0.85rem; font-weight: 600; color: var(--primary-light); margin-bottom: 2px; }
+        .activity { font-size: 0.95rem; }
+        .note { font-size: 0.8rem; color: var(--text-sub); background: #f5f0eb; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-top: 4px; }
+
+        .attraction-card { display: grid; gap: 16px; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border-light); }
+        .attraction-card:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .attr-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .attr-name { font-size: 1.15rem; font-weight: 700; color: var(--text-main); }
+        .attr-badge { background: var(--accent-gold); color: var(--primary-dark); padding: 3px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
+        .attr-desc { color: var(--text-sub); margin: 8px 0; font-size: 0.95rem; }
+        .info-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 10px 0; font-size: 0.9rem; }
+        .info-label { color: var(--primary); font-weight: 600; min-width: 70px; }
+        .tip-box { background: linear-gradient(135deg, #fdf8f4, #f4ece3); border-left: 4px solid var(--primary); padding: 12px 14px; border-radius: 0 8px 8px 0; margin-top: 10px; }
+        .tip-title { font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; font-size: 0.9rem; }
+        .placeholder-img { width: 100%; height: 120px; background: linear-gradient(135deg, var(--accent-gold), #e8d5c4); border-radius: 8px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 600; letter-spacing: 2px; }
+
+        .food-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+        .food-item { background: #fdf9f5; padding: 16px; border-radius: 10px; border: 1px solid var(--border-light); }
+        .food-name { font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .food-detail { font-size: 0.9rem; color: var(--text-sub); }
+
+        .hotel-list { list-style: none; }
+        .hotel-item { padding: 14px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .hotel-item:last-child { border-bottom: none; }
+        .hotel-tier { font-weight: 700; color: var(--primary); }
+        .hotel-price { color: var(--text-sub); font-size: 0.9rem; }
+
+        .transport-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+        .t-card { background: #f8f4f0; padding: 16px; border-radius: 10px; text-align: center; }
+        .t-icon { font-size: 2rem; margin-bottom: 8px; display: block; background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .t-title { font-weight: 600; margin-bottom: 4px; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+        th { background: #f5ece1; color: var(--primary); font-weight: 600; }
+        .highlight { color: var(--primary-dark); font-weight: 700; }
+
+        footer { text-align: center; padding: 30px 20px; color: var(--text-sub); font-size: 0.85rem; border-top: 1px solid var(--border-light); margin-top: 20px; }
+
+        @media (max-width: 768px) {
+            header { padding: 30px 16px; }
+            header h1 { font-size: 1.6rem; }
+            .section { padding: 18px; }
+            .meta-grid, .food-grid, .transport-grid { grid-template-columns: 1fr; }
+            table { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>哈尔滨 · 夏日漫游指南</h1>
+    <p class="subtitle">东方莫斯科的清凉夏日 | 历史建筑·欧式风情·避暑胜地</p>
+    <div class="tags">
+        <span class="tag">避暑胜地</span>
+        <span class="tag">亲子游</span>
+        <span class="tag">历史古迹</span>
+        <span class="tag">俄式风情</span>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="section" id="overview">
+        <h2 class="section-title">城市概述</h2>
+        <div class="placeholder-img" style="height: 140px; background: linear-gradient(120deg, #e8d5c4, #a86f4e);">哈尔滨城市全景（视觉示意）</div>
+        <p style="margin-bottom: 16px; color: var(--text-sub);">哈尔滨，被誉为“东方莫斯科”。虽然12-2月是举世闻名的冰雪旺季，但夏季（6-8月）的哈尔滨气候凉爽宜人（均温20-28℃），松花江风徐徐，中央大街的欧式建筑在阳光下更显典雅。这里是逃离南方酷暑、感受异域文化与历史底蕴的绝佳目的地。</p>
+        <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">建议游玩</span><span class="meta-val">2天1夜</span></div>
+            <div class="meta-item"><span class="meta-label">最佳月份</span><span class="meta-val">12-2月（冰雪） / 6-8月（夏季避暑）</span></div>
+            <div class="meta-item"><span class="meta-label">预算级别</span><span class="meta-val">适中（⭐⭐）</span></div>
+            <div class="meta-item"><span class="meta-label">气候特征</span><span class="meta-val">夏季凉爽，昼夜温差大</span></div>
+        </div>
+        <div style="background: #fdf2e8; padding: 12px; border-radius: 8px; border: 1px dashed var(--primary-light); font-size: 0.9rem; color: var(--text-sub);">
+            <strong>💡 规划师提示：</strong>冬季核心景点（冰雪大世界/雪博会）夏季暂停开放，原址将转为夏季音乐节/湿地公园或灯光秀场地。夏季行程更侧重建筑巡礼、松花江畔休闲与俄式文化体验。
+        </div>
+    </section>
+
+    <section class="section" id="itinerary">
+        <h2 class="section-title">2天详细行程安排</h2>
+        <div class="day-plan">
+            <div class="day-header">📅 Day 1：百年老街巡礼与教堂建筑之旅</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">09:00 - 12:00</div>
+                    <div class="activity"><strong>中央大街漫步 & 早餐打卡</strong></div>
+                    <div class="note">马迭尔冰棍/华梅西餐厅早餐/俄式面包房体验</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">13:30 - 16:00</div>
+                    <div class="activity"><strong>圣索菲亚教堂及周边历史街区</strong></div>
+                    <div class="note">外观建筑摄影，入内参观东正教历史展，避开正午暴晒</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">17:30 - 20:30</div>
+                    <div class="activity"><strong>防洪纪念塔 & 松花江畔夜游</strong></div>
+                    <div class="note">江畔吹晚风、观夏季灯光秀/喷泉，体验冰城夏都夜生活</div>
+                </div>
+            </div>
+        </div>
+        <div class="day-plan">
+            <div class="day-header">📅 Day 2：自然湿地与欧式文化沉浸</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">08:30 - 11:30</div>
+                    <div class="activity"><strong>太阳岛风景区（夏季湿地版）</strong></div>
+                    <div class="note">乘轮渡过江，骑行绿道，探访松鼠岛与花卉园</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">13:30 - 16:00</div>
+                    <div class="activity"><strong>老道外中华巴洛克风情街</strong></div>
+                    <div class="note">品尝百年老字号小吃，感受市井与殖民时期建筑融合</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">18:00 - 21:00</div>
+                    <div class="activity"><strong>哈尔滨大剧院/音乐公园 & 俄式西餐</strong></div>
+                    <div class="note">观赏建筑夜景，享用正宗俄餐，结束惬意夏日行程</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="attractions">
+        <h2 class="section-title">核心景点详细介绍</h2>
+        
+        <div class="attraction-card">
+            <div class="attr-head">
+                <span class="attr-name">1. 冰雪大世界（原址夏季转型区）</span>
+                <span class="attr-badge">冬季顶流 · 夏季活动</span>
+            </div>
+            <div class="attr-desc">世界最大的冰雪主题乐园，冬季以数十万立方米冰雕和LED灯光震撼全球。夏季闭园维护期，场地通常举办“哈尔滨夏季音乐节”、“湿地生态展”或转型为水上光影乐园，是城市夏季大型活动的主阵地。</div>
+            <div class="info-row">
+                <span><span class="info-label">推荐理由：</span>体验城市节庆活力与松北新区风貌</span>
+            </div>
+            <div class="info-row">
+                <span><span class="info-label">游玩Tips：</span>夏季不开放冰雕项目，请提前关注官方公众号确认当期活动。周边餐饮配套成熟，可结合哈尔滨大剧院联游。</span>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">🎫 门票参考</div>
+                冬季：约¥298-328/人｜夏季：按具体活动/音乐节定价（约¥98-298不等），部分区域免费开放外围景观。
+            </div>
+        </div>
+
+        <div class="attraction-card">
+            <div class="attr-head">
+                <span class="attr-name">2. 中央大街</span>
+                <span class="attr-badge">全年开放 · 地标必游</span>
+            </div>
+            <div class="attr-desc">百年商业街，全长1450米，汇集了文艺复兴、巴洛克、新艺术运动等71栋欧式建筑。铺路石为1924年铺设的方石，每一块都承载着历史。夏季绿树成荫，是拍照与闲逛的绝佳动线。</div>
+            <div class="info-row">
+                <span><span class="info-label">推荐理由：</span>免费开放的“露天建筑博物馆”，俄式美食聚集地</span>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">🎫 门票 & Tips</div>
+                门票：免费。建议16:00后前往避开烈日，品尝马迭尔冰棍、大列巴。注意步行街禁止机动车通行，穿舒适步行鞋。
+            </div>
+        </div>
+
+        <div class="attraction-card">
+            <div class="attr-head">
+                <span class="attr-name">3. 圣索菲亚教堂</span>
+                <span class="attr-badge">全年开放 · 建筑瑰宝</span>
+            </div>
+            <div class="attr-desc">远东地区最大的东正教教堂，典型的拜占庭式建筑。巨大的绿色洋葱头穹顶在蓝天映衬下格外庄严。内部现为哈尔滨市建筑艺术馆，展出哈尔滨城市发展老照片与历史文物。</div>
+            <div class="info-row">
+                <span><span class="info-label">推荐理由：</span>城市文化名片，出片率极高的历史地标</span>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">🎫 门票 & Tips</div>
+                外观免费，入内参观：¥15/人。内部较暗，不建议使用闪光灯。夏季周末广场常有街头乐队演出，氛围极佳。
+            </div>
+        </div>
+
+        <div class="attraction-card">
+            <div class="attr-head">
+                <span class="attr-name">4. 太阳岛雪博会（夏季太阳岛公园）</span>
+                <span class="attr-badge">夏季湿地 · 避暑天堂</span>
+            </div>
+            <div class="attr-desc">冬季为巨型雪雕艺术博览会，夏季则回归天然湿地生态。岛屿面积大，植被茂密，有天鹅湖、松鼠岛、花卉园等景观，是市民与游客亲近自然、避暑露营的首选地。</div>
+            <div class="info-row">
+                <span><span class="info-label">推荐理由：</span>天然氧吧，亲子家庭与摄影爱好者天堂</span>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">🎫 门票 & Tips</div>
+                冬季：约¥240/人｜夏季：门票免费。观光电瓶车：¥25/人，游船单程：¥15-30/人。建议自带防蚊喷雾，园区内餐饮较少，可自备简餐。
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="food">
+        <h2 class="section-title">地道美食推荐</h2>
+        <div class="food-grid">
+            <div class="food-item">
+                <div class="food-name">🥩 正宗锅包肉</div>
+                <div class="food-detail">外酥里嫩，酸甜汁比例讲究。推荐“老厨家”（创始老店）或“老鼎丰”。</div>
+            </div>
+            <div class="food-item">
+                <div class="food-name">🌭 哈尔滨红肠</div>
+                <div class="food-detail">果木熏烤，蒜香浓郁。可买“秋林·里道斯”或“哈肉联”真空包装作伴手礼。</div>
+            </div>
+            <div class="food-item">
+                <div class="food-name">🍞 俄式西餐体验</div>
+                <div class="food-detail">罐焖牛肉、红菜汤、大列巴配格瓦斯。推荐“华梅西餐厅”、“波特曼西餐厅”。</div>
+            </div>
+            <div class="food-item">
+                <div class="food-name">🍦 马迭尔冰棍 & 烤冷面</div>
+                <div class="food-detail">百年冷饮，奶味醇厚；中央大街支巷的烤冷面是东北烟火气代表。</div>
+            </div>
+        </div>
+        <div class="tip-box" style="margin-top: 16px;">
+            <div class="tip-title">🍽️ 就餐提示</div>
+            俄餐分量较大，2人点1主菜+1汤+1沙拉即可。暑期热门餐厅（尤其周末晚餐）建议提前1天电话预约。
+        </div>
+    </section>
+
+    <section class="section" id="hotel">
+        <h2 class="section-title">住宿推荐（按预算分级）</h2>
+        <ul class="hotel-list">
+            <li class="hotel-item">
+                <div>
+                    <div class="hotel-tier">💰 经济舒适型（¥200-400/晚）</div>
+                    <div class="food-detail">中央大街/索菲亚教堂周边快捷酒店或品牌青旅，交通便利，适合背包客与学生党。</div>
+                </div>
+            </li>
+            <li class="hotel-item">
+                <div>
+                    <div class="hotel-tier">🛏️ 品质精选型（¥400-800/晚）</div>
+                    <div class="food-detail">道里区精品设计酒店/连锁四星。步行可达景点，隔音好，含早餐与洗衣服务。</div>
+                </div>
+            </li>
+            <li class="hotel-item">
+                <div>
+                    <div class="hotel-tier">👑 高端奢华型（¥800+/晚）</div>
+                    <div class="food-detail">松花江畔五星酒店（如香格里拉、万达嘉华）。江景房视野开阔，配套设施完善，适合家庭/蜜月。</div>
+                </div>
+            </li>
+        </ul>
+        <div class="note" style="margin-top: 10px; font-style: italic;">📌 暑期为避暑旺季，房源紧张且价格上浮约20%-30%，建议提前2-3周预订。</div>
+    </section>
+
+    <section class="section" id="transport">
+        <h2 class="section-title">交通指南</h2>
+        <div class="transport-grid">
+            <div class="t-card">
+                <div class="t-icon">✈️</div>
+                <div class="t-title">飞机到达</div>
+                <div class="food-detail">太平国际机场。国内主要城市直飞约2.5-4.5小时。机场大巴/网约车至市区约1小时，费用¥60-100。</div>
+            </div>
+            <div class="t-card">
+                <div class="t-icon">🚄</div>
+                <div class="t-title">高铁/动车</div>
+                <div class="food-detail">哈尔滨站/哈尔滨西站。南方多地需中转，全程约10-14小时。西站离市区稍远，但换乘地铁3号线极便捷。</div>
+            </div>
+            <div class="t-card">
+                <div class="t-icon">🚌</div>
+                <div class="t-title">市内交通</div>
+                <div class="food-detail">地铁1/2/3号线串联核心景点。公交覆盖广，支持支付宝/微信乘车码。出租车起步价¥9，网约车方便。</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="tips">
+        <h2 class="section-title">夏季出行注意事项</h2>
+        <div style="display: grid; gap: 12px;">
+            <div class="tip-box" style="background: #fff; border-left-color: #d4a056;">
+                <div class="tip-title">🌤️ 天气与穿着</div>
+                夏季均温20-30℃，但早晚温差可达8-10℃。建议“短袖+薄长袖/针织开衫”叠穿。备一次性雨衣，防突发阵雨。
+            </div>
+            <div class="tip-box" style="background: #fff; border-left-color: #4a90d9;">
+                <div class="tip-title">🦟 防护与安全</div>
+                松花江畔与太阳岛蚊虫较多，务必携带驱蚊液。夏季日照强（紫外线指数常达高/极高），需备高倍数防晒霜、墨镜与遮阳帽。
+            </div>
+            <div class="tip-box" style="background: #fff; border-left-color: #68a85e;">
+                <div class="tip-title">📱 预约与支付</div>
+                所有A级景区及博物馆均实行“实名预约制”。提前在“哈尔滨文旅”小程序购票。市内全面支持移动支付，少量老街小店备少量现金即可。
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="budget">
+        <h2 class="section-title">预算参考（2人同行/2天人均）</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>项目</th>
+                    <th>明细说明</th>
+                    <th>预估费用（¥）</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>往返交通</td>
+                    <td>飞机经济舱/高铁二等座（视出发地浮动）</td>
+                    <td class="highlight">¥800 - ¥1500</td>
+                </tr>
+                <tr>
+                    <td>住宿费用</td>
+                    <td>1晚舒适型酒店（双标分摊）</td>
+                    <td class="highlight">¥200 - ¥350</td>
+                </tr>
+                <tr>
+                    <td>市内交通</td>
+                    <td>地铁/公交/打车+过江轮渡</td>
+                    <td>¥80 - ¥120</td>
+                </tr>
+                <tr>
+                    <td>餐饮消费</td>
+                    <td>3正1早+小吃饮品（适中型标准）</td>
+                    <td>¥350 - ¥500</td>
+                </tr>
+                <tr>
+                    <td>门票/体验</td>
+                    <td>教堂入内/太阳岛观光车/演出等</td>
+                    <td>¥50 - ¥150</td>
+                </tr>
+                <tr style="background: #f9f5f1; font-weight: 700;">
+                    <td colspan="2">💰 人均总计参考</td>
+                    <td class="highlight" style="color: var(--primary);">¥1480 - ¥2620</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size: 0.85rem; color: var(--text-sub); margin-top: 12px; font-style: italic;">* 预算基于2024年暑期市场均价估算，节假日及旺季可能有20%左右上浮。</p>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 哈尔滨夏季旅游指南 | 数据更新于2024年 | 行程规划仅供参考，实际以景区及官方公告为准</p>
+    <p style="margin-top: 8px; font-size: 0.75rem; color: #999;">用心丈量每一座城市，祝您旅途平安愉快。</p>
+</footer>
+
+</body>
+</html>
