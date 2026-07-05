@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>青岛夏季3日游深度攻略 | 红瓦绿树·碧海蓝天</title>
+  <style>
+    :root {
+      --primary: #0077b6;
+      --primary-dark: #005f92;
+      --accent: #fca311;
+      --bg: #f4f7f6;
+      --white: #ffffff;
+      --text: #2c3e50;
+      --text-light: #5a6b7c;
+      --border: #dce4eb;
+      --shadow: 0 6px 16px rgba(0, 119, 182, 0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
+    
+    /* Header */
+    .hero {
+      background: linear-gradient(135deg, #0077b6 0%, #00b4d8 50%, #48cae4 100%);
+      color: var(--white);
+      padding: 80px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: 0; width: 100%; height: 100px;
+      background: var(--bg);
+      border-radius: 50% 50% 0 0;
+    }
+    .hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 12px; }
+    .hero p { font-size: 1.1rem; opacity: 0.95; max-width: 750px; margin: 0 auto 20px; }
+    .badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .badge {
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(6px);
+      padding: 6px 16px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* Layout */
+    .container { max-width: 1000px; margin: -20px auto 60px; padding: 0 20px; position: relative; z-index: 10; }
+    section { background: var(--white); border-radius: 14px; box-shadow: var(--shadow); padding: 30px; margin-bottom: 28px; }
+    .section-title {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 1.5rem; color: var(--primary); margin-bottom: 24px;
+      padding-bottom: 12px; border-bottom: 2px solid var(--border);
+    }
+    .section-title::before {
+      content: ''; display: block; width: 6px; height: 24px; background: var(--primary); border-radius: 4px;
+    }
+    h3 { font-size: 1.2rem; color: var(--primary-dark); margin: 20px 0 10px; font-weight: 600; }
+    p, li { color: var(--text-light); font-size: 0.95rem; margin-bottom: 8px; }
+    ul { padding-left: 20px; }
+    
+    /* Pros/Cons */
+    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+    .pro, .con { padding: 14px 18px; border-radius: 10px; font-size: 0.9rem; }
+    .pro { background: #e8f5e9; border-left: 4px solid #4caf50; }
+    .con { background: #ffebee; border-left: 4px solid #e57373; }
+    .pro strong, .con strong { display: block; margin-bottom: 4px; }
+
+    /* Timeline */
+    .day { margin-bottom: 24px; }
+    .day-title { background: var(--primary); color: white; padding: 10px 16px; border-radius: 8px; font-weight: 600; display: inline-block; margin-bottom: 12px; }
+    .timeline { position: relative; padding-left: 24px; border-left: 2px dashed var(--border); }
+    .tl-item { position: relative; margin-bottom: 20px; padding-left: 16px; }
+    .tl-item::before { content: ''; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--primary); }
+    .time { display: inline-block; background: var(--secondary, #caf0f8); color: var(--primary); font-weight: 700; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; margin-bottom: 4px; }
+    .tl-title { font-weight: 600; color: var(--text); margin: 0 0 4px; }
+    
+    /* Cards Grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .card { background: #fdfdfd; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+    .card-header { height: 140px; background: linear-gradient(120deg, #90e0ef 0%, #0077b6 100%); position: relative; display: flex; align-items: flex-end; padding: 12px; }
+    .card-header span { background: rgba(0,0,0,0.4); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; backdrop-filter: blur(4px); }
+    .card-body { padding: 16px; }
+    .card-body h4 { color: var(--primary-dark); margin: 0 0 8px; }
+    .card-body .info { font-size: 0.85rem; background: #eef5f8; padding: 8px; border-radius: 8px; margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .card-body .info strong { color: var(--text); }
+
+    /* Food & Stay */
+    .food-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .food-item { padding: 12px; background: #fafbfc; border-radius: 10px; border-left: 3px solid var(--accent); }
+    .hotel-tier { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--border); }
+    .hotel-tier:last-child { border: none; }
+    .price-tag { background: var(--primary); color: white; padding: 4px 10px; border-radius: 16px; font-size: 0.8rem; white-space: nowrap; }
+
+    /* Transport & Budget */
+    .transport-box { background: linear-gradient(to right, #e3f2fd, #ffffff); padding: 16px; border-radius: 10px; border-left: 4px solid var(--primary); margin-bottom: 16px; }
+    .budget-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.95rem; }
+    .budget-table th, .budget-table td { padding: 12px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+    .budget-table th { background: var(--primary); color: white; border-radius: 6px 6px 0 0; }
+    .budget-table tr:last-child td { font-weight: bold; background: #f8fafc; }
+    .budget-table tr:hover td { background: #f5f9ff; }
+
+    /* Tips */
+    .tip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .tip-item { background: #fff; padding: 14px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); border-top: 3px solid var(--primary); }
+    .tip-item h4 { margin-bottom: 6px; color: var(--primary-dark); }
+
+    footer { text-align: center; padding: 30px 20px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 40px; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      section { padding: 22px 18px; }
+      .pros-cons, .grid { grid-template-columns: 1fr; }
+      .timeline { padding-left: 16px; }
+      .tl-item::before { left: -23px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>青岛 · 夏日海滨漫游指南</h1>
+  <p>红瓦绿树映碧海，啤酒鲜香伴海风。一份为你量身定制的3天2夜深度游攻略，涵盖经典打卡、地道美食与实用避坑指南。</p>
+  <div class="badges">
+    <span class="badge">🏖️ 海边度假</span>
+    <span class="badge">🍻 美食之旅</span>
+    <span class="badge">🚶 城市漫步</span>
+    <span class="badge">📅 最佳月份：6-9月</span>
+    <span class="badge">💰 预算级别：适中</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 城市概述 -->
+  <section>
+    <h2 class="section-title">城市概览</h2>
+    <p>青岛是北方最具海滨风情的浪漫之城。漫步老城区，德式建筑与百年历史交织；走进八大关，万国风情在绿树成荫中静静绽放。夏季的青岛微风不燥，是赶海听涛、畅饮原浆的最佳时节。</p>
+    <div class="pros-cons">
+      <div class="pro">
+        <strong>👍 核心优势</strong>
+        <ul>
+          <li>海滨气候宜人，夏季平均气温24-28℃，体感舒适</li>
+          <li>百年啤酒文化深厚，街头巷尾皆能打鲜啤</li>
+          <li>德式与日式建筑群保留完整，极具异域风情</li>
+          <li>海鲜种类丰富，时令肥美，烹饪手法多样</li>
+        </ul>
+      </div>
+      <div class="con">
+        <strong>👎 注意事项</strong>
+        <ul>
+          <li>夏季海水温度偏低（约20℃左右），下水需循序渐进</li>
+          <li>8月国际啤酒节期间人流量极大，住宿价格上浮明显</li>
+          <li>部分海滨栈道/浴场夏季处于轮休维护期，出行前请查公告</li>
+          <li>昼夜温差存在，夜间海风较凉需备薄外套</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行程规划 -->
+  <section>
+    <h2 class="section-title">3天详细行程安排</h2>
+    
+    <div class="day">
+      <div class="day-title">📍 Day 1：老城寻迹与微醺初体验</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="time">上午</span>
+          <div class="tl-title">栈桥 & 天主教堂 & 中山路漫步</div>
+          <p>从地标栈桥开始，喂海鸥（冬季为主，夏季观海极佳），随后步行至圣弥厄尔教堂，感受哥特式建筑魅力。沿中山路老街品尝青岛特色小吃。</p>
+        </div>
+        <div class="tl-item">
+          <span class="time">下午</span>
+          <div class="tl-title">青岛啤酒博物馆 & 登州路啤酒街</div>
+          <p>前往百年原址改造的啤酒博物馆，沉浸式体验酿造工艺，领取一杯最新鲜的“原浆+纯生”。傍晚在啤酒街就座，感受“塑料袋打酒”的市井烟火。</p>
+        </div>
+        <div class="tl-item">
+          <span class="time">晚上</span>
+          <div class="tl-title">五四广场 & 奥帆中心灯光秀</div>
+          <p>晚餐后前往奥帆中心，沿情人坝散步，观赏浮山湾璀璨灯光秀（通常19:30/20:00各一场），感受现代青岛的繁华夜景。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-title">📍 Day 2：万国建筑与山海慢生活</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="time">上午</span>
+          <div class="tl-title">八大关风景区 & 第二海水浴场</div>
+          <p>重点游览花石楼、公主楼、西班牙风情馆。绿树掩映中拍照出片率极高。随后步行至二浴踩沙踏浪，水质较一浴更清澈。</p>
+        </div>
+        <div class="tl-item">
+          <span class="time">下午</span>
+          <div class="tl-title">小鱼山公园 / 信号山公园</div>
+          <p>择一登高俯瞰青岛“红瓦绿树，碧海蓝天”全景。小鱼山更近老城海岸线，信号山360°旋转观景台视野无死角。建议停留1.5小时。</p>
+        </div>
+        <div class="tl-item">
+          <span class="time">晚上</span>
+          <div class="tl-title">台东三路步行街 & 啤酒屋海鲜加工</div>
+          <p>夜逛台东夜市，品尝野馄饨、烤冷面。推荐在当地啤酒屋购买鲜活海鲜，支付加工费现炒现吃，体验最接地气的青岛夜生活。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-title">📍 Day 3：崂山问道与返程休整</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="time">上午</span>
+          <div class="tl-title">崂山风景区（南线太清宫）</div>
+          <p>乘景区大巴前往太清宫，沿山海栈道徒步。这里道教文化底蕴深厚，老子像、千年银杏、古松奇石交相辉映，海风拂面极为舒爽。</p>
+        </div>
+        <div class="tl-item">
+          <span class="time">下午</span>
+          <div class="tl-title">返程采购 & 自由漫步</div>
+          <p>下山后返回市区。若时间充裕，可前往万象城/海信广场商圈购物，或去营口路市场购买干海货伴手礼。根据高铁/航班时间前往车站。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 核心景点详解 -->
+  <section>
+    <h2 class="section-title">核心景点详解</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-header"><span>🌉 城市地标</span></div>
+        <div class="card-body">
+          <h4>栈桥及回澜阁</h4>
+          <p>青岛的灵魂所在。440米长堤深入黄海，回澜阁飞檐八角，观潮听涛绝佳。</p>
+          <div class="info">
+            <div><strong>推荐理由：</strong>经典必打卡，摄影机位多</div>
+            <div><strong>门票：</strong>免费（登回澜阁需预约/排队）</div>
+            <div><strong>游玩Tips：</strong>避开正午强光；潮水大涨时栈道可能关闭，务必关注现场广播。</div>
+            <div><strong>时长：</strong>1-1.5小时</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header"><span>🏰 异域建筑</span></div>
+        <div class="card-body">
+          <h4>八大关风景区</h4>
+          <p>“万国建筑博览会”，200余栋别墅隐匿于韶关路、居庸关路的繁茂树冠下，四季皆景。</p>
+          <div class="info">
+            <div><strong>推荐理由：</strong>文艺出片，建筑美学殿堂</div>
+            <div><strong>门票：</strong>街区免费，内部景点联票约50元</div>
+            <div><strong>游玩Tips：</strong>建议租自行车或步行；花石楼内部楼梯陡窄，穿舒适平底鞋。</div>
+            <div><strong>时长：</strong>3-4小时</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header"><span>⛰️ 海上名山</span></div>
+        <div class="card-body">
+          <h4>崂山风景区（太清宫）</h4>
+          <p>道教发源地之一，山海相连，奇石嶙峋。太清宫背靠崂山面朝大海，灵气十足。</p>
+          <div class="info">
+            <div><strong>推荐理由：</strong>自然风光与人文底蕴并重</div>
+            <div><strong>门票：</strong>旺季门票+景交车约100元</div>
+            <div><strong>游玩Tips：</strong>崂山天气多变备雨具；景区内需换乘环保车，禁止私家车进入。</div>
+            <div><strong>时长：</strong>4-5小时</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header"><span>🍻 百年酒香</span></div>
+        <div class="card-body">
+          <h4>青岛啤酒博物馆</h4>
+          <p>由百年德式厂房改建，完整展示啤酒百年历史与现代酿造工艺，可直达生产线。</p>
+          <div class="info">
+            <div><strong>推荐理由：</strong>工业旅游标杆，原浆免费畅饮</div>
+            <div><strong>门票：</strong>约60元（含2杯原浆/纯生+啤酒豆）</div>
+            <div><strong>游玩Tips：</strong>建议上午去避开旅行团高峰；酒后勿驾车，周边公交发达。</div>
+            <div><strong>时长：</strong>2-2.5小时</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section>
+    <h2 class="section-title">寻味青岛</h2>
+    <div class="food-grid">
+      <div class="food-item">
+        <h4>🦪 辣炒蛤蜊</h4>
+        <p>青岛人“哈啤酒”的灵魂搭档。肉质肥嫩，微辣提鲜，街头大排档水准往往最佳。</p>
+      </div>
+      <div class="food-item">
+        <h4>🥟 鲅鱼水饺</h4>
+        <p>胶东特色。选用新鲜鲅鱼打馅，皮薄馅大，汁水丰盈，一口咬下满嘴海的味道。</p>
+      </div>
+      <div class="food-item">
+        <h4>🦑 烤鱿鱼/海鲜烧烤</h4>
+        <p>台东或海边夜市必吃。炭火炙烤撒满孜然辣椒，鲜香弹牙，夜宵标配。</p>
+      </div>
+      <div class="food-item">
+        <h4>🥘 推荐餐厅</h4>
+        <p><strong>船歌鱼水饺：</strong>鲅鱼/墨鱼水饺代表，环境佳<br><strong>前海沿：</strong>地道青岛本帮菜，性价比高<br><strong>王姐烧烤：</strong>老字号，烤鱿鱼一绝<br><strong>营口路啤酒屋：</strong>自选海鲜加工，氛围感拉满</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section>
+    <h2 class="section-title">住宿指南</h2>
+    <div class="hotel-tier">
+      <div>
+        <h3>🎒 经济型（背包客/学生党）</h3>
+        <p>推荐区域：台东步行街、青岛火车站周边</p>
+        <p>特点：交通便利，夜宵丰富，青旅/快捷酒店集中。</p>
+      </div>
+      <span class="price-tag">¥150-300/晚</span>
+    </div>
+    <div class="hotel-tier">
+      <div>
+        <h3>🛏️ 舒适型（家庭/情侣首选）</h3>
+        <p>推荐区域：八大关外围、中山路/栈桥附近</p>
+        <p>特点：步行可达景区，部分老洋房改造民宿极具情调，设施完善。</p>
+      </div>
+      <span class="price-tag">¥400-700/晚</span>
+    </div>
+    <div class="hotel-tier">
+      <div>
+        <h3>✨ 高端型（度假/商务体验）</h3>
+        <p>推荐区域：五四广场/奥帆中心、石老人海水浴场</p>
+        <p>特点：一线海景房，高星国际品牌，配套泳池/SPA，视野开阔。</p>
+      </div>
+      <span class="price-tag">¥900-2000+/晚</span>
+    </div>
+  </section>
+
+  <!-- 交通指南 -->
+  <section>
+    <h2 class="section-title">交通指南</h2>
+    <div class="transport-box">
+      <h4>🚄 如何到达</h4>
+      <ul style="margin-top:8px;">
+        <li><strong>高铁/动车：</strong>主要停靠 <code>青岛北站</code> 或 <code>青岛站</code>。以杭州东出发为例，车程约 5-6 小时，班次密集，推荐优先选择青岛站（距老城景点步行可达）。</li>
+        <li><strong>飞机：</strong>抵达青岛胶东国际机场。距市区较远，可乘坐地铁8号线直达青岛北站（约1小时），后换乘3号线进市区。</li>
+      </ul>
+    </div>
+    <div class="transport-box" style="background: linear-gradient(to right, #f0f4f8, #ffffff); border-color: #6c757d;">
+      <h4>🚌 市内交通</h4>
+      <ul style="margin-top:8px;">
+        <li><strong>地铁（首选）：</strong>覆盖主要景点（1/2/3/4号线）。下载“青岛地铁”APP或使用支付宝/微信乘车码扫码进站。</li>
+        <li><strong>公交：</strong>沿海一线景点可乘坐旅游观光巴士，双层敞篷车体验极佳。</li>
+        <li><strong>打车/骑行：</strong>老城区部分路段单行线多且坡陡，打车可能拥堵。八大关/奥帆中心区域非常推荐租共享单车，随停随骑最自由。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section>
+    <h2 class="section-title">实用注意事项</h2>
+    <div class="tip-grid">
+      <div class="tip-item">
+        <h4>☀️ 防晒与天气</h4>
+        <p>海边紫外线极强，务必携带SPF50+防晒霜、墨镜、遮阳帽。夏季午后偶有阵雨，常备晴雨伞。</p>
+      </div>
+      <div class="tip-item">
+        <h4>👗 穿着建议</h4>
+        <p>白天短袖短裤/裙子，早晚加薄衬衫或针织衫。务必穿一双舒适防滑的步行鞋（多石板路和坡道）。</p>
+      </div>
+      <div class="tip-item">
+        <h4>🦀 海鲜食用</h4>
+        <p>吃海鲜时搭配蒜泥/姜醋汁暖胃。避免与大量冰镇西瓜/啤酒同时狂饮，以防肠胃不适。可备蒙脱石散或肠胃药。</p>
+      </div>
+      <div class="tip-item">
+        <h4>⚠️ 安全提示</h4>
+        <p>下海游泳务必去正规海水浴场（配救生员），留意防鲨网和潮汐预警；礁石区拍照勿贪近水边，警惕“疯狗浪”。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 预算参考 -->
+  <section>
+    <h2 class="section-title">预算参考（人均/3天2夜）</h2>
+    <p style="margin-bottom:12px;">以下预算基于“适中”级别（舒适型）标准估算，实际消费因个人习惯与节假日浮动。</p>
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th width="25%">支出项目</th>
+          <th width="15%">明细说明</th>
+          <th width="25%">预估金额</th>
+          <th width="35%">节省/控制建议</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🚄 往返交通</td>
+          <td>高铁二等座（以杭州出发为例）</td>
+          <td>¥1100 - ¥1300</td>
+          <td>提前30天购票享早鸟优惠；错峰出行避开周末</td>
+        </tr>
+        <tr>
+          <td>🏨 住宿（2晚）</td>
+          <td>舒适型酒店/特色民宿（双人拼房折算）</td>
+          <td>¥400 - ¥600</td>
+          <td>避开啤酒节高峰期；选择地铁站沿线2-3站区域</td>
+        </tr>
+        <tr>
+          <td>🍽️ 餐饮美食</td>
+          <td>特色正餐、小吃、啤酒饮料</td>
+          <td>¥450 - ¥650</td>
+          <td>避开景区门口餐厅；善用团购APP购买代金券</td>
+        </tr>
+        <tr>
+          <td>🎫 门票与市内</td>
+          <td>崂山、啤酒博物馆、地铁/公交</td>
+          <td>¥250 - ¥350</td>
+          <td>学生/老人凭证半价；部分公园免费；地铁日票更划算</td>
+        </tr>
+        <tr>
+          <td><strong>💰 总计参考</strong></td>
+          <td><strong>人均总预算区间</strong></td>
+          <td style="color: var(--primary-dark); font-size: 1.1rem;">¥2200 - ¥2900</td>
+          <td>经济型可压至¥1500内，高端型无上限</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2024 青岛夏季旅行指南 | 攻略数据更新至近期，门票与票价可能随季节调整，请以景区官方公告为准。</p>
+  <p style="margin-top:8px; font-size: 0.8rem; color: #889;">祝您在青岛，遇见最美的海风与微醺时光。</p>
+</footer>
+
+</body>
+</html>

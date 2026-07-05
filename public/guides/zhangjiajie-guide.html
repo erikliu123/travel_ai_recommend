@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张家界夏季深度游攻略 | 3天2夜精华路线</title>
+<style>
+  :root {
+    --primary: #2d6a4f;
+    --primary-dark: #1b4332;
+    --primary-light: #d8f3dc;
+    --accent: #95d5b2;
+    --text-main: #2c3e50;
+    --text-light: #5a6c7d;
+    --bg-page: #f4f9f7;
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(45, 106, 79, 0.1);
+    --radius: 12px;
+    --transition: all 0.3s ease;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; line-height: 1.6; color: var(--text-main); background: var(--bg-page); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  
+  /* Header */
+  header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); padding: 60px 20px; text-align: center; border-radius: 0 0 24px 24px; position: relative; overflow: hidden; }
+  header::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 60%); pointer-events: none; }
+  header h1 { font-size: 2.2rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
+  header p { font-size: 1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 20px; }
+  .meta-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+  .meta-item { background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2); }
+  .tag-box { display: flex; justify-content: center; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
+  .tag { display: inline-block; background: var(--accent); color: var(--primary-dark); padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: 600; }
+
+  /* Sections */
+  section { margin: 30px 0; background: var(--white); padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow); }
+  h2 { color: var(--primary); border-bottom: 2px solid var(--primary-light); padding-bottom: 10px; margin-bottom: 20px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+  h3 { color: var(--primary-dark); margin: 18px 0 10px; font-size: 1.2rem; }
+  p, li { color: var(--text-main); margin-bottom: 8px; }
+  ul, ol { padding-left: 20px; margin-bottom: 10px; }
+
+  /* Grid Layouts */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+  .card { background: #fafbfc; border: 1px solid #e9ecef; padding: 15px; border-radius: var(--radius); transition: var(--transition); }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(45, 106, 79, 0.12); }
+  .card h4 { color: var(--primary); margin-bottom: 8px; font-size: 1.1rem; }
+  .card .highlight { background: linear-gradient(90deg, var(--primary-light) 0%, transparent 100%); padding: 6px 10px; border-radius: 6px; margin: 10px 0; font-size: 0.9rem; font-weight: 500; color: var(--primary-dark); }
+  .pros-cons { display: flex; gap: 15px; margin: 15px 0; flex-wrap: wrap; }
+  .pc-box { flex: 1; min-width: 280px; padding: 12px; border-radius: 10px; font-size: 0.95rem; }
+  .pc-box.pro { background: #e9f7f0; border-left: 4px solid var(--accent); }
+  .pc-box.con { background: #fdf2e9; border-left: 4px solid #e67e22; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 25px; }
+  .timeline::before { content: ""; position: absolute; left: 8px; top: 5px; bottom: 5px; width: 2px; background: var(--primary-light); }
+  .day-block { position: relative; margin-bottom: 25px; padding-left: 15px; }
+  .day-block::before { content: ""; position: absolute; left: -21px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); border: 2px solid var(--white); box-shadow: 0 0 0 2px var(--primary-light); }
+  .day-header { background: var(--primary-light); padding: 6px 12px; border-radius: 8px; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; display: inline-block; }
+  .time-row { display: flex; gap: 10px; margin-bottom: 12px; align-items: baseline; flex-wrap: wrap; }
+  .time-label { font-weight: bold; color: var(--primary); min-width: 70px; }
+  .time-content { flex: 1; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: var(--primary-light); color: var(--primary-dark); font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  .price { color: #d35400; font-weight: bold; }
+
+  /* Badges & Utils */
+  .badge { display: inline-block; padding: 3px 8px; background: var(--accent); color: var(--primary-dark); font-size: 0.75rem; border-radius: 4px; margin-right: 5px; }
+  .btn { display: inline-block; background: var(--primary); color: var(--white); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 15px; transition: var(--transition); }
+  .btn:hover { background: var(--primary-dark); transform: scale(0.98); }
+  .tip-box { background: #fff8e1; border-left: 4px solid #ffb300; padding: 12px; margin: 15px 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+  .tip-box strong { color: #b38700; }
+
+  footer { text-align: center; padding: 30px 20px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid #e0e0e0; margin-top: 20px; }
+
+  @media (max-width: 768px) {
+    header { padding: 40px 15px; }
+    header h1 { font-size: 1.8rem; }
+    .grid-2, .grid-4 { grid-template-columns: 1fr; }
+    .time-row { flex-direction: column; gap: 2px; }
+    section { padding: 18px; margin: 20px 0; }
+    h2 { font-size: 1.3rem; }
+    table { display: block; overflow-x: auto; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌿 张家界夏季旅游攻略</h1>
+  <p>三千奇峰拔地起，九十九道弯入云。跟随电影《阿凡达》的脚步，探索世界地质奇观与土家风情。</p>
+  <div class="meta-grid">
+    <span class="meta-item">⏱️ 建议游玩：3天</span>
+    <span class="meta-item">💰 预算级别：适中 (¥3500-4500)</span>
+    <span class="meta-item">🌦️ 最佳季节：夏秋（7-8月绿意盎然）</span>
+  </div>
+  <div class="tag-box">
+    <span class="tag">🏞️ 自然风光</span>
+    <span class="tag">📸 摄影出片</span>
+    <span class="tag">🥾 徒步旅行</span>
+    <span class="tag">🎬 影视同款</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <section id="overview">
+    <h2>📍 城市概述</h2>
+    <p>张家界位于湖南省西北部，因“奇峰三千、秀水八百”的石英砂岩峰林地貌闻名于世。这里是《阿凡达》悬浮山原型取景地，天门山的鬼谷栈道与99道弯通天大道更是探险爱好者的终极目标。夏季（6-8月）植被最为茂盛，云海频发，虽偶有阵雨，但雨后初晴的日出与彩虹极为壮观，是避暑与摄影的绝佳窗口期。</p>
+    <div class="pros-cons">
+      <div class="pc-box pro">✅ 核心优势<br>世界罕见的柱状峰林地貌、天门山体验极度震撼、户外运动与徒步天堂、土家族文化浓郁且保留完整、夏季平均气温22-26℃（山区凉爽）。</div>
+      <div class="pc-box con">⚠️ 注意事项<br>暑期及节假日排队较长、部分玻璃设施需一定胆量与体力、景区跨度大建议预留3天、阵雨天气较多需备好雨具，云雾可能影响远眺视野。</div>
+    </div>
+  </section>
+
+  <section id="itinerary">
+    <h2>🗓️ 3天精华行程安排</h2>
+    <div class="timeline">
+      <div class="day-block">
+        <div class="day-header">Day 1：武陵源核心峰林探秘</div>
+        <div class="time-row">
+          <span class="time-label">🌅 上午</span>
+          <div class="time-content">抵达张家界武陵源区，入住酒店稍作休整。从【张家界国家森林公园】标志门（东门）入园，乘坐环保车至【百龙天梯】下站。乘电梯66秒直达山顶，游览袁家界，打卡《阿凡达》原型“哈利路亚山（南天一柱）”、天下第一桥。</div>
+        </div>
+        <div class="time-row">
+          <span class="time-label">🌤️ 下午</span>
+          <div class="time-content">换乘环保车前往【天子山自然保护区】，漫步御笔峰、仙女散花等观景台。随后沿【十里画廊】徒步（约1.5小时），观赏三姐妹峰、采药老人等象形石柱，夏季绿意葱茏，极为出片。</div>
+        </div>
+        <div class="time-row">
+          <span class="time-label">🌙 晚上</span>
+          <div class="time-content">返回武陵源城区，品尝土家特色三下锅。推荐观看《魅力湘西》民俗演出，感受湘西赶尸、哭嫁等非遗文化，或漫步溪布街夜景。</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-header">Day 2：天门山极限挑战</div>
+        <div class="time-row">
+          <span class="time-label">🌅 上午</span>
+          <div class="time-content">早起前往市区【天门山国家森林公园】。乘坐世界最长高山客运索道（全长7.5公里）直达山顶。夏季山间凉爽，沿西线栈道漫步，体验【玻璃栈道】与【鬼谷栈道】，俯瞰盘山公路与深谷。</div>
+        </div>
+        <div class="time-row">
+          <span class="time-label">🌤️ 下午</span>
+          <div class="time-content">乘坐穿山自动扶梯下行至天门洞广场。徒步999级台阶或乘扶梯，近距离震撼打卡【天门洞】。随后乘坐穿山扶梯至快线索道下山，体验世界公路奇观【99道弯通天大道】的视觉冲击。</div>
+        </div>
+        <div class="time-row">
+          <span class="time-label">🌙 晚上</span>
+          <div class="time-content">返回市区，入住酒店。可前往大庸府城或72奇楼打卡，品尝湘西烧烤与米粉。早点休息，为次日玻璃桥之行储备体力。</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-header">Day 3：地心溶洞与玻璃天堑</div>
+        <div class="time-row">
+          <span class="time-label">🌅 上午</span>
+          <div class="time-content">前往【张家界大峡谷】，挑战世界最高、跨度最长的【玻璃桥】。桥面宽6米、长375米，脚下300米峡谷深渊令人肾上腺素飙升。随后沿【神泉峡】步行，欣赏瀑布溪流与热带植物。</div>
+        </div>
+        <div class="time-row">
+          <span class="time-label">🌤️ 下午</span>
+          <div class="time-content">转场【黄龙洞】。这是中国最美岩溶洞穴之一，洞内恒温18℃，堪称天然空调。乘船穿行地下暗河，观赏“定海神针”（投保1亿元的巨型石笋），感受“地下魔宫”的奇幻。</div>
+        </div>
+        <div class="time-row">
+          <span class="time-label">🌙 晚上</span>
+          <div class="time-content">根据高铁/航班时间前往张家界荷花机场或张家界西站，结束行程。如为晚班机，可在市区购买土家腊肉、葛根粉等伴手礼。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="attractions">
+    <h2>🏔️ 核心景点详解</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4>1. 张家界国家森林公园</h4>
+        <span class="badge">国家5A级</span><span class="badge">世界遗产</span>
+        <div class="highlight">📍 推荐理由：中国第一个国家森林公园，石英砂岩峰林地貌的集大成者。云雾缭绕时宛如仙境，是摄影与自然爱好者的终极目的地。</div>
+        <p><strong>🎫 门票信息：</strong>旺季225元（4天有效，含环保车）。百龙天梯单程65元，天子山索道单程72元（自理）。</p>
+        <p><strong>💡 游玩Tips：</strong>夏季多雨，建议穿防滑徒步鞋。园内面积大，务必携带轻便雨衣与充足饮水。避开中午高峰，利用清晨或傍晚拍摄云海最佳。</p>
+      </div>
+      <div class="card">
+        <h4>2. 天门山国家森林公园</h4>
+        <span class="badge">极限体验</span><span class="badge">高空奇观</span>
+        <div class="highlight">📍 推荐理由：99道弯盘山公路、海拔1430米的天门洞、悬于万丈悬崖的玻璃栈道。索道穿越城市与森林，视觉体验独一无二。</div>
+        <p><strong>🎫 门票信息：</strong>旺季278元（含往返A线大索道）。玻璃栈道鞋套费5元。</p>
+        <p><strong>💡 游玩Tips：</strong>分A/B/C三条游览线路，A线（索道上-快线下）最热门，需提前3天预约。恐高者建议选择西线避开玻璃栈道。山顶风大，备薄外套。</p>
+      </div>
+      <div class="card">
+        <h4>3. 大峡谷玻璃桥</h4>
+        <span class="badge">刺激打卡</span><span class="badge">世界纪录</span>
+        <div class="highlight">📍 推荐理由：主跨430米、桥面离地300米，承重能力极强。走在透明桥面上，脚下是翠绿峡谷与瀑布，适合胆大者与摄影出片。</div>
+        <p><strong>🎫 门票信息：</strong>大套票128元（含玻璃桥+峡谷景区）。需实名制分时段预约。</p>
+        <p><strong>💡 游玩Tips：</strong>玻璃桥实行限流，必须网上实名购票。严禁穿高跟鞋、拖鞋。夏季阳光直射桥面较烫，建议上午10点前或下午3点后前往，体验更佳。</p>
+      </div>
+      <div class="card">
+        <h4>4. 黄龙洞</h4>
+        <span class="badge">喀斯特溶洞</span><span class="badge">避暑胜地</span>
+        <div class="highlight">📍 推荐理由：亚洲最长的石灰岩溶洞之一，洞内分层清晰，钟乳石千姿百态。地下河游船与瀑布景观极具神秘感，夏季洞内恒温18℃。</div>
+        <p><strong>🎫 门票信息：</strong>门票150元（含游船）。洞内步行约1.5-2小时。</p>
+        <p><strong>💡 游玩Tips：</strong>洞内部分台阶较窄湿滑，老人小孩需搀扶。建议带一件长袖薄衫。洞内无信号，提前保存行程照片。与宝峰湖相邻，可组合游览。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="food-stay">
+    <h2>🍜 美食与住宿指南</h2>
+    <div class="grid-2">
+      <div>
+        <h3>🥢 必吃特色美食</h3>
+        <ul>
+          <li><strong>土家三下锅：</strong>张家界招牌菜，分干锅与汤锅。肥肠、核桃肉、牛肚、猪肚等混炒，香辣浓郁。📍 推荐：富正毅三下锅、老灶台三下锅。</li>
+          <li><strong>岩耳炖鸡/血豆腐：</strong>土家族传统待客菜，岩耳是张家界特产，炖汤鲜美；血豆腐用烟熏豆腐与猪血混合制成，风味独特。</li>
+          <li><strong>酸酢鱼/腊肉：</strong>湘西嗜酸嗜腊，酸鱼开胃解腻，腊肉搭配野蕨菜或蒜苗，是米饭杀手。</li>
+          <li><strong>街头小吃：</strong>葛根粉、米豆腐、土家蒿子粑粑、臭豆腐（长沙与湘西做法略有不同，更偏辣）。</li>
+        </ul>
+      </div>
+      <div>
+        <h3>🛏️ 住宿推荐（按预算分级）</h3>
+        <table>
+          <tr><th>档次</th><th>推荐区域</th><th>参考价格/晚</th><th>特点</th></tr>
+          <tr>
+            <td>🏨 经济</td><td>武陵源标志门附近 / 市区步行街</td><td>¥150 - 250</td><td>连锁快捷酒店、青旅，交通便利，性价比高。</td>
+          </tr>
+          <tr>
+            <td>🌿 舒适</td><td>溪布街周边 / 张家界西站商圈</td><td>¥300 - 500</td><td>精品民宿或四星标准，含早，设施完善，适合家庭。</td>
+          </tr>
+          <tr>
+            <td>✨ 高端</td><td>天子山镇森林 / 武陵源溪畔</td><td>¥800 - 1500+</td><td>野奢木屋、度假村，推窗见山，含管家服务与私汤。</td>
+          </tr>
+        </table>
+        <div class="tip-box"><strong>夏季住宿Tips：</strong>暑期为旺季，务必提前1-2周预订。武陵源区距森林公园仅5分钟车程，是多数游客首选；若第二天游玩天门山，可考虑市区住宿或安排一天住武陵源、一天住市区。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="transport">
+    <h2>🚌 交通全指南</h2>
+    <div class="grid-2">
+      <div>
+        <h3>🚆 如何抵达张家界</h3>
+        <ul>
+          <li><strong>✈️ 飞机：</strong>张家界荷花机场距市区仅5公里。从北上广等一线/新一线城市直飞约 <strong>2小时</strong>。机场大巴/滴滴直达市区或武陵源区（约40分钟）。</li>
+          <li><strong>🚄 高铁：</strong>张家界西站已全面运营。长三角、珠三角方向高铁约 <strong>6-7小时</strong>。<span style="color:#c0392b;">⚠️ 备注：杭州东至张家界暂无直达高铁，通常需在长沙南站中转（中转时间约2小时），全程约7.5-8小时。</span></li>
+          <li><strong>🚌 汽车：</strong>省内及周边城市有长途客运直达张家界中心汽车站。</li>
+        </ul>
+      </div>
+      <div>
+        <h3>🚖 市内与景区交通</h3>
+        <ul>
+          <li><strong>市区 ↔ 武陵源：</strong>中心汽车站乘坐专线大巴，车程约40分钟，票价约¥15/人，班次密集。</li>
+          <li><strong>市区 ↔ 大峡谷/黄龙洞：</strong>可拼车或乘坐旅游专线车，单程约¥40-60。</li>
+          <li><strong>景区内交通：</strong>森林公园含环保车（无限次乘坐）；天门山含索道/快线/扶梯；大峡谷含内部环保车。基本无需额外打车。</li>
+          <li><strong>打车建议：</strong>市区使用滴滴/高德网约车正规透明；景区门口“野导”拉客勿轻信，认准官方售票窗口。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="budget-tips">
+    <h2>💰 预算参考 & 夏季注意事项</h2>
+    <div class="grid-2">
+      <div>
+        <h3>📊 3天2夜人均预算估算（适中档）</h3>
+        <table>
+          <tr><th>项目</th><th>明细参考</th><th>预估费用</th></tr>
+          <tr><td>长途交通</td><td>高铁/机票（视出发地浮动，此处不含）</td><td>-</td></tr>
+          <tr><td>当地交通</td><td>机场/车站大巴、网约车、专线车</td><td>¥200 - 350</td></tr>
+          <tr><td>住宿 (2晚)</td><td>舒适型民宿/连锁酒店</td><td>¥600 - 900</td></tr>
+          <tr><td>餐饮 (3天)</td><td>特色正餐+小吃饮品（约¥120/天）</td><td>¥350 - 450</td></tr>
+          <tr><td>门票/索道</td><td>森林公园225+天门山278+玻璃桥128+黄龙洞150+内部交通</td><td>¥1000 - 1200</td></tr>
+          <tr><td><strong>总计</strong></td><td><strong>不含往返大交通</strong></td><td><strong class="price">¥2150 - ¥2900</strong></td></tr>
+        </table>
+        <p style="font-size:0.9rem; color:#777; margin-top:5px;">* 预算为单人适中标准，学生/老人凭有效证件可享门票半价优惠，可节省约300元。</p>
+      </div>
+      <div>
+        <h3>⚠️ 夏季出行必看注意事项</h3>
+        <ul>
+          <li><strong>🌧️ 天气与穿衣：</strong>夏季多阵雨，山区天气多变。必备轻便防水冲锋衣或雨衣、防滑徒步鞋、透气速干衣物。雨后温差大，带薄外套。</li>
+          <li><strong>🦟 防蚊防晒：</strong>植被茂密蚊虫多，携带驱蚊液/青草膏。玻璃栈道及广场日照强烈，备好高倍防晒霜、墨镜与遮阳帽。</li>
+          <li><strong>🏃‍♂️ 体力与安全：</strong>日均步数约2万步。天门山与森林公园有较多台阶，建议登山杖辅助。切勿为拍照翻越护栏，玻璃栈道严禁携带尖锐物品。</li>
+          <li><strong>📅 预约机制：</strong>所有核心景区实行实名制分时段预约。暑期票源紧张，天门山A线票建议提前5-7天锁定，切勿临时起意。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:20px; text-align:center;">
+      <strong>🎒 规划师寄语：</strong>张家界的美在于“山在云中，云绕山间”。夏季虽热，但晨雾与雨后初晴的能见度往往能拍出人生照片。放慢脚步，避开正午，你一定会被这片奇峰异石震撼。祝旅途平安，收获满满！
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2024 资深旅游规划师 | 张家界夏季深度游攻略 | 数据更新于2024年夏，票价与政策可能变动，请以景区官方公告为准。</p>
+</footer>
+
+</body>
+</html>

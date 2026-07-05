@@ -168,4 +168,24 @@ describe('CityModal', () => {
     const { container } = render(<CityModal {...defaultProps} city={null} />);
     expect(container.firstChild).toBeNull();
   });
+
+  it('shows AI guide card when guideUrl is present', () => {
+    const cityWithGuide = { ...mockCity, guideUrl: 'https://example.com/guide' };
+    render(<CityModal {...defaultProps} city={cityWithGuide} />);
+    expect(screen.getByText('AI 详细攻略')).toBeInTheDocument();
+    expect(screen.getByText(/由 AI 生成的详细行程规划/)).toBeInTheDocument();
+  });
+
+  it('hides AI guide card when guideUrl is not present', () => {
+    render(<CityModal {...defaultProps} />);
+    expect(screen.queryByText('AI 详细攻略')).not.toBeInTheDocument();
+  });
+
+  it('AI guide link opens in new tab', () => {
+    const cityWithGuide = { ...mockCity, guideUrl: 'https://example.com/guide' };
+    render(<CityModal {...defaultProps} city={cityWithGuide} />);
+    const link = screen.getByRole('link', { name: /AI 详细攻略/i });
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('href', 'https://example.com/guide');
+  });
 });

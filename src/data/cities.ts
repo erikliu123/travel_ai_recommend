@@ -28,6 +28,7 @@ export interface CityInfo {
   suggestedDays: number;
   budgetLevel: 1 | 2 | 3; // 1=经济, 2=中等, 3=高消费
   tags?: string[]; // 分类标签：海边度假、草原风光、亲子游等
+  guideUrl?: string; // AI 详细攻略链接
 }
 
 export const allCities: Record<string, CityInfo> = {
@@ -130,6 +131,7 @@ export const allCities: Record<string, CityInfo> = {
     suggestedDays: 2,
     budgetLevel: 2,
     tags: ['赏花胜地', '江南水乡', '美食之旅'],
+    guideUrl: 'https://cloud.iflow.cn/sites/Z0FBQUFBQnA0bmY4TFZ6QTZPaHlUeWEwS19wYnd3YzY0UEFNazY3R0w2UjJvaEFwUHpCQXI4SHJQTTRQMkJDTllTM3VjLUNQUnJycU40cFlJVlZvYnBGTTJEWnpQTy1nSi1IblFCa1pZaERxTzBFZWdsNDA0THpEbnRZUW9SdlktdGVKSGRYSHktcGM/%E6%89%AC%E5%B7%9E%E4%BA%8C%E6%97%A5%E6%B8%B8%E8%A1%8C%E7%A8%8B%E8%A7%84%E5%88%92.html#section-overview',
   },
   guilin: {
     id: 'guilin',
@@ -1673,6 +1675,27 @@ export const allCities: Record<string, CityInfo> = {
     budgetLevel: 3,
     tags: ['亲子游', '美食之旅', '城市漫步'],
   },
+  weihai: {
+    id: 'weihai',
+    name: '威海',
+    province: '山东',
+    description: '山东半岛最东端的海滨城市，三面环海，拥有中国最长的海岸线之一。壮丽的海岸风光与甲午战争的历史记忆交相辉映，是自然与人文完美结合的旅游胜地。',
+    attractions: [
+      { name: '刘公岛', description: '甲午战争主战场之一，岛上保存完好的历史遗址和博物馆，是了解中国近代史的重要窗口。' },
+      { name: '猫头山', description: '威海标志性山海景观，2号观景台可拍摄绝美山海全景，是观赏日出的绝佳地点。' },
+      { name: '国际海水浴场', description: '威海最著名的海滩，沙质细腻，海水清澈，傍晚可欣赏"橘子海"日落奇观。' },
+      { name: '火炬八街', description: '网红打卡地，被称为威海"小镰仓"，是拍摄日落的最佳地点，周边有特色小吃摊位。' },
+    ],
+    pros: ['海岸线壮丽，海水清澈', '海鲜新鲜肥美，9月尤其推荐', '游客较少，体验舒适', '千里山海自驾公路风景绝美'],
+    cons: ['最佳季节较短（6-9月）', '部分景点需骑行前往', '冬季海风较大', '住宿选择相对有限'],
+    transport: { flight: '约2小时', train: '约5-6小时', trainNote: '杭州东至威海高铁', flightNote: '杭州直飞威海大水泊机场' },
+    image: '/images/cities/city-weihai.webp',
+    bestMonths: '6-9月',
+    suggestedDays: 2,
+    budgetLevel: 2,
+    tags: ['海边度假', '摄影出片', '美食之旅'],
+    guideUrl: 'https://cloud.iflow.cn/sites/Z0FBQUFBQm8xcGJfMnliUjNiQW1Zb0dHZkhJU3BVSU5wYXFpZFloTVlvZUpsQTFhNm5wU29VSU9iNVdIVVBITFFCQ1FFUVJBY2J4Rk9fWGhQeHpfRTViNV9VQ2E2WndUNXJlWHlRYTB4Y2tCSm1KVEdDZVA5LWlsdUVncWFPMzJEODVIT0tqM2RSR08/%E5%A8%81%E6%B5%B7%E6%97%85%E6%B8%B8%E8%A1%8C%E7%A8%8B%E8%A7%84%E5%88%92.html',
+  },
 };
 
 export type SeasonKey = 'spring' | 'summer' | 'autumn' | 'winter' | 'mayday' | 'national' | 'springfestival' | 'zhejiang';
@@ -1746,10 +1769,10 @@ export const seasonInfo: Record<SeasonKey, { label: string; icon: string; descri
 
 export const seasonCities: Record<SeasonKey, string[]> = {
   spring: ['kunming', 'wuyuan', 'linzhi', 'luoyang', 'yangzhou', 'guilin', 'dali', 'suzhou', 'nanjing', 'beihai', 'kyoto', 'amsterdam', 'singapore', 'bangkok', 'jeju'],
-  summer: ['taian', 'gannan', 'enshi', 'liupanshui', 'aershan', 'yichun', 'qingdao', 'dalian', 'hulunbeier', 'jiuzhaigou', 'lijiang', 'chengde', 'guiyang', 'xining', 'yili', 'zhangjiajie', 'hokkaido', 'santorini', 'queenstown', 'paris', 'rome'],
+  summer: ['taian', 'gannan', 'enshi', 'liupanshui', 'aershan', 'yichun', 'qingdao', 'dalian', 'weihai', 'hulunbeier', 'jiuzhaigou', 'lijiang', 'chengde', 'guiyang', 'xining', 'yili', 'zhangjiajie', 'hokkaido', 'santorini', 'queenstown', 'paris', 'rome'],
   autumn: ['tulufan', 'zhangye', 'bashang', 'lushan', 'shilin', 'beijing', 'ejina', 'jiuzhaigou', 'kanas', 'nanjing', 'tengchong', 'changbaishan', 'huangshan', 'dunhuang', 'wuyuan', 'kyoto', 'amsterdam', 'jeju', 'bangkok', 'queenstown'],
   winter: ['harbin', 'sanya', 'xishuangbanna', 'wusongdao', 'lijiang', 'xiamen', 'mohe', 'lasa', 'changbaishan', 'chongqing', 'maldives', 'hokkaido', 'singapore', 'paris', 'rome'],
-  mayday: ['xian', 'chongqing', 'xiamen', 'zhangjiajie', 'qingdao', 'dali', 'guilin', 'huangshan', 'fenghuang', 'nanjing', 'santorini', 'maldives', 'jeju', 'bangkok', 'amsterdam'],
+  mayday: ['xian', 'chongqing', 'xiamen', 'zhangjiajie', 'qingdao', 'weihai', 'dali', 'guilin', 'huangshan', 'fenghuang', 'nanjing', 'santorini', 'maldives', 'jeju', 'bangkok', 'amsterdam'],
   national: ['beijing', 'dunhuang', 'lasa', 'kanas', 'jiuzhaigou', 'lijiang', 'xianggelila', 'xian', 'ejina', 'daocheng', 'paris', 'rome', 'queenstown', 'kyoto', 'hokkaido'],
   springfestival: ['harbin', 'xian', 'zigong', 'pingyao', 'kaifeng', 'guangzhou', 'quanzhou', 'nanjing', 'dali_spring', 'fenghuang', 'singapore', 'maldives', 'bangkok', 'jeju', 'santorini'],
   zhejiang: ['shaoxing', 'wuzhen', 'ningbo', 'zhoushan', 'qiandaohu', 'moganshan', 'anji', 'yandangshan', 'nanxun', 'tonglu'],

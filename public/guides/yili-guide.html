@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>塞外江南·伊犁夏季4日深度游攻略</title>
+  <style>
+    :root {
+      --primary: #606c38;
+      --primary-dark: #3f4a2a;
+      --secondary: #bc6c25;
+      --light: #f8faf3;
+      --bg: #f1f5e8;
+      --text-main: #2c3639;
+      --text-sub: #5a6b5e;
+      --white: #ffffff;
+      --shadow: 0 8px 20px rgba(64, 74, 42, 0.1);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+    h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.8em; }
+    h1 { font-size: 2.4rem; color: var(--white); }
+    h2 { font-size: 1.8rem; color: var(--primary-dark); position: relative; padding-bottom: 10px; display: inline-block; }
+    h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 40px; height: 4px; background: var(--secondary); border-radius: 4px; }
+    h3 { font-size: 1.3rem; color: var(--primary); }
+    p { margin-bottom: 1em; color: var(--text-sub); }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #606c38 0%, #283618 60%, #1b260e 100%);
+      padding: 80px 20px 60px;
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 70% 20%, rgba(255,255,255,0.15), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-sub { font-size: 1.1rem; opacity: 0.9; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
+    .badge {
+      background: rgba(255,255,255,0.2); backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: var(--white);
+    }
+    .info-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 25px; text-align: center;
+    }
+    .info-item { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 12px; }
+    .info-label { font-size: 0.8rem; opacity: 0.7; display: block; margin-bottom: 4px; }
+    .info-val { font-size: 1rem; font-weight: 600; }
+
+    /* Sections */
+    .card {
+      background: var(--white); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); margin-bottom: 25px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-3px); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.5rem; }
+    }
+
+    /* Itinerary Timeline */
+    .day-header {
+      background: linear-gradient(90deg, var(--primary), #829a5f);
+      color: white; padding: 15px 20px; border-radius: 12px 12px 0 0; margin-top: 30px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .day-header span { background: rgba(255,255,255,0.25); padding: 4px 10px; border-radius: 8px; font-size: 0.85rem; }
+    .timeline {
+      padding: 20px 20px 0; position: relative; border: 2px solid #e8f0d4; border-top: none;
+      border-radius: 0 0 12px 12px; background: #fdfef9;
+    }
+    .time-row { display: flex; margin-bottom: 15px; position: relative; padding-left: 18px; }
+    .time-row::before {
+      content: ""; position: absolute; left: -11px; top: 6px; width: 16px; height: 16px;
+      background: var(--secondary); border: 3px solid #e8f0d4; border-radius: 50%;
+    }
+    .time-label { min-width: 80px; font-weight: 600; color: var(--primary-dark); font-size: 0.95rem; }
+    .time-content { flex: 1; padding-bottom: 15px; border-bottom: 1px dashed #dce5d3; }
+    .time-row:last-child .time-content { border-bottom: none; }
+
+    /* Attractions */
+    .attr-img {
+      height: 160px; border-radius: 12px; margin-bottom: 15px;
+      background: linear-gradient(135deg, #a8c384 0%, #606c38 100%);
+      display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .attr-lavender .attr-img { background: linear-gradient(135deg, #c3a8c4 0%, #8a5e8d 100%); }
+    .attr-canyon .attr-img { background: linear-gradient(135deg, #a0c4e8 0%, #5a89b5 100%); }
+    .attr-body .attr-img { background: linear-gradient(135deg, #d4a373 0%, #9a784c 100%); }
+    .meta-tag { display: inline-block; background: var(--light); color: var(--primary); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; margin-right: 8px; margin-top: 10px; }
+    .tips-box { background: #f0f7eb; border-left: 4px solid var(--secondary); padding: 12px; border-radius: 0 8px 8px 0; margin-top: 12px; font-size: 0.9rem; }
+
+    /* Food & Hotel */
+    .food-card, .hotel-card { padding: 20px; border: 1px solid #e8f0d4; border-radius: 12px; background: var(--white); }
+    .food-card h4 { color: var(--secondary); margin-bottom: 5px; }
+    .price { color: var(--primary); font-weight: bold; font-size: 1.1rem; margin-top: 8px; }
+    .star { color: #f4b400; letter-spacing: 2px; }
+
+    /* Budget Table */
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { padding: 14px; text-align: left; border-bottom: 1px solid #e8f0d4; }
+    th { background: var(--light); color: var(--primary-dark); font-weight: 600; }
+    .total-row td { background: #e8f0d4; font-weight: 700; color: var(--primary-dark); border-bottom: none; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 40px 20px; color: #88987b; font-size: 0.9rem; margin-top: 30px;
+      border-top: 1px dashed #dce5d3;
+    }
+    .highlight { color: var(--secondary); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container" style="position: relative; z-index: 1;">
+      <h1>🌿 伊犁夏季深度游攻略</h1>
+      <p class="hero-sub">塞外江南，天山绿野。夏季的伊犁河谷是一幅壮美的西北画卷，4天时间带你沉浸式体验草原、花海与峡谷的极致浪漫。</p>
+      <div class="tags">
+        <span class="badge">🏞️ 草原风光</span>
+        <span class="badge">📷 摄影出片</span>
+        <span class="badge">🌾 自然风光</span>
+        <span class="badge">🚗 自驾推荐</span>
+      </div>
+      <div class="info-grid">
+        <div class="info-item"><span class="info-label">建议游玩</span><span class="info-val">4天3晚</span></div>
+        <div class="info-item"><span class="info-label">最佳月份</span><span class="info-val">6月-8月</span></div>
+        <div class="info-item"><span class="info-label">预算级别</span><span class="info-val">⭐⭐⭐ 较高</span></div>
+        <div class="info-item"><span class="info-label">适合人群</span><span class="info-val">情侣/家庭/摄影</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 城市概述 -->
+    <section class="card">
+      <h2>📍 城市概述</h2>
+      <p>伊犁哈萨克自治州位于新疆维吾尔自治区西北部，素有“塞外江南”之美誉。夏季的伊犁河谷水草丰美，气候宜人。这里拥有世界四大高山河谷草原之一的那拉提、人体草原喀拉峻、绵延数十公里的霍城薰衣草花海，以及气势恢宏的果子沟大桥。夏季瓜果飘香，哈萨克游牧文化浓郁，是新疆旅游的核心黄金目的地。</p>
+      <div class="grid-2">
+        <div>
+          <h3>✨ 核心亮点</h3>
+          <p>✅ 夏季草原风光壮美，野花遍地<br>✅ 薰衣草花海规模亚洲领先<br>✅ 瓜果（西瓜、蟠桃、苹果）成熟季<br>✅ 公路自驾体验极佳，路况优良</p>
+        </div>
+        <div>
+          <h3>⚠️ 注意事项</h3>
+          <p>❌ 距离东部城市极远，交通时间与成本较高<br>❌ 需飞抵乌鲁木齐后转乘内陆航班或长途车/自驾<br>❌ 最佳观赏期短（6月中下旬-8月中旬）<br>❌ 地域辽阔，每日车程较长，行程偏辛苦</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4天行程 -->
+    <section class="card">
+      <h2>🗓️ 4天详细行程安排</h2>
+      <p>本行程以伊宁市为集散中心，顺时针覆盖伊犁河谷精华景观。建议落地租车自驾或包车出行，体验更自由。</p>
+      
+      <div class="day-header">Day 1：初抵伊宁 · 河谷落日与市井烟火 <span>住伊宁市</span></div>
+      <div class="timeline">
+        <div class="time-row"><span class="time-label">🕘 上午</span><div class="time-content">抵达伊宁机场/火车站，办理酒店入住。前往<b>六星街民俗区</b>，体验多民族交融的街巷文化，品尝手工冰淇淋。</div></div>
+        <div class="time-row"><span class="time-label">🕑 下午</span><div class="time-content">游览<b>喀赞其民俗旅游区</b>，蓝色民居极具南疆风情。租一辆自行车或步行，拍摄人文纪实大片。购买当地干果与蜂蜜。</div></div>
+        <div class="time-row"><span class="time-label">🕢 晚上</span><div class="time-content">前往<b>伊犁河大桥</b>观赏河谷落日，江面波光粼粼。晚餐在河滨夜市享用正宗烤肉与面肺子。</div></div>
+      </div>
+
+      <div class="day-header">Day 2：伊宁出发 · 峡谷奇迹与紫色浪漫 <span>住清水河/伊宁</span></div>
+      <div class="timeline">
+        <div class="time-row"><span class="time-label">🕗 上午</span><div class="time-content">清晨驱车沿G30连霍高速前往<b>果子沟</b>。在观景台俯瞰新疆第一座斜拉桥，峡谷两侧云杉挺拔，野花漫山。</div></div>
+        <div class="time-row"><span class="time-label">🕐 下午</span><div class="time-content">转战<b>霍城薰衣草基地</b>（推荐解忧公主农场或芦草沟镇）。6月中下旬为盛花期，漫步紫色花田，体验精油制作工艺。</div></div>
+        <div class="time-row"><span class="time-label">🕠 晚上</span><div class="time-content">返回清水河镇或伊宁市住宿。若时间充裕，可前往周边农家乐体验哈萨克族毡房晚宴。</div></div>
+      </div>
+
+      <div class="day-header">Day 3：特克斯 · 人体草原的立体画卷 <span>住特克斯八卦城</span></div>
+      <div class="timeline">
+        <div class="time-row"><span class="time-label">🕗 上午</span><div class="time-content">伊宁出发前往特克斯县，游览无红绿灯的<b>八卦城</b>。随后购票进入<b>喀拉峻草原</b>（东西喀拉峻）。</div></div>
+        <div class="time-row"><span class="time-label">🕑 下午</span><div class="time-content">深度游玩喀拉峻。重点游览“人体草原”猎鹰台、鲜花台。起伏的草甸曲线在光影下极具立体感，适合广角摄影。</div></div>
+        <div class="time-row"><span class="time-label">🕠 晚上</span><div class="time-content">返回特克斯县城入住。夜观八卦城夜景，品尝当地特色包尔萨克与酸奶。</div></div>
+      </div>
+
+      <div class="day-header">Day 4：那拉提 · 空中草原的游牧诗篇 <span>返程/机场送机</span></div>
+      <div class="timeline">
+        <div class="time-row"><span class="time-label">🕗 上午</span><div class="time-content">清晨前往新源县<b>那拉提草原</b>。换乘景区区间车前往“空中草原”线路，海拔较高处视野开阔，哈萨克牧民毡房点缀其间。</div></div>
+        <div class="time-row"><span class="time-label">🕐 下午</span><div class="time-content">漫步河谷次生林区，体验骑马或徒步（约1.5小时）。下午15:00左右启程返回伊宁市/机场。</div></div>
+        <div class="time-row"><span class="time-label">🕠 晚上</span><div class="time-content">抵达伊宁机场办理还车，搭乘晚班机返程。结束4天壮美伊犁之旅。</div></div>
+      </div>
+    </section>
+
+    <!-- 景点详情 -->
+    <section class="card">
+      <h2>🏔️ 核心景点详解</h2>
+      <div class="grid-3">
+        <div class="attr-item">
+          <div class="attr-img">🐎 那拉提草原</div>
+          <h3>那拉提草原</h3>
+          <span class="meta-tag">🎫 门票+区间车 ¥95+¥40</span>
+          <span class="meta-tag">🕒 游玩 5-6h</span>
+          <p><b>推荐理由：</b>世界四大高山河谷草原之一，夏季绿草如茵，野花遍地。分为空中草原、河谷草原、盘龙谷道，立体景观层次丰富。</p>
+          <div class="tips-box"><b>💡 游玩Tips：</b>建议购买“空中草原”区间车票，清晨光线最柔和。景区内骑马价格透明，需提前议价。注意防风，山顶温度低。</div>
+        </div>
+        <div class="attr-item attr-lavender">
+          <div class="attr-img">💜 霍城薰衣草</div>
+          <h3>霍城薰衣草</h3>
+          <span class="meta-tag">🎫 门票 ¥40-60</span>
+          <span class="meta-tag">🕒 游玩 2-3h</span>
+          <p><b>推荐理由：</b>中国最大薰衣草种植基地，6月盛花期绵延数十公里，被誉为“东方普罗旺斯”。精油纯度极高。</p>
+          <div class="tips-box"><b>💡 游玩Tips：</b>花期受气候影响大，6月15-30日最保险。建议穿白色/浅色系长裙出片。部分私人农田需支付少量采摘/拍照费。</div>
+        </div>
+        <div class="attr-item attr-canyon">
+          <div class="attr-img">🌉 果子沟大桥</div>
+          <h3>果子沟峡谷</h3>
+          <span class="meta-tag">🎫 沿途免费</span>
+          <span class="meta-tag">🕒 游玩 1.5-2h</span>
+          <p><b>推荐理由：</b>“伊犁第一景”，峡谷中果子沟大桥如巨龙腾空。自驾G30高速穿行其间，两侧云杉参天，野花点缀，视觉震撼。</p>
+          <div class="tips-box"><b>💡 游玩Tips：</b>高速公路严禁停车，请前往指定观景台（如赛里木湖隧道出口观景台）。春季有融雪溪流，夏季为满山绿意。</div>
+        </div>
+        <div class="attr-item attr-body">
+          <div class="attr-img">⛰️ 喀拉峻草原</div>
+          <h3>喀拉峻草原</h3>
+          <span class="meta-tag">🎫 门票+车 ¥140</span>
+          <span class="meta-tag">🕒 游玩 6-7h</span>
+          <p><b>推荐理由：</b>联合国教科文组织认证的世界自然遗产。独特的“人体草原”地貌，草甸起伏如波浪，是摄影爱好者的天堂。</p>
+          <div class="tips-box"><b>💡 游玩Tips：</b>务必选择“东西喀拉峻”套票。猎鹰台是日落最佳机位。草原风大，务必带防风外套和帽子。区间车班次固定，注意末班车时间。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section class="card">
+      <h2>🍲 美食与餐厅推荐</h2>
+      <div class="grid-3">
+        <div class="food-card">
+          <h4>🥩 伊犁烤肉 & 羊排</h4>
+          <p>选用本地黑头羊，肉质鲜嫩无膻味。搭配皮牙子（洋葱）与孜然，外焦里嫩，汁水丰盈。</p>
+          <p class="highlight">推荐：拜图拉清真寺旁老字号烧烤店 / 伊犁街夜市</p>
+        </div>
+        <div class="food-card">
+          <h4>🍲 手工抓饭 & 马肠子</h4>
+          <p>抓饭胡萝卜炒制出糖油，搭配黄萝卜与羊腿肉，粒粒分明。熏马肠子风味独特，耐嚼醇香。</p>
+          <p class="highlight">推荐：伊宁市第一街美食广场 / 本地哈萨克农家乐</p>
+        </div>
+        <div class="food-card">
+          <h4>🍦 手工冰淇淋 & 卡瓦斯</h4>
+          <p>伊犁古法手工冰淇淋含乳量极高，口感绵密。搭配蜂蜜发酵饮料卡瓦斯，解暑解腻绝配。</p>
+          <p class="highlight">推荐：六星街古兰丹姆冰淇淋 / 街头手推车（认准老牌子）</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 住宿推荐 -->
+    <section class="card">
+      <h2>🛏️ 住宿推荐指南</h2>
+      <div class="grid-3">
+        <div class="hotel-card">
+          <h3>💰 经济型</h3>
+          <p class="star">★★★☆☆</p>
+          <p><b>区域：</b>伊宁市区/火车站周边<br><b>参考：</b>全季/汉庭/优质青旅<br><b>预算：</b>200-350元/晚<br><b>特点：</b>交通便利，周边配套全，适合预算有限且仅作为过夜中转的游客。</p>
+        </div>
+        <div class="hotel-card">
+          <h3>🛋️ 舒适型</h3>
+          <p class="star">★★★★☆</p>
+          <p><b>区域：</b>伊宁市中心/特克斯县城/清水河<br><b>参考：</b>亚朵/维也纳/精品民宿<br><b>预算：</b>500-800元/晚<br><b>特点：</b>服务完善，卫生条件好，部分含早餐。特克斯民宿可体验维吾尔族或哈萨克族庭院风情。</p>
+        </div>
+        <div class="hotel-card">
+          <h3>✨ 高端野奢</h3>
+          <p class="star">★★★★★</p>
+          <p><b>区域：</b>那拉提景区内/喀拉峻牧场<br><b>参考：</b>那拉提牧野营地/星空毡房<br><b>预算：</b>1000-2000+元/晚<br><b>特点：</b>推窗见雪山草原，提供独立卫浴、地暖/空调、管家服务。夏季极抢手，需提前1个月预订。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 交通指南 -->
+    <section class="card">
+      <h2>🚗 交通全指南</h2>
+      <div class="grid-2">
+        <div>
+          <h3>✈️ 如何到达伊犁</h3>
+          <ul style="padding-left: 20px; color: var(--text-sub);">
+            <li><b>飞机：</b>全国多城直飞或经乌鲁木齐中转至伊宁机场，航程约4-6小时（中转总计6-8小时）。夏季为旺季，机票价格浮动大，建议提前30天锁定。</li>
+            <li><b>高铁/火车：</b>目前无直达高铁。可乘坐动车至乌鲁木齐，再转乘夕发朝至的“伊宁号”直达列车（约10小时），体验草原铁道。</li>
+            <li><b>自驾落地：</b>飞抵乌鲁木齐后，租车沿G30/G7行驶约8-9小时抵达，或直接在伊宁机场租车（推荐）。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>🛣️ 市内与景区交通</h3>
+          <ul style="padding-left: 20px; color: var(--text-sub);">
+            <li><b>自驾（首选）：</b>伊犁河谷路况极佳，G218、G577、G30均为高等级公路。每日车程在2-4小时，自由度高，可随停随拍。</li>
+            <li><b>包车服务：</b>当地旅行社提供带司机包车（5座SUV约800-1000元/天，7座商务约1200元/天），含油费司机食宿另算。</li>
+            <li><b>景区交通：</b>各大草原景区均实行区间车制度，私家车不可深入核心区。需预留1-2小时排队换乘时间。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section class="card">
+      <h2>📋 实用注意事项</h2>
+      <div class="grid-2">
+        <div>
+          <h3>🌡️ 天气与穿着</h3>
+          <p>夏季白天25-32℃，紫外线极强，需<b>SPF50+防晒霜、墨镜、遮阳帽</b>。昼夜温差达15℃，草原夜间/山顶仅10-15℃，务必携带<b>防风外套或薄羽绒服</b>。建议穿防滑徒步鞋，避免高跟鞋。</p>
+          <h3>💧 饮食与健康</h3>
+          <p>新疆饮食偏重牛羊肉与面食，肠胃弱者可备健胃消食片与益生菌。当地水质偏硬，建议饮用瓶装水。瓜果极甜，但忌食后立刻饮浓茶或冷水，易引发腹泻。</p>
+        </div>
+        <div>
+          <h3>🛡️ 安全与风俗</h3>
+          <p>尊重哈萨克族与维吾尔族习俗，进入清真寺需衣着端庄；未经允许勿拍摄牧民内部生活；草原上勿随意追逐牛羊。自驾注意<b>避让牲畜上路</b>，限速路段务必守规。</p>
+          <h3>📶 通讯与物资</h3>
+          <p>伊犁河谷信号覆盖良好，但深入喀拉峻或那拉提腹地时部分路段会<b>间歇性断网</b>。建议提前下载离线地图。景区周边物价较高，可在伊宁市区采购水、零食、氧气罐等物资。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 预算参考 -->
+    <section class="card">
+      <h2>💰 预算参考（单人/4天3晚）</h2>
+      <p>本预算为<b>较高舒适度</b>（预算级别3）标准，涵盖品质住宿、自驾租车/包车、景区套票及特色餐饮。实际花费受出行人数、提前预订时间及机票淡旺季影响。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>明细说明</th>
+            <th>预估费用 (元)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>✈️ 往返交通</td>
+            <td>国内直飞/转机机票（旺季浮动）</td>
+            <td>3,500 - 5,500</td>
+          </tr>
+          <tr>
+            <td>🚗 当地交通</td>
+            <td>租车3天+SUV/油费+停车/保险（2人平摊）或包车分摊</td>
+            <td>1,000 - 1,800</td>
+          </tr>
+          <tr>
+            <td>🛏️ 住宿费用</td>
+            <td>舒适型/野奢混合3晚住宿</td>
+            <td>1,500 - 3,000</td>
+          </tr>
+          <tr>
+            <td>🍲 餐饮体验</td>
+            <td>正餐/小吃/饮品/奶茶约150元/天 × 4天</td>
+            <td>600 - 800</td>
+          </tr>
+          <tr>
+            <td>🎫 门票区间车</td>
+            <td>那拉提+喀拉峻+薰衣草+观光车+骑马体验</td>
+            <td>700 - 1,000</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="2">📊 总计人均预算</td>
+            <td>约 7,300 - 12,100 元</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p>© 2024 塞外江南伊犁旅行攻略 | 数据基于2023-2024夏季实地调研与官方公开信息整理<br>
+      🌿 提示：草原生态脆弱，请践行无痕旅行(LNT)原则，带走所有垃圾。祝您旅途平安，收获绝美记忆。</p>
+    </footer>
+
+  </main>
+</body>
+</html>

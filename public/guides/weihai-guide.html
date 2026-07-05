@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威海夏季旅游攻略 | 专业旅行指南</title>
+    <style>
+        :root {
+            --primary: #0077b6;
+            --primary-light: #90e0ef;
+            --secondary: #023e8a;
+            --bg-light: #f4f8fb;
+            --text-main: #2c3e50;
+            --text-sub: #5a6b7c;
+            --white: #ffffff;
+            --warning: #ff9800;
+            --danger: #e53935;
+            --success: #4caf50;
+            --radius: 12px;
+            --shadow: 0 4px 16px rgba(0, 119, 182, 0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif; background-color: var(--bg-light); color: var(--text-main); line-height: 1.65; }
+        a { color: var(--primary); text-decoration: none; }
+        
+        .container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+        
+        /* Header */
+        header { background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); color: var(--white); padding: 48px 0 32px; text-align: center; border-radius: 0 0 24px 24px; margin-bottom: 24px; position: relative; overflow: hidden; }
+        header::before { content: ''; position: absolute; top: -20px; right: -20px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%); border-radius: 50%; }
+        header h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+        header .subtitle { font-size: 1.05rem; opacity: 0.9; margin-bottom: 16px; }
+        .tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .tag { background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.3); }
+        
+        /* Sections */
+        section { background: var(--white); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 20px; }
+        h2 { color: var(--primary); font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; padding-bottom: 10px; border-bottom: 2px solid #e8f4f8; }
+        h2::before { content: ''; width: 5px; height: 22px; background: var(--primary); margin-right: 10px; border-radius: 3px; }
+        h3 { color: var(--secondary); font-size: 1.2rem; margin: 18px 0 10px; }
+        p, li { color: var(--text-sub); font-size: 0.95rem; }
+        ul, ol { padding-left: 20px; }
+        li { margin-bottom: 6px; }
+        
+        /* Grids & Cards */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-bottom: 15px; }
+        .info-item { background: #eef7fc; padding: 12px; border-radius: 8px; text-align: center; }
+        .info-item .label { font-size: 0.8rem; color: var(--text-sub); display: block; margin-bottom: 4px; }
+        .info-item .value { font-weight: 700; color: var(--primary); font-size: 1rem; }
+        
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+        .card { background: #f8fbfe; border-radius: 10px; padding: 16px; border-left: 4px solid var(--primary); transition: transform 0.2s ease; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.08); }
+        .card-title { font-weight: 600; color: var(--secondary); margin-bottom: 6px; font-size: 1.05rem; }
+        .card-meta { font-size: 0.85rem; color: #7a8b9c; margin-bottom: 8px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .card-tag { background: #dbeefb; padding: 2px 8px; border-radius: 4px; color: var(--primary); }
+        
+        /* Timeline */
+        .timeline { position: relative; padding-left: 24px; border-left: 3px solid #cce5f5; margin: 15px 0; }
+        .timeline-item { margin-bottom: 18px; position: relative; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot { position: absolute; left: -30px; top: 4px; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 2px var(--primary); }
+        .timeline-time { font-weight: 700; color: var(--primary); display: inline-block; margin-bottom: 4px; font-size: 0.95rem; }
+        .timeline-content { font-size: 0.95rem; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9rem; }
+        th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #eaf4fa; color: var(--secondary); font-weight: 600; }
+        tr:last-child td { border-bottom: none; }
+        
+        /* Alerts */
+        .alert { padding: 14px; border-radius: 8px; margin: 12px 0; font-size: 0.9rem; display: flex; align-items: flex-start; gap: 10px; }
+        .alert-warn { background: #fff8e1; border-left: 4px solid var(--warning); }
+        .alert-danger { background: #fce8e6; border-left: 4px solid var(--danger); }
+        .alert-info { background: #e3f2fd; border-left: 4px solid var(--primary); }
+        
+        /* Footer */
+        footer { text-align: center; padding: 24px 0; color: var(--text-sub); font-size: 0.85rem; border-top: 1px solid #e0e8ef; margin-top: 30px; }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.7rem; }
+            section { padding: 18px; margin-bottom: 16px; }
+            .info-grid { grid-template-columns: 1fr 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+            table { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>威海 · 夏季深度游攻略</h1>
+        <p class="subtitle">山东半岛最东端的海滨之城，甲午风云与蔚蓝海岸的交响</p>
+        <div class="tags">
+            <span class="tag">🌊 海边度假</span>
+            <span class="tag">📷 摄影出片</span>
+            <span class="tag">🦞 美食之旅</span>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- 城市概述 -->
+    <section id="overview">
+        <h2>📍 城市概览</h2>
+        <div class="info-grid">
+            <div class="info-item"><span class="label">建议天数</span><span class="value">2天</span></div>
+            <div class="info-item"><span class="label">最佳季节</span><span class="value">6-9月</span></div>
+            <div class="info-item"><span class="label">预算级别</span><span class="value">适中(2)</span></div>
+            <div class="info-item"><span class="label">气候特征</span><span class="value">海洋性季风</span></div>
+        </div>
+        <p>威海三面环海，拥有中国北方最美的海岸线之一。这里既有厚重的甲午战争历史记忆，又有“千里山海”自驾公路的绝美风光。夏季海水清澈、海鲜肥美，9月前后游客较少，体感极为舒适，是逃离城市喧嚣的绝佳选择。</p>
+        
+        <div style="display:grid; grid-template-columns:1fr; gap:10px; margin-top:15px;">
+            <div class="alert alert-info"><strong>✅ 核心优势：</strong>海岸线壮丽干净、海鲜新鲜肥美（尤其9月）、9月后错峰体验极佳、环海公路风景绝美。</div>
+            <div class="alert alert-warn"><strong>⚠️ 注意事项：</strong>最佳旅游季较短（6-9月）、部分海景需骑行/自驾抵达、冬季海风凛冽不推荐、旺季热门商圈住宿需提前预订。</div>
+        </div>
+    </section>
+
+    <!-- 详细行程 -->
+    <section id="itinerary">
+        <h2>🗺️ 2天精华行程规划</h2>
+        <h3>Day 1：历史回响与橘色晚霞</h3>
+        <div class="timeline">
+            <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">08:30 - 09:00</span> <span class="timeline-content">前往威海旅游码头，乘船登岛。</span></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">09:30 - 13:30</span> <span class="timeline-content"><strong>【上午】刘公岛深度游</strong>：参观中国甲午战争博物馆、博览园、东泓炮台。感受历史沧桑，环岛步行约3小时。</span></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">14:30 - 16:30</span> <span class="timeline-content"><strong>【下午】回市区休整</strong>：前往环翠区或高区酒店办理入住，稍作休息，补充水分防晒。</span></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">17:00 - 19:00</span> <span class="timeline-content"><strong>【傍晚】国际海水浴场追日落</strong>：赤脚踩沙踏浪，等待“橘子海”日落奇观。傍晚光线柔和，极出片。</span></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">19:30 - 21:30</span> <span class="timeline-content"><strong>【夜间】海鲜烧烤与夜市</strong>：前往古寨早市或韩乐坊，品尝烤生蚝、鲅鱼水饺，体验胶东烟火气。</span></div>
+        </div>
+
+        <h3>Day 2：山海日出与网红漫步</h3>
+        <div class="timeline">
+            <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">05:00 - 08:30</span> <span class="timeline-content"><strong>【清晨】猫头山追日出</strong>：早起前往环海路猫头山2号观景台，俯瞰绝美山海全景。海风微凉，日出时分金光洒满海面。</span></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">09:30 - 11:30</span> <span class="timeline-content"><strong>【上午】火炬八街漫步</strong>：打卡“威海小镰仓”。建议早去避开人流，沿下坡路走向大海，拍摄日系清新风格照片。周边有特色咖啡与小吃摊。</span></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">13:30 - 16:30</span> <span class="timeline-content"><strong>【下午】千里山海自驾公路（东段）</strong>：租用电动车/包车，沿环海路慢行。途经半月湾、那香海，感受风车与悬崖海岸的浪漫。</span></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">18:00</span> <span class="timeline-content"><strong>【返程/晚餐】</strong>：结束行程，购买伴手礼，前往高铁站/机场返程。</span></div>
+        </div>
+    </section>
+
+    <!-- 景点详情 -->
+    <section id="attractions">
+        <h2>📸 核心景点指南</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">🏝️ 刘公岛</div>
+                <div class="card-meta"><span class="card-tag">历史人文</span><span class="card-tag">AAAAA</span></div>
+                <p>甲午战争主战场遗址。岛上保存着北洋海军提督署、水师学堂及多处炮台遗址，是了解中国近代史的活教材。生态优良，常见梅花鹿。</p>
+                <p><strong>🎫 门票：</strong>含往返船票约122元/人，需实名制提前预约。岛内需另购环保车（约20元）。</p>
+                <div class="alert alert-warn">💡 Tips：船班受天气影响大，务必提前关注气象与航班通知；建议穿舒适运动鞋，全岛步行约需2.5-3小时。</div>
+            </div>
+            <div class="card">
+                <div class="card-title">⛰️ 猫头山</div>
+                <div class="card-meta"><span class="card-tag">自然奇观</span><span class="card-tag">日出圣地</span></div>
+                <p>威海环海路最惊艳的路段。因山形酷似卧猫得名。2号观景台视野最开阔，可同时拍出海蚀崖壁、蜿蜒公路与无垠海面。</p>
+                <p><strong>🎫 门票：</strong>免费开放。</p>
+                <div class="alert alert-info">💡 Tips：日出约在夏季5:20左右，建议提前占位。观景台护栏外风大，拍照务必注意脚下安全。</div>
+            </div>
+            <div class="card">
+                <div class="card-title">🏖️ 国际海水浴场</div>
+                <div class="card-meta"><span class="card-tag">亲海休闲</span><span class="card-tag">日落绝佳</span></div>
+                <p>威海市区沙质最细、水质最清澈的公共浴场之一。配套淋浴设施完善，傍晚时分天空常呈橘粉色，是拍摄“橘子海”的首选地。</p>
+                <p><strong>🎫 门票：</strong>免费（冲淋、储物柜等二次消费自理）。</p>
+                <div class="alert alert-warn">💡 Tips：避开正午暴晒时段；自备浴巾与防晒霜；注意潮汐，勿游过警戒线。</div>
+            </div>
+            <div class="card">
+                <div class="card-title">🛣️ 火炬八街</div>
+                <div class="card-meta"><span class="card-tag">网红打卡</span><span class="card-tag">摄影出片</span></div>
+                <p>被称为威海“小镰仓”。道路直通大海，两侧建筑色彩明快，尽头是蔚蓝海岸。清晨或工作日人少时拍摄效果最佳。</p>
+                <p><strong>🎫 门票：</strong>免费。</p>
+                <div class="alert alert-info">💡 Tips：周末及节假日人流密集，建议09:00前到达；周边网红小吃摊价格略高，理性消费。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 美食推荐 -->
+    <section id="food">
+        <h2>🦞 胶东特色美食</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">必吃招牌</div>
+                <ul>
+                    <li><strong>鲅鱼水饺：</strong>个头大、肉质鲜美，皮薄馅大，威海饮食名片。</li>
+                    <li><strong>烤海蛎子/生蚝：</strong>炭火烤制加蒜蓉粉丝，鲜嫩多汁，9月最肥。</li>
+                    <li><strong>海鲜焖子/海肠捞饭：</strong>胶东传统小吃，酱香浓郁，搭配米饭绝配。</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title">📍 推荐餐厅/街区</div>
+                <ul>
+                    <li><strong>韩乐坊/威海站商圈：</strong>韩式料理聚集地，脊骨土豆汤、炸鸡性价比极高。</li>
+                    <li><strong>古寨早市：</strong>本地人最爱，新鲜海产现买现加工，烟火气十足（早8点前最佳）。</li>
+                    <li><strong>本地老字号排档：</strong>如“海草房海鲜酒楼”或环翠区社区老店，点单看冰柜，明码标价。</li>
+                </ul>
+                <div class="alert alert-info">🍽️ 提示：吃海鲜可备肠胃药；问清计价方式（按斤/个/份），避免纠纷。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 住宿推荐 -->
+    <section id="hotel">
+        <h2>🛏️ 住宿区域建议</h2>
+        <table>
+            <thead><tr><th>档次/类型</th><th>推荐区域</th><th>参考价格</th><th>适合人群</th></tr></thead>
+            <tbody>
+                <tr><td><strong>💰 经济型</strong><br><span style="font-size:0.85rem;color:#666">连锁酒店/青旅</span></td><td>环翠区市中心、威高广场周边</td><td>180-350元/晚</td><td>学生党/预算有限，看重交通便利与美食</td></tr>
+                <tr><td><strong>🌟 舒适型</strong><br><span style="font-size:0.85rem;color:#666">精品民宿/海景公寓</span></td><td>高区国际海水浴场、火炬八街附近</td><td>400-700元/晚</td><td>情侣/家庭，希望步行看海，环境安静</td></tr>
+                <tr><td><strong>💎 高端型</strong><br><span style="font-size:0.85rem;color:#666">星级度假酒店</span></td><td>那香海度假区、经区海边</td><td>900-1800+元/晚</td><td>度假体验优先，追求私享沙滩与完善配套</td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top:10px; font-size:0.9rem;">📌 <strong>预订提示：</strong>旺季（7-8月）及周末房价上浮30%-50%，建议提前2周以上锁定房源。选择高区看海方便，环翠区生活配套更全。</p>
+    </section>
+
+    <!-- 交通指南 -->
+    <section id="transport">
+        <h2>🚄 交通全攻略</h2>
+        <h3>✈️ 如何抵达</h3>
+        <ul>
+            <li><strong>高铁：</strong>杭州东/上海虹桥至威海站/威海北站，车程约5-6小时。出站后可乘公交/网约车直达市区（约30分钟）。</li>
+            <li><strong>飞机：</strong>威海大水泊国际机场，距市区约40公里。开通有机场巴士，也可乘高铁接驳线（约30分钟）至威海站。</li>
+        </ul>
+        
+        <h3>🚌 市内交通</h3>
+        <ul>
+            <li><strong>环海路观光：</strong>强烈推荐租共享电动车（高区/环翠区密集）或包车。公交K1/K3路等覆盖主干道，但部分观景台步行较远。</li>
+            <li><strong>网约车/出租车：</strong>市区打车起步价低，跨区移动（如高区至经区韩乐坊）约30-45元。</li>
+            <li><strong>自驾：</strong>千里山海公路路况极佳，但暑期热门路段（如火炬八街周边）易拥堵，停车位紧张。</li>
+        </ul>
+    </section>
+
+    <!-- 注意事项 -->
+    <section id="tips">
+        <h2>🎒 行前必备与注意事项</h2>
+        <div class="card-grid">
+            <div class="card" style="border-left-color:#e53935;">
+                <div class="card-title" style="color:#e53935;">⚠️ 安全与防护</div>
+                <ul>
+                    <li>海边紫外线极强，务必SPF50+防晒霜+墨镜+防晒衣。</li>
+                    <li>下海遵守浴场规定，不游野泳，留意潮汐表，避免涨潮被困礁石。</li>
+                    <li>夏季偶有雷阵雨，随身携带轻便雨衣或折叠伞。</li>
+                </ul>
+            </div>
+            <div class="card" style="border-left-color:#4caf50;">
+                <div class="card-title" style="color:#4caf50;">👕 穿着与装备</div>
+                <ul>
+                    <li>衣物以速干、透气、浅色系为主，方便拍照且散热快。</li>
+                    <li>备一件薄风衣或针织衫，早晚海风凉，猫头山/夜游船风较大。</li>
+                    <li>建议穿防滑凉鞋或溯溪鞋，礁石区湿滑。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 预算参考 -->
+    <section id="budget">
+        <h2>💰 人均预算参考（2天/1人/适中标准）</h2>
+        <table>
+            <thead><tr><th>支出项目</th><th>明细说明</th><th>预估费用（元）</th></tr></thead>
+            <tbody>
+                <tr><td>🚆 往返大交通</td><td>杭州东-威海 高铁二等座（参考）</td><td>700-900</td></tr>
+                <tr><td>🛏️ 住宿（2晚）</td><td>舒适型海景民宿/酒店（双人拼房或单人）</td><td>500-800</td></tr>
+                <tr><td>🍽️ 餐饮（2天）</td><td>特色海鲜+简餐+咖啡饮品（约60/餐）</td><td>400-600</td></tr>
+                <tr><td>🎫 门票/体验</td><td>刘公岛船票+环保车+租电动车/打车</td><td>200-350</td></tr>
+                <tr><td><strong>合计参考</strong></td><td>不含购物及个人弹性消费</td><td><strong>1800 - 2650</strong></td></tr>
+            </tbody>
+        </table>
+        <div class="alert alert-info" style="margin-top:10px;">📊 <strong>省钱建议：</strong>避开7月中旬-8月中旬最高峰，选择6月或9月上旬出行，住宿降价30%，海鲜性价比翻倍，且体验更舒适。</div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2024 威海夏季旅行指南 | 数据更新于最新旅游旺季 | 祝旅途愉快，一路蔚蓝 🌊</p>
+        <p style="font-size:0.75rem; margin-top:5px; opacity:0.7;">注：价格、船班及景区政策可能随季节调整，出行前请以官方公告为准。</p>
+    </div>
+</footer>
+
+</body>
+</html>

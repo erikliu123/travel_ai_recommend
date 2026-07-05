@@ -1,0 +1,225 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大连夏季旅游攻略 - 北方明珠·浪漫之都</title>
+<style>
+  :root {
+    --primary: #0077b6;
+    --light-blue: #e6f7ff;
+    --dark: #333;
+    --gray: #666;
+    --light-gray: #f5f5f5;
+    --white: #fff;
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  body { background: var(--light-blue); color: var(--dark); line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  header {
+    background: linear-gradient(135deg, #0096c7, #005f91);
+    color: var(--white);
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: var(--light-blue);
+    border-radius: 50% 50% 0 0;
+  }
+  header h1 { font-size: 3rem; margin-bottom: 15px; text-shadow: 2px 2px 6px rgba(0,0,0,0.3); }
+  header p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 20px; opacity: 0.9; }
+  .badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .badge { background: var(--white); color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; box-shadow: var(--shadow); }
+  .section { background: var(--white); border-radius: 12px; margin: 30px 0; padding: 30px; box-shadow: var(--shadow); }
+  .section h2 { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-bottom: 25px; font-size: 2rem; }
+  .timeline { position: relative; padding-left: 30px; border-left: 3px dashed var(--primary); }
+  .timeline-item { margin-bottom: 30px; position: relative; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+  }
+  .timeline-title { font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .card { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .spot-card, .food-card, .stay-card { background: var(--light-gray); padding: 20px; border-radius: 10px; transition: transform 0.3s; }
+  .spot-card:hover, .food-card:hover, .stay-card:hover { transform: translateY(-5px); }
+  .spot-card h3, .food-card h3, .stay-card h3 { color: var(--primary); margin-bottom: 10px; }
+  .tips, .price { font-size: 0.9rem; color: var(--gray); margin-top: 8px; }
+  .price { font-weight: 600; color: #2a9d8f; }
+  table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+  th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+  th { background: var(--primary); color: var(--white); }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  ul.checklist { list-style: none; }
+  ul.checklist li { padding: 8px 0; border-bottom: 1px solid #eee; }
+  ul.checklist li:last-child { border: none; }
+  footer { text-align: center; padding: 30px; background: #003f5c; color: var(--white); margin-top: 50px; }
+  @media (max-width: 768px) {
+    header h1 { font-size: 2.2rem; }
+    .section { padding: 20px; }
+    .timeline { padding-left: 20px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>大连 · 北方明珠</h1>
+  <p>浪漫之都的夏日邀约：山海相连的海岸线，凉爽宜人的海风，一场说走就走的海滨之旅。</p>
+  <div class="badges">
+    <span class="badge">海边度假</span>
+    <span class="badge">亲子友好</span>
+    <span class="badge">城市漫步</span>
+    <span class="badge">最佳月份：6-9月</span>
+    <span class="badge">建议游玩：3天</span>
+  </div>
+</header>
+
+<div class="container">
+  <section class="section">
+    <h2>城市概述</h2>
+    <p>大连位于辽东半岛最南端，三面环海，气候温和。这里拥有北方最美的海岸线，星海广场的壮阔、老虎滩的童趣、金石滩的奇礁怪石，共同勾勒出山海相连的独特魅力。夏季均温25℃左右，是避暑度假的绝佳选择。城市干净宜居，海鲜物美价廉，适合家庭出游与情侣旅行。</p>
+  </section>
+
+  <section class="section">
+    <h2>📅 3日详细行程</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-title">Day 1 | 城市初印象 & 海岸线漫步</div>
+        <p><strong>上午：</strong>抵达大连，入住酒店。前往星海广场，打卡亚洲最大城市广场，远眺星海湾跨海大桥。</p>
+        <p><strong>下午：</strong>沿海木栈道漫步，参观大连贝壳博物馆，傍晚在星海公园看日落。</p>
+        <p><strong>晚上：</strong>品尝大连海鲜大排档，夜逛中山广场，欣赏历史建筑群灯光。</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-title">Day 2 | 海洋奇遇 & 亲子时光</div>
+        <p><strong>上午：</strong>游览老虎滩海洋公园，打卡极地馆、珊瑚馆、欢乐剧场。</p>
+        <p><strong>下午：</strong>步行滨海路西段（老虎滩至燕窝岭段），体验中国最美沿海公路的山海风光。</p>
+        <p><strong>晚上：</strong>返回市区，体验东港威尼斯水城夜景，可选音乐喷泉演出。</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-title">Day 3 | 地质奇观 & 休闲返程</div>
+        <p><strong>上午：</strong>乘车前往金石滩，参观国家地质公园，观赏恐龙探海、龟裂石等海蚀地貌。</p>
+        <p><strong>下午：</strong>发现王国主题公园游玩（亲子家庭推荐）或黄金海岸踏浪拾贝。</p>
+        <p><strong>晚上：</strong>购买特色伴手礼（烤鱼片、鱿鱼丝），乘高铁/飞机返程。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🌊 核心景点详解</h2>
+    <div class="card">
+      <div class="spot-card">
+        <h3>星海广场</h3>
+        <p>亚洲最大的城市广场，占地176万平方米。可远眺跨海大桥，夜晚灯光秀璀璨，是大连的城市名片。免费开放，适合拍照打卡、放风筝、散步。</p>
+        <div class="price">门票：免费</div>
+        <div class="tips">💡 Tips：傍晚前往最佳，避开正午暴晒；广场较大，建议穿舒适运动鞋。</div>
+      </div>
+      <div class="spot-card">
+        <h3>老虎滩海洋公园</h3>
+        <p>中国顶级现代化海洋主题公园，集极地动物、珊瑚礁生态、海洋表演于一体。极地馆的白鲸表演和欢乐剧场的海豚秀不容错过。</p>
+        <div class="price">门票：约220元（含5馆套票）</div>
+        <div class="tips">💡 Tips：提前网上购票可排队；避开周末人流；自带饮用水与防晒。</div>
+      </div>
+      <div class="spot-card">
+        <h3>金石滩国家旅游度假区</h3>
+        <p>绵延30公里的奇石海岸线，拥有罕见的海蚀地貌。发现王国主题公园适合亲子，黄金海岸沙质细腻，适合休闲度假。</p>
+        <div class="price">地质公园：60元 | 发现王国：200元</div>
+        <div class="tips">💡 Tips：地质公园需步行，带足水；发现王国注意演出时间表。</div>
+      </div>
+      <div class="spot-card">
+        <h3>滨海路</h3>
+        <p>全长45公里的沿海公路，被誉为“中国最美滨海路”。木栈道贯穿全程，串联傅家庄、燕窝岭、北大桥等观景台。</p>
+        <div class="price">免费（自驾/徒步）</div>
+        <div class="tips">💡 Tips：推荐老虎滩至北大桥段徒步；自驾注意部分路段限行；清晨或傍晚光线最佳。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🦞 美食推荐</h2>
+    <div class="card">
+      <div class="food-card">
+        <h3>特色菜品</h3>
+        <p>海胆蒸蛋、葱烧海参、清蒸飞蟹、鲅鱼水饺、烤鱿鱼、咸鱼饼子。大连海鲜讲究原汁原味，清蒸、白灼、葱烧最能体现鲜甜。</p>
+      </div>
+      <div class="food-card">
+        <h3>推荐餐厅</h3>
+        <p><strong>日丰园海肠水饺</strong>：本地老字号，海肠水饺必点。<br><strong>品海楼（老虎滩店）</strong>：景观餐厅，海鲜地道。<br><strong>黑石礁海鲜市场</strong>：现挑现做，价格亲民。<br><strong>长兴里小吃街</strong>：体验大连地道市井烟火。</p>
+      </div>
+    </div>
+    <div class="tips">💡 海鲜过敏者慎食；大排档建议明码标价；夏季肠胃易不适，备好肠胃药。</div>
+  </section>
+
+  <section class="section">
+    <h2>🏨 住宿推荐</h2>
+    <div class="grid-2">
+      <div class="stay-card">
+        <h3>💰 经济型（150-300元/晚）</h3>
+        <p>如家、汉庭（西安路/青泥洼桥商圈）<br>优势：交通便利，靠近地铁，性价比高。</p>
+      </div>
+      <div class="stay-card">
+        <h3>🌿 舒适型（400-800元/晚）</h3>
+        <p>大连君悦酒店（星海广场旁）、亚朵S酒店（东港店）<br>优势：海景房视野佳，服务优质，近景点。</p>
+      </div>
+      <div class="stay-card">
+        <h3>🌟 高端型（1000元+/晚）</h3>
+        <p>大连一方城堡豪华精选酒店（莲花山）<br>优势：欧式城堡设计，私人沙滩，顶级海景。</p>
+      </div>
+    </div>
+    <div class="tips">💡 暑期为旺季，务必提前2-3周预订；东港/星海广场区域夜景最佳但价格偏高。</div>
+  </section>
+
+  <section class="section">
+    <h2>🚌 交通指南</h2>
+    <table>
+      <tr><th>方式</th><th>详情</th><th>参考耗时</th></tr>
+      <tr><td>飞机</td><td>杭州直飞大连周水子机场，航班频繁</td><td>约2小时</td></tr>
+      <tr><td>高铁</td><td>需在天津/沈阳中转，大连站位于市中心</td><td>约8-10小时</td></tr>
+      <tr><td>市内交通</td><td>地铁1/2号线覆盖主要商圈；公交发达；打车起步价10元</td><td>-</td></tr>
+    </table>
+    <div class="tips">💡 推荐办理“大连明珠卡”乘车打折；金石滩距离市区约50公里，建议轻轨3号线直达。</div>
+  </section>
+
+  <section class="section">
+    <h2>⚠️ 注意事项</h2>
+    <ul class="checklist">
+      <li>🌡️ 气候：夏季均温22-28℃，早晚海风凉，备薄外套；紫外线强，SPF50防晒霜+墨镜必带。</li>
+      <li>👕 穿着：轻便透气衣物+舒适防滑鞋；沙滩活动备拖鞋/泳衣。</li>
+      <li>🌊 安全：非正规浴场严禁下水；潮汐变化大，勿在礁石区久留；儿童需全程监护。</li>
+      <li>📱 实用：大连信号覆盖佳，但金石滩部分区域信号弱；建议下载离线地图。</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>💰 预算参考（人均/3天）</h2>
+    <table>
+      <tr><th>项目</th><th>经济型</th><th>舒适型</th><th>高端型</th></tr>
+      <tr><td>往返交通</td><td>1500元（高铁中转）</td><td>1500元</td><td>2000元（机票）</td></tr>
+      <tr><td>住宿（3晚）</td><td>600元</td><td>1800元</td><td>3000元</td></tr>
+      <tr><td>餐饮</td><td>600元</td><td>900元</td><td>1500元</td></tr>
+      <tr><td>门票/市内交通</td><td>400元</td><td>600元</td><td>800元</td></tr>
+      <tr><td><strong>总计估算</strong></td><td><strong>3100元</strong></td><td><strong>4800元</strong></td><td><strong>7300元</strong></td></tr>
+    </table>
+    <div class="tips">💡 学生/老人享门票折扣；海鲜市场自加工比餐厅便宜30%；旺季机票提前购票可省20%。</div>
+  </section>
+</div>
+
+<footer>
+  <p>© 2024 大连旅游攻略 | 数据仅供参考，实际价格以景区及商家为准</p>
+  <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">安全出行，文明旅游，尽享海滨浪漫时光</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国凉都·六盘水夏季避暑旅游攻略</title>
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --primary-dark: #1b4332;
+            --primary-light: #d8f3dc;
+            --accent: #e63946;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-main: #212529;
+            --text-sub: #6c757d;
+            --border: #e9ecef;
+            --radius: 12px;
+            --shadow: 0 4px 16px rgba(45, 106, 79, 0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; background: var(--bg-body); color: var(--text-main); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        
+        .container { max-width: 960px; margin: 0 auto; padding: 20px 16px 60px; }
+        
+        /* Header / Hero */
+        .hero {
+            background: linear-gradient(135deg, #0b2b1c, #1b4332 40%, #2d6a4f 70%, #40916c);
+            color: #ffffff;
+            padding: 60px 24px 40px;
+            border-radius: 0 0 24px 24px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(27, 67, 50, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 15px;
+            background: repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px);
+        }
+        .hero h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; }
+        .hero .subtitle { font-size: 1.05rem; opacity: 0.95; max-width: 680px; margin: 0 auto 20px; }
+        .meta-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .tag { background: rgba(255,255,255,0.2); backdrop-filter: blur(6px); padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.3); }
+        .tag.highlight { background: #d8f3dc; color: var(--primary-dark); font-weight: bold; }
+        
+        /* Section Styles */
+        section { background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; margin-bottom: 24px; border: 1px solid var(--border); }
+        h2 { display: flex; align-items: center; color: var(--primary-dark); font-size: 1.5rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--primary-light); }
+        h2 .icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--primary); color: #fff; border-radius: 50%; margin-right: 12px; font-size: 1.1rem; flex-shrink: 0; }
+        
+        /* Grids & Cards */
+        .grid { display: grid; gap: 18px; }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .card { background: #f8f9fa; padding: 18px; border-radius: 10px; border-left: 4px solid var(--primary); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); }
+        .card h3 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .price { background: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: 500; }
+        .card p, .card li { font-size: 0.95rem; color: var(--text-sub); }
+        
+        /* Timeline */
+        .timeline { position: relative; padding-left: 24px; border-left: 2px dashed var(--primary-light); margin-top: 10px; }
+        .day-header { font-weight: 700; color: var(--primary); font-size: 1.1rem; margin: 16px 0 10px; display: flex; align-items: center; gap: 8px; }
+        .day-header::before { content: ""; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
+        .time-slot { position: relative; padding: 16px 16px 16px 24px; background: #fff; border-radius: 8px; margin-bottom: 14px; border: 1px solid #e9ecef; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .time-slot::before { content: ""; position: absolute; left: -30px; top: 20px; width: 10px; height: 10px; background: #fff; border: 3px solid var(--primary); border-radius: 50%; }
+        .time-slot h4 { color: var(--text-main); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .time-label { background: var(--primary-light); color: var(--primary-dark); padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+        
+        /* Pros/Cons */
+        .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 16px 0; }
+        .box { padding: 16px; border-radius: 8px; font-size: 0.95rem; }
+        .box.pro { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+        .box.con { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.95rem; }
+        th { background: var(--primary-light); color: var(--primary-dark); font-weight: 600; text-align: left; padding: 12px 10px; border-bottom: 1px solid #d1e7dd; }
+        td { padding: 10px; border-bottom: 1px solid var(--border); color: var(--text-sub); }
+        tr:last-child td { border-bottom: none; }
+        
+        /* Tips Box */
+        .tip-box { background: #f0f7ff; border: 1px solid #b8daff; border-radius: 8px; padding: 14px; margin-top: 15px; }
+        .tip-box strong { color: #004085; display: flex; align-items: center; gap: 6px; }
+        .tip-box ul { padding-left: 18px; margin-top: 8px; }
+        
+        /* Lists */
+        ul.check-list { list-style: none; padding: 0; }
+        ul.check-list li { padding-left: 28px; position: relative; margin-bottom: 10px; color: var(--text-sub); }
+        ul.check-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--primary); font-weight: bold; }
+        
+        /* Footer */
+        .footer { text-align: center; padding: 30px 0; color: #adb5bd; font-size: 0.85rem; border-top: 1px solid #dee2e6; margin-top: 20px; }
+        .footer a { color: var(--primary); text-decoration: none; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 12px; }
+            section { padding: 20px; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero { padding: 40px 16px 30px; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 8px 6px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 城市概述 -->
+        <header class="hero">
+            <h1>六盘水 · 中国凉都</h1>
+            <p class="subtitle">夏季均温 19℃ 的避暑秘境。坐拥世界最大高山草甸、世界第一高桥与浓郁的少数民族风情，是逃离酷暑、拥抱自然的高性价比之选。</p>
+            <div class="meta-tags">
+                <span class="tag">🌿 避暑胜地</span>
+                <span class="tag">⛰️ 自然风光</span>
+                <span class="tag highlight">💰 高性价比</span>
+                <span class="tag">📅 建议游玩：2天</span>
+                <span class="tag">📆 最佳月份：5-9月</span>
+            </div>
+            <div style="margin-top: 16px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; font-size: 0.9rem;">
+                <span>📍 贵州省西部</span>
+                <span>🌡️ 夏季 16-25℃</span>
+                <span>👥 适合人群：家庭游/情侣/户外摄影/学生党</span>
+            </div>
+        </header>
+
+        <!-- 城市优缺点速览 -->
+        <section>
+            <h2><span class="icon">📊</span> 优缺点速览</h2>
+            <div class="pros-cons">
+                <div class="box pro">
+                    <strong>✅ 核心优势</strong>
+                    <ul style="margin-top: 8px; padding-left: 16px; font-size: 0.9rem;">
+                        <li>夏季均温仅19℃，天然空调</li>
+                        <li>高山草原与峡谷地貌组合独特</li>
+                        <li>物价亲民，餐饮住宿性价比高</li>
+                        <li>美食极具特色（烙锅、羊肉粉）</li>
+                    </ul>
+                </div>
+                <div class="box con">
+                    <strong>⚠️ 注意事项</strong>
+                    <ul style="margin-top: 8px; padding-left: 16px; font-size: 0.9rem;">
+                        <li>知名度较低，商业配套仍在升级</li>
+                        <li>景点间距离较远，需预留车程</li>
+                        <li>公共交通班次有限，自驾/包车更佳</li>
+                        <li>高原紫外线较强，需做好防晒</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2天详细行程 -->
+        <section>
+            <h2><span class="icon">📅</span> 2天精华行程安排</h2>
+            <div class="timeline">
+                <div class="day-header">DAY 1：古镇寻味 · 峡谷奇观 · 夜品烙锅</div>
+                <div class="time-slot">
+                    <h4><span class="time-label">上午 09:00-12:30</span> 水城古镇漫步</h4>
+                    <p>抵达市区后前往水城古镇，参观明清古建筑群，了解三线建设历史。在古镇老街享用午餐，品尝地道水城羊肉粉。</p>
+                </div>
+                <div class="time-slot">
+                    <h4><span class="time-label">下午 13:30-17:30</span> 北盘江大峡谷（含北盘江大桥）</h4>
+                    <p>驱车前往大桥观景台。站在世界第一高桥俯瞰，感受“桥高565米，峡谷深千尺”的震撼。建议预留2小时拍照与徒步。</p>
+                </div>
+                <div class="time-slot">
+                    <h4><span class="time-label">晚上 18:30-20:30</span> 市区水城烙锅体验 & 住宿</h4>
+                    <p>返回市区，打卡“西部一绝”水城烙锅。饭后沿古镇护城河散步消食，入住市区舒适型酒店。</p>
+                </div>
+
+                <div class="day-header">DAY 2：云端草原 · 野玉海休闲 · 满载返程</div>
+                <div class="time-slot">
+                    <h4><span class="time-label">上午 08:30-12:00</span> 乌蒙大草原深度游</h4>
+                    <p>早起前往贵州最大高山草原。乘观光车或徒步游览，观赏高山杜鹃、万亩草甸、巨型风力发电阵列。可体验骑马（约30元/20分钟）。</p>
+                </div>
+                <div class="time-slot">
+                    <h4><span class="time-label">下午 13:30-16:30</span> 野玉海国际旅游度假区</h4>
+                    <p>下山后前往度假区，夏季主打花海漫步、高山温泉与山地自行车。若体力允许可体验螺旋观景步道，拍照极出片。</p>
+                </div>
+                <div class="time-slot">
+                    <h4><span class="time-label">晚上 17:30</span> 轻松返程</h4>
+                    <p>购买伴手礼（刺梨干、苦荞茶），根据交通时间安排返程，结束清凉之旅。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心景点详解 -->
+        <section>
+            <h2><span class="icon">🏞️</span> 核心景点推荐</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3>乌蒙大草原 <span class="price">免门票/观光车40元</span></h3>
+                    <p>📍 <strong>盘州市</strong> | ⏱️ 游玩：4-6小时<br>贵州海拔最高（2500-2800m）、面积最大的高山草原。夏季绿草如茵，野花遍野，是露营观星、拍摄风车日落的绝佳地。</p>
+                    <div class="tip-box"><strong>💡 游玩Tips：</strong><ul><li>草原昼夜温差极大，务必带防风外套</li><li>建议早9点前入园避开客流，易遇云海</li><li>海拔较高，避免剧烈奔跑以防高反</li></ul></div>
+                </div>
+                <div class="card">
+                    <h3>北盘江大峡谷 <span class="price">观景台 20-30元</span></h3>
+                    <p>📍 <strong>水城区/普安县交界</strong> | ⏱️ 游玩：2-3小时<br>世界第一高桥——北盘江大桥（杭瑞高速）横跨其上。两岸绝壁陡峭，江水碧绿深邃，地质景观与人工奇迹完美融合。</p>
+                    <div class="tip-box"><strong>💡 游玩Tips：</strong><ul><li>无人机禁飞区（需提前查询最新空管政策）</li><li>风势较大，长裙或宽松衣物注意防风</li><li>观景台台阶较多，穿舒适运动鞋</li></ul></div>
+                </div>
+                <div class="card">
+                    <h3>野玉海度假区 <span class="price">套票约150元</span></h3>
+                    <p>📍 <strong>玉舍国家森林公园</strong> | ⏱️ 游玩：3-4小时<br>集滑雪（冬）、温泉、花海、山地运动于一体的国家级度假区。夏季气候凉爽，植被覆盖率超80%，适合家庭休闲。</p>
+                    <div class="tip-box"><strong>💡 游玩Tips：</strong><ul><li>夏季可泡冷泉与高山温泉，缓解疲劳</li><li>内部有观光小火车，建议购买交通联票</li><li>亲子设施完善，带老人小孩非常友好</li></ul></div>
+                </div>
+                <div class="card">
+                    <h3>水城古镇 <span class="price">免费开放</span></h3>
+                    <p>📍 <strong>六盘水市中心</strong> | ⏱️ 游玩：2-3小时<br>拥有400余年历史，保留大量明清徽派与黔西北结合的古建筑。三线建设博物馆、水城河夜景、老街烟火气是亮点。</p>
+                    <div class="tip-box"><strong>💡 游玩Tips：</strong><ul><li>主街商业化适中，建议深入小巷探索原生态</li><li>傍晚灯光亮起时拍照最美</li><li>古镇入口停车场充足，但节假日需早到</li></ul></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 美食推荐 -->
+        <section>
+            <h2><span class="icon">🍜</span> 舌尖上的凉都</h2>
+            <div class="grid grid-2">
+                <div>
+                    <h3 style="margin-bottom:12px; color:var(--primary-dark);">🥘 必吃特色</h3>
+                    <ul class="check-list">
+                        <li><strong>水城烙锅：</strong>“西部一绝”。中间凸起的砂锅上淋油煎烤，万物皆可烙，搭配糊辣椒蘸水，香气扑鼻。</li>
+                        <li><strong>水城羊肉粉：</strong>带皮羊肉切薄片，米粉爽滑，羊汤醇厚，撒上山胡椒与花椒，清晨必吃唤醒味蕾。</li>
+                        <li><strong>盘县火腿/烤全羊：</strong>当地农家特色，肉质紧实，烟熏风味独特，适合多人聚餐分享。</li>
+                        <li><strong>荞凉粉 & 刺梨汁：</strong>解暑神器。酸汤凉拌配上维C之王刺梨饮品，完美平衡油腻。</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="margin-bottom:12px; color:var(--primary-dark);">📍 推荐觅食地</h3>
+                    <table>
+                        <tr><th>类型</th><th>推荐餐厅/街区</th><th>人均</th></tr>
+                        <tr><td>老字号粉店</td><td>向都羊肉粉、四喜羊肉粉</td><td>15-25元</td></tr>
+                        <tr><td>烙锅聚餐</td><td>古镇内“老街烙锅”、人民路夜市</td><td>40-60元</td></tr>
+                        <tr><td>特色农家乐</td><td>乌蒙大草原周边牧民家</td><td>80-120元</td></tr>
+                        <tr><td>小吃夜市</td><td>麒麟美食街、荷泉路夜市</td><td>20-35元</td></tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 住宿推荐 -->
+        <section>
+            <h2><span class="icon">🛏️</span> 住宿指南（按档次）</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3>💰 经济实惠型 <span class="price">150-250元/晚</span></h3>
+                    <p><strong>推荐区域：</strong>市区火车站/人民广场周边<br><strong>特点：</strong>连锁快捷酒店（如汉庭、如家、7天），交通便利，餐饮选择多，适合预算有限的学生党/背包客。干净卫生，基础配套齐全。</p>
+                </div>
+                <div class="card">
+                    <h3>🌟 舒适度假型 <span class="price">300-500元/晚</span></h3>
+                    <p><strong>推荐区域：</strong>水城古镇内/钟山区近郊<br><strong>特点：</strong>精品民宿或中高端商务酒店。部分带庭院、茶室或山景阳台，服务贴心，停车方便，适合家庭与情侣。</p>
+                </div>
+                <div class="card" style="grid-column: span 2;">
+                    <h3>💎 高端体验型 <span class="price">600-900元/晚</span></h3>
+                    <p><strong>推荐区域：</strong>野玉海度假区内/乌蒙大草原特色木屋<br><strong>特点：</strong>野奢帐篷、星空玻璃房、温泉度假别墅。推窗即见草甸或森林，含早晚餐或体验项目。需提前1-2周预订，夏季周末极抢手。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 交通指南 -->
+        <section>
+            <h2><span class="icon">🚌</span> 交通全攻略</h2>
+            <h3 style="color:var(--primary); margin: 12px 0 8px;">🛫 如何到达</h3>
+            <ul class="check-list">
+                <li><strong>飞机：</strong>飞抵贵阳龙洞堡机场或茅台机场。抵达后转乘高铁（贵阳北→六盘水站，约1.5小时）或长途客车（约3小时），再换乘本地交通。</li>
+                <li><strong>高铁/动车：</strong>直达六盘水站（杭州、长沙、昆明、成都等城市有直达或中转）。杭州出发约8-10小时（需贵阳或昆明中转）。站内打车/公交便捷。</li>
+                <li><strong>自驾：</strong>杭瑞高速、沪昆高速交汇于此。路况整体良好，但山区弯道多，建议白天行车，检查刹车。</li>
+            </ul>
+            <h3 style="color:var(--primary; margin: 16px 0 8px; display:inline-block;">🚗 市内交通</h3>
+            <p>六盘水景点呈“大分散、小聚集”特点。强烈建议：<br>
+            🔹 <strong>包车/租车：</strong>2天包车约300-400元/天（含司机油费），灵活省时，最推荐。<br>
+            🔹 <strong>公共交通：</strong>市区公交发达，但前往草原/大桥需坐旅游专线或客运班车（班次较少，需提前查时刻表）。<br>
+            🔹 <strong>网约车：</strong>市区及近郊可用，偏远山区信号弱时可能叫车困难，建议提前留司机电话。</p>
+        </section>
+
+        <!-- 预算参考 -->
+        <section>
+            <h2><span class="icon">🧮</span> 费用预算参考（2天1夜/单人）</h2>
+            <p style="color:var(--text-sub); margin-bottom:10px; font-size:0.95rem;">📌 基于“经济型”标准估算，实际费用随出发地与季节浮动，仅供参考。</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="30%">项目</th>
+                        <th width="20%">费用区间</th>
+                        <th width="50%">说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>大交通（往返）</td><td>¥300 - ¥800</td><td>高铁二等座/机票折扣，含贵阳中转费</td></tr>
+                    <tr><td>住宿（1晚）</td><td>¥80 - ¥150</td><td>经济型酒店标间人均分摊</td></tr>
+                    <tr><td>餐饮（2天）</td><td>¥150 - ¥250</td><td>含羊肉粉、烙锅、小吃、饮水等</td></tr>
+                    <tr><td>门票/体验</td><td>¥100 - ¥180</td><td>草原观光车、大峡谷门票、野玉海套票</td></tr>
+                    <tr><td>市内交通</td><td>¥80 - ¥150</td><td>公交/打车/拼车分摊</td></tr>
+                    <tr style="font-weight:bold; background:#e8f5e9; color:#2d6a4f;"><td>💡 总计参考</td><td>¥710 - ¥1530</td><td>丰俭由人，淡季常有住宿折扣</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 注意事项 -->
+        <section>
+            <h2><span class="icon">🎒</span> 出行注意事项</h2>
+            <div class="grid grid-2">
+                <div>
+                    <h4 style="color:var(--primary-dark); margin-bottom:10px;">🌤️ 气候与穿着</h4>
+                    <ul style="padding-left:18px; color:var(--text-sub);">
+                        <li>“天无三日晴”，随身携带轻便雨衣/折叠伞。</li>
+                        <li>昼夜温差可达10℃以上，必须带薄冲锋衣或抓绒外套。</li>
+                        <li>高原紫外线强，SPF50+防晒霜、墨镜、宽檐帽必备。</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color:var(--primary-dark); margin-bottom:10px;">🛡️ 安全与礼仪</h4>
+                    <ul style="padding-left:18px; color:var(--text-sub);">
+                        <li>山路弯多，自驾请减速，雨雾天气开启雾灯。</li>
+                        <li>尊重彝族、苗族风俗，拍摄人物前请先征得同意。</li>
+                        <li>草原生态保护严格，请勿乱扔垃圾，勿私自采摘野生植物。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tip-box" style="background:#fff3cd; border-color:#ffecb5;">
+                <strong>⚠️ 特别提醒：</strong> 景区手机信号在峡谷底部或草原深处可能不稳定，建议提前下载离线地图，并保存当地紧急救援与包车司机联系方式。部分民宿提供接驳服务，预订时可提前咨询。
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>📝 攻略更新于 2024年 | 门票与交通价格具有时效性，出行前请以景区官方公告为准。</p>
+            <p style="margin-top:6px;">祝您在“中国凉都”收获一段19℃的清凉夏日记忆！ 🌲🍃</p>
+        </footer>
+    </div>
+</body>
+</html>

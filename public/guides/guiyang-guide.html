@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>贵阳夏季避暑旅游攻略 | 2天1夜清凉之旅</title>
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --primary-light: #40916c;
+      --primary-dark: #1b4332;
+      --accent: #b7e4c7;
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --text-main: #212529;
+      --text-sec: #6c757d;
+      --border: #e9ecef;
+      --shadow: 0 4px 12px rgba(45,106,79,0.1);
+      --shadow-hover: 0 8px 24px rgba(45,106,79,0.15);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.6; color: var(--text-main); background-color: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Header / Hero */
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white; padding: 60px 20px 40px; text-align: center; position: relative; overflow: hidden;
+    }
+    header::before {
+      content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 150%;
+      background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent); transform: rotate(15deg); pointer-events: none;
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
+    .subtitle { font-size: 1.1rem; opacity: 0.9; margin-bottom: 20px; }
+    .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px; }
+    .badge {
+      background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;
+      backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3);
+    }
+    .meta-info {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 20px; font-size: 0.95rem; opacity: 0.95;
+    }
+    .meta-item { display: flex; align-items: center; gap: 6px; }
+    
+    /* Sections General */
+    section { margin: 50px 0; }
+    .section-title {
+      font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 30px; padding-left: 15px;
+      border-left: 5px solid var(--primary-light); display: inline-block;
+    }
+    .card {
+      background: var(--card); border-radius: 12px; padding: 24px; margin-bottom: 20px;
+      box-shadow: var(--shadow); transition: all 0.3s ease; border: 1px solid var(--border);
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    p, li { margin-bottom: 8px; color: var(--text-sec); }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 6px; }
+
+    /* Grid Layouts */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+
+    /* Overview Special */
+    .overview-box { background: linear-gradient(to right bottom, #ffffff, #f8fdf9); }
+    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
+    .pc-col { padding: 15px; border-radius: 8px; }
+    .pc-pros { background: #e8f5e9; border-left: 4px solid #4caf50; }
+    .pc-cons { background: #fff3e0; border-left: 4px solid #ff9800; }
+    .pc-title { font-weight: 600; margin-bottom: 8px; color: var(--text-main); }
+
+    /* Itinerary Timeline */
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 10px; top: 5px; bottom: 0; width: 3px; background: var(--accent);
+    }
+    .timeline-day { margin-bottom: 30px; position: relative; }
+    .timeline-dot {
+      position: absolute; left: -38px; top: 0; width: 24px; height: 24px; background: var(--primary);
+      border: 4px solid white; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .time-block {
+      background: white; padding: 15px; margin: 10px 0 20px 0; border-radius: 8px;
+      border: 1px solid var(--border); box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+    .time-label {
+      display: inline-block; background: var(--accent); color: var(--primary-dark);
+      padding: 3px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-bottom: 8px;
+    }
+    .route-link { color: var(--primary-light); font-weight: 500; }
+
+    /* Spot Details */
+    .spot-card { display: flex; flex-direction: column; height: 100%; }
+    .spot-header {
+      height: 140px; background: linear-gradient(45deg, var(--primary-light), #74c69d);
+      border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.5rem; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .spot-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .tag-sm { background: #f0f4f8; color: var(--primary); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+    .price-tag { color: #e67e22; font-weight: bold; margin-top: auto; padding-top: 10px; border-top: 1px dashed var(--border); }
+    .tips { background: #f8f9fa; padding: 10px; border-radius: 6px; margin-top: 10px; font-size: 0.9rem; }
+
+    /* Food & Hotel */
+    .food-item { border-bottom: 1px solid var(--border); padding-bottom: 15px; margin-bottom: 15px; }
+    .food-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .food-name { font-weight: 600; color: var(--text-main); margin-bottom: 4px; }
+    .food-desc { font-size: 0.9rem; color: var(--text-sec); }
+    .hotel-tier { text-align: center; padding: 20px; }
+    .tier-price { font-size: 1.4rem; font-weight: bold; color: var(--primary); margin: 8px 0; }
+    .tier-badge {
+      display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; margin-bottom: 10px;
+    }
+    .tier-econ { background: #e3f2fd; color: #1976d2; }
+    .tier-comfort { background: #e8f5e9; color: #388e3c; }
+    .tier-high { background: #fff8e1; color: #f57f17; }
+
+    /* Budget Table */
+    .budget-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+    .budget-table th, .budget-table td { padding: 14px 15px; text-align: left; border-bottom: 1px solid var(--border); }
+    .budget-table th { background: var(--primary-light); color: white; font-weight: 500; }
+    .budget-table tr:last-child td { border-bottom: none; background: #f9fcf5; font-weight: bold; }
+
+    /* Notes */
+    .note-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .note-card { border-top: 4px solid var(--primary-light); }
+    .note-icon { font-size: 2rem; margin-bottom: 10px; }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark); color: rgba(255,255,255,0.7); text-align: center; padding: 30px 20px; margin-top: 60px; font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .section-title { font-size: 1.5rem; }
+      .pros-cons { grid-template-columns: 1fr; }
+      .meta-info { flex-direction: column; align-items: center; gap: 8px; }
+      .spot-header { height: 100px; }
+      .timeline { padding-left: 25px; }
+      .timeline-dot { left: -33px; width: 20px; height: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>🍃 贵阳 · 夏日避暑攻略</h1>
+    <p class="subtitle">中国避暑之都｜均温23℃的森系慢生活</p>
+    <div class="badges">
+      <span class="badge">避暑胜地</span>
+      <span class="badge">自然风光</span>
+      <span class="badge">美食之旅</span>
+    </div>
+    <div class="meta-info">
+      <div class="meta-item">📅 最佳月份：5-9月</div>
+      <div class="meta-item">⏱️ 建议游玩：2天1夜</div>
+      <div class="meta-item">💰 预算级别：1级（经济型）</div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 城市概述 -->
+  <section>
+    <h2 class="section-title">📍 城市概述</h2>
+    <div class="card overview-box">
+      <p style="font-size: 1.05rem; margin-bottom: 15px;">贵阳，别称“林城”，是贵州省省会。这里夏季平均气温仅23℃，无需空调亦觉清凉。城市被群山环抱，南明河穿城而过。黔灵山猕猴灵动、青岩古镇古韵犹存、甲秀楼夜景璀璨。贵阳是一座“酸辣鲜香”与“山水清幽”交织的宝藏城市，非常适合追求高性价比与慢节奏的夏日短途游。</p>
+      <div class="pros-cons">
+        <div class="pc-col pc-pros">
+          <div class="pc-title">✨ 旅行优点</div>
+          <ul>
+            <li>气候极佳，夏季均温23℃，天然避暑空调</li>
+            <li>美食极具特色（酸汤、折耳根、各类小吃）且价格亲民</li>
+            <li>整体消费水平低，2天行程花费可控</li>
+            <li>周边自然与人文资源丰富，公共交通衔接便利</li>
+          </ul>
+        </div>
+        <div class="pc-col pc-cons">
+          <div class="pc-title">⚠️ 注意事项</div>
+          <ul>
+            <li>夏季多阵雨，天气变化快，湿度较高</li>
+            <li>城市现代化景观较普通，核心玩点在自然与市井文化</li>
+            <li>知名景点相对分散，需预留一定的交通中转时间</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2天行程安排 -->
+  <section>
+    <h2 class="section-title">🗺️ 2天详细行程安排</h2>
+    <div class="timeline">
+      <div class="timeline-day">
+        <div class="timeline-dot"></div>
+        <h3>Day 1：城市森呼吸与烟火夜市</h3>
+        <div class="time-block">
+          <span class="time-label">08:30 - 12:00 上午</span>
+          <p><strong>📍 黔灵山公园</strong> | 登山观猴，寻访弘福寺。建议从正门入，沿索道/步道登顶瞰筑亭，俯瞰贵阳全景。下山时注意猕猴出没。</p>
+          <p><span class="route-link">🚌 交通：</span> 地铁1号线至「黔灵山公园」站，步行即达。</p>
+        </div>
+        <div class="time-block">
+          <span class="time-label">12:30 - 14:00 午餐</span>
+          <p>前往喷水池/大十字商圈，品尝正宗<strong>酸汤鱼</strong>或<strong>肠旺面</strong>。推荐步行或共享单车短驳。</p>
+        </div>
+        <div class="time-block">
+          <span class="time-label">14:30 - 17:00 下午</span>
+          <p><strong>📍 花溪公园 & 十里河滩</strong> | 避开午后酷热，租一辆自行车沿十里河滩生态绿道骑行。漫步黄金大道，感受水清木秀的“贵阳后花园”。</p>
+          <p><span class="route-link">🚇 交通：</span> 地铁1号线直达「花溪公园」站。</p>
+        </div>
+        <div class="time-block">
+          <span class="time-label">19:00 - 22:00 晚上</span>
+          <p><strong>📍 甲秀楼夜景 & 青云市集</strong> | 晚餐后步行至南明河畔，对岸拍摄甲秀楼璀璨倒影。随后至青云路/青云市集打卡夜市，体验贵阳年轻人的夜生活与各类地道小吃。</p>
+        </div>
+      </div>
+      <div class="timeline-day">
+        <div class="timeline-dot"></div>
+        <h3>Day 2：古镇寻味与悠闲返程</h3>
+        <div class="time-block">
+          <span class="time-label">08:00 - 09:00 交通</span>
+          <p>前往青岩古镇，建议搭乘「花果园湿地公园站」的景区直通车或公交203路，避开早高峰。</p>
+        </div>
+        <div class="time-block">
+          <span class="time-label">09:30 - 12:30 上午</span>
+          <p><strong>📍 青岩古镇</strong> | 贵州四大古镇之一。沿着青石板路漫步定广门、赵以炅状元府、万寿宫。重点体验边逛边吃的乐趣。</p>
+          <p><span class="route-link">🍽️ 午餐推荐：</span> 古镇内解决，必吃青岩猪脚、糕粑稀饭、豆腐圆子、玫瑰糖。</p>
+        </div>
+        <div class="time-block">
+          <span class="time-label">13:30 - 16:00 下午</span>
+          <p><strong>📍 返回市区 & 伴手礼采购</strong> | 乘坐公交/大巴返回市区。前往黔灵山公园旁的农贸市场或大型超市采购波波糖、辣椒酱、刺梨干等特色伴手礼。根据高铁/航班时间前往龙洞堡机场或贵阳北站。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详情 -->
+  <section>
+    <h2 class="section-title">🏞️ 核心景点详解</h2>
+    <div class="grid-2">
+      <div class="card spot-card">
+        <div class="spot-header" style="background: linear-gradient(45deg, #2d6a4f, #40916c);">🐒 黔灵山公园</div>
+        <div class="spot-body">
+          <p>“黔南第一山”，集自然风光与佛教文化于一体。野生猕猴是最大的看点与乐趣所在。山顶弘福寺香火鼎盛，可俯瞰城市天际线。</p>
+          <div class="tag-row"><span class="tag-sm">城市氧吧</span><span class="tag-sm">野生猕猴</span><span class="tag-sm">佛教文化</span></div>
+          <div class="tips">💡 <strong>Tips：</strong> 请勿手提塑料袋或当面开食品包装，避免猕猴抢夺。雨天山路较滑，建议穿防滑运动鞋。索道可省体力，步行单程约40分钟。</div>
+          <div class="price-tag">🎫 门票：5元/人（需公众号预约）</div>
+        </div>
+      </div>
+      <div class="card spot-card">
+        <div class="spot-header" style="background: linear-gradient(45deg, #74c69d, #52b788);">🏰 青岩古镇</div>
+        <div class="spot-body">
+          <p>明清古建筑保存完好，军事要塞与市井文化交融。石板路、古城墙、文昌阁极具历史厚重感。这里不仅是景区，更是活着的烟火人间。</p>
+          <div class="tag-row"><span class="tag-sm">明清古建</span><span class="tag-sm">美食集散</span><span class="tag-sm">出片圣地</span></div>
+          <div class="tips">💡 <strong>Tips：</strong> 古镇分为核心区（免费）与联票区。买联票更划算。穿舒适平底鞋走石板路。建议早上去，避开旅行团，光线最佳适合摄影。</div>
+          <div class="price-tag">🎫 门票：10元/人（进镇），景点联票约60元</div>
+        </div>
+      </div>
+      <div class="card spot-card">
+        <div class="spot-header" style="background: linear-gradient(45deg, #95d5b2, #74c69d);">🌙 甲秀楼</div>
+        <div class="spot-body">
+          <p>贵阳地标建筑，始建于明万历年间。三层木质阁楼矗立于南明河鳌矶石上，寓意“科甲挺秀”。白墙灰瓦与碧水蓝天相映成趣，夜景灯光亮起时尤为迷人。</p>
+          <div class="tag-row"><span class="tag-sm">历史地标</span><span class="tag-sm">夜景绝美</span><span class="tag-sm">免费开放</span></div>
+          <div class="tips">💡 <strong>Tips：</strong> 内部可登楼参观（部分时段限流）。最佳机位在河对岸「翠微巷」或「南明桥」上。晚上20:00后亮灯，建议搭配周边夜游。</div>
+          <div class="price-tag">🎫 门票：免费（内部展览免费，无需预约）</div>
+        </div>
+      </div>
+      <div class="card spot-card">
+        <div class="spot-header" style="background: linear-gradient(45deg, #52b788, #40916c);">🍃 花溪公园</div>
+        <div class="spot-body">
+          <p>著名的城市生态公园，以“十里河滩”与“黄金大道”闻名。河水清澈，植被茂密，是贵阳市民周末休闲的“后花园”，夏日在此骑行或露营极为惬意。</p>
+          <div class="tag-row"><span class="tag-sm">十里河滩</span><span class="tag-sm">黄金大道</span><span class="tag-sm">亲水休闲</span></div>
+          <div class="tips">💡 <strong>Tips：</strong> 园区较大，建议租共享单车或乘坐观光车。黄金大道秋季落叶最美，但夏季绿意盎然、遮阴避暑效果极佳。部分水域可浅滩踩水。</div>
+          <div class="price-tag">🎫 门票：免费</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section>
+    <h2 class="section-title">🍜 舌尖上的贵阳</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>🔥 必吃特色菜品</h3>
+        <div class="food-item">
+          <div class="food-name">酸汤鱼（凯里风味）</div>
+          <div class="food-desc">红酸汤由野生毛辣果发酵而成，酸辣开胃，鱼肉鲜嫩。搭配木姜子油是灵魂。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">肠旺面</div>
+          <div class="food-desc">“肥肠”与“血旺”是主角，红油辣子香而不燥，面条是手工鸡蛋面，劲道弹牙。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">丝娃娃</div>
+          <div class="food-desc">小面皮包裹十余种切丝素菜，注入酸辣蘸水，口感清爽，极具参与感。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">豆腐圆子 & 糕粑稀饭</div>
+          <div class="food-desc">外酥里嫩的油炸豆腐蘸折耳根辣椒水；糕粑稀饭软糯香甜，解辣神器。</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>📍 口碑餐厅/街区推荐</h3>
+        <ul>
+          <li><strong>老凯里酸汤鱼（省府路店）：</strong> 环境有民族特色，酸汤正宗，人均约60元。</li>
+          <li><strong>南门口肠旺面（民生路）：</strong> 本地人排队的老字号，清晨去最新鲜，人均12元。</li>
+          <li><strong>丝恋红汤丝娃娃（连锁）：</strong> 分店多，品质稳定，适合初次尝试者，人均30元。</li>
+          <li><strong>青云路/青云市集：</strong> 夜市集合地，烤脑花、烙锅、冰粉等小吃集中，适合扫街。</li>
+          <li><strong>青岩古镇小吃街：</strong> 现切卤猪脚必买，可真空包装带走。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section>
+    <h2 class="section-title">🏨 住宿指南</h2>
+    <div class="grid-3">
+      <div class="card hotel-tier">
+        <span class="tier-badge tier-econ">💰 经济型 (预算级1)</span>
+        <h3>快捷酒店 / 青年旅舍</h3>
+        <div class="tier-price">¥100 - ¥200/晚</div>
+        <p><strong>推荐区域：</strong>喷水池、大十字、延安路</p>
+        <p>交通极度便利，周边全是美食。如家、汉庭等连锁或评分高的青旅，干净卫生，适合背包客与预算优先者。</p>
+      </div>
+      <div class="card hotel-tier">
+        <span class="tier-badge tier-comfort">🌿 舒适型 (性价比首选)</span>
+        <h3>中端连锁 / 精品民宿</h3>
+        <div class="tier-price">¥250 - ¥400/晚</div>
+        <p><strong>推荐区域：</strong>花果园、甲秀楼周边、观山湖区</p>
+        <p>亚朵、全季或设计感民宿。房间宽敞，隔音较好。花果园夜景震撼但略吵，甲秀楼旁安静且步行可达夜市。</p>
+      </div>
+      <div class="card hotel-tier">
+        <span class="tier-badge tier-high">🌟 高端型 (度假体验)</span>
+        <h3>高星酒店 / 温泉度假村</h3>
+        <div class="tier-price">¥500 - ¥800+/晚</div>
+        <p><strong>推荐区域：</strong>花溪十里河滩、观山湖CBD</p>
+        <p>安缦云、希尔顿等。配套完善，服务优质。部分带森林温泉或河景房，适合追求品质与放松的家庭/情侣。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 交通指南 -->
+  <section>
+    <h2 class="section-title">🚄 交通指南</h2>
+    <div class="card">
+      <h3>🛫 如何到达贵阳</h3>
+      <ul>
+        <li><strong>飞机：</strong> 贵阳龙洞堡国际机场（KWE），距市区约12公里。国内多数城市直飞约3小时，机场地铁2号线直达市区，耗时约30分钟。</li>
+        <li><strong>高铁/动车：</strong> 贵阳北站（主要枢纽）/ 贵阳东站。以杭州为例，杭州东至贵阳北约6.5-7小时，二等座约¥700。建议提前在12306购票。</li>
+      </ul>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>🚇 市内交通</h3>
+        <ul>
+          <li><strong>地铁：</strong> 1、2、3号线覆盖主要景点与商圈。刷支付宝/微信乘车码或“一应黔行”APP。</li>
+          <li><strong>公交：</strong> 线路密集，但市区路况易拥堵，高峰期慎选。</li>
+          <li><strong>打车/网约车：</strong> 起步价低（8元），市区内景点间打车多在15-25元内。</li>
+          <li><strong>景区直通车：</strong> 花果园湿地公园、贵阳北站有直达青岩古镇的大巴（约¥10/人）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>💡 行程动线建议</h3>
+        <p style="font-size: 0.95rem;">贵阳地形呈“带状”，核心景点分布在老城区（南明区、云岩区）与花溪区。Day 1 集中在地铁1/2号线沿线；Day 2 向南前往青岩，建议早出晚归，避开正午暴晒。市内无需包车，公共交通+步行/共享单车完全满足需求，符合经济型预算。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 预算参考 -->
+  <section>
+    <h2 class="section-title">🧾 2天1夜预算参考（单人/经济型）</h2>
+    <table class="budget-table">
+      <thead>
+        <tr><th>项目</th><th>明细说明</th><th>预估费用 (RMB)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>🚄 往返大交通</td><td>杭州东-贵阳北高铁二等座（按异地出发参考，本地出发另计）</td><td>¥1,350（往返）</td></tr>
+        <tr><td>🏨 住宿费用</td><td>经济型快捷酒店/青旅单间 × 1晚</td><td>¥120</td></tr>
+        <tr><td>🍜 餐饮费用</td><td>3顿正餐 + 2天街头小吃/饮品（酸汤鱼、肠旺面等）</td><td>¥280</td></tr>
+        <tr><td>🚌 市内交通</td><td>地铁+公交+打车（至青岩古镇/机场）+ 共享单车</td><td>¥80</td></tr>
+        <tr><td>🎫 景点门票</td><td>黔灵山(5) + 青岩联票(60) + 甲秀楼/花溪(0)</td><td>¥65</td></tr>
+        <tr><td><strong>💰 合计（不含往返）</strong></td><td><strong>落地至返程全程（经济型标准）</strong></td><td><strong>¥545</strong></td></tr>
+        <tr><td><strong>📦 合计（含大交通）</strong></td><td><strong>跨省完整行程参考</strong></td><td><strong>¥1,895</strong></td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px; font-size:0.9rem; color:#6c757d;">*注：大交通费用随季节与出发地浮动较大，此表以华东高铁往返为例。餐饮与住宿选择灵活，实际消费可控制在±10%范围内。</p>
+  </section>
+
+  <!-- 注意事项 -->
+  <section>
+    <h2 class="section-title">⚠️ 实用注意事项</h2>
+    <div class="note-grid">
+      <div class="card note-card">
+        <div class="note-icon">🌧️</div>
+        <h3>天气与穿着</h3>
+        <p>夏季多阵雨且湿度大，“天无三日晴”是常态。务必随身携带折叠伞或一次性雨衣。早晚微凉（约18-20℃），备件薄外套或防晒衣。鞋子务必防滑、透气。</p>
+      </div>
+      <div class="card note-card">
+        <div class="note-icon">🌶️</div>
+        <h3>饮食与肠胃</h3>
+        <p>贵阳饮食偏酸辣，且折耳根（鱼腥草）使用广泛。肠胃敏感者初次尝试建议减量，备好肠胃药。夜市小吃注意观察食材新鲜度，避免生冷混食。</p>
+      </div>
+      <div class="card note-card">
+        <div class="note-icon">🐵</div>
+        <h3>景区与安全</h3>
+        <p>黔灵山猴子具领地意识，<strong>严禁投喂、挑逗或露出食物</strong>。背包建议前背，戴好眼镜。夜间游玩甲秀楼周边注意保管财物，避开偏僻小巷。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 贵阳旅游指南 | 本攻略基于最新实地信息与官方数据整理，价格与开放时间可能变动，请以出行当日实际为准。</p>
+  <p>祝您在23℃的贵阳，遇见一个清爽的夏天 🌿</p>
+</footer>
+
+</body>
+</html>

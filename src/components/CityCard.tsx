@@ -1,5 +1,5 @@
 import type { CityInfo } from '@/data/cities';
-import { Plane, Train, Star, Tag, CheckCircle2 } from 'lucide-react';
+import { Plane, Train, Star, Tag, CheckCircle2, BookOpen } from 'lucide-react';
 
 interface CityCardProps {
   city: CityInfo;
@@ -9,6 +9,13 @@ interface CityCardProps {
 }
 
 const budgetLabels = ['', '经济型', '中等消费', '高消费'];
+
+// 有 AI 攻略的城市列表
+const citiesWithGuide = new Set([
+  'yichun', 'taian', 'gannan', 'enshi', 'liupanshui', 'aershan',
+  'qingdao', 'dalian', 'weihai', 'hulunbeier', 'jiuzhaigou', 'lijiang',
+  'chengde', 'guiyang', 'xining', 'yili', 'zhangjiajie'
+]);
 
 export default function CityCard({ city, onClick, index, isVisited }: CityCardProps) {
   const gradientMap: Record<string, string> = {
@@ -65,6 +72,7 @@ export default function CityCard({ city, onClick, index, isVisited }: CityCardPr
     rome: 'from-amber-500 to-red-500',
     jeju: 'from-green-400 to-cyan-400',
     singapore: 'from-red-400 to-amber-400',
+    weihai: 'from-sky-400 to-blue-500',
   };
 
   const gradient = gradientMap[city.id] || 'from-gray-400 to-gray-600';
@@ -165,6 +173,20 @@ export default function CityCard({ city, onClick, index, isVisited }: CityCardPr
             <span className="truncate">{city.transport.train}</span>
           </span>
         </div>
+
+        {/* AI Guide Button */}
+        {citiesWithGuide.has(city.id) && (
+          <a
+            href={`/guides/${city.id}-guide.html`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 sm:mt-3 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-xs font-medium hover:from-blue-600 hover:to-indigo-600 smooth-transition shadow-sm"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            AI 详细攻略
+          </a>
+        )}
       </div>
     </article>
   );

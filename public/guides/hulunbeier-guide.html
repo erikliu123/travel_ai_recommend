@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>呼伦贝尔夏季深度游攻略</title>
+<style>
+  :root {
+    --primary: #606c38;
+    --primary-dark: #283618;
+    --primary-light: #bc6c25;
+    --bg: #f4f6f0;
+    --card: #ffffff;
+    --text-main: #1a1a1a;
+    --text-sec: #555555;
+    --accent: #dda15e;
+    --radius: 12px;
+    --shadow: 0 6px 20px rgba(96,108,56,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 1024px; margin: 0 auto; padding: 0 20px; }
+  
+  header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark) 60%, #11280d);
+    color: #fff; padding: 60px 0 50px; text-align: center;
+    border-radius: 0 0 50px 50px; margin-bottom: 30px; position: relative; overflow: hidden;
+  }
+  header::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.15), transparent 70%);
+  }
+  h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 12px; font-weight: 800; letter-spacing: 2px; }
+  .subtitle { font-size: 1.05rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+  section { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px 24px; margin: 20px 0; border: 1px solid rgba(96,108,56,0.08); }
+  h2 { color: var(--primary); font-size: 1.5rem; padding-bottom: 10px; border-bottom: 3px solid #e8eddf; margin-bottom: 18px; display: inline-block; }
+  h3 { font-size: 1.2rem; color: var(--primary-dark); margin: 20px 0 10px; display: flex; align-items: center; gap: 8px; }
+  h3::before { content: ''; display: block; width: 4px; height: 18px; background: var(--accent); border-radius: 2px; }
+
+  .badge-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 18px; }
+  .badge { background: #e9edc9; color: var(--primary-dark); padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+  .badge.highlight { background: var(--primary); color: #fff; }
+
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 16px; }
+  .info-card { background: #f8faf5; padding: 14px; border-radius: 8px; }
+  .info-label { font-size: 0.8rem; color: var(--text-sec); margin-bottom: 4px; }
+  .info-value { font-weight: 600; color: var(--primary-dark); }
+
+  .timeline { border-left: 3px dashed var(--primary); padding-left: 20px; margin-left: 8px; }
+  .day-block { margin-bottom: 28px; position: relative; }
+  .day-block::before {
+    content: ''; position: absolute; left: -11px; top: 12px; width: 18px; height: 18px;
+    background: var(--accent); border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  .time-slot { margin-bottom: 14px; background: #fdfdf9; padding: 12px 16px; border-radius: 8px; border-left: 3px solid var(--primary-light); }
+  .slot-time { font-weight: 700; color: var(--primary); margin-bottom: 4px; display: block; }
+
+  .place-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .place-card { background: #fcfcf9; border: 1px solid #e4e8d5; border-radius: 10px; padding: 16px; position: relative; overflow: hidden; }
+  .place-card::after {
+    content: ''; position: absolute; top: 0; right: 0; width: 60px; height: 60px;
+    background: linear-gradient(225deg, #e9edc9 40%, transparent 40%); border-radius: 0 0 0 10px;
+  }
+  .place-title { font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
+  .tag-sm { display: inline-block; font-size: 0.7rem; background: var(--primary); color: #fff; padding: 2px 6px; border-radius: 4px; margin-bottom: 8px; }
+  .meta { font-size: 0.85rem; color: var(--text-sec); margin: 4px 0; }
+
+  .food-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .food-item { background: #fff; padding: 12px; border-radius: 8px; border-left: 4px solid var(--accent); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .food-name { font-weight: 700; margin-bottom: 4px; }
+  .food-desc { font-size: 0.9rem; color: var(--text-sec); }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 0.95rem; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eaeaea; }
+  th { background: var(--primary); color: #fff; font-weight: 600; }
+  tr:nth-child(even) { background: #f9fbf6; }
+
+  .tip-box { background: #fff8e6; padding: 14px; border-radius: 8px; margin: 12px 0; display: flex; align-items: flex-start; gap: 10px; }
+  .tip-box::before { content: '💡'; font-size: 1.2rem; }
+  .warn-box { background: #ffe8e8; padding: 14px; border-radius: 8px; margin: 12px 0; display: flex; align-items: flex-start; gap: 10px; }
+  .warn-box::before { content: '⚠️'; font-size: 1.2rem; }
+
+  .budget-bar { height: 24px; background: #eaeaea; border-radius: 12px; margin: 6px 0 12px; overflow: hidden; position: relative; }
+  .budget-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 12px; width: 0%; transition: width 0.8s ease; }
+
+  footer { text-align: center; padding: 40px 20px; color: var(--text-sec); font-size: 0.85rem; border-top: 1px solid #ddd; margin-top: 30px; }
+  
+  @media (max-width: 640px) {
+    h1 { font-size: 1.9rem; }
+    section { padding: 18px; }
+    .timeline { padding-left: 15px; }
+    table { font-size: 0.85rem; }
+    th, td { padding: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>呼伦贝尔 · 北境草原牧歌</h1>
+    <p class="subtitle">天苍苍野茫茫，风吹草低见牛羊 | 4天3夜深度避暑自驾指南</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="overview">
+    <h2>城市概述</h2>
+    <p>呼伦贝尔，中国版图上一片辽阔的净土。这里拥有世界四大草原之一，夏季绿浪翻滚、野花遍地，秋季层林尽染、如油画般绚烂。远离都市喧嚣，是体验游牧文化、追逐自由与星空的绝佳目的地。</p>
+    
+    <div class="badge-wrap">
+      <span class="badge highlight">🌿 草原风光</span>
+      <span class="badge highlight">🏞️ 自然风光</span>
+      <span class="badge highlight">🚗 自驾旅行</span>
+      <span class="badge">🌡️ 夏季避暑</span>
+      <span class="badge">🐎 游牧文化</span>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card"><div class="info-label">建议游玩</div><div class="info-value">4 天</div></div>
+      <div class="info-card"><div class="info-label">最佳月份</div><div class="info-value">6-8月（绿草） / 9月中下旬（秋景）</div></div>
+      <div class="info-card"><div class="info-label">预算级别</div><div class="info-value">Level 3（较高）</div></div>
+      <div class="info-card"><div class="info-label">适合人群</div><div class="info-value">摄影爱好者、亲子家庭、情侣、自驾党</div></div>
+    </div>
+
+    <h3>旅行优缺点速览</h3>
+    <div class="tip-box"><div><strong>✅ 优点：</strong>草原风光壮丽辽阔；夏季平均气温仅 18-25℃，绝佳避暑地；蒙古族/俄罗斯族文化交融；空气质量极佳，星空璀璨。</div></div>
+    <div class="warn-box"><div><strong>❌ 缺点：</strong>景点分散，公共交通极为不便；整体物价与包车成本偏高；7-8月为极旺期；昼夜温差可达 10-15℃。</div></div>
+  </section>
+
+  <section id="itinerary">
+    <h2>4天详细行程安排</h2>
+    <p style="margin-bottom:15px; color:#666; font-size:0.95rem;">本路线采用“海拉尔出发 → 草原腹地 → 湿地林区 → 边境城市 → 海拉尔”的经典环线，全程约 800km，适合包车或自驾。</p>
+    <div class="timeline">
+      <div class="day-block">
+        <h3>Day 1：初抵牧区 · 拥抱无垠绿意</h3>
+        <div class="time-slot">
+          <span class="slot-time">☀️ 上午</span>
+          抵达海拉尔东山机场，办理租车/包车交接手续。前往市区采购干粮、防晒霜及防蚊液。
+        </div>
+        <div class="time-slot">
+          <span class="slot-time">🌤️ 下午</span>
+          驱车前往【呼伦贝尔大草原】（金帐汗/莫日格勒附近），沿途停车拍照。参与草原迎宾仪式，体验骑马、射箭、挤牛奶。
+        </div>
+        <div class="time-slot">
+          <span class="slot-time">🌙 晚上</span>
+          入住草原特色蒙古包/生态木屋。品尝手把肉与烤全羊，傍晚参与篝火晚会，拍摄草原绝美星空。
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 2：曲水纵横 · 穿越草原腹地</h3>
+        <div class="time-slot">
+          <span class="slot-time">☀️ 上午</span>
+          早起拍摄草原晨雾。前往【莫尔格勒河】，沿观景台或土路深入，俯瞰“天下第一曲水”九曲十八弯的壮阔。
+        </div>
+        <div class="time-slot">
+          <span class="slot-time">🌤️ 下午</span>
+          沿草原腹地公路向额尔古纳方向行进，途经牧户家访，品尝现熬奶茶、布里亚特包子。下午抵达额尔古纳市区休整。
+        </div>
+        <div class="time-slot">
+          <span class="slot-time">🌙 晚上</span>
+          入住额尔古纳市区酒店。晚餐推荐俄式风味餐厅，漫步根河湿地边缘，感受小镇宁静。
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 3：湿地白桦 · 边境俄罗斯风情</h3>
+        <div class="time-slot">
+          <span class="slot-time">☀️ 上午</span>
+          前往【额尔古纳国家湿地公园】，乘坐电瓶车登观景台，俯瞰亚洲最大湿地“马蹄岛”，观察候鸟栖息地。
+        </div>
+        <div class="time-slot">
+          <span class="slot-time">🌤️ 下午</span>
+          途经【白桦林景区】（约 2 小时游玩），漫步木栈道感受童话氛围。随后继续向北，抵达恩和或室韦俄罗斯民族乡。
+        </div>
+        <div class="time-slot">
+          <span class="slot-time">🌙 晚上</span>
+          入住木刻楞（俄式原木小屋）。体验俄罗斯族家访（列巴制作、果酱品尝），欣赏界河额尔古纳河日落。
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 4：国门套娃 · 呼伦湖归程</h3>
+        <div class="time-slot">
+          <span class="slot-time">☀️ 上午</span>
+          沿边防公路（卡线）行驶，欣赏中俄界河风光。抵达满洲里，游览【套娃广场】与【中俄边境国门景区】。
+        </div>
+        <div class="time-slot">
+          <span class="slot-time">🌤️ 下午</span>
+          驱车前往【呼伦湖】（拴马桩或码头），感受“草原明珠”的辽阔。在湖畔品尝全鱼宴后，启程返回海拉尔。
+        </div>
+        <div class="time-slot">
+          <span class="slot-time">🌙 晚上</span>
+          抵达海拉尔机场/火车站，结束草原之旅。若航班较晚，可逛一逛中央桥夜市采购特产。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="attractions">
+    <h2>核心景点详解</h2>
+    <div class="place-grid">
+      <div class="place-card">
+        <span class="tag-sm">必游</span>
+        <div class="place-title">呼伦贝尔大草原</div>
+        <div class="meta">📍 海拉尔周边 / 🎫 免费（体验项目另计）</div>
+        <div class="tip-box" style="margin:8px 0; font-size:0.85rem;"><strong>推荐理由：</strong>世界顶级天然牧场，夏季草高齐腰，牛羊散布如云。无围栏的视野带来极致的自由感。</div>
+        <div class="tip-box" style="margin:8px 0; font-size:0.85rem;"><strong>游玩Tips：</strong>切勿随意碾压草场，尽量走牧道或景区指定路线。骑马务必选择正规马队并签订安全协议。</div>
+      </div>
+      <div class="place-card">
+        <span class="tag-sm">摄影</span>
+        <div class="place-title">莫尔格勒河</div>
+        <div class="meta">📍 陈巴尔虎旗 / 🎫 免费</div>
+        <div class="tip-box" style="margin:8px 0; font-size:0.85rem;"><strong>推荐理由：</strong>老舍笔下“天下第一曲水”。河水随季节与光影变换色彩，日落时河水如熔金，航拍视角极为震撼。</div>
+        <div class="tip-box" style="margin:8px 0; font-size:0.85rem;"><strong>游玩Tips：</strong>最佳观景期为10月后或7-8月雨后。部分土路仅越野车可通行，轿车需停在外围观景台。</div>
+      </div>
+      <div class="place-card">
+        <span class="tag-sm">生态</span>
+        <div class="place-title">额尔古纳湿地</div>
+        <div class="meta">📍 额尔古纳市 / 🎫 约 ¥65（电瓶车 ¥20）</div>
+        <div class="tip-box" style="margin:8px 0; font-size:0.85rem;"><strong>推荐理由：</strong>亚洲第一湿地，根河与得尔布干河交汇。夏季翠绿生机盎然，是丹顶鹤、白鹭等珍稀候鸟的重要驿站。</div>
+        <div class="tip-box" style="margin:8px 0; font-size:0.85rem;"><strong>游玩Tips：</strong>木栈道较长，建议穿防滑舒适鞋。景区风大，夏季也需备薄外套。早晨7-9点鸟类最活跃。</div>
+      </div>
+      <div class="place-card">
+        <span class="tag-sm">人文/边境</span>
+        <div class="place-title">满洲里</div>
+        <div class="meta">📍 中俄蒙边境 / 🎫 套娃广场 ¥120 / 国门 ¥68</div>
+        <div class="tip-box" style="margin:8px 0; font-size:0.85rem;"><strong>推荐理由：</strong>充满异域风情的边境名城。巨型套娃建筑、庄严国门、俄式尖顶教堂与繁华夜景交织，仿佛置身欧洲。</div>
+        <div class="tip-box" style="margin:8px 0; font-size:0.85rem;"><strong>游玩Tips：</strong>夜景灯光约 20:30 开启。套娃广场可买联票看大马戏。购物注意辨别俄货真伪，认准正规商场。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="food">
+    <h2>味蕾上的草原</h2>
+    <p style="margin-bottom:16px;">呼伦贝尔饮食融合蒙餐粗犷与俄餐精致，牛羊肉品质全国顶尖，奶制品醇厚天然。</p>
+    <div class="food-list">
+      <div class="food-item">
+        <div class="food-name">🥩 手把肉 / 烤全羊</div>
+        <div class="food-desc">草原硬菜。手把肉仅盐调味，肉质鲜嫩原汁原味；烤全羊外焦里嫩，适合多人分享。推荐：草原明珠餐厅。</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">🍲 锅茶 / 咸奶茶</div>
+        <div class="food-desc">蒙餐灵魂。以砖茶熬煮，加入鲜奶、炒米、牛肉干、奶皮子，暖胃饱腹。牧户家访必体验。</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">🥟 布里亚特包子</div>
+        <div class="food-desc">额尔古纳特色。皮薄馅大，内馅多为羊肉+洋葱+土豆丁，一口爆汁。推荐：卢布里俄餐/当地老面点铺。</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">🍝 俄式西餐 / 大列巴</div>
+        <div class="food-desc">满洲里地道风味。红菜汤、俄式烤肉、罐焖牛肉配黑麦大列巴，风味浓郁。推荐：卢布里西餐厅。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stay">
+    <h2>住宿推荐</h2>
+    <table>
+      <thead><tr><th>档次</th><th>类型</th><th>参考价格/晚</th><th>区域建议</th><th>特点</th></tr></thead>
+      <tbody>
+        <tr><td>💰 经济型</td><td>连锁快捷/青年旅舍</td><td>¥150 - ¥250</td><td>海拉尔/额尔古纳市区</td><td>设施基础但干净卫生，适合背包客或预算有限者。</td></tr>
+        <tr><td>💎 舒适型</td><td>精品客栈/观景民宿</td><td>¥400 - ¥700</td><td>恩和/室韦/湿地周边</td><td>俄式木刻楞或草原观景房，含早餐，体验感佳，性价比高。</td></tr>
+        <tr><td>👑 高端型</td><td>野奢帐篷/星级酒店</td><td>¥1200 - ¥2500+</td><td>草原深处/海拉尔市中心</td><td>独立卫浴、星空穹顶、管家服务。7-8月需提前1个月预订。</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">旺季（7-8月及国庆）房源极度紧张且价格上浮 30%-50%，务必提前锁定行程后尽早订房。</div>
+  </section>
+
+  <section id="transport">
+    <h2>交通指南</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-label">✈️ 如何到达</div>
+        <div class="info-value" style="font-weight:400; font-size:0.9rem;">直飞航班较少，多数需经呼和浩特、北京、哈尔滨中转至 <strong>海拉尔东山机场</strong>。夏季机票价格较高，建议提前 3-4 周购票。</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">🚗 市内/城际交通</div>
+        <div class="info-value" style="font-weight:400; font-size:0.9rem;"><strong>无高铁直达，自驾/包车为唯一优选。</strong>景点间距离 50-200km，公交班次极少。包车带司机（含油险）约 ¥600-900/天（SUV/商务车）。</div>
+      </div>
+    </div>
+    <p style="margin-top:10px; color:#555;">路况提示：大部分为双向两车道柏油路，路况良好。但部分边防公路（卡线）为砂石路，建议租用 SUV 或底盘较高的车辆。加油站在镇区之间可能间隔较远，油表低于 1/2 请及时补充。</p>
+  </section>
+
+  <section id="tips">
+    <h2>实用注意事项</h2>
+    <div class="grid-2">
+      <div>
+        <h3>🌤️ 天气与穿着</h3>
+        <ul style="padding-left:20px; color:#555; line-height:1.8;">
+          <li>夏季白天 20-28℃，夜间可降至 8-15℃。<strong>必备：冲锋衣、抓绒内胆、薄羽绒/防风外套。</strong></li>
+          <li>紫外线极强，物理防晒（墨镜、帽子、面罩）+ SPF50 防晒霜缺一不可。</li>
+          <li>草原多蚊虫，携带驱蚊液、风油精，避免在草丛中久坐。</li>
+        </ul>
+      </div>
+      <div>
+        <h3>🛡️ 安全与文化</h3>
+        <ul style="padding-left:20px; color:#555; line-height:1.8;">
+          <li><strong>尊重习俗：</strong>进入蒙古包勿踩门槛；敬酒需双手接，不喝可点酒弹三下；勿随意触摸敖包经幡。</li>
+          <li><strong>生态保护：</strong>严禁开车碾压草原（违法且罚款），垃圾随身带走。</li>
+          <li><strong>通讯与现金：</strong>部分牧区/边防公路 4G 信号弱甚至无信号，提前下载离线地图。备少量现金应急。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="budget">
+    <h2>预算参考（人均 / 4天3晚）</h2>
+    <p style="color:#666; margin-bottom:10px; font-size:0.95rem;">按“较高预算级别”测算，适合追求舒适度与深度的旅行者。实际费用随淡旺季、航班折扣浮动较大。</p>
+    <div class="info-grid">
+      <div class="info-card"><div class="info-label">✈️ 往返大交通（机票）</div><div class="info-value">¥1800 - ¥3200</div></div>
+      <div class="info-card"><div class="info-label">🚗 当地包车/租车分摊</div><div class="info-value">¥1200 - ¥1800</div></div>
+      <div class="info-card"><div class="info-label">🏨 住宿（3晚）</div><div class="info-value">¥1200 - ¥2400</div></div>
+      <div class="info-card"><div class="info-label">🍽️ 餐饮 & 门票/体验</div><div class="info-value">¥1000 - ¥1500</div></div>
+    </div>
+    <p style="text-align:center; font-size:1.1rem; font-weight:700; color:var(--primary); margin:16px 0;">💰 预估总预算：¥5200 - ¥8900 /人</p>
+    <div class="budget-bar"><div class="budget-fill" style="width:85%;"></div></div>
+    <div class="tip-box" style="font-size:0.9rem;">省钱建议：避开 7月下旬-8月上旬最旺季；4-6人拼车分摊成本最高；部分草原景点免费开放，可选择性购买套票。</div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 呼伦贝尔夏季旅行指南 | 行程信息更新于 2024 | 实际价格与政策请以出行当日为准</p>
+    <p style="margin-top:6px; opacity:0.7;">爱护自然，无痕旅行。祝您在草原遇见最美的自己。</p>
+  </div>
+</footer>
+
+</body>
+</html>

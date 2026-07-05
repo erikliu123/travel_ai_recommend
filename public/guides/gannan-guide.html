@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【九色甘南】夏季3天深度游专业攻略</title>
+    <style>
+        :root {
+            --primary: #606c38;
+            --primary-dark: #4a5329;
+            --primary-light: #dce2b8;
+            --accent: #bc6c25;
+            --bg: #f7f9f3;
+            --card: #ffffff;
+            --text: #2c3e28;
+            --text-light: #5f6b57;
+            --shadow: 0 6px 16px rgba(96, 108, 56, 0.12);
+            --radius: 14px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+        .wrapper { max-width: 1080px; margin: 0 auto; padding: 20px; }
+        
+        /* 头部Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #8ba356 60%, #a8b87d 100%);
+            color: #fff;
+            padding: 50px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .hero::before {
+            content: "🏔️🌿🐎";
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 5rem;
+            opacity: 0.15;
+        }
+        .hero h1 { font-size: 2.4rem; margin-bottom: 12px; font-weight: 800; letter-spacing: 2px; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 20px; opacity: 0.95; }
+        .tag-container { margin-top: 15px; }
+        .tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 30px;
+            margin: 5px;
+            font-size: 0.95em;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* 通用板块 */
+        .section {
+            background: var(--card);
+            padding: 30px;
+            border-radius: var(--radius);
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+            margin-bottom: 22px;
+            color: var(--primary-dark);
+            padding-bottom: 12px;
+            border-bottom: 2px dashed var(--primary-light);
+        }
+        .section-title span {
+            width: 8px;
+            height: 28px;
+            background: var(--accent);
+            border-radius: 4px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        /* 优缺点网格 */
+        .pc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
+        .pro, .con { padding: 15px; border-radius: 10px; font-size: 0.95em; }
+        .pro { background: #edf7ea; border-left: 4px solid #4caf50; color: #2e7d32; }
+        .con { background: #fce4ec; border-left: 4px solid #e53935; color: #c62828; }
+        
+        /* 行程时间轴 */
+        .timeline { position: relative; padding-left: 20px; }
+        .timeline-item { position: relative; margin-bottom: 25px; padding-left: 25px; border-left: 3px solid var(--primary-light); }
+        .timeline-item:last-child { border-left: none; }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+        .time-badge {
+            background: var(--primary);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .day-label { font-weight: 700; color: var(--primary-dark); font-size: 1.1em; margin-bottom: 8px; display: block; }
+        .activity { margin: 6px 0; padding: 8px 12px; background: #f9fbf6; border-radius: 8px; }
+
+        /* 景点卡片 */
+        .spots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .spot-card {
+            background: #fff;
+            border: 1px solid #e8ecd5;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .spot-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .spot-img { height: 120px; background: linear-gradient(90deg, #8ba356, #606c38); position: relative; }
+        .spot-content { padding: 15px; }
+        .spot-title { font-size: 1.15em; font-weight: bold; margin-bottom: 8px; color: var(--primary-dark); }
+        .spot-info { font-size: 0.9em; color: #666; margin-bottom: 10px; line-height: 1.6; }
+        .spot-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .spot-tag { font-size: 0.8em; padding: 3px 8px; background: #e8ecd5; color: var(--primary-dark); border-radius: 4px; }
+
+        /* 食宿表格 */
+        .info-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.95em; }
+        .info-table th { background: var(--primary); color: white; padding: 12px; text-align: left; font-weight: normal; }
+        .info-table td { padding: 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+        .info-table tr:last-child td { border-bottom: none; }
+        .level-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; color: #fff; }
+        .level-eco { background: #81c784; }
+        .level-com { background: #64b5f6; }
+        .level-lux { background: #ffb74d; }
+
+        /* 提示框 */
+        .tip-box {
+            background: linear-gradient(to right, #fcf8e3, #fff);
+            border-left: 4px solid var(--accent);
+            padding: 12px 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95em;
+            color: #5d4a1f;
+        }
+
+        /* 预算卡片 */
+        .budget-summary { display: flex; justify-content: space-between; background: #f4f7f0; padding: 15px; border-radius: 10px; margin-top: 15px; flex-wrap: wrap; gap: 10px; }
+        .budget-item { text-align: center; flex: 1; min-width: 100px; }
+        .budget-num { font-size: 1.4em; font-weight: bold; color: var(--primary); }
+        .budget-label { font-size: 0.85em; color: var(--text-light); }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .pc-grid, .spots-grid { grid-template-columns: 1fr; }
+            .section { padding: 20px; }
+            .timeline { padding-left: 10px; }
+            .budget-summary { flex-direction: column; text-align: left; }
+            .budget-item { flex: none; margin-bottom: 10px; }
+        }
+        .footer { text-align: center; padding: 30px 20px; color: #777; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 城市概述 -->
+        <header class="hero">
+            <h1>🌿 藏域天堂 · 九色甘南</h1>
+            <p>夏季的甘南草原绿草如茵，野花遍地。拉卜楞寺的梵音与尕海湖的宁静交织，为您呈现一幅纯净的高原画卷。这里没有拥挤的人潮，只有风吹草低的旷达与虔诚。</p>
+            <div class="tag-container">
+                <span class="tag">🌾 草原风光</span>
+                <span class="tag">🙏 民族风情</span>
+                <span class="tag">🌬️ 避暑胜地</span>
+                <span class="tag">📅 建议游玩：3天</span>
+                <span class="tag">🌤️ 最佳月份：6-8月</span>
+            </div>
+        </header>
+
+        <!-- 优缺点提示 -->
+        <section class="section">
+            <div class="pc-grid">
+                <div class="pro">
+                    <strong>✨ 推荐优点：</strong> 夏季草原风光壮美、藏族文化原汁原味、游客密度远低于热门藏区、20℃左右气候凉爽宜人。
+                </div>
+                <div class="con">
+                    <strong>⚠️ 注意事项：</strong> 平均海拔3000米左右需防范高反、公共交通不便建议自驾/包车、部分村镇住宿条件有限、昼夜温差可达15℃。
+                </div>
+            </div>
+        </section>
+
+        <!-- 3天行程 -->
+        <section class="section">
+            <div class="section-title"><span></span>📅 3天核心行程规划（兰州往返版）</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="day-label">Day 1：初入甘南 · 梵音与牧歌</span>
+                    <div class="activity">
+                        <span class="time-badge">上午 09:00-13:00</span> 兰州集合出发，沿G213国道或高速前往夏河县。沿途欣赏黄土高原向青藏高原过渡的壮阔地貌。
+                    </div>
+                    <div class="activity">
+                        <span class="time-badge">下午 14:30-18:30</span> 抵达夏河，午餐后游览【拉卜楞寺】。顺时针徒步或乘车参观大经堂、六大学院及贡唐宝塔，跟随信徒走完3.5公里转经长廊。
+                    </div>
+                    <div class="activity">
+                        <span class="time-badge">晚上 19:30-21:00</span> 前往【桑科草原】体验骑马、射箭。晚餐品尝藏式火锅或手抓羊肉，夜宿夏河县城，适应海拔。
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="day-label">Day 2：高原明珠 · 寻梦石城</span>
+                    <div class="activity">
+                        <span class="time-badge">上午 09:00-11:30</span> 驱车前往【尕海湖】。高原湿地观鸟（黑颈鹤、灰雁），沿木栈道漫步，拍摄雪山与湖泊的倒影。
+                    </div>
+                    <div class="activity">
+                        <span class="time-badge">下午 13:00-17:30</span> 抵达【扎尕那】。穿越峡谷，抵达被陡峭石山环抱的藏族村落。徒步仙女滩或一线天，感受“石头城”的原始气息。
+                    </div>
+                    <div class="activity">
+                        <span class="time-badge">晚上 18:30-21:00</span> 入住扎尕那村内观景民宿。享用酥油茶与糌粑，夜晚在无光污染的高原仰望星空银河。
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="activity">
+                        <span class="day-label">Day 3：晨雾秘境 · 满载而归</span>
+                    </div>
+                    <div class="activity">
+                        <span class="time-badge">上午 07:00-09:30</span> 早起登顶达日观景台或村口高地，拍摄扎尕那经典晨雾与炊烟交织的画面（夏季日出约06:10）。
+                    </div>
+                    <div class="activity">
+                        <span class="time-badge">下午 11:00-17:00</span> 原路或环线返程。途经合作市可远眺米拉日巴佛阁（外观）。傍晚抵达兰州，行程圆满结束。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 景点详情 -->
+        <section class="section">
+            <div class="section-title"><span></span>📍 核心景点深度指南</div>
+            <div class="spots-grid">
+                <article class="spot-card">
+                    <div class="spot-img"></div>
+                    <div class="spot-content">
+                        <div class="spot-title">🕍 拉卜楞寺</div>
+                        <div class="spot-info">藏传佛教格鲁派六大寺院之一，拥有全球最长的转经长廊与完整的藏学六大学院体系。建筑宏伟，僧侣众多，是感受信仰力量的圣地。</div>
+                        <div class="tip-box">📌 游玩Tips：进殿请脱帽、不穿短裙短裤；拍照需征得同意或购买摄影票；顺时针转经最为正宗。建议请官方讲解员（约50-80元）。</div>
+                        <div class="spot-tags"><span class="spot-tag">门票：40元</span><span class="spot-tag">游览：2-3h</span></div>
+                    </div>
+                </article>
+                <article class="spot-card">
+                    <div class="spot-img" style="background: linear-gradient(90deg, #5c8a5e, #8ba356);"></div>
+                    <div class="spot-content">
+                        <div class="spot-title">🌊 尕海湖</div>
+                        <div class="spot-info">甘南最大淡水湖，海拔3400米。夏季湖畔野花如毯，是国家级候鸟保护区。湖水平静如镜，倒映着蓝天白云与远山，极具治愈感。</div>
+                        <div class="tip-box">📌 游玩Tips：湖边风大且紫外线强，务必携带墨镜与防风外套；请勿下水或惊扰水鸟；景区内可租电瓶车（约30元）节省体力。</div>
+                        <div class="spot-tags"><span class="spot-tag">门票+车：约60元</span><span class="spot-tag">游览：1.5h</span></div>
+                    </div>
+                </article>
+                <article class="spot-card">
+                    <div class="spot-img" style="background: linear-gradient(90deg, #4a5329, #6b7c4a);"></div>
+                    <div class="spot-content">
+                        <div class="spot-title">🏔️ 扎尕那（扎雅那）</div>
+                        <div class="spot-info">藏语意为“石匣子”，被四座巍峨石山合围的藏寨。原始村落风貌保存完好，田园风光与险峻奇岩并存，被探险家誉为“伊甸园”。</div>
+                        <div class="tip-box">📌 游玩Tips：夏季为雨季，备防滑徒步鞋；村内为土路，车辆慢行；住宿旺季极难预订，建议提前20天以上锁定房源。</div>
+                        <div class="spot-tags"><span class="spot-tag">门票：80元</span><span class="spot-tag">游览：半天</span></div>
+                    </div>
+                </article>
+                <article class="spot-card">
+                    <div class="spot-img" style="background: linear-gradient(90deg, #7a9a6b, #a3c295);"></div>
+                    <div class="spot-content">
+                        <div class="spot-title">🐎 桑科草原</div>
+                        <div class="spot-info">典型的青藏高原高寒草甸，夏季绿草如茵、野花遍地。这里是体验藏族游牧文化的最佳场所，可近距离接触牧民帐房，参与民俗活动。</div>
+                        <div class="tip-box">📌 游玩Tips：骑马前务必与马主确认价格与路线（通常100元/40分钟）；品尝酥油茶与酸奶时注意烫嘴；尊重当地生态，勿随意采摘花草。</div>
+                        <div class="spot-tags"><span class="spot-tag">门票：免费</span><span class="spot-tag">游览：2h+</span></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 美食与住宿 -->
+        <section class="section">
+            <div class="section-title"><span></span>🍲🛏️ 特色美食与住宿推荐</div>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th width="25%">类别</th>
+                        <th width="75%">详情与推荐</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>🥘 必尝美食</strong></td>
+                        <td>
+                            • <strong>糌粑 & 酥油茶：</strong>藏民主食，抗饿高热量，适应高原必备。<br>
+                            • <strong>牦牛酸奶：</strong>口感偏酸，表面有一层奶皮，加白糖食用风味极佳。<br>
+                            • <strong>手抓羊肉/蕨麻猪：</strong>甘南羊肉膻味极轻，肉质鲜嫩，推荐清炖或烧烤。<br>
+                            • <strong>藏面 & 血肠：</strong>夏河老街地道早餐，搭配酸萝卜开胃解腻。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>🍽️ 餐厅推荐</strong></td>
+                        <td>
+                            • 夏河：<strong>诺尔丹营地餐厅</strong>（环境佳/精致）、<strong>老马家藏餐吧</strong>（性价比高/本地人爱去）<br>
+                            • 扎尕那：<strong>云端牧歌藏家院</strong>、<strong>达瓦客栈</strong>（均提供地道农家牦牛肉火锅与土鸡）
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>🛌 经济型</strong><br><span class="level-badge level-eco">预算 100-150</span></td>
+                        <td><strong>夏河青年旅舍 / 扎尕那村民民宿</strong><br>特点：基础卫生达标，多为多人间或简单标间，公共卫浴。适合背包客与重体验轻住宿者。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🛌 舒适型</strong><br><span class="level-badge level-com">预算 300-450</span></td>
+                        <td><strong>夏河格桑花开酒店 / 扎尕那山居客栈</strong><br>特点：藏式装修风格，独立卫浴+地暖/电热毯（夏季夜间冷），含早。视野较好，服务热情。性价比最高。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🛌 高端/野奢</strong><br><span class="level-badge level-lux">预算 700-1200+</span></td>
+                        <td><strong>诺尔丹营地（季节性开放） / 扎尕那全景观景木屋</strong><br>特点：独立生态木屋，270°落地窗直面雪山草甸，提供高端藏餐与管家服务，配备供氧系统。需提前数月预订。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 交通指南 -->
+        <section class="section">
+            <div class="section-title"><span></span>🚗 交通与抵达指南</div>
+            <p><strong>📍 如何到达甘南（以夏河为集散中心）：</strong></p>
+            <ul style="margin: 15px 0 15px 20px; line-height: 2;">
+                <li><strong>✈️ 飞机：</strong>国内主要城市飞抵<strong>兰州中川机场</strong>（约2-3小时）。机场出站后租车或拼车，沿G1816乌玛高速+G213国道直达夏河，车程约3.5-4小时。沿途风景极佳，路况良好。</li>
+                <li><strong>🚄 高铁/动车：</strong>各枢纽至<strong>兰州西站</strong>（如杭州至兰州约10-12小时）。抵达后转乘兰州汽车南站大巴（每日多班，约4小时）或直接在兰州包车/拼车前往。</li>
+                <li><strong>🚌 甘南内部交通：</strong>景点间距离较远，<strong>强烈建议包车或自驾</strong>。兰州至夏河包车约600-800元/天（5座SUV）。夏河至扎尕那约150公里，路况以盘山公路为主，需谨慎驾驶。若不自驾，可预订“兰州出发纯玩拼车小团”。</li>
+            </ul>
+            <div class="tip-box">💡 规划师提醒：甘南无高铁直达，以兰州为枢纽中转最为成熟。夏季7-8月为旺季，车辆资源紧张，建议抵达前3天确认好交通工具。高海拔路段偶有信号盲区，建议提前下载离线地图。</div>
+        </section>
+
+        <!-- 注意事项 -->
+        <section class="section">
+            <div class="section-title"><span></span>⚠️ 夏季出行必备贴士</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
+                <div style="background:#fdfdfd; padding:15px; border-radius:10px; border:1px solid #eee;">
+                    <h4 style="color:var(--accent); margin-bottom:8px;">🌤️ 气候与穿衣</h4>
+                    <p style="font-size:0.9em;">夏季白天20-25℃，体感舒适；夜间骤降至5-10℃。<strong>必备：</strong>冲锋衣/薄羽绒服（防风保暖）、防晒衣、遮阳帽、保暖内衣。遵循“洋葱式穿衣法”。</p>
+                </div>
+                <div style="background:#fdfdfd; padding:15px; border-radius:10px; border:1px solid #eee;">
+                    <h4 style="color:var(--accent); margin-bottom:8px;">🏥 高原反应预防</h4>
+                    <p style="font-size:0.9em;">甘南平均海拔约3000米，属轻度高原。<strong>建议：</strong>抵达首日避免剧烈运动与洗澡；备好葡萄糖、布洛芬、便携氧气罐；保持心态放松，多喝水。</p>
+                </div>
+                <div style="background:#fdfdfd; padding:15px; border-radius:10px; border:1px solid #eee;">
+                    <h4 style="color:var(--accent); margin-bottom:8px;">📜 文化与礼仪</h4>
+                    <p style="font-size:0.9em;">进入寺庙不戴墨镜/帽子，不指佛像，逆时针绕行。拍摄僧侣或牧民请先微笑询问并获得同意。转经筒、玛尼堆请勿随意翻动或带走石头。</p>
+                </div>
+                <div style="background:#fdfdfd; padding:15px; border-radius:10px; border:1px solid #eee;">
+                    <h4 style="color:var(--accent); margin-bottom:8px;">🔋 装备与安全</h4>
+                    <p style="font-size:0.9em;">高原紫外线极强，SPF50+防晒霜必带。部分客栈不提供一次性用品，建议自备洗漱包、保温杯。行车注意避让牦牛群，切勿鸣笛惊扰。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 预算参考 -->
+        <section class="section">
+            <div class="section-title"><span></span>💰 3天人均预算参考（适中标准）</div>
+            <p style="font-size:0.95em; color:#555; margin-bottom:15px;">以下为单人3天2夜预估花费（不含出发地往返兰州的大交通），供行程规划参考：</p>
+            <div class="budget-summary">
+                <div class="budget-item">
+                    <div class="budget-num">¥ 600-800</div>
+                    <div class="budget-label">🚗 当地包车/拼车分摊</div>
+                </div>
+                <div class="budget-item">
+                    <div class="budget-num">¥ 500-700</div>
+                    <div class="budget-label">🛏️ 住宿（2晚舒适型）</div>
+                </div>
+                <div class="budget-item">
+                    <div class="budget-num">¥ 350-450</div>
+                    <div class="budget-label">🍲 餐饮（含特色美食）</div>
+                </div>
+                <div class="budget-item">
+                    <div class="budget-num">¥ 200-260</div>
+                    <div class="budget-label">🎫 门票及景区交通</div>
+                </div>
+            </div>
+            <div style="margin-top:15px; text-align:center; padding:12px; background:#e8f5e9; border-radius:8px;">
+                <strong>💡 人均总计预估：¥ 1650 - ¥ 2200</strong> （符合预算级别2-适中。若选择经济青旅或减少包车可降至1200元以内；升级野奢住宿则需增加预算。）
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>🌿 本攻略由资深旅游规划师定制，数据更新于2024年夏季。</p>
+            <p>甘南之美在于自然与人文的交融，愿您在这片九色净土收获内心的宁静。旅途愉快！</p>
+        </footer>
+    </div>
+</body>
+</html>

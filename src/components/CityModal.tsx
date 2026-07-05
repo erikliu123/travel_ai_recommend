@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plane, Train, Star, ThumbsUp, ThumbsDown, X, MapPin, Clock, ExternalLink, CheckCircle2, Edit2, Trash2, Users } from 'lucide-react';
+import { Plane, Train, Star, ThumbsUp, ThumbsDown, X, MapPin, Clock, ExternalLink, CheckCircle2, Edit2, Trash2, Users, BookOpen } from 'lucide-react';
 import type { CityInfo } from '@/data/cities';
 import type { User as UserType, Trip, TripPhoto } from '@/types';
 import TripCheckIn from './TripCheckIn';
@@ -112,6 +112,31 @@ export default function CityModal({ city, onClose, user, trip, onTripSuccess, on
               {budgetLabels[city.budgetLevel]}
             </span>
           </div>
+
+          {/* AI Guide Card */}
+          {city.guideUrl && (
+            <a
+              href={city.guideUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mb-6 block rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 p-4 hover:shadow-md smooth-transition group"
+            >
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-lg bg-blue-100 shrink-0">
+                  <BookOpen className="w-5 h-5 text-blue-600" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-blue-900 mb-1 flex items-center gap-2">
+                    AI 详细攻略
+                    <ExternalLink className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 smooth-transition" />
+                  </h3>
+                  <p className="text-sm text-blue-700">
+                    由 AI 生成的详细行程规划，包含每日时间线、景点推荐、住宿美食指南
+                  </p>
+                </div>
+              </div>
+            </a>
+          )}
 
           {/* Trip status - User's own trip */}
           {trip ? (

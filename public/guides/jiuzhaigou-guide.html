@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>九寨沟夏季旅游攻略 | 资深规划师定制</title>
+<style>
+:root {
+  --primary: #2d6a4f;
+  --primary-light: #52b788;
+  --primary-dark: #1b4332;
+  --bg: #f4f7f5;
+  --card-bg: #ffffff;
+  --text-main: #2c3e35;
+  --text-sec: #5f7068;
+  --accent: #e9c46a;
+  --danger: #e76f51;
+  --radius: 14px;
+  --shadow: 0 6px 16px rgba(45, 106, 79, 0.08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
+header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+  color: #fff;
+  padding: 70px 20px 50px;
+  text-align: center;
+  position: relative;
+  clip-path: ellipse(110% 100% at 50% 0%);
+}
+header h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 12px; letter-spacing: 2px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+header p { font-size: 1.1rem; opacity: 0.92; max-width: 600px; margin: 0 auto 24px; }
+.badge-group { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 10px; }
+.badge { background: var(--accent); color: var(--primary-dark); padding: 6px 14px; border-radius: 20px; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.5px; }
+.section { background: var(--card-bg); margin: 24px 0; padding: 28px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.03); }
+h2 { color: var(--primary); font-size: 1.5rem; font-weight: 700; border-bottom: 2px solid var(--primary-light); padding-bottom: 8px; margin-bottom: 24px; display: inline-block; }
+h3 { color: var(--primary-dark); margin: 18px 0 12px; font-size: 1.2rem; font-weight: 600; }
+.grid-2 { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 768px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+.grid-3 { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+.card { border: 1px solid #e8efe9; border-radius: var(--radius); overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(45, 106, 79, 0.12); }
+.img-placeholder { height: 130px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 1.15rem; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+.card-body { padding: 16px; }
+.tag-mini { display: inline-block; background: #e8f5e9; color: var(--primary); padding: 3px 10px; border-radius: 12px; font-size: 0.78rem; margin: 6px 6px 6px 0; font-weight: 600; }
+.timeline { position: relative; padding-left: 22px; margin: 16px 0; }
+.timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(180deg, var(--primary-light), transparent); border-radius: 2px; }
+.t-item { position: relative; margin-bottom: 24px; padding-left: 20px; }
+.t-item:last-child { margin-bottom: 0; }
+.t-item::before { content: ''; position: absolute; left: 0; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--primary-light); z-index: 1; }
+.t-time { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 1rem; }
+.t-content { color: var(--text-main); background: #f8faf9; padding: 12px; border-radius: 8px; border-left: 3px solid var(--primary-light); }
+.table-wrap { overflow-x: auto; margin-top: 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #eef2f0; }
+th { background: #eef5f1; color: var(--primary-dark); font-weight: 600; white-space: nowrap; }
+tr:hover td { background: #fafcfb; }
+.tip-box { background: linear-gradient(90deg, #f0f7f3 0%, #e8f5e9 100%); padding: 16px; border-radius: 10px; margin-top: 16px; border-left: 4px solid var(--primary-light); font-size: 0.95rem; color: var(--primary-dark); }
+.pro-con { display: grid; grid-template-columns: 1fr; gap: 24px; margin: 16px 0; }
+@media(min-width: 650px) { .pro-con { grid-template-columns: 1fr 1fr; } }
+.pro-box, .con-box { padding: 16px; border-radius: 10px; background: #fff; border-top: 3px solid var(--primary); }
+.con-box { border-top-color: var(--danger); background: #fef8f7; }
+.budget-row { display: flex; align-items: center; justify-content: space-between; margin: 10px 0; }
+.b-bar { flex: 1; height: 10px; background: #e9ecef; border-radius: 5px; margin: 0 15px; overflow: hidden; }
+.b-fill { height: 100%; background: var(--primary-light); border-radius: 5px; }
+footer { text-align: center; padding: 40px 20px; color: var(--text-sec); font-size: 0.9rem; border-top: 1px solid #e0e6e2; margin-top: 40px; }
+.highlight { color: var(--primary); font-weight: 600; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>🏞️ 九寨沟夏季深度游攻略</h1>
+    <p>“九寨归来不看水” · 资深旅游规划师定制 · 避开人潮的2天精华路线</p>
+    <div class="badge-group">
+      <span class="badge">🌿 自然风光</span>
+      <span class="badge">📸 摄影出片</span>
+      <span class="badge">🥾 徒步旅行</span>
+      <span class="badge">💰 预算等级 3 (较高)</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <!-- 城市概述 -->
+  <section class="section">
+    <h2>📍 城市概述与出行建议</h2>
+    <p style="margin-bottom:18px; color: var(--text-sec);">“九寨归来不看水”，这里以梦幻般的钙化湖泊、磅礴的瀑布群和原始纯净的森林生态系统闻名于世。夏季（6-8月）的九寨水量充沛，翠海叠瀑，满山葱郁，是避暑与摄影的绝佳时节。虽然秋季色彩最浓郁，但夏季的清凉与灵动同样令人震撼。</p>
+    <div class="pro-con">
+      <div class="pro-box">
+        <h3>✅ 核心优势</h3>
+        <ul style="padding-left: 20px; color: var(--text-main);">
+          <li>水景堪称世界一绝，水质清澈见底</li>
+          <li>夏季水量充沛，瀑布群气势更磅礴</li>
+          <li>负氧离子极高，生态环境原始纯净</li>
+          <li>栈道完善，徒步/观光结合，摄影出片率极高</li>
+        </ul>
+      </div>
+      <div class="con-box">
+        <h3>⚠️ 注意事项</h3>
+        <ul style="padding-left: 20px;">
+          <li>海拔2000-3100米，需防范轻度高反</li>
+          <li>交通需经成都中转，路途相对耗时</li>
+          <li>门票+观光车费用较高，旺季需提前7天预约</li>
+          <li>夏季多阵雨，需备好雨具，部分路段湿滑</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2天详细行程 -->
+  <section class="section">
+    <h2>📅 2天详细行程安排</h2>
+    <div class="timeline">
+      <h3>🗓️ Day 1：日则沟精华与Y字主线（长海/五花海/珍珠滩）</h3>
+      <div class="t-item">
+        <div class="t-time">⏰ 08:00 - 08:30 | 进沟与乘车</div>
+        <div class="t-content">从沟口游客中心刷身份证入园，直接乘坐<span class="highlight">左侧上行大巴</span>前往查洼沟终点。夏季早晨空气微凉，建议穿防风薄外套。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">⏰ 08:30 - 11:30 | 上午：长海 & 五彩池</div>
+        <div class="t-content">抵达<span class="highlight">长海</span>（海拔最高、面积最大海子），四周雪山倒映，湖蓝如宝石。随后步行栈道下行至<span class="highlight">五彩池</span>，夏季阳光穿透力强，钙化物质与藻类交织，湖水呈现梦幻的蓝绿渐变，是全天最早出片的时间段。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">⏰ 11:30 - 13:00 | 乘车返回诺日朗中转站</div>
+        <div class="t-content">乘坐下行观光车至<span class="highlight">诺日朗游客中心</span>，在此享用景区简餐或自热食品。注意：景区内物价较高，建议自备干粮与水。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">⏰ 13:00 - 17:00 | 下午：珍珠滩瀑布 & 五花海</div>
+        <div class="t-content">乘坐<span class="highlight">右侧上行大巴</span>至箭竹海，开始<span class="highlight">徒步栈道</span>下行。途经镜海（夏季上午易起风，水面倒影稍弱）、熊猫海，重点打卡<span class="highlight">五花海</span>（九寨沟心脏，色彩最丰富）及<span class="highlight">珍珠滩瀑布</span>（86版《西游记》取景地，水花四溅如万颗珍珠）。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">⏰ 18:30 - 20:30 | 晚上：出沟休息与藏餐体验</div>
+        <div class="t-content">乘车返回沟口，前往漳扎镇或鲁能小镇入住。推荐体验当地特色牦牛汤锅，舒缓步行疲劳。夏季晚间气温约15℃，注意保暖。</div>
+      </div>
+
+      <h3 style="margin-top: 24px;">🗓️ Day 2：树正沟全景与慢节奏摄影</h3>
+      <div class="t-item">
+        <div class="t-time">⏰ 08:30 - 11:30 | 上午：诺日朗瀑布 & 树正群海</div>
+        <div class="t-content">二次进沟（或连续游览）前往<span class="highlight">诺日朗瀑布</span>。中国最宽的钙化瀑布，夏季水量最大，气势恢宏，水雾弥漫常现彩虹。随后沿树正沟下行，观赏树正群海、磨房、老虎海，感受“树在水中长，水在林间流”的生态奇观。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">⏰ 11:30 - 13:30 | 中午：犀牛海 & 芦苇海</div>
+        <div class="t-content">犀牛海是拍摄云雾与雪山倒影的绝佳机位。夏季芦苇海已转翠绿，乘坐观光车穿梭其间，车窗即天然取景框。此段为全景区徒步最少、最休闲的区域。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">⏰ 14:00 - 16:00 | 下午：自由活动 & 查漏补缺</div>
+        <div class="t-content">若首日有遗漏，可利用下午时间补拍；或前往景区外的<span class="highlight">中查沟（神仙池周边）</span>轻徒步，避开主沟人流。夏季雷雨多发，建议16:00左右结束行程出沟。</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">⏰ 16:30 | 返程/住宿整理</div>
+        <div class="t-content">整理行李，根据航班/车次前往九黄机场或九寨沟高铁站，结束治愈之旅。</div>
+      </div>
+    </div>
+    <div class="tip-box">💡 <strong>规划师Tips：</strong> 景区实行“公交式观光车+随机停靠+栈道徒步”模式。夏季为丰水期，建议将体力好的路段安排在上午，下午以观光车+短距离栈道为主。务必穿防滑徒步鞋。</div>
+  </section>
+
+  <!-- 景点详细介绍 -->
+  <section class="section">
+    <h2>🏞️ 核心景点深度解析</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="img-placeholder" style="background: linear-gradient(135deg, #40916c, #95d5b2);">五花海 (精华推荐)</div>
+        <div class="card-body">
+          <span class="tag-mini">🌊 湖景天花板</span> <span class="tag-mini">📸 必打卡</span>
+          <p><strong>推荐理由：</strong>九寨沟的灵魂。湖底钙华、古沉木与湖生团花藻类交织，在阳光下折射出鹅黄、墨绿、深蓝等斑斓色彩，宛如上帝打翻的调色盘。夏季藻类活跃，色彩饱和度极高。</p>
+          <div class="tip-box" style="margin-top:10px; font-size:0.9rem;">📌 <strong>游玩Tips：</strong> 栈道有上下两层观景台，上层可拍全景，下层贴近水面。正午阳光直射时色彩最绚丽，建议携带偏振镜(CPL)消除水面反光。</div>
+          <p style="margin-top:10px; font-weight:600; color:var(--primary);">🎫 门票信息：含于景区套票内（旺季门票169元+观光车90元=259元/人）</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img-placeholder" style="background: linear-gradient(135deg, #2a9d8f, #e9c46a);">诺日朗瀑布 (气势之选)</div>
+        <div class="card-body">
+          <span class="tag-mini">🎬 影视取景地</span> <span class="tag-mini">💧 钙化奇观</span>
+          <p><strong>推荐理由：</strong>中国最宽的钙化瀑布，宽270米。夏季水量达峰值，瀑流如银河倾泻，水雾升腾常伴双彩虹。86版《西游记》片尾曲师徒四人涉水画面即取景于此。</p>
+          <div class="tip-box" style="margin-top:10px; font-size:0.9rem;">📌 <strong>游玩Tips：</strong> 瀑布观景台较窄，上午光线最佳。水雾极大，手机/相机务必做好防水准备。旁边有诺日朗餐厅可简单休息。</div>
+          <p style="margin-top:10px; font-weight:600; color:var(--primary);">🎫 门票信息：含于景区套票内，免费接驳</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img-placeholder" style="background: linear-gradient(135deg, #1b4332, #74c69d);">长海 (高原明镜)</div>
+        <div class="card-body">
+          <span class="tag-mini">🏔️ 海拔最高</span> <span class="tag-mini">📐 面积最大</span>
+          <p><strong>推荐理由：</strong>海拔3061米，四季长绿，无出水口，靠地下水补给。四周雪山环绕，湖水深邃如蓝宝石。夏季周边高山杜鹃与冷杉林交相辉映，视野极为开阔。</p>
+          <div class="tip-box" style="margin-top:10px; font-size:0.9rem;">📌 <strong>游玩Tips：</strong> 海拔较高，避免剧烈跑跳。此处风力较大，需备防风衣物。独臂柏是长海标志，位于栈道尽头。</div>
+          <p style="margin-top:10px; font-weight:600; color:var(--primary);">🎫 门票信息：含于景区套票内</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img-placeholder" style="background: linear-gradient(135deg, #52b788, #2d6a4f);">珍珠滩瀑布 (灵动水珠)</div>
+        <div class="card-body">
+          <span class="tag-mini">🎬 西游记取景</span> <span class="tag-mini">💦 宽162.5米</span>
+          <p><strong>推荐理由：</strong>水流在浅滩的钙华层上撞击，激起的水珠在阳光下如珍珠般跳跃。瀑面呈新月型，水流湍急却不浑浊，是九寨沟最具动感的水景之一。</p>
+          <div class="tip-box" style="margin-top:10px; font-size:0.9rem;">📌 <strong>游玩Tips：</strong> 栈道部分台阶被水雾打湿较滑，老人小孩需扶栏慢行。建议使用防水手机袋。清晨人少，易拍出空灵大片。</div>
+          <p style="margin-top:10px; font-weight:600; color:var(--primary);">🎫 门票信息：含于景区套票内</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食与住宿 -->
+  <div class="grid-2">
+    <section class="section">
+      <h2>🍲 当地美食推荐</h2>
+      <table>
+        <thead><tr><th>推荐菜品</th><th>特色说明</th><th>人均参考价</th></tr></thead>
+        <tbody>
+          <tr><td>🐄 牦牛汤锅</td><td>高山放养牦牛肉慢炖，汤底鲜美浓郁，夏季驱寒除湿首选</td><td>80-120元</td></tr>
+          <tr><td>🍄 野生菌火锅</td><td>夏季雨季松茸、牛肝菌等当季采摘，搭配土鸡熬制，鲜味十足</td><td>100-150元</td></tr>
+          <tr><td>🥣 酥油茶 & 青稞饼</td><td>藏区传统主食，补充体力，缓解干燥，建议配热奶茶饮用</td><td>25-40元</td></tr>
+          <tr><td>🥘 藏式烤土豆</td><td>高海拔土豆淀粉含量高，炭烤后外焦里嫩，佐以辣椒面极佳</td><td>15-25元</td></tr>
+        </tbody>
+      </table>
+      <div class="tip-box">📍 <strong>就餐建议：</strong> 沟口“漳扎镇”餐饮街选择最多，主打藏羌风味；追求品质可前往“鲁能胜地”或星级酒店附属餐厅。景区内部仅诺日朗中心提供自助餐（约68元/位）及小吃，口味较普通。</div>
+    </section>
+    <section class="section">
+      <h2>🛏️ 住宿档次推荐</h2>
+      <h3>💰 经济型（300-500元/晚）</h3>
+      <p><strong>类型：</strong>沟口特色青旅/藏式客栈<br><strong>特点：</strong>步行至景区大门10-15分钟，基础干净，部分含藏家早餐。适合预算有限、重行程的背包客。</p>
+      <h3 style="margin-top:15px;">🌿 舒适型（600-1000元/晚）</h3>
+      <p><strong>类型：</strong>精品设计民宿/四星标准酒店（如漳扎镇沿线）<br><strong>特点：</strong>地暖/地暖空调、独立卫浴、供氧设备、精致藏风装潢。性价比最高，推荐多数游客。</p>
+      <h3 style="margin-top:15px;">✨ 高端型（1200-2500+元/晚）</h3>
+      <p><strong>类型：</strong>国际品牌度假酒店/野奢帐篷营地（如九寨沟悦榕庄/鲁能希尔顿/天堂洲际）<br><strong>特点：</strong>私密性极佳，自带景观园林、恒温泳池、SPA中心，部分提供VIP快速通道服务，适合追求极致体验的家庭/摄影发烧友。</p>
+      <div class="tip-box">📅 <strong>预订提醒：</strong> 夏季为绝对旺季，热门民宿/酒店建议提前15-20天锁定房源。周末价格通常上浮20%-30%。</div>
+    </section>
+  </div>
+
+  <!-- 交通与预算 -->
+  <section class="section">
+    <h2>🚌 交通指南与预算参考</h2>
+    <div class="grid-2">
+      <div>
+        <h3>🚗 如何到达九寨沟</h3>
+        <ul style="padding-left: 18px; color: var(--text-sec); margin-bottom: 12px;">
+          <li><strong>✈️ 飞机（推荐）：</strong> 直飞<span class="highlight">九寨黄龙机场</span>（约3小时），机场距景区88公里，车程约2小时。航班受天气影响较大，夏季相对平稳。</li>
+          <li><strong>🚄 高铁/动车：</strong> 成都东站/南站乘坐至<span class="highlight">松潘站/镇江关站</span>（约2.5-3小时），出站转乘大巴/网约车至景区（约2-3小时）。总耗时约10-12小时，性价比高。</li>
+          <li><strong>🚌 长途大巴：</strong> 杭州/各地飞抵成都新南门/茶店子客运站，乘坐直达大巴约8小时抵达沟口。盘山路段易晕车，建议备晕车贴。</li>
+        </ul>
+        <h3>🎫 景区内部交通</h3>
+        <p>景区实行全封闭管理，私家车无法进入。必须乘坐<span class="highlight">环保观光车</span>（票价90元已含在套票中），呈Y字形运行，可随意上下。部分核心景点需步行栈道衔接（单段约1-3公里）。</p>
+      </div>
+      <div>
+        <h3>💰 2天1夜人均预算参考</h3>
+        <div class="budget-row">
+          <span>大交通（往返成都+接驳）</span>
+          <span>1500 - 3500元</span>
+        </div>
+        <div class="b-bar"><div class="b-fill" style="width: 85%;"></div></div>
+        
+        <div class="budget-row" style="margin-top:12px;">
+          <span>住宿（1晚舒适型）</span>
+          <span>400 - 800元</span>
+        </div>
+        <div class="b-bar"><div class="b-fill" style="width: 50%;"></div></div>
+        
+        <div class="budget-row" style="margin-top:12px;">
+          <span>门票+观光车（旺季）</span>
+          <span>259元/人</span>
+        </div>
+        <div class="b-bar"><div class="b-fill" style="width: 30%;"></div></div>
+        
+        <div class="budget-row" style="margin-top:12px;">
+          <span>餐饮（2天）</span>
+          <span>300 - 500元</span>
+        </div>
+        <div class="b-bar"><div class="b-fill" style="width: 35%;"></div></div>
+        
+        <div class="budget-row" style="margin-top:12px;">
+          <span>其他（保险/纪念品）</span>
+          <span>100 - 300元</span>
+        </div>
+        <div class="b-bar"><div class="b-fill" style="width: 25%;"></div></div>
+        <p style="margin-top: 16px; font-weight: bold; color: var(--primary);">📊 预估总花费：2500 - 5500元/人（视出发地与住宿档次浮动）</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section class="section" style="border-left: 5px solid var(--danger);">
+    <h2>⚠️ 夏季专属注意事项</h2>
+    <div class="grid-2">
+      <div>
+        <h3>🌦️ 天气与穿着</h3>
+        <p>夏季平均气温 <span class="highlight">15℃ - 25℃</span>，早晚温差大。紫外线强烈，偶有阵雨。<br>✅ <strong>必备：</strong> 薄羽绒服/抓绒冲锋衣（早晚防冷）、速干内衣、防晒衣、宽檐帽、高倍防晒霜(SPF50+)。<br>☂️ <strong>雨具：</strong> 建议带轻便雨衣（比雨伞更方便徒步，且不遮挡拍照视线）。</p>
+        <h3 style="margin-top:16px;">🦺 安全与健康</h3>
+        <p>✅ 海拔2000-3100米，首日勿洗澡、勿饮酒、勿剧烈运动。可提前备布洛芬、葡萄糖口服液。<br>✅ 栈道临水，部分区域青苔湿滑，务必穿防滑徒步鞋/运动鞋。严禁翻越护栏拍照。<br>✅ 夏季野生动物活跃（松鼠、猕猴等），请勿投喂、挑逗，保管好随身食物。</p>
+      </div>
+      <div>
+        <h3>📅 购票与环保</h3>
+        <p>✅ 严格执行<span class="highlight">实名预约购票</span>，旺季每日限流4.1万人次。关注“九寨沟”官方微信提前7天购票，刷身份证直接入园。<br>✅ 景区为国家级自然保护区，实行“全域禁烟”及“无痕山林”政策。所有垃圾必须随身带走，违者将面临高额罚款。<br>✅ 观光车排队高峰为上午8:00-9:30，建议错峰或提前半小时抵达沟口。</p>
+        <div class="tip-box" style="background: #fff3e0; border-color: #e69313; margin-top: 20px;">🔔 <strong>紧急提示：</strong> 夏季暴雨可能引发地质灾害，若遇交通管制或景区临时关闭，请听从工作人员指挥，退至安全高地或游客中心，切勿强行进沟。</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2024 资深旅游规划师定制 · 九寨沟夏季攻略 | 数据仅供参考，实际出行请以景区官方公告为准</p>
+    <p style="margin-top: 6px; font-size: 0.85rem;">祝您旅途平安，收获绝美记忆 🍃✨</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伊春夏季旅游攻略 | 林都避暑3日游</title>
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --primary-dark: #1b4332;
+      --primary-light: #52b788;
+      --accent-bg: #e8f5e9;
+      --bg: #f4f7f5;
+      --text: #1f2937;
+      --text-light: #4b5563;
+      --white: #ffffff;
+      --shadow: 0 6px 16px rgba(45,106,79,0.1);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+    
+    header { background: linear-gradient(160deg, var(--primary-dark), var(--primary) 60%, var(--primary-light)); color: var(--white); padding: 48px 20px 36px; text-align: center; border-radius: 0 0 30px 30px; box-shadow: 0 8px 24px rgba(27,67,50,0.2); margin-bottom: 28px; }
+    header h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 8px; letter-spacing: 1px; }
+    header p { font-size: 1.1rem; opacity: 0.92; max-width: 600px; margin: 0 auto; }
+    .hero-tags { margin-top: 16px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .tag { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; backdrop-filter: blur(4px); }
+    
+    section { background: var(--white); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; box-shadow: var(--shadow); border-top: 4px solid var(--primary-light); }
+    h2 { color: var(--primary-dark); font-size: 1.5rem; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+    h2::before { content: ''; display: inline-block; width: 6px; height: 24px; background: var(--primary); border-radius: 4px; }
+    h3 { color: var(--primary); font-size: 1.2rem; font-weight: 600; margin: 16px 0 8px; }
+    
+    .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 16px; }
+    .meta-box { background: #f8faf8; padding: 14px; border-radius: 10px; border-left: 4px solid var(--primary-light); }
+    .meta-box strong { color: var(--primary-dark); display: block; font-size: 0.9rem; margin-bottom: 4px; }
+    .pro-con { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+    .pro, .con { flex: 1; min-width: 200px; padding: 12px; border-radius: 10px; font-size: 0.95rem; line-height: 1.5; }
+    .pro { background: #e8f5e9; border-left: 4px solid #2e7d32; color: #1b4332; }
+    .con { background: #fff3f3; border-left: 4px solid #c62828; color: #7a1a1a; }
+    
+    .timeline { position: relative; padding-left: 20px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 4px; bottom: 12px; width: 3px; background: #cde6d0; border-radius: 3px; }
+    .day-block { margin-bottom: 28px; position: relative; }
+    .day-title { font-weight: 800; color: var(--white); background: var(--primary); display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 1rem; margin-bottom: 14px; box-shadow: 0 3px 8px rgba(45,106,79,0.2); }
+    .day-title::after { content: ''; position: absolute; left: -28px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; background: var(--white); border: 3px solid var(--primary); border-radius: 50%; z-index: 2; }
+    .slot { background: #fcfdfc; border: 1px dashed #b5d5c3; padding: 12px; border-radius: 10px; margin-bottom: 10px; }
+    .slot-time { font-weight: 700; color: var(--primary-dark); font-size: 0.9rem; margin-right: 8px; background: #e0f0e9; padding: 2px 6px; border-radius: 4px; }
+    
+    .attr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .attr-card { border: 1px solid #e5e7eb; border-radius: var(--radius); overflow: hidden; background: var(--white); transition: transform 0.25s ease; }
+    .attr-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.06); }
+    .attr-header { background: linear-gradient(135deg, #1b4332, #2d6a4f); color: white; padding: 16px; }
+    .attr-header h3 { color: white; margin: 0 0 6px; font-size: 1.15rem; }
+    .attr-header span { font-size: 0.85rem; opacity: 0.9; background: rgba(255,255,255,0.15); padding: 2px 8px; border-radius: 10px; }
+    .attr-body { padding: 16px; }
+    .tip-box { background: #e6f4ea; border-left: 4px solid var(--primary); padding: 10px 12px; border-radius: 6px; margin: 12px 0 0; font-size: 0.9rem; color: #2c5e3b; }
+    .price-tag { font-weight: 700; color: var(--primary); margin-top: 10px; display: inline-block; }
+    
+    .list-check { list-style: none; }
+    .list-check li { padding-left: 28px; margin-bottom: 10px; position: relative; }
+    .list-check li::before { content: '✓'; position: absolute; left: 0; top: 2px; color: var(--primary-light); font-weight: bold; }
+    .food-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .food-item { background: #fafbf9; padding: 16px; border-radius: 12px; border: 1px solid #edf0ec; }
+    
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; border-radius: 8px; overflow: hidden; }
+    th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #e9ecef; font-size: 0.95rem; }
+    th { background: var(--primary); color: white; font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background: #f8faf8; }
+    
+    .footer { text-align: center; padding: 30px 20px; color: #6c757d; font-size: 0.85rem; border-top: 1px solid #dee2e6; margin-top: 20px; }
+    
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.9rem; }
+      section { padding: 18px 16px; }
+      .overview-grid, .attr-grid, .food-grid { grid-template-columns: 1fr; }
+      .pro-con { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>林都伊春 · 夏日避暑全攻略</h1>
+  <p>深入小兴安岭腹地，漫步千年红松林，3天2夜纯享22℃的森林呼吸</p>
+  <div class="hero-tags">
+    <span class="tag">🌲 自然风光</span>
+    <span class="tag">🍃 避暑胜地</span>
+    <span class="tag">👨‍👩‍👧‍👦 亲子友好</span>
+    <span class="tag">💰 经济优选</span>
+  </div>
+</header>
+
+<main class="container">
+  <!-- 城市概述 -->
+  <section id="overview">
+    <h2>📍 城市速览</h2>
+    <p style="margin-bottom: 14px; color: #4b5563;">伊春，被誉为“中国林都”与“红松故乡”。夏季平均气温仅22℃，是中国东北顶级的天然空调房。这里没有喧嚣的商业街，只有连绵的林海、清澈的溪流与散养的鹿群。适合追求清静、热爱自然与带娃出行的家庭。</p>
+    
+    <div class="overview-grid">
+      <div class="meta-box"><strong>📅 最佳季节</strong>6-8月（森林茂盛，避暑最佳）</div>
+      <div class="meta-box"><strong>🗓️ 建议天数</strong>3天2晚（覆盖核心景区）</div>
+      <div class="meta-box"><strong>💵 预算级别</strong>⭐（经济型，物价亲民）</div>
+    </div>
+
+    <div class="pro-con">
+      <div class="pro"><strong>✨ 核心优势</strong><br>• 森林覆盖率超83%，负氧离子爆表<br>• 夏季凉爽舒适，无蚊虫困扰（需基础防护）<br>• 消费水平低，住宿餐饮性价比高<br>• 鹿苑互动体验佳，亲子寓教于乐</div>
+      <div class="con"><strong>⚠️ 注意事项</strong><br>• 交通中转较多（通常经哈尔滨）<br>• 景区间距离较远，建议包车/拼车<br>• 旅游配套偏原生态，非奢华度假型<br>• 紫外线较强，昼夜温差大</div>
+    </div>
+  </section>
+
+  <!-- 3天行程 -->
+  <section id="itinerary">
+    <h2>📅 3天2夜详细行程</h2>
+    <div class="timeline">
+      <div class="day-block">
+        <span class="day-title">DAY 1：初识林都 · 鹿谷寻踪</span>
+        <div class="slot"><span class="slot-time">下午</span> 抵达伊春站/机场，入住市区酒店休整。乘车前往 <strong>金山鹿苑</strong>。傍晚时分光线柔和，鹿群最活跃，可购买苔藓/胡萝卜近距离投喂。</div>
+        <div class="slot"><span class="slot-time">晚上</span> 返回伊春市区（乌马河区），漫步水上公园或前往 <strong>林都夜市</strong>，品尝烤冷面、东北烧烤，感受林区烟火气。</div>
+      </div>
+      
+      <div class="day-block">
+        <span class="day-title">DAY 2：深入秘境 · 红松与奇石</span>
+        <div class="slot"><span class="slot-time">上午</span> 驱车前往 <strong>五营国家森林公园</strong>（车程约1.5h）。走木栈道观“少校松树”，登观涛塔俯瞰林海，体验千年红松森林浴。</div>
+        <div class="slot"><span class="slot-time">下午</span> 转场至 <strong>汤旺河林海奇石景区</strong>（车程约40min）。探访花岗岩石林，奇石掩映于密林之中。傍晚入住汤旺县或返回市区。</div>
+        <div class="slot"><span class="slot-time">晚上</span> 品尝东北铁锅炖或山野菜宴，早点休息恢复体力。</div>
+      </div>
+
+      <div class="day-block">
+        <span class="day-title">DAY 3：边境探秘 · 恐龙足迹</span>
+        <div class="slot"><span class="slot-time">上午</span> 早起出发前往 <strong>嘉荫恐龙国家地质公园</strong>（车程约1.5-2h）。参观恐龙化石出土原址与博物馆，了解黑龙江畔的史前生态。</div>
+        <div class="slot"><span class="slot-time">下午</span> 漫步中俄界江广场，眺望黑龙江对岸俄罗斯风光。沿G222国道返程或前往伊春站/机场，结束行程。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点详情 -->
+  <section id="attractions">
+    <h2>🌲 核心景点指南</h2>
+    <div class="attr-grid">
+      <div class="attr-card">
+        <div class="attr-header"><h3>五营国家森林公园</h3><span>🏆 必打卡·森林氧吧</span></div>
+        <div class="attr-body">
+          <p>亚洲保存最完整、面积最大的红松原始林区。园内拥有树龄超千年的“红松王”。漫步于蜿蜒的木栈道，呼吸富含负氧离子的清凉空气。</p>
+          <p class="tip-box">💡 <strong>Tips：</strong> 建议游玩3-4小时。穿防滑徒步鞋。景区内电瓶车可代步至核心区，但步行栈道体验更佳。</p>
+          <span class="price-tag">🎫 门票参考：约 55 元（含电瓶车联票约 75 元）</span>
+        </div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header"><h3>汤旺河林海奇石</h3><span>🗿 地质奇观·林海画廊</span></div>
+        <div class="attr-body">
+          <p>花岗岩地貌与温带原始森林的罕见结合。百余座形态各异的巨石历经风化，在绿树掩映中如天然雕塑，四季光影变幻，摄影绝佳。</p>
+          <p class="tip-box">💡 <strong>Tips：</strong> 游览环线约 2 小时。部分石阶较陡，老人小孩建议慢行。雨后石壁有青苔，务必注意安全。</p>
+          <span class="price-tag">🎫 门票参考：约 60 元</span>
+        </div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header"><h3>金山鹿苑</h3><span>🦌 亲子互动·山谷鹿群</span></div>
+        <div class="attr-body">
+          <p>被群山环抱的峡谷中，数千只梅花鹿与马鹿半散养。清晨与傍晚鹿群最活跃，可近距离接触、拍照、投喂，被誉为“中国版奈良”。</p>
+          <p class="tip-box">💡 <strong>Tips：</strong> 避开正午（鹿群多卧息）。园区内苔藓/胡萝卜约 20元/份。请保持安静，勿惊吓鹿群。</p>
+          <span class="price-tag">🎫 门票参考：约 50 元</span>
+        </div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header"><h3>嘉荫恐龙地质公园</h3><span>🦕 科普探秘·界江风光</span></div>
+        <div class="attr-body">
+          <p>中国最早发现并组装展出恐龙化石之地（平头鸭嘴龙）。园区包含遗址博物馆与黑龙江畔观景台，适合带娃进行古生物科普。</p>
+          <p class="tip-box">💡 <strong>Tips：</strong> 距离伊春市区较远（单程约2h车程），建议Day3集中安排。江边风大，备防风外套。</p>
+          <span class="price-tag">🎫 门票参考：约 50 元（含博物馆）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section id="food">
+    <h2>🍲 林区风味与美食</h2>
+    <p style="margin-bottom:16px;">伊春餐饮以东北菜为基底，融合小兴安岭山野食材，分量足、价格亲民。特色以野生菌、山野菜、冷水江鱼为主。</p>
+    <div class="food-grid">
+      <div class="food-item"><strong>🥘 必尝菜品</strong><br>• 铁锅炖江鱼/排骨<br>• 刺嫩芽炒蛋（山野菜之王）<br>• 猴头菇炖鸡汤<br>• 蓝莓汁/野生木耳凉拌<br>• 林区烤串（红柳大串/油边）</div>
+      <div class="food-item"><strong>📍 觅食推荐</strong><br>• <strong>市区夜市/美食街</strong>（乌马河区）：夜宵首选，烧烤、冷面、炒粉地道实惠。<br>• <strong>铁锅炖连锁/本地菜馆</strong>：推荐提前致电，分量极大，2-3人点2菜1汤足够。<br>• <strong>汤旺/五营镇内</strong>：多为农家院风格，可尝新鲜山货。</div>
+    </div>
+    <div class="tip-box">💡 <strong>避坑提示：</strong> 景区周边餐饮溢价约20%-30%，建议返回县城或市区就餐。点菜前务必确认时价海鲜/山货价格。</div>
+  </section>
+
+  <!-- 住宿推荐 -->
+  <section id="hotel">
+    <h2>🛏️ 住宿建议</h2>
+    <table>
+      <thead>
+        <tr><th style="width:20%;">档次</th><th style="width:25%;">参考价位</th><th style="width:55%;">推荐选择与特点</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>💰 经济型</td><td>120 - 250 元/晚</td><td>市区连锁快捷酒店（如汉庭、如家）或青年旅舍。干净卫生，交通便利，适合预算有限者。</td></tr>
+        <tr><td>🌿 舒适型</td><td>280 - 450 元/晚</td><td>汤旺县或伊春市区观景民宿/精品商务酒店。多含独立卫浴与地暖（夏季用不上但防潮），部分提供本地特色早餐。</td></tr>
+        <tr><td>✨ 高端/特色</td><td>500 - 800+ 元/晚</td><td>五营或金山屯附近林区度假酒店/木屋别墅。推窗见林，环境清幽，配套完善，适合亲子家庭深度体验。</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px; font-size:0.9rem; color:#666;">📌 <strong>预订提示：</strong> 6-8月为绝对旺季，务必提前1-2周预订。景区周边房源有限，灵活调整市区与县城住宿搭配可节省预算。</p>
+  </section>
+
+  <!-- 交通指南 -->
+  <section id="transport">
+    <h2>🚗 交通指南</h2>
+    <div class="overview-grid">
+      <div class="meta-box"><strong>✈️ 大交通到达</strong>全国无直飞伊春航班。最优选：飞抵哈尔滨太平机场，转乘动车/高铁至伊春站（约2-2.5h），或乘大巴/拼车（约5h）。</div>
+      <div class="meta-box"><strong>🚄 高铁直达</strong>哈尔滨至伊春已开通高铁，约2小时15分，票价约150-170元，班次密集，强烈推荐。</div>
+      <div class="meta-box"><strong>🚌 市内交通</strong>景点分散，公交班次少。推荐：<strong>包车/拼车</strong>（3天约 400-600元/车，司机兼向导），或自驾（路况良好，限速注意）。出租车仅适合市区短途。</div>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section id="tips">
+    <h2>⚠️ 实用注意事项</h2>
+    <ul class="list-check">
+      <li><strong>🌡️ 温差与穿搭：</strong> 夏季白天 25℃ 左右，夜间降至 12-15℃。必备：短袖+薄款冲锋衣/针织衫，长裤防蚊防晒，舒适防滑徒步鞋。</li>
+      <li><strong>🦟 防虫与安全：</strong> 林区有蜱虫与蚊虫，务必携带驱蚊液，扎紧裤脚。游玩时严格沿栈道行走，勿偏离主路，勿投喂野生动物（除鹿苑外）。</li>
+      <li><strong>☀️ 防晒与天气：</strong> 高纬度地区紫外线极强，物理防晒（帽子/墨镜）优于防晒霜。林区天气多变，随身带轻便雨具。</li>
+      <li><strong>📡 信号与现金：</strong> 市区网络畅通，但深入森林公园或界江边信号可能减弱。部分农家乐/小卖部建议备少量现金。</li>
+      <li><strong>🚒 防火纪律：</strong> 小兴安岭属重点防火区。严禁野外吸烟、明火。违者将面临严厉处罚。</li>
+    </ul>
+  </section>
+
+  <!-- 预算参考 -->
+  <section id="budget">
+    <h2>💰 3天2夜人均预算（经济级）</h2>
+    <p style="margin-bottom: 12px;">按1人出行、拼车/公共交通、经济舒适型住宿、常规餐饮标准测算（不含出发地往返大交通）。</p>
+    <table>
+      <thead>
+        <tr><th>支出项目</th><th>费用估算</th><th>备注</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>住宿（2晚）</td><td>350 - 500 元</td><td>经济连锁或县城民宿（双人分摊后）</td></tr>
+        <tr><td>餐饮（3天）</td><td>300 - 450 元</td><td>人均 80-120/日，含特色菜与小吃</td></tr>
+        <tr><td>交通（当地）</td><td>250 - 400 元</td><td>景区拼车/短途打车/公交接驳</td></tr>
+        <tr><td>门票及体验</td><td>200 - 250 元</td><td>4大核心景区首道门票合计</td></tr>
+        <tr><td>杂项/备用</td><td>100 元</td><td>零食、水、驱蚊用品、雨具等</td></tr>
+        <tr><td><strong>💵 合计预估</strong></td><td><strong>1200 - 1700 元/人</strong></td><td>丰俭由人，亲子家庭可控制总开支在 3000-3500 元内</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box" style="margin-top:16px; background: #fff8e1; border-color: #ffb300; color: #795548;">💡 <strong>省钱贴士：</strong> 学生/老人凭证件享门票半价；提前网购联票常减 10-20 元；避开周末前往鹿苑与奇石景区，住宿价格更优。</div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>🌲 攻略数据基于2023-2024年实测，价格与车次可能随季节微调，出行前请二次核实。</p>
+  <p>© 林都伊春避暑指南 | 祝您在小兴安岭拥抱一场绿色的梦</p>
+</footer>
+
+</body>
+</html>

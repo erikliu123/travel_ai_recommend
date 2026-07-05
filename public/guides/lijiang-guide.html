@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>丽江3日深度游攻略｜高原古城夏日漫游指南</title>
+  <style>
+    :root {
+      --primary: #4a6fa5;
+      --primary-dark: #35527a;
+      --primary-light: #eef4fa;
+      --bg: #f5f7fa;
+      --text: #2c3e50;
+      --text-light: #546e7a;
+      --card: #ffffff;
+      --shadow: 0 6px 16px rgba(74, 111, 165, 0.12);
+      --radius: 12px;
+      --success: #27ae60;
+      --warning: #f39c12;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+    
+    /* Header */
+    header { background: linear-gradient(135deg, var(--primary) 0%, #8ba3c7 100%); color: #fff; padding: 60px 20px 40px; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; background: var(--bg); border-radius: 20px 20px 0 0; }
+    h1 { font-size: 2.4rem; margin-bottom: 8px; letter-spacing: 2px; font-weight: 700; }
+    .sub-title { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 15px; }
+    .meta-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 10px; }
+    .meta-item { background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; }
+    .tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag { background: #fff; color: var(--primary-dark); padding: 4px 10px; border-radius: 15px; font-weight: 600; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+    /* Sections */
+    section { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); margin: 25px 0; padding: 28px; }
+    h2 { color: var(--primary-dark); font-size: 1.6rem; border-bottom: 3px solid var(--primary-light); padding-bottom: 8px; margin-bottom: 20px; display: inline-block; position: relative; }
+    h2::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 40px; height: 3px; background: var(--primary); }
+    
+    /* Cards & Grid */
+    .grid { display: grid; gap: 20px; }
+    .col-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .col-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .card { background: #fff; border: 1px solid #e1e8ed; border-radius: var(--radius); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .img-placeholder { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: rgba(255,255,255,0.8); font-weight: bold; }
+    .gradient-blue { background: linear-gradient(120deg, #a8edea, #4a6fa5); }
+    .gradient-snow { background: linear-gradient(120deg, #d9e2ec, #bcccdc); }
+    .gradient-lake { background: linear-gradient(120deg, #e0fbfc, #3d9cb5); }
+    .gradient-town { background: linear-gradient(120deg, #fdebd0, #d4a373); }
+    .card-body { padding: 16px; }
+    .card-title { font-size: 1.15rem; color: var(--primary-dark); margin-bottom: 8px; font-weight: 600; }
+    .card-desc { color: var(--text-light); font-size: 0.9rem; margin-bottom: 10px; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600; margin-right: 6px; }
+    .badge-ticket { background: #fff3cd; color: #856404; }
+    .badge-tip { background: #d4edda; color: #155724; }
+
+    /* Timeline */
+    .day-header { background: var(--primary-light); padding: 10px 15px; border-radius: 8px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .day-title { font-weight: bold; color: var(--primary-dark); font-size: 1.1rem; }
+    .timeline { position: relative; padding-left: 25px; border-left: 2px dashed #cbd5e1; margin-left: 10px; }
+    .timeline-item { margin-bottom: 18px; position: relative; padding-bottom: 10px; }
+    .timeline-item::before { content: ''; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--primary-light); }
+    .time-tag { font-weight: 700; color: var(--primary); font-size: 0.9rem; margin-bottom: 4px; }
+    .event-box { background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; }
+    
+    /* Tables & Lists */
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: var(--primary-light); color: var(--primary-dark); font-weight: 600; }
+    .price { color: #e74c3c; font-weight: bold; }
+    ul, ol { padding-left: 20px; }
+    li { margin-bottom: 8px; color: var(--text-light); }
+    .check-list { list-style: none; padding: 0; }
+    .check-list li { padding-left: 28px; position: relative; }
+    .check-list li::before { content: '✓'; position: absolute; left: 0; top: 2px; color: var(--primary); font-weight: bold; }
+    
+    /* Pros & Cons */
+    .pc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+    .box { padding: 15px; border-radius: 8px; }
+    .pro { background: #e8f5e9; color: #1b5e20; border-left: 4px solid #4caf50; }
+    .con { background: #ffebee; color: #b71c1c; border-left: 4px solid #e53935; }
+    .box h3 { margin-bottom: 6px; font-size: 1rem; }
+
+    /* Accommodation */
+    .accom-card { text-align: center; padding: 20px; background: linear-gradient(180deg, #fff, var(--primary-light)); border-radius: 10px; border: 1px solid #dce4ef; }
+    .accom-tier { display: inline-block; background: var(--primary); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 10px; font-weight: 600; }
+    .accom-price { font-size: 1.2rem; color: #d35400; font-weight: bold; margin: 8px 0; }
+
+    /* Footer */
+    footer { text-align: center; padding: 30px 10px; color: #7f8c8d; font-size: 0.85rem; border-top: 1px solid #ddd; margin-top: 20px; }
+    
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      .pc-grid { grid-template-columns: 1fr; }
+      .col-2, .col-3 { grid-template-columns: 1fr; }
+      section { padding: 20px 15px; }
+      header { padding: 40px 15px 30px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>丽江夏季深度游攻略</h1>
+    <p class="sub-title">纳西文化之都，雪山与古城的浪漫邂逅</p>
+    <div class="tags">
+      <span class="tag">📍 古城古镇</span>
+      <span class="tag">🏔️ 高原风光</span>
+      <span class="tag">🎨 文艺青年</span>
+    </div>
+    <div class="meta-grid">
+      <div class="meta-item">📅 建议游玩：3天</div>
+      <div class="meta-item">🌤️ 最佳月份：4-6月 / 9-11月</div>
+      <div class="meta-item">💰 预算级别：适中（Level 2）</div>
+      <div class="meta-item">✈️ 交通提示：飞昆明转动车约3.5h</div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="overview">
+    <h2>城市概述</h2>
+    <p style="margin-bottom: 15px;">丽江，一座没有城墙的古城。这里是纳西族的文化腹地，也是茶马古道的重要枢纽。夏季的丽江气候温和（15℃-25℃），雨水充沛带来绿意盎然的景致。大研古城的烟火气、束河古镇的静谧时光、玉龙雪山的巍峨壮丽，共同编织出一幅高原人文画卷。</p>
+    <div class="pc-grid">
+      <div class="box pro">
+        <h3>✨ 核心优势</h3>
+        <ul>
+          <li>古城氛围独特，建筑布局依山傍水</li>
+          <li>玉龙雪山景观壮美，四季皆宜</li>
+          <li>纳西、摩梭等多民族文化交融</li>
+          <li>夏季气候宜人，避暑胜地</li>
+        </ul>
+      </div>
+      <div class="box con">
+        <h3>⚠️ 注意事项</h3>
+        <ul>
+          <li>核心区商业化较重，需避开主街找清幽院落</li>
+          <li>平均海拔2400m+，雪山可达4500m，需防高反</li>
+          <li>旺季（暑期/节假日）住宿与门票溢价明显</li>
+          <li>紫外线强烈，昼夜温差大，需备外套</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="itinerary">
+    <h2>🗓️ 3天详细行程安排</h2>
+    
+    <div class="day-header">
+      <span class="day-title">Day 1：初探大研，漫步千年古城</span>
+      <span>📍 丽江古城及周边</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-tag">☀️ 上午 | 10:00-13:00</div>
+        <div class="event-box">抵达丽江，入住古城边缘客栈（石板路拖行李不便）。休整适应海拔，前往<b>四方街</b>感受古城中心活力，顺道游览<b>木府</b>（门票40元），了解纳西土司历史。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-tag">🌤️ 下午 | 14:30-17:30</div>
+        <div class="event-box">穿梭<b>五一街</b>、<b>光义街</b>，避开主商业街，打卡文艺手作店、独立咖啡馆。登<b>狮子山万古楼</b>俯瞰古城全景与远眺雪山轮廓。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-tag">🌙 晚上 | 19:30-22:00</div>
+        <div class="event-box">晚餐品尝腊排骨火锅。夜游<b>七一街</b>或体验古城清吧文化，感受纳西古乐与现代音乐的碰撞，随后沿水河漫步返回休息。</div>
+      </div>
+    </div>
+
+    <div class="day-header" style="margin-top:25px;">
+      <span class="day-title">Day 2：雪域巅峰，邂逅蓝月谷</span>
+      <span>📍 玉龙雪山景区</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-tag">☀️ 上午 | 07:30-12:00</div>
+        <div class="event-box">提前1个月预约<b>冰川公园大索道</b>票。乘车抵达甘海子游客中心，乘索道上至4506m，徒步栈道至4680m观景台。务必缓慢行走，备好氧气瓶。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-tag">🌤️ 下午 | 13:00-16:30</div>
+        <div class="event-box">下山后前往<b>蓝月谷</b>（免索道票，需乘环保车）。夏季雨水丰沛，湖水呈梦幻蒂芙尼蓝。拍照绝佳点：玉液湖、镜潭湖。可顺路乘坐<b>云杉坪索道</b>（海拔3240m）看原始森林草甸。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-tag">🌙 晚上 | 19:00-21:00</div>
+        <div class="event-box">返回古城。可选看《印象·丽江》实景演出（日间场）或休息调整，为次日行程蓄力。</div>
+      </div>
+    </div>
+
+    <div class="day-header" style="margin-top:25px;">
+      <span class="day-title">Day 3：慢生活束河，文化寻踪</span>
+      <span>📍 束河古镇及周边</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-tag">☀️ 上午 | 09:30-12:30</div>
+        <div class="event-box">睡到自然醒，打车前往<b>束河古镇</b>（距大研约20分钟车程）。漫步<b>青龙桥</b>、<b>九鼎龙潭</b>，探访茶马古道重镇遗迹，人少清幽，适合发呆摄影。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-tag">🌤️ 下午 | 13:30-17:00</div>
+        <div class="event-box">参观<b>茶马古道博物馆</b>，体验手工扎染或东巴纸制作。若体力充沛且时间允许，可包车前往<b>白沙古镇</b>或选择作为泸沽湖2日游的出发准备（注：泸沽湖单程需3.5-4小时，建议单独安排1-2天）。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-tag">🌙 晚上 | 返程/自由安排</div>
+        <div class="event-box">购买伴手礼（鲜花饼、东巴木雕、小粒咖啡），根据航班/车次前往机场/高铁站，结束旅程。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="attractions">
+    <h2>🏞️ 核心景点详解</h2>
+    <div class="grid col-2">
+      <div class="card">
+        <div class="img-placeholder gradient-blue">丽江古城</div>
+        <div class="card-body">
+          <div class="card-title">丽江古城（大研镇）</div>
+          <div class="card-meta">世界文化遗产 | 纳西智慧结晶</div>
+          <p class="card-desc"><b>推荐理由：</b>开放式古城无围墙，水系纵横。四方街商业繁华，周边巷弄静谧。夜晚灯火与水影交织，极具文艺气息。</p>
+          <p style="font-size:0.85rem;"><span class="badge badge-ticket">门票：古城维护费50元（目前抽查制，部分景点需）</span> <span class="badge badge-tip">Tips：清晨8点前或晚上10点后游客最少，最适合拍摄无人的青石板路。</span></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img-placeholder gradient-snow">玉龙雪山</div>
+        <div class="card-body">
+          <div class="card-title">玉龙雪山景区</div>
+          <div class="card-meta">纳西神山 | 海拔4680m</div>
+          <p class="card-desc"><b>推荐理由：</b>北半球最南端的大雪山。冰川公园近距离触碰现代冰川，蓝月谷宛如镶嵌在谷底的蓝宝石，四季景色迥异。</p>
+          <p style="font-size:0.85rem;"><span class="badge badge-ticket">门票：进山100元+大索道140元</span> <span class="badge badge-tip">Tips：务必提前在“丽江旅游集团”公众号抢票。备好防风外套与便携氧气，勿剧烈运动。</span></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img-placeholder gradient-town">束河古镇</div>
+        <div class="card-body">
+          <div class="card-title">束河古镇</div>
+          <div class="card-meta">原生态纳西聚落 | 茶马古道驿站</div>
+          <p class="card-desc"><b>推荐理由：</b>比大研更原始宁静。九鼎龙潭水质清澈见底，四方听音广场常有民族打跳。适合慢节奏深度游与文创体验。</p>
+          <p style="font-size:0.85rem;"><span class="badge badge-ticket">门票：免费（内部小景点另收）</span> <span class="badge badge-tip">Tips：推荐入住古镇内半山腰客栈，避开临街喧闹。下午4点后光影最佳。</span></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img-placeholder gradient-lake">泸沽湖</div>
+        <div class="card-body">
+          <div class="card-title">泸沽湖</div>
+          <div class="card-meta">高原明珠 | 摩梭母系文化</div>
+          <p class="card-desc"><b>推荐理由：</b>海拔2690米，水质极佳。环湖骑行或乘坐猪槽船，探访走婚桥、草海，了解独特的摩梭母系社会文化。</p>
+          <p style="font-size:0.85rem;"><span class="badge badge-ticket">门票：70元/人</span> <span class="badge badge-tip">Tips：距丽江单程约3.5-4h车程。建议至少安排2天1夜。夏季雨季路况偶有管制，出发前关注天气。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="food">
+    <h2>🍽️ 舌尖上的丽江</h2>
+    <div class="grid col-2">
+      <div>
+        <h3 style="margin-bottom:10px; color:var(--primary-dark);">🥢 必吃特色</h3>
+        <ul class="check-list">
+          <li><b>腊排骨火锅：</b>丽江招牌，咸香浓郁，搭配韭菜根与水性杨花绝佳。</li>
+          <li><b>鸡豆凉粉：</b>黑绿透亮，夏季凉拌开胃，煎烤外酥里嫩。</li>
+          <li><b>纳西烤鱼：</b>用东巴秘制香料烤制，外焦里嫩，佐以酥油茶解腻。</li>
+          <li><b>野生菌火锅：</b>7-9月雨季限定（注意：务必煮透20分钟以上再动筷）。</li>
+          <li><b>鲜花饼：</b>现烤玫瑰馅，酥脆香甜，最佳伴手礼。</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-bottom:10px; color:var(--primary-dark);">🏠 口碑餐厅推荐</h3>
+        <ul class="check-list">
+          <li><b>云雪丽餐厅（大研店）：</b>本地老牌，环境雅致，推荐香茅草烤鱼。</li>
+          <li><b>阿妈意·纳西饮食院：</b>非遗传承，可品尝正宗纳西三叠水宴席。</li>
+          <li><b>88号小吃店：</b>鸡豆凉粉、纳西烤肉性价比高，排队常客多。</li>
+          <li><b>束河·滇味餐厅：</b>位置僻静，野生菌炖土鸡汤底鲜甜。</li>
+        </ul>
+        <p style="margin-top:10px; font-size:0.9rem; color:#666;">💡 消费参考：正餐人均 60-120元，小吃街 15-30元/份。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="accommodation">
+    <h2>🛌 住宿指南</h2>
+    <div class="grid col-3">
+      <div class="accom-card">
+        <span class="accom-tier">🎒 经济型（背包客/学生）</span>
+        <h3 style="margin:5px 0;">特色青旅/庭院客栈</h3>
+        <div class="accom-price">¥120 - ¥250/晚</div>
+        <p style="font-size:0.9rem; color:#555; margin-top:5px;">集中在大研南门、北门坡或束河边缘。共享卫浴，公共空间大，便于结伴拼车。</p>
+        <p style="font-size:0.8rem; color:#888; margin-top:8px;">推荐区域：五一街延伸段、束河后街</p>
+      </div>
+      <div class="accom-card">
+        <span class="accom-tier" style="background:#52b788;">🌿 舒适型（主流选择）</span>
+        <h3 style="margin:5px 0;">精品设计民宿/观景客栈</h3>
+        <div class="accom-price">¥350 - ¥600/晚</div>
+        <p style="font-size:0.9rem; color:#555; margin-top:5px;">独立卫浴，地暖/加湿器标配，部分带露台或茶室。服务贴心，含早餐。</p>
+        <p style="font-size:0.8rem; color:#888; margin-top:8px;">推荐区域：古城狮子山半山、束河龙潭周边</p>
+      </div>
+      <div class="accom-card">
+        <span class="accom-tier" style="background:#e67e22;">✨ 高端型（度假体验）</span>
+        <h3 style="margin:5px 0;">奢华度假酒店/野奢营地</h3>
+        <div class="accom-price">¥900 - ¥2500+/晚</div>
+        <p style="font-size:0.9rem; color:#555; margin-top:5px;">品牌管理，私密性强，融合纳西建筑美学。配套SPA、恒温泳池、专属管家。</p>
+        <p style="font-size:0.8rem; color:#888; margin-top:8px;">推荐：悦榕庄、安缦大研酒店、金茂凯悦臻选</p>
+      </div>
+    </div>
+    <p style="margin-top:15px; font-size:0.85rem; color:var(--text-light);">💡 预订提示：暑期属旺季，建议提前15-20天预订。古城内多为石板路，预订前确认客栈是否提供接送行李服务。</p>
+  </section>
+
+  <section id="transport">
+    <h2>🚗 交通指南</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>出行方式</th>
+            <th>路线/说明</th>
+            <th>耗时</th>
+            <th>费用参考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>✈️ 飞机</b></td>
+            <td>丽江三义机场 ↔ 杭州/成都/昆明等</td>
+            <td>约3-3.5h（含中转）</td>
+            <td>¥800-1500/单程</td>
+          </tr>
+          <tr>
+            <td><b>🚄 高铁</b></td>
+            <td>昆明南站 → 丽江站（动车直达）</td>
+            <td>约3.5h</td>
+            <td>二等座 ¥220</td>
+          </tr>
+          <tr>
+            <td><b>🚌 机场大巴</b></td>
+            <td>三义机场 → 蓝天路/古城口</td>
+            <td>约50分钟</td>
+            <td>¥20/人</td>
+          </tr>
+          <tr>
+            <td><b>🚕 市内/周边</b></td>
+            <td>古城 → 束河（打车/公交）<br>古城 → 雪山景区（旅游专线/包车）</td>
+            <td>20min / 45min</td>
+            <td>打车 ¥20-30<br>包车 ¥200-300/天</td>
+          </tr>
+          <tr>
+            <td><b>🚐 泸沽湖专线</b></td>
+            <td>丽江客运站 → 泸沽湖客运站</td>
+            <td>3.5-4h（山路弯多）</td>
+            <td>¥80-100/人（拼车约¥150）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:10px; font-size:0.9rem; color:#555;">📌 <b>市内Tips：</b>古城内禁行机动车，导航可能失灵。建议以“大水车”、“南门停车场”为定位基准。租电瓶车/自行车环湖/古镇需检查刹车与电量，注意避让当地马车与老人。</p>
+  </section>
+
+  <section id="budget">
+    <h2>💰 预算参考（适中档/3天/人）</h2>
+    <p style="margin-bottom:15px; color:var(--text-light);">本预算为丽江当地3日游核心消费估算，不含往返丽江的大交通及购物支出。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>明细说明</th>
+            <th>预估费用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>🏨 住宿</b></td>
+            <td>舒适型精品客栈（2晚）</td>
+            <td class="price">¥700 - ¥1200</td>
+          </tr>
+          <tr>
+            <td><b>🎫 门票</b></td>
+            <td>雪山进山+大索道、木府、束河内部等</td>
+            <td class="price">¥350 - ¥500</td>
+          </tr>
+          <tr>
+            <td><b>🍲 餐饮</b></td>
+            <td>3天正餐+小吃+饮品（人均）</td>
+            <td class="price">¥300 - ¥450</td>
+          </tr>
+          <tr>
+            <td><b>🚗 市内交通</b></td>
+            <td>打车、环保车、氧气瓶租赁、短途包车分摊</td>
+            <td class="price">¥200 - ¥350</td>
+          </tr>
+          <tr style="background:#f8f9fa; font-weight:bold;">
+            <td colspan="2" style="text-align:right;">总计预估（单人）</td>
+            <td class="price" style="font-size:1.1rem;">¥1550 - ¥2500</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="tips">
+    <h2>⚠️ 夏季出行注意事项</h2>
+    <div class="grid col-2">
+      <div>
+        <h3 style="color:var(--primary-dark); margin-bottom:10px;">🌦️ 天气与穿着</h3>
+        <ul class="check-list">
+          <li><b>温差显著：</b>白天25℃左右，夜晚/高海拔降至10-15℃，必备薄羽绒服/冲锋衣。</li>
+          <li><b>雨季特征：</b>7-8月为雨季，多为阵雨，建议随身携带轻便雨衣或晴雨伞，少用雨伞以免在古城石板路滑倒。</li>
+          <li><b>防晒必修：</b>高原紫外线极强，SPF50+防晒霜、墨镜、遮阳帽必带。补水喷雾不可少。</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--primary-dark); margin-bottom:10px;">🏔️ 高反与安全</h3>
+        <ul class="check-list">
+          <li><b>阶梯适应：</b>首日勿洗澡、勿饮酒、勿剧烈运动。若上雪山，提前1天口服红景天，景区可购便携氧气（建议备2瓶/人）。</li>
+          <li><b>消费避坑：</b>古城内“拉客”的低价一日游、银器店、茶叶店需谨慎，认准明码标价，保留消费凭证。</li>
+          <li><b>文化尊重：</b>进入寺庙脱帽摘镜，不随意触摸经幡/玛尼堆。纳西族老人多，拍照前请先微笑示意征得同意。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>📝 本攻略由资深旅游规划师基于实地经验与官方数据编制 | 价格与政策可能随季节调整，请以出行当日实际为准。</p>
+  <p style="margin-top:5px; opacity:0.7;">© 丽江旅行指南 | 祝您拥有一段治愈的高原时光 🌸</p>
+</footer>
+
+</body>
+</html>
