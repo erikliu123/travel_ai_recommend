@@ -78,7 +78,7 @@ describe('CityGrid', () => {
   });
 
   it('filters cities by search query', async () => {
-    const { container } = render(<CityGrid season="spring" onCityClick={vi.fn()} />);
+    render(<CityGrid season="spring" onCityClick={vi.fn()} />);
     const searchInput = screen.getByPlaceholderText('搜索目的地、省份、景点...');
     fireEvent.change(searchInput, { target: { value: '昆明' } });
     // After filtering, only 昆明 should be visible
